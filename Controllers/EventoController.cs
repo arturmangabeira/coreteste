@@ -15,7 +15,7 @@ namespace Core.Api.Controllers
     [Route("[controller]")]
     public class EventoController : ControllerBase
     {
-        private readonly ILogger<EventoController> _logger;
+        //private readonly ILogger<EventoController> _logger;
         public DataContext Context { get; }
 
         public EventoController(DataContext context)

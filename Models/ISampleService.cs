@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.ServiceModel;
+using Core.Api.Model;
 
 namespace Core.Api.Models
 {
@@ -6,10 +8,14 @@ namespace Core.Api.Models
     public interface ISampleService
     {
       [OperationContract]
-      string Test(string s);
+      string TextoRetorno(string s);
       [OperationContract]
       void XmlMethod(System.Xml.Linq.XElement xml);
       [OperationContract]
-      Evento TestCustomModel(Evento inputModel);
+      List<Events> TestCustomModel(Events inputModel);
+
+      //List<Evento> EventoModel(Evento inputModel);
+      [OperationContract]
+      List<Evento> EventoModel(Evento inputModel);
     }
 }

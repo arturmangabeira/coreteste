@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 namespace Core.Api.Models
 {
     [DataContract]
-    public class Evento
+    public class Events
     {        
         [DataMember]
         public int EventoId { get; set; }

@@ -17,5 +17,14 @@ namespace Core.Api.Models
       //List<Evento> EventoModel(Evento inputModel);
       [OperationContract]
       List<Evento> EventoModel(Evento inputModel);
+
+      [OperationContract]
+      void GetTiposDocDigital();
+      
+      [OperationContract]
+      string ObterCertificado(string nome);
+
+      [OperationContract]   
+      string ConectarESAJ();
     }
 }

@@ -58,7 +58,7 @@ namespace Core.Api
                 endpoints.MapControllers();
             });
 
-             app.UseSoapEndpoint<ISampleService>("/Service.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
+             app.UseSoapEndpoint<ISampleService>("/Integrador.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
         }
     }
 }

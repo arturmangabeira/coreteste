@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/arturmangabeira/Documentos/DOTNET/Core.Api/Core.Api.csproj": {}
+    "C:\\Projetos\\coreteste\\Core.Api.csproj": {}
   },
   "projects": {
-    "/home/arturmangabeira/Documentos/DOTNET/Core.Api/Core.Api.csproj": {
+    "C:\\Projetos\\coreteste\\Core.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/arturmangabeira/Documentos/DOTNET/Core.Api/Core.Api.csproj",
+        "projectUniqueName": "C:\\Projetos\\coreteste\\Core.Api.csproj",
         "projectName": "Core.Api",
-        "projectPath": "/home/arturmangabeira/Documentos/DOTNET/Core.Api/Core.Api.csproj",
-        "packagesPath": "/home/arturmangabeira/.nuget/packages/",
-        "outputPath": "/home/arturmangabeira/Documentos/DOTNET/Core.Api/obj/",
+        "projectPath": "C:\\Projetos\\coreteste\\Core.Api.csproj",
+        "packagesPath": "C:\\Users\\armcunha\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\coreteste\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/arturmangabeira/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\armcunha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,6 +54,22 @@
             "SoapCore": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "System.ServiceModel.Duplex": {
+              "target": "Package",
+              "version": "[4.4.*, )"
+            },
+            "System.ServiceModel.Http": {
+              "target": "Package",
+              "version": "[4.6.*, )"
+            },
+            "System.ServiceModel.NetTcp": {
+              "target": "Package",
+              "version": "[4.4.*, )"
+            },
+            "System.ServiceModel.Security": {
+              "target": "Package",
+              "version": "[4.4.*, )"
             }
           },
           "imports": [
@@ -61,6 +82,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[3.1.4, 3.1.4]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[3.1.4, 3.1.4]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[3.1.4, 3.1.4]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -69,7 +108,12 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

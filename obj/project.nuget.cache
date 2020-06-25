@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q90TW417yqAVHqopOILqSrAkJq31i/IDEJU1xE3YF2rjjSn+4fLF8l0pTnZTFK1t70HGejMcUfCfrunwGVGaDg==",
+  "dgSpecHash": "s/KI0kdQMW8pU9I1PiqpdKPINbgMOjzR2Nyya9JhSAX4VICPo+T7bDIjQc/ekI80IlBW7VfHXrg796H/P08YrA==",
   "success": true,
-  "projectFilePath": "/home/arturmangabeira/Documentos/DOTNET/Core.Api/Core.Api.csproj",
+  "projectFilePath": "/home/arturmangabeira/Documentos/DOTNETCORE/coreteste/Core.Api.csproj",
   "expectedPackageFiles": [
     "/home/arturmangabeira/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/home/arturmangabeira/.nuget/packages/microsoft.bcl.hashcode/1.1.0/microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

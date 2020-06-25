@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/arturmangabeira/Documentos/DOTNET/Core.Api/Core.Api.csproj": {}
+    "/home/arturmangabeira/Documentos/DOTNETCORE/coreteste/Core.Api.csproj": {}
   },
   "projects": {
-    "/home/arturmangabeira/Documentos/DOTNET/Core.Api/Core.Api.csproj": {
+    "/home/arturmangabeira/Documentos/DOTNETCORE/coreteste/Core.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/arturmangabeira/Documentos/DOTNET/Core.Api/Core.Api.csproj",
+        "projectUniqueName": "/home/arturmangabeira/Documentos/DOTNETCORE/coreteste/Core.Api.csproj",
         "projectName": "Core.Api",
-        "projectPath": "/home/arturmangabeira/Documentos/DOTNET/Core.Api/Core.Api.csproj",
+        "projectPath": "/home/arturmangabeira/Documentos/DOTNETCORE/coreteste/Core.Api.csproj",
         "packagesPath": "/home/arturmangabeira/.nuget/packages/",
-        "outputPath": "/home/arturmangabeira/Documentos/DOTNET/Core.Api/obj/",
+        "outputPath": "/home/arturmangabeira/Documentos/DOTNETCORE/coreteste/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/arturmangabeira/.nuget/NuGet/NuGet.Config"

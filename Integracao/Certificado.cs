@@ -15,46 +15,7 @@ namespace Core.Api.Integracao
         /// <param name="LocalRepositorio">Local onde está armazonado o certificado digital.</param>
         /// <param name="NomeCertificado">Nome (SubjectName) do certificado digital.</param>
         public static X509Certificate2 ObterCertificado(string LocalRepositorio, string NomeCertificado, IConfiguration configuration)
-        {
-            /*
-            X509Certificate2Collection certificados;
-            X509Store store;
-            
-            store = new X509Store(LocalRepositorio, StoreLocation.LocalMachine);
-            store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly | OpenFlags.IncludeArchived);
-            certificados = store.Certificates.Find(X509FindType.FindBySubjectName, NomeCertificado, false);            
-
-            if (certificados.Count.CompareTo(1).Equals(0))
-            {
-                return certificados[0];
-            }
-            else
-            {
-                certificados = store.Certificates;
-                string certificadosEncontrados = "";
-                foreach (X509Certificate2 item in certificados)
-                {
-                    certificadosEncontrados += item.SerialNumber + " , ";
-                }
-                throw new System.Exception(string.Format("O certificado '{0}' solicitado não foi encontrado no repositório '{1}' do sistema. Certificados Encontrados {2}", NomeCertificado, LocalRepositorio, certificadosEncontrados));
-            }
-             * */
-            //X509Certificate2Collection certificados;
-            //X509Store store;
-            //store = new X509Store(LocalRepositorio, StoreLocation.CurrentUser);
-            //store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-            //certificados = store.Certificates.Find(X509FindType.FindBySubjectName, NomeCertificado, false);
-
-            //if (certificados.Count.CompareTo(1).Equals(0))
-            //{
-            //    return certificados[0];
-            //}
-            //else
-            //{
-            //    throw new System.Exception(string.Format("O certificado o nome '{0}' não foi encontrado no repositório '{1}' do sistema.", NomeCertificado, LocalRepositorio));
-            //}
-            //Procura como CurrentUser
-
+        {            
             X509Store x509Store = new X509Store(LocalRepositorio, StoreLocation.CurrentUser);
             x509Store.Open(OpenFlags.ReadOnly);
             X509Certificate2Collection x509Certificate2Collection = x509Store.Certificates.Find(X509FindType.FindByThumbprint, NomeCertificado, false);

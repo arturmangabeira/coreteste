@@ -19,7 +19,7 @@ namespace Core.Api.Models
       List<Evento> EventoModel(Evento inputModel);
 
       [OperationContract]
-      void GetTiposDocDigital();
+      string GetTiposDocDigital(string codigo);
       
       [OperationContract]
       string ObterCertificado(string nome);

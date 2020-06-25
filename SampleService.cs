@@ -8,6 +8,7 @@ using Core.Api.Model;
 using System.ServiceModel;
 using Core.Api.Integracao;
 using System.Security.Cryptography.X509Certificates;
+using coreteste.Controllers;
 
 namespace Core.Api
 {
@@ -17,10 +18,14 @@ namespace Core.Api
         public DataContext dataContext { get; }
         public System.IServiceProvider ServiceProvider { get; }
 
+        public Proxy objProxy { get; }
+
         public SampleService(IConfiguration config)
         {
             this.configuration = config;
-            this.dataContext = new DataContext(this.configuration);       
+            this.dataContext = new DataContext(this.configuration);
+            this.objProxy = new Proxy(config);
+            
         }
         /*public SampleService(DataContext db)
         {
@@ -88,32 +93,33 @@ namespace Core.Api
         {
             throw new System.NotImplementedException();
         }
-
-        public void GetTiposDocDigital()
+        
+        public string GetTiposDocDigital(string codigo)
         {
 
-            var valorConfig = this.configuration.GetValue<string>("ESAJ:UrlTJ");
-            IntegracaoTJBA.ServicoPJ2PortTypeClient servicoPJ2 = new IntegracaoTJBA.ServicoPJ2PortTypeClient(
-               new BasicHttpBinding()
-               {
-                   Name = "ServicoPJ2HttpBinding",
-                   AllowCookies = true,
-                   TextEncoding = System.Text.Encoding.UTF8,
-                   TransferMode = System.ServiceModel.TransferMode.Buffered,
-                   UseDefaultWebProxy = true,
-                   MaxReceivedMessageSize = 2147483647,
-                   MaxBufferSize = 2147483647
-               },
-               new EndpointAddress(this.configuration.GetValue<string>("ESAJ:UrlTJ"))
-           );
+            /* var valorConfig = this.configuration.GetValue<string>("ESAJ:UrlTJ");
+             IntegracaoTJBA.ServicoPJ2PortTypeClient servicoPJ2 = new IntegracaoTJBA.ServicoPJ2PortTypeClient(
+                new BasicHttpBinding()
+                {
+                    Name = "ServicoPJ2HttpBinding",
+                    AllowCookies = true,
+                    TextEncoding = System.Text.Encoding.UTF8,
+                    TransferMode = System.ServiceModel.TransferMode.Buffered,
+                    UseDefaultWebProxy = true,
+                    MaxReceivedMessageSize = 2147483647,
+                    MaxBufferSize = 2147483647
+                },
+                new EndpointAddress(this.configuration.GetValue<string>("ESAJ:UrlTJ"))
+            );
 
-           var res = servicoPJ2.getTiposDocDigitalAsync().Result;
+            var res = servicoPJ2.getTiposDocDigitalAsync().Result;
 
-           var correios = new Correios.AtendeClienteClient();
+            var correios = new Correios.AtendeClienteClient();
 
-           var consulta = correios.consultaCEPAsync("40080241").Result;
-
-           
+            var consulta = correios.consultaCEPAsync("40080241").Result;
+            */            
+            
+            return "<![CDATA["+objProxy.GetTiposDocDigital(codigo)+"]]>";
         }
 
         public string ObterCertificado(string nome)

@@ -6,6 +6,8 @@ using System.Text;
 using System.Xml;
 using Core.Api.Integracao;
 using Microsoft.Extensions.Configuration;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Security;
 
 namespace coreteste.Models
 {
@@ -61,18 +63,30 @@ namespace coreteste.Models
         public string AssinarDados(string dados, string LocalRepositorio, string NomeCertificado, string tag)
         {
             X509Certificate2 certificadoX509 = Certificado.ObterCertificado(LocalRepositorio, NomeCertificado, this.Configuration);
-           
-            string stringplana = dados.Trim();
-            byte[] cipherbytes = Encoding.GetEncoding("iso-8859-1").GetBytes(stringplana);
 
-            SHA1CryptoServiceProvider sha = new SHA1CryptoServiceProvider();
+            //byte[] messageToSignBytes = Encoding.GetEncoding("iso-8859-1").GetBytes(dados.Trim());
+            var converter = new ASCIIEncoding();
+            byte[] messageToSignBytes = converter.GetBytes(dados.Trim());
 
-            RSACryptoServiceProvider rsa = (RSACryptoServiceProvider)certificadoX509.PrivateKey;
-            byte[] cipher = rsa.SignData(cipherbytes, sha);
+            RSA rsa = (RSA)certificadoX509.PrivateKey;
+            (certificadoX509.PrivateKey as RSACng).Key.SetProperty(
+                new CngProperty(
+                    "Export Policy",
+                    BitConverter.GetBytes((int)CngExportPolicies.AllowPlaintextExport),
+                    CngPropertyOptions.Persist));
 
-            return Convert.ToBase64String(cipher);
+            RSAParameters RSAParameters = rsa.ExportParameters(true);
 
-          
+            HashAlgorithm hasher = new SHA1Managed();
+
+            // Use the hasher to hash the message
+            byte[] hash = hasher.ComputeHash(messageToSignBytes);
+                        
+            var signature = rsa.SignData(messageToSignBytes, HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+                        
+            //var cipher01 = rsa.SignHash(hash, HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+
+            return Convert.ToBase64String(signature);
 
         }
         /// <summary>

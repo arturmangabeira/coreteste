@@ -38,7 +38,7 @@ namespace coreteste.Controllers
             Configuration = configuration;
         }
 
-        public string Login(IMensagem objmensagem)
+        public string Login(Mensagem objmensagem)
         {
 
             Entidades.SolicitaLogonRetorno.Message objSolicitaLoginRetorno = SolicitaLogon(objmensagem);
@@ -68,7 +68,7 @@ namespace coreteste.Controllers
 
         }
 
-        public Entidades.SolicitaLogonRetorno.Message SolicitaLogon(IMensagem objmensagem)
+        public Entidades.SolicitaLogonRetorno.Message SolicitaLogon(Mensagem objmensagem)
         {
             Message objSolicitaLogin = new Message();
             MessageIdType objMessageId = new MessageIdType();
@@ -104,16 +104,18 @@ namespace coreteste.Controllers
 
         }
 
-        private bool Autenticar(string codigo,out string retorno)
+        private bool Autenticar(string codigo, out string retorno)
         {
-            Mensagem objMensagem = new Mensagem();
+            Mensagem objMensagem = new Mensagem()
+            {
 
-            objMensagem.Codigo = codigo;
-            objMensagem.Data = DateTime.Now.ToString("yyyy-MM-dd");
-            objMensagem.Destino = "TJ";
-            objMensagem.Origem = "PGMS";
-            objMensagem.Servico = "SolicitaLogon";
-            objMensagem.MsgDesc = "Solicitação do Desafio de Logon";
+                Codigo = codigo,
+                Data = DateTime.Now.ToString("yyyy-MM-dd"),
+                Destino = "TJ",
+                Origem = "PGMS",
+                Servico = "SolicitaLogon",
+                MsgDesc = "Solicitação do Desafio de Logon"
+            };
 
             retorno = Login(objMensagem);
 
@@ -125,6 +127,22 @@ namespace coreteste.Controllers
                 return true;
             }
             return false;
+        }
+
+        public string GetTiposDocDigital(string codigo)
+        {
+            string RespostaGetTiposDocDigital = "";            
+            string strLogin;
+
+            if (Autenticar(codigo, out strLogin))
+            {
+                RespostaGetTiposDocDigital = objProxy.getTiposDocDigitalAsync().Result;
+            }
+            else
+            {                
+                RespostaGetTiposDocDigital = strLogin;
+            }
+            return RespostaGetTiposDocDigital;
         }
 
         private string Serializar(string objeto)

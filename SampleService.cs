@@ -76,7 +76,7 @@ namespace Core.Api
                     MaxReceivedMessageSize = 2147483647,
                     MaxBufferSize = 2147483647                
             },
-                new EndpointAddress(this.configuration.GetValue<string>("UrlTJ"))            
+                new EndpointAddress(this.configuration.GetValue<string>("ESAJ:UrlTJ"))            
             );
 
             var res = servicoPJ2.SolicitacaoCitacaoAtoAsync("", "");

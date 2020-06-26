@@ -19,6 +19,7 @@ namespace Core.Api.Models
       List<Evento> EventoModel(Evento inputModel);
 
       [OperationContract]
+      [XmlSerializerFormat(SupportFaults = true)]
       string GetTiposDocDigital(string codigo);
       
       [OperationContract]

@@ -1,5 +1,6 @@
 using System;
 using System.ServiceModel;
+using Core.Api.ConfigurationManager;
 using Core.Api.Entidades;
 using coreteste.Entidades;
 using coreteste.Models;
@@ -16,7 +17,7 @@ namespace coreteste.Controllers
 
         public IConfiguration Configuration { get; }
 
-        public Proxy(IConfiguration configuration)
+        public Proxy()
         {
             if(this.objProxy == null){
                 this.objProxy = new IntegracaoTJBA.ServicoPJ2PortTypeClient(
@@ -30,12 +31,14 @@ namespace coreteste.Controllers
                     MaxReceivedMessageSize = 2147483647,
                     MaxBufferSize = 2147483647
                 },
-                new EndpointAddress(configuration.GetValue<string>("ESAJ:UrlTJ"))
+                new EndpointAddress(ConfigurationManager.AppSettings["ESAJ:UrlTJ"])
             );
            }
-           this.repositorio = configuration.GetValue<string>("Certificado:RepositorioCertificado");
-           this.certificado = configuration.GetValue<string>("Certificado:ThumberPrint");
-            Configuration = configuration;
+           //this.repositorio = configuration.GetValue<string>("Certificado:RepositorioCertificado");
+           //this.certificado = configuration.GetValue<string>("Certificado:ThumberPrint");
+           this.repositorio = ConfigurationManager.AppSettings["Certificado:RepositorioCertificado"];
+           this.certificado = ConfigurationManager.AppSettings["Certificado:ThumberPrint"];
+            //Configuration = configuration;
         }
 
         public string Login(Mensagem objmensagem)

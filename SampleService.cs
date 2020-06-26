@@ -24,7 +24,7 @@ namespace Core.Api
         {
             this.configuration = config;
             this.dataContext = new DataContext(this.configuration);
-            this.objProxy = new Proxy(config);
+            this.objProxy = new Proxy();
             
         }
         /*public SampleService(DataContext db)
@@ -34,7 +34,8 @@ namespace Core.Api
  
         string ISampleService.TextoRetorno(string s)
         {
-            return "Test Method Executed!";
+            var retorno = ConfigurationManager.AppSettings["Certificado:RepositorioCertificado"];
+            return retorno;
         }
 
         List<Events> ISampleService.TestCustomModel(Events inputModel)

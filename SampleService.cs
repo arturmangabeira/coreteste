@@ -20,9 +20,10 @@ namespace Core.Api
 
         public Proxy ObjProxy { get; }
 
-        public SampleService(DataContext dataContext)
+        public SampleService(DataContext dataContext, IConfiguration config)
         {
-            this.configuration = ConfigurationManager.ConfigurationManager.AppSettings;            
+            //this.configuration = ConfigurationManager.ConfigurationManager.AppSettings;
+            this.configuration = config;
             this.DataContext = dataContext;
             this.ObjProxy = new Proxy();
             
@@ -30,7 +31,7 @@ namespace Core.Api
  
         string ISampleService.TextoRetorno(string s)
         {
-            var retorno = "";
+            var retorno = this.configuration.GetValue<string>("ESAJ:UrlTJ");
             return retorno;
         }
 

@@ -7,40 +7,36 @@ using System.Collections.Generic;
 using Core.Api.Model;
 using System.ServiceModel;
 using Core.Api.Integracao;
-using System.Security.Cryptography.X509Certificates;
 using coreteste.Controllers;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Core.Api
 {
     public class SampleService : ISampleService
     {      
         private readonly IConfiguration configuration;  
-        public DataContext dataContext { get; }
+        public DataContext DataContext { get; }
         public System.IServiceProvider ServiceProvider { get; }
 
-        public Proxy objProxy { get; }
+        public Proxy ObjProxy { get; }
 
-        public SampleService(IConfiguration config)
+        public SampleService(DataContext dataContext)
         {
-            this.configuration = config;
-            this.dataContext = new DataContext(this.configuration);
-            this.objProxy = new Proxy();
+            this.configuration = ConfigurationManager.ConfigurationManager.AppSettings;            
+            this.DataContext = dataContext;
+            this.ObjProxy = new Proxy();
             
-        }
-        /*public SampleService(DataContext db)
-        {
-            this.dataContext = db;
-        }*/
+        }        
  
         string ISampleService.TextoRetorno(string s)
         {
-            var retorno = ConfigurationManager.AppSettings["Certificado:RepositorioCertificado"];
+            var retorno = "";
             return retorno;
         }
 
         List<Events> ISampleService.TestCustomModel(Events inputModel)
         {     
-            var result = this.dataContext.Eventos.ToList();
+            var result = this.DataContext.Eventos.ToList();
             
             List<Events> retorno = new List<Events>();
 
@@ -87,7 +83,7 @@ namespace Core.Api
 
             var res = servicoPJ2.SolicitacaoCitacaoAtoAsync("", "");
             //List<Evento> retorno = new List<Evento>();
-            return this.dataContext.Eventos.ToList();;
+            return this.DataContext.Eventos.ToList();;
         }
 
         void ISampleService.XmlMethod(XElement xml)
@@ -120,7 +116,7 @@ namespace Core.Api
             var consulta = correios.consultaCEPAsync("40080241").Result;
             */            
             
-            return "<![CDATA["+objProxy.GetTiposDocDigital(codigo)+"]]>";
+            return "<![CDATA["+ObjProxy.GetTiposDocDigital(codigo)+"]]>";
         }
 
         public string ObterCertificado(string nome)
@@ -163,6 +159,18 @@ namespace Core.Api
             var res = servicoPJ2.getTiposDocDigitalAsync().Result;
 
             return res;
+        }
+
+        public string AutenticarESAJ()
+        {
+            if (ObjProxy.Autenticar("1", out string strLogin))
+            {
+                return "Autenticação realizado com sucesso!";
+            }
+            else
+            {
+                return $"Não foi possível autenticar no ESAJ. Erro: {strLogin}";
+            }
         }
     }
 }

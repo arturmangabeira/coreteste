@@ -19,7 +19,8 @@ namespace coreteste.Controllers
 
         public Proxy()
         {
-            if(this.objProxy == null){
+            this.Configuration = ConfigurationManager.AppSettings;            
+            if (this.objProxy == null){
                 this.objProxy = new IntegracaoTJBA.ServicoPJ2PortTypeClient(
                 new BasicHttpBinding()
                 {
@@ -31,14 +32,14 @@ namespace coreteste.Controllers
                     MaxReceivedMessageSize = 2147483647,
                     MaxBufferSize = 2147483647
                 },
-                new EndpointAddress(ConfigurationManager.AppSettings["ESAJ:UrlTJ"])
+                new EndpointAddress(Configuration.GetValue<string>("ESAJ:UrlTJ"))
             );
-           }
-           //this.repositorio = configuration.GetValue<string>("Certificado:RepositorioCertificado");
-           //this.certificado = configuration.GetValue<string>("Certificado:ThumberPrint");
-           this.repositorio = ConfigurationManager.AppSettings["Certificado:RepositorioCertificado"];
-           this.certificado = ConfigurationManager.AppSettings["Certificado:ThumberPrint"];
-            //Configuration = configuration;
+           }            
+            //this.repositorio = Configuration.GetValue<string>("Certificado:RepositorioCertificado");
+            //this.certificado = Configuration.GetValue<string>("Certificado:ThumberPrint");
+            this.repositorio = ConfigurationManager.AppSettings["Certificado:RepositorioCertificado"];
+            this.certificado = ConfigurationManager.AppSettings["Certificado:ThumberPrint"];
+           
         }
 
         public string Login(Mensagem objmensagem)
@@ -52,7 +53,7 @@ namespace coreteste.Controllers
 
         private string ConfirmaLogon(Entidades.SolicitaLogonRetorno.Message objSolicitaLoginRetorno)
         {
-            IXml objXML = new Xml(this.Configuration);
+            IXml objXML = new Xml();
 
             Entidades.ConfirmaLogon.Message objConfirmaLogon = new Entidades.ConfirmaLogon.Message();
             objConfirmaLogon.MessageId = objSolicitaLoginRetorno.MessageId;
@@ -89,7 +90,7 @@ namespace coreteste.Controllers
             objSolicitaLogin.MessageId = objMessageId;
             objSolicitaLogin.MessageBody = objMessageBody;
 
-            IXml objXML = new Xml(this.Configuration);
+            IXml objXML = new Xml();
           
             string mensagem = objXML.AssinarXmlString(objSolicitaLogin.Serialize(), repositorio, certificado, "");
 
@@ -107,7 +108,7 @@ namespace coreteste.Controllers
 
         }
 
-        private bool Autenticar(string codigo, out string retorno)
+        public bool Autenticar(string codigo, out string retorno)
         {
             Mensagem objMensagem = new Mensagem()
             {
@@ -115,7 +116,7 @@ namespace coreteste.Controllers
                 Codigo = codigo,
                 Data = DateTime.Now.ToString("yyyy-MM-dd"),
                 Destino = "TJ",
-                Origem = "PGMS",
+                Origem = "MP-BA",
                 Servico = "SolicitaLogon",
                 MsgDesc = "Solicitação do Desafio de Logon"
             };
@@ -154,7 +155,7 @@ namespace coreteste.Controllers
             objAjuizamento = objAjuizamento.ExtrairObjeto<Message>(objeto);
             string str = objAjuizamento.Serialize();
 
-            IXml objXML = new Xml(this.Configuration);
+            IXml objXML = new Xml();
             return  objXML.AssinarXmlString(str, repositorio, certificado, "");
         }
     }

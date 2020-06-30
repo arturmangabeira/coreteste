@@ -11,17 +11,17 @@ namespace Core.Api.Data
             
         }
 
-        public DataContext(IConfiguration config)
+        /*public DataContext(IConfiguration config)
         {
             this.configuration = config;
-        }
+        }*/
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             ///Configuration.GetConnectionString("DefaultConnection")
             //optionsBuilder.
             optionsBuilder.UseSqlite(this.configuration.GetConnectionString("DefaultConnection"));
-        }
+        }*/
 
         public DbSet<Evento> Eventos { get; set; }
     }

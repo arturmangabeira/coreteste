@@ -5,6 +5,7 @@ using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Xml;
 using Core.Api.Integracao;
+using Core.Api.ConfigurationManager;
 using Microsoft.Extensions.Configuration;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Security;
@@ -15,9 +16,9 @@ namespace coreteste.Models
     {
         public IConfiguration Configuration { get; }
 
-        public Xml(IConfiguration configuration)
+        public Xml()
         {
-            Configuration = configuration;
+            Configuration = ConfigurationManager.AppSettings;
         }
 
         #region Assinatura
@@ -32,8 +33,11 @@ namespace coreteste.Models
         /// <returns>XML Assinado.</returns>
         public string AssinarXmlString(string xml, string repositorio, string nomeCertificado,string tag)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.PreserveWhitespace = true;
+            XmlDocument doc = new XmlDocument
+            {
+                PreserveWhitespace = true
+            };
+
             doc.LoadXml(xml);
 
             AssinarXmlDocument(doc,repositorio, nomeCertificado,tag);
@@ -75,12 +79,12 @@ namespace coreteste.Models
                     BitConverter.GetBytes((int)CngExportPolicies.AllowPlaintextExport),
                     CngPropertyOptions.Persist));
 
-            RSAParameters RSAParameters = rsa.ExportParameters(true);
+            //RSAParameters RSAParameters = rsa.ExportParameters(true);
 
-            HashAlgorithm hasher = new SHA1Managed();
+            //HashAlgorithm hasher = new SHA1Managed();
 
             // Use the hasher to hash the message
-            byte[] hash = hasher.ComputeHash(messageToSignBytes);
+            //byte[] hash = hasher.ComputeHash(messageToSignBytes);
                         
             var signature = rsa.SignData(messageToSignBytes, HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
                         
@@ -110,11 +114,13 @@ namespace coreteste.Models
 
             XmlDsigEnvelopedSignatureTransform envelopedTransformation = new XmlDsigEnvelopedSignatureTransform();
             reference.AddTransform(envelopedTransformation);
-           
-            SignedXml signedXml = new SignedXml(doc);
-            signedXml.SigningKey = certificadoX509.PrivateKey;
-            signedXml.KeyInfo = keyinfo;
-            
+
+            SignedXml signedXml = new SignedXml(doc)
+            {
+                SigningKey = certificadoX509.PrivateKey,
+                KeyInfo = keyinfo
+            };
+
             signedXml.AddReference(reference);
             
             signedXml.ComputeSignature();

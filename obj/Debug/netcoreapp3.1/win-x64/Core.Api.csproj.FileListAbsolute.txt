@@ -410,3 +410,4 @@ C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\win-x64\Core.Api.dll
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\win-x64\Core.Api.pdb
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\win-x64\Core.Api.genruntimeconfig.cache
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Connected Services\Correios\ConnectedService.json
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\BouncyCastle.Crypto.dll

@@ -19,8 +19,12 @@ namespace Core.Api.Models
       List<Evento> EventoModel(Evento inputModel);
 
       [OperationContract]
-      [XmlSerializerFormat(SupportFaults = true)]
+      [XmlSerializerFormat(SupportFaults = false)]
       string GetTiposDocDigital(string codigo);
+
+      [OperationContract]
+      [XmlSerializerFormat(SupportFaults = false)]
+      string AutenticarESAJ();
       
       [OperationContract]
       string ObterCertificado(string nome);

@@ -2,7 +2,7 @@ using coreteste.Models;
 
 namespace coreteste.Entidades
 {
-    public class Mensagem: IMensagem
+    public class Mensagem
     {
         private string servico;
 

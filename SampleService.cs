@@ -9,6 +9,7 @@ using System.ServiceModel;
 using Core.Api.Integracao;
 using coreteste.Controllers;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.Extensions.Logging;
 
 namespace Core.Api
 {
@@ -18,20 +19,26 @@ namespace Core.Api
         public DataContext DataContext { get; }
         public System.IServiceProvider ServiceProvider { get; }
 
+        private readonly ILogger<SampleService> _logger;
+
         public Proxy ObjProxy { get; }
 
-        public SampleService(DataContext dataContext, IConfiguration config)
+        public SampleService(DataContext dataContext, IConfiguration config, ILogger<SampleService> logger)
         {
             //this.configuration = ConfigurationManager.ConfigurationManager.AppSettings;
             this.configuration = config;
             this.DataContext = dataContext;
+
+            _logger = logger;
             this.ObjProxy = new Proxy();
             
         }        
  
         string ISampleService.TextoRetorno(string s)
         {
+            
             var retorno = this.configuration.GetValue<string>("ESAJ:UrlTJ");
+            _logger.LogInformation("Teste Retorno", retorno);
             return retorno;
         }
 

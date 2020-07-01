@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[3.1.5, )"
             },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
             "SoapCore": {
               "target": "Package",
               "version": "[1.0.0, )"

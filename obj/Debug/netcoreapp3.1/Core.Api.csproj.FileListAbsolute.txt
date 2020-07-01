@@ -262,3 +262,12 @@ C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\staticwebassets\Core.Api.StaticWeb
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\staticwebassets\Core.Api.StaticWebAssets.xml
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.genruntimeconfig.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.csprojAssemblyReference.cache
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.AspNetCore.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Extensions.Hosting.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Formatting.Compact.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Settings.Configuration.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Sinks.Debug.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll

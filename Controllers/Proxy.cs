@@ -61,10 +61,10 @@ namespace coreteste.Controllers
             objConfirmaLogon.MessageId.MsgDesc = "Confirmação do Desafio de Login";
             objConfirmaLogon.MessageId.Date = DateTime.Now.ToString("yyyy-MM-dd");
 
-            Entidades.ConfirmaLogon.MessageMessageBody objMensagem = new Entidades.ConfirmaLogon.MessageMessageBody();
-            objMensagem.DesafioAssinado = objXML.AssinarDados(objSolicitaLoginRetorno.MessageBody.Resposta.Desafio, this.repositorio, this.certificado, "Desafio");
+            Entidades.ConfirmaLogon.MessageMessageBody messageBody = new Entidades.ConfirmaLogon.MessageMessageBody();
+            messageBody.DesafioAssinado = objXML.AssinarDados(objSolicitaLoginRetorno.MessageBody.Resposta.Desafio, this.repositorio, this.certificado, "Desafio");
 
-            objConfirmaLogon.MessageBody = objMensagem;
+            objConfirmaLogon.MessageBody = messageBody;
 
             string mensagem = objXML.AssinarXmlString(objConfirmaLogon.Serialize(), this.repositorio, this.certificado, "");
 

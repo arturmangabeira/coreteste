@@ -22,7 +22,9 @@ namespace Core.Api.Data
             //optionsBuilder.
             optionsBuilder.UseSqlite(this.configuration.GetConnectionString("DefaultConnection"));
         }*/
-
+        
         public DbSet<Evento> Eventos { get; set; }
+
+        public DbSet<DocumentoDigital> DocumentoDigitais { get; set; }
     }
 }

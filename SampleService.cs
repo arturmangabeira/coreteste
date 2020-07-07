@@ -180,5 +180,11 @@ namespace Core.Api
                 return $"Não foi possível autenticar no ESAJ. Erro: {strLogin}";
             }
         }
+
+        public List<DocumentoDigital> ObterDocumentoDigitais()
+        {
+           //var dados = this.DataContext.Eventos.ToList();
+           return this.DataContext.DocumentoDigitais.ToList();
+        }
     }
-}
+} 

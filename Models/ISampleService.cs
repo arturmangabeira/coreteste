@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using System.ServiceModel;
 using Core.Api.Model;
 
@@ -31,5 +32,8 @@ namespace Core.Api.Models
 
       [OperationContract]   
       string ConectarESAJ();
+
+      [OperationContract]
+      List<DocumentoDigital> ObterDocumentoDigitais();  
     }
 }

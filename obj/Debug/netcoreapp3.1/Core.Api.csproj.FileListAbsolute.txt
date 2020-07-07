@@ -271,3 +271,17 @@ C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Settings.Configuration.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Sinks.Debug.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll

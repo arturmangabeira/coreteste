@@ -18,12 +18,15 @@ namespace Core.Api
 
         public Proxy ObjProxy { get; }
 
+        public IntegracaoEsaj integracaoEsaj { get; }
+
         public IntegracaoService(DataContext dataContext, IConfiguration config, ILogger<IntegracaoService> logger)
         {
             this.configuration = config;
             this.DataContext = dataContext;
             _logger = logger;
             this.ObjProxy = new Proxy();
+            this.integracaoEsaj = new IntegracaoEsaj(this.ObjProxy);
         }
 
         public string AutenticarESAJ()
@@ -46,6 +49,12 @@ namespace Core.Api
         public List<DocumentoDigital> ObterDocumentoDigitaisBD()
         {
             return this.DataContext.DocumentoDigitais.ToList();
+        }
+
+        public Entidades.ConsultaProcessoResposta.Message ObterDadosProcesso(string numProcesso, string codigo)
+        {
+            string retornoOut;
+            return integracaoEsaj.ObterDadosProcesso(numProcesso, out retornoOut);
         }
     }
 }

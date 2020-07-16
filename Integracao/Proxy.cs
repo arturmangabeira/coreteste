@@ -147,6 +147,34 @@ namespace Core.Api.Integracao
             return RespostaGetTiposDocDigital;
         }
 
+        public string ObterDadosProcesso(string DadosProcesso, string codigo, out string retorno)
+        {
+            string RespostaDadosProcesso = "";
+            retorno = "0";
+            string strLogin;
+
+            if (Autenticar(codigo, out strLogin))
+            {
+
+                Entidades.ConsultaProcesso.Message objAjuizamento = new Entidades.ConsultaProcesso.Message();
+                objAjuizamento = objAjuizamento.ExtrairObjeto<Entidades.ConsultaProcesso.Message>(DadosProcesso);
+                string str = objAjuizamento.Serialize();
+
+                IXml objXML = new Xml();
+                str = objXML.AssinarXmlString(str, repositorio, certificado, "");
+                RespostaDadosProcesso = objProxy.getDadosProcessoAsync(str).Result;
+
+            }
+            else
+            {
+                retorno = "Erro no Confirma Logon.";
+                RespostaDadosProcesso = strLogin;
+            }
+
+            return RespostaDadosProcesso;
+
+        }
+
         private string Serializar(string objeto)
         {
             Message objAjuizamento = new Message();

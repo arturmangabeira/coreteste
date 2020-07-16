@@ -17,5 +17,7 @@ namespace Core.Api.Integracao
 
         [OperationContract]
         List<DocumentoDigital> ObterDocumentoDigitaisBD();
+        [OperationContract]
+        public Entidades.ConsultaProcessoResposta.Message ObterDadosProcesso(string numProcesso, string codigo);
     }
 }

@@ -1,6 +1,6 @@
 using Core.Api.Entidades;
 
-namespace coreteste.Entidades.ConfirmaLogon
+namespace Core.Api.Entidades.ConfirmaLogon
 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
     [System.SerializableAttribute()]

@@ -1,13 +1,11 @@
-using System;
+﻿using System;
 using System.ServiceModel;
-using Core.Api.ConfigurationManager;
 using Core.Api.Entidades;
-using coreteste.Entidades;
-using coreteste.Models;
 using IntegracaoTJBA;
 using Microsoft.Extensions.Configuration;
 
-namespace coreteste.Controllers
+
+namespace Core.Api.Integracao
 {
     public class Proxy
     {
@@ -19,27 +17,27 @@ namespace coreteste.Controllers
 
         public Proxy()
         {
-            this.Configuration = ConfigurationManager.AppSettings;            
-            if (this.objProxy == null){
-                this.objProxy = new IntegracaoTJBA.ServicoPJ2PortTypeClient(
-                new BasicHttpBinding()
-                {
-                    Name = "ServicoPJ2HttpBinding",
-                    AllowCookies = true,
-                    TextEncoding = System.Text.Encoding.UTF8,
-                    TransferMode = System.ServiceModel.TransferMode.Buffered,
-                    UseDefaultWebProxy = true,
-                    MaxReceivedMessageSize = 2147483647,
-                    MaxBufferSize = 2147483647
-                },
-                new EndpointAddress(Configuration.GetValue<string>("ESAJ:UrlTJ"))
-            );
-           }            
-            //this.repositorio = Configuration.GetValue<string>("Certificado:RepositorioCertificado");
-            //this.certificado = Configuration.GetValue<string>("Certificado:ThumberPrint");
-            this.repositorio = ConfigurationManager.AppSettings["Certificado:RepositorioCertificado"];
-            this.certificado = ConfigurationManager.AppSettings["Certificado:ThumberPrint"];
-           
+            this.Configuration = ConfigurationManager.ConfigurationManager.AppSettings;
+            if (this.objProxy == null)
+            {
+                this.objProxy = new ServicoPJ2PortTypeClient(
+                    new BasicHttpBinding()
+                    {
+                        Name = "ServicoPJ2HttpBinding",
+                        AllowCookies = true,
+                        TextEncoding = System.Text.Encoding.UTF8,
+                        TransferMode = System.ServiceModel.TransferMode.Buffered,
+                        UseDefaultWebProxy = true,
+                        MaxReceivedMessageSize = Configuration.GetValue<long>("ESAJ:MaxReceivedMessageSize"),
+                        MaxBufferSize = Configuration.GetValue<int>("ESAJ:MaxBufferSize")
+                    },
+                    new EndpointAddress(Configuration.GetValue<string>("ESAJ:UrlTJ"))
+                );
+            }
+            
+            this.repositorio = this.Configuration["Certificado:RepositorioCertificado"];
+            this.certificado = this.Configuration["Certificado:ThumberPrint"];
+
         }
 
         public string Login(Mensagem objmensagem)
@@ -91,7 +89,7 @@ namespace coreteste.Controllers
             objSolicitaLogin.MessageBody = objMessageBody;
 
             IXml objXML = new Xml();
-          
+
             string mensagem = objXML.AssinarXmlString(objSolicitaLogin.Serialize(), repositorio, certificado, "");
 
             Entidades.SolicitaLogonRetorno.Message objRespostaSolicitaLogon = new Entidades.SolicitaLogonRetorno.Message();
@@ -135,7 +133,7 @@ namespace coreteste.Controllers
 
         public string GetTiposDocDigital(string codigo)
         {
-            string RespostaGetTiposDocDigital = "";            
+            string RespostaGetTiposDocDigital = "";
             string strLogin;
 
             if (Autenticar(codigo, out strLogin))
@@ -143,7 +141,7 @@ namespace coreteste.Controllers
                 RespostaGetTiposDocDigital = objProxy.getTiposDocDigitalAsync().Result;
             }
             else
-            {                
+            {
                 RespostaGetTiposDocDigital = strLogin;
             }
             return RespostaGetTiposDocDigital;
@@ -156,7 +154,7 @@ namespace coreteste.Controllers
             string str = objAjuizamento.Serialize();
 
             IXml objXML = new Xml();
-            return  objXML.AssinarXmlString(str, repositorio, certificado, "");
+            return objXML.AssinarXmlString(str, repositorio, certificado, "");
         }
     }
 }

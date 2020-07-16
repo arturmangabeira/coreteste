@@ -1,8 +1,13 @@
-namespace coreteste.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Core.Api.Integracao
 {
     public interface IXml
     {
-         // <summary>
+        // <summary>
         /// Assina o documento XML.
         /// </summary>
         /// <param name="xml">Documento XML em texto plano.</param>
@@ -10,7 +15,7 @@ namespace coreteste.Models
         /// <param name="repositorio">Local onde está armazonado o certificado digital.</param>
         /// <param name="nomeCertificado">Nome (SubjectName) do certificado digital.</param>
         /// <returns>XML Assinado.</returns>
-        string AssinarXmlString(string xml, string repositorio, string nomeCertificado,string tag);
+        string AssinarXmlString(string xml, string repositorio, string nomeCertificado, string tag);
 
         ///// <summary>
         ///// Assina o Dados.

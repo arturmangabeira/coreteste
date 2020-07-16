@@ -1,20 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Threading.Tasks;
 using Core.Api.Data;
-using Core.Api.Models;
+using Core.Api.Integracao;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using SoapCore;
 
 namespace Core.Api
@@ -30,19 +22,12 @@ namespace Core.Api
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            /*services.AddDbContext<DataContext>(
-                x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection"))
-            );*/
-
+        {         
             services.AddDbContext<DataContext>(
                 x => x.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection"))
             );
-
-            //services.TryAddSingleton<ISampleService, SampleService>();
-            services.AddScoped<ISampleService, SampleService>();
-            //services.AddScoped(ConfigurationManager.ConfigurationManager);
-            //services.
+                     
+            services.AddScoped<IIntegracaoService, IntegracaoService>();            
             services.AddControllers();            
         }
 
@@ -54,8 +39,6 @@ namespace Core.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseAuthorization();
@@ -65,7 +48,8 @@ namespace Core.Api
                 endpoints.MapControllers();
             });
 
-             app.UseSoapEndpoint<ISampleService>("/Integrador.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
+            //REFERENCIA A INTERFACE DE "ServiceContract -> IIntegracaoService" PARA QUE SEJA REFLETIDA COMO SERVIÇOS EM SOAP.
+            app.UseSoapEndpoint<IIntegracaoService>("/Integrador.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
         }
     }
 }

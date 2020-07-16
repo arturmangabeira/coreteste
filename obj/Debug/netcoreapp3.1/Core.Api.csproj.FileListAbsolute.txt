@@ -183,7 +183,6 @@ C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.dll
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.pdb
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Connected Services\Correios\ConnectedService.json
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Connected Services\IntegracaoTJBA\ConnectedService.json
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Core.Api.exe

@@ -1,6 +1,5 @@
-using coreteste.Models;
 
-namespace coreteste.Entidades
+namespace Core.Api.Entidades
 {
     public class Mensagem
     {

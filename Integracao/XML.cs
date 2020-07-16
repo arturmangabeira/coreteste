@@ -11,19 +11,32 @@ using System.Xml;
 
 namespace Core.Api.Integracao
 {
-    public class XML
+    public class Xml: IXml
     {
         public IConfiguration Configuration { get; }
 
-        public XML(IConfiguration configuration)
+        public Xml()
         {
-            this.Configuration = configuration;
+            Configuration = ConfigurationManager.ConfigurationManager.AppSettings;
         }
 
+        #region Assinatura
+
+        /// <summary>
+        /// Assina o documento XML.
+        /// </summary>
+        /// <param name="xml">Documento XML em texto plano.</param>
+        /// <param name="tagAssinatura">Tag do XML que deverá ser assinada.</param>
+        /// <param name="repositorio">Local onde está armazonado o certificado digital.</param>
+        /// <param name="nomeCertificado">Nome (SubjectName) do certificado digital.</param>
+        /// <returns>XML Assinado.</returns>
         public string AssinarXmlString(string xml, string repositorio, string nomeCertificado, string tag)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.PreserveWhitespace = true;
+            XmlDocument doc = new XmlDocument
+            {
+                PreserveWhitespace = true
+            };
+
             doc.LoadXml(xml);
 
             AssinarXmlDocument(doc, repositorio, nomeCertificado, tag);
@@ -54,17 +67,29 @@ namespace Core.Api.Integracao
         {
             X509Certificate2 certificadoX509 = Certificado.ObterCertificado(LocalRepositorio, NomeCertificado, this.Configuration);
 
-            string stringplana = dados.Trim();
-            byte[] cipherbytes = Encoding.GetEncoding("iso-8859-1").GetBytes(stringplana);
+            //byte[] messageToSignBytes = Encoding.GetEncoding("iso-8859-1").GetBytes(dados.Trim());
+            var converter = new ASCIIEncoding();
+            byte[] messageToSignBytes = converter.GetBytes(dados.Trim());
 
-            SHA1CryptoServiceProvider sha = new SHA1CryptoServiceProvider();
+            RSA rsa = (RSA)certificadoX509.PrivateKey;
+            (certificadoX509.PrivateKey as RSACng).Key.SetProperty(
+                new CngProperty(
+                    "Export Policy",
+                    BitConverter.GetBytes((int)CngExportPolicies.AllowPlaintextExport),
+                    CngPropertyOptions.Persist));
 
-            RSACryptoServiceProvider rsa = (RSACryptoServiceProvider)certificadoX509.PrivateKey;
-            byte[] cipher = rsa.SignData(cipherbytes, sha);
+            //RSAParameters RSAParameters = rsa.ExportParameters(true);
 
-            return Convert.ToBase64String(cipher);
+            //HashAlgorithm hasher = new SHA1Managed();
 
+            // Use the hasher to hash the message
+            //byte[] hash = hasher.ComputeHash(messageToSignBytes);
 
+            var signature = rsa.SignData(messageToSignBytes, HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+
+            //var cipher01 = rsa.SignHash(hash, HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+
+            return Convert.ToBase64String(signature);
 
         }
         /// <summary>
@@ -89,9 +114,11 @@ namespace Core.Api.Integracao
             XmlDsigEnvelopedSignatureTransform envelopedTransformation = new XmlDsigEnvelopedSignatureTransform();
             reference.AddTransform(envelopedTransformation);
 
-            SignedXml signedXml = new SignedXml(doc);
-            signedXml.SigningKey = certificadoX509.PrivateKey;
-            signedXml.KeyInfo = keyinfo;
+            SignedXml signedXml = new SignedXml(doc)
+            {
+                SigningKey = certificadoX509.PrivateKey,
+                KeyInfo = keyinfo
+            };
 
             signedXml.AddReference(reference);
 
@@ -102,5 +129,7 @@ namespace Core.Api.Integracao
             doc.DocumentElement.AppendChild(doc.ImportNode(signedElement, true));
 
         }
+        
+        #endregion
     }
 }

@@ -24,9 +24,10 @@ namespace Core.Api.Integracao
             this.ObjProxy = proxy;
         }
 
-        public Entidades.ConsultaProcessoResposta.Message ObterDadosProcesso(ConsultarProcesso consultarProcesso)
+        public consultarProcessoResponse ObterDadosProcesso(ConsultarProcesso consultarProcesso)
         {
             Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno = null;
+            consultarProcessoResponse consultar = new consultarProcessoResponse();
             string xmlDadosProcessoRetorno = String.Empty;
 
             try
@@ -54,10 +55,34 @@ namespace Core.Api.Integracao
                 xmlDadosProcessoRetorno = this.ObjProxy.ObterDadosProcesso(xml, "201220001662");
                 objDadosProcessoRetorno = new Entidades.ConsultaProcessoResposta.Message();
                 objDadosProcessoRetorno = objDadosProcessoRetorno.ExtrairObjeto<Entidades.ConsultaProcessoResposta.Message>(xmlDadosProcessoRetorno);
+
+                tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
+                                
                 if (consultarProcesso.movimentos)
                 {
-                    objDadosProcessoRetorno.MessageBody.Resposta.Processo.Area = this.obterMovimentacoes(consultarProcesso.numeroProcesso);
+                    tipoProcessoJudicial.movimento = this.obterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
                 }
+
+                var dadosBasicos = new tipoCabecalhoProcesso();
+                var processo = objDadosProcessoRetorno.MessageBody.Resposta.Processo;
+                
+                //INICIALIZANDO O PARSE PARA O PJE DO RETORNO DO PROCESSO JUDICIAL
+                dadosBasicos.assunto = new tipoAssuntoProcessual[] { new tipoAssuntoProcessual() { principal = true, codigoNacional = Int32.Parse(processo.AssuntoPrincipal.Codigo) } };
+
+                dadosBasicos.codigoLocalidade = "1";
+                dadosBasicos.dataAjuizamento = processo.DataAjuizamento;
+                dadosBasicos.classeProcessual = Int32.Parse(processo.Classe.Codigo);
+                dadosBasicos.competencia = 4;
+                dadosBasicos.numero = processo.Numero;
+
+                tipoProcessoJudicial.dadosBasicos = dadosBasicos;
+
+                consultar = new consultarProcessoResponse()
+                {
+                    mensagem = "Processo consultado com sucesso",
+                    sucesso = true,
+                    processo = tipoProcessoJudicial
+                };
 
                 //UrlEsajMovimentacoes
             }
@@ -72,10 +97,10 @@ namespace Core.Api.Integracao
                 throw new Exception(" Erro na comunicação com o e-SAJ TJ-BA : " + ex.Message);
             }
 
-            return objDadosProcessoRetorno;
+            return consultar;
         }
 
-        public string obterMovimentacoes(string numeroProcesso)
+        public List<tipoMovimentoProcessual> obterMovimentacoes(string numeroProcesso)
         {
             //JavaScriptSerializer jss = new JavaScriptSerializer();
             //StringBuilder dados_movimentacoes_processo = new StringBuilder();
@@ -84,6 +109,9 @@ namespace Core.Api.Integracao
 
             Dictionary<string, Object> jsonRetornoNovo = new Dictionary<string, Object>();
             Dictionary<string, Dictionary<string, string>> arrMovimentacoesNovo = new Dictionary<string, Dictionary<string, string>>();
+
+            List<tipoMovimentoProcessual> tipoMovimentoProcessual = new List<tipoMovimentoProcessual>();
+            
             if (numeroProcesso.Length >= 20)
             {
                 try
@@ -155,22 +183,51 @@ namespace Core.Api.Integracao
                                         {
                                             string textoMovimentacao = this.obterDetalheMovimentacao(codigoProcesso, qtdMovimentacao.ToString(), cookies);
                                             arrMovimentacoes.Add(HttpUtility.HtmlEncode(domValor["a"][0].InnerHTML + "||" + textoMovimentacao.Trim()));
-                                            string data = domValor["a"][0].InnerHTML.Substring(0, 10);
-                                            string texto = domValor["a"][0].InnerHTML.Substring(10);
-                                            Dictionary<string, string> dados = new Dictionary<string, string>();
-                                            dados.Add(texto, textoMovimentacao);
-                                            arrMovimentacoesNovo.Add(data, dados);
+                                            try
+                                            {
+                                                var dadosTratado = HttpUtility.HtmlDecode(domValor["a"][0].InnerHTML).Replace("\n", "").Replace("\t", "").Trim();
+                                                string data = dadosTratado.Substring(0, 10).Trim();
+                                                string texto = dadosTratado.Substring(10).Trim();
+                                                //Dictionary<string, string> dados = new Dictionary<string, string>();
+                                                //dados.Add("texto", texto + " - " + HttpUtility.HtmlDecode(textoMovimentacao).Replace("\n", "").Replace("\t", "").Trim());
+                                                //arrMovimentacoesNovo.Add(data, dados);
+                                                var movimento = new tipoMovimentoProcessual()
+                                                {
+                                                    dataHora = data,
+                                                    complemento = new string [] {texto + HttpUtility.HtmlDecode(textoMovimentacao).Replace("\n", "").Replace("\t", "").Trim()}                                                    
+                                                };
+                                                tipoMovimentoProcessual.Add(movimento);
+                                            }
+                                            catch
+                                            {
+
+                                            }
                                         }
                                         else
                                         {
                                             if (domValor["label"].Length > 0)
                                             {
                                                 arrMovimentacoes.Add(HttpUtility.HtmlEncode(domValor["label"][0].InnerHTML));
-                                                string data = domValor["a"][0].InnerHTML.Substring(0, 10);
-                                                string texto = domValor["a"][0].InnerHTML.Substring(10);
-                                                Dictionary<string, string> dados = new Dictionary<string, string>();
-                                                dados.Add(texto, "");
-                                                arrMovimentacoesNovo.Add(data, dados);
+                                                try
+                                                {
+                                                    string data = HttpUtility.HtmlDecode(domValor["label"][0].InnerHTML).Replace("\n", "").Replace("\t", "").Substring(0, 10).Trim();
+                                                    string texto = HttpUtility.HtmlDecode(domValor["label"][0].InnerHTML).Replace("\n", "").Replace("\t", "").Substring(10).Trim();
+                                                    Dictionary<string, string> dados = new Dictionary<string, string>
+                                                    {
+                                                        { "texto", texto.Trim() }
+                                                    };
+                                                    //arrMovimentacoesNovo.Add(data, dados);
+                                                    var movimento = new tipoMovimentoProcessual()
+                                                    {
+                                                        dataHora = data,
+                                                        complemento = new string[] { texto.Trim() }
+                                                    };
+                                                    tipoMovimentoProcessual.Add(movimento);
+                                                }
+                                                catch
+                                                {
+
+                                                }
                                             }
                                         }
                                         qtdMovimentacao--;
@@ -201,9 +258,9 @@ namespace Core.Api.Integracao
 
 
             //Serializa os dados para exibir o retorno das movimentações do processo.
-            var json = JsonConvert.SerializeObject(jsonRetornoNovo, Formatting.Indented);
+            //var json = JsonConvert.SerializeObject(jsonRetornoNovo, Formatting.Indented);
             //jss.Serialize(jsonRetorno, dados_movimentacoes_processo);
-            return json;
+            return tipoMovimentoProcessual;
 
         }
 

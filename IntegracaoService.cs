@@ -52,7 +52,7 @@ namespace Core.Api
             return this.DataContext.DocumentoDigitais.ToList();
         }
 
-        public Entidades.ConsultaProcessoResposta.Message ObterDadosProcesso(ConsultarProcesso consultarProcesso)
+        public consultarProcessoResponse ObterDadosProcesso(ConsultarProcesso consultarProcesso)
         {            
             return integracaoEsaj.ObterDadosProcesso(consultarProcesso);
         }

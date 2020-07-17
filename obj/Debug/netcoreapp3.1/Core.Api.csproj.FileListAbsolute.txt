@@ -177,8 +177,6 @@
 /home/arturmangabeira/Documentos/DOTNET/Core.Api/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp3.0/System.Security.Cryptography.Cng.dll
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.AssemblyInfoInputs.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.AssemblyInfo.cs
-C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.csproj.CoreCompileInputs.cache
-C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.dll
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.pdb
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -284,3 +282,7 @@ C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\CsQuery.dll
+C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.csproj.CoreCompileInputs.cache
+C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.MvcApplicationPartsAssemblyInfo.cache

@@ -1,4 +1,5 @@
 ﻿using Core.Api.Model;
+using Core.Api.Objects;
 using System.Collections.Generic;
 using System.ServiceModel;
 
@@ -18,6 +19,6 @@ namespace Core.Api.Integracao
         [OperationContract]
         List<DocumentoDigital> ObterDocumentoDigitaisBD();
         [OperationContract]
-        public Entidades.ConsultaProcessoResposta.Message ObterDadosProcesso(string numProcesso, string codigo);
+        public Entidades.ConsultaProcessoResposta.Message ObterDadosProcesso(ConsultarProcesso consultarProcesso);
     }
 }

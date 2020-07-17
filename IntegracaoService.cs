@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Core.Api.Model;
 using Core.Api.Integracao;
 using Microsoft.Extensions.Logging;
+using Core.Api.Objects;
 
 namespace Core.Api
 {
@@ -51,10 +52,9 @@ namespace Core.Api
             return this.DataContext.DocumentoDigitais.ToList();
         }
 
-        public Entidades.ConsultaProcessoResposta.Message ObterDadosProcesso(string numProcesso, string codigo)
-        {
-            string retornoOut;
-            return integracaoEsaj.ObterDadosProcesso(numProcesso, out retornoOut);
+        public Entidades.ConsultaProcessoResposta.Message ObterDadosProcesso(ConsultarProcesso consultarProcesso)
+        {            
+            return integracaoEsaj.ObterDadosProcesso(consultarProcesso);
         }
     }
 }

@@ -42,6 +42,10 @@
               "target": "Package",
               "version": "[1.8.6.1, )"
             },
+            "CsQuery": {
+              "target": "Package",
+              "version": "[1.3.4, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -55,6 +59,10 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",

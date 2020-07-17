@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "zOSZg1K32/bpZd3KL7tVLMTCFycYu77uMRf3HtS8DQ//i9SKvXHkuu8D8I9sFxaWeAA8sul78sr3YIEpzBZanw==",
+  "dgSpecHash": "5cxpAK42tBwbzFPhw9Y8f5tRQAQfHytNvyo0DH048NDtr0LoHiV/4w3JbFpwz6HcvhV9Gv9cvk/0fE2OCHaLkQ==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\coreteste\\Core.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\artur\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
+    "C:\\Users\\artur\\.nuget\\packages\\csquery\\1.3.4\\csquery.1.3.4.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.0.0\\microsoft.aspnetcore.hosting.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.0.0\\microsoft.aspnetcore.hosting.server.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.0.0\\microsoft.aspnetcore.http.abstractions.2.0.0.nupkg.sha512",
@@ -56,6 +57,7 @@
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.visualstudio.validation\\15.5.31\\microsoft.visualstudio.validation.15.5.31.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.win32.registry\\4.6.0\\microsoft.win32.registry.4.6.0.nupkg.sha512",
+    "C:\\Users\\artur\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
@@ -159,6 +161,16 @@
       "warningLevel": 1,
       "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CsQuery 1.3.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "CsQuery",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]

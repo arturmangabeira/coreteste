@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using Core.Api.Entidades;
 using IntegracaoTJBA;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Configuration;
 
 
@@ -147,10 +148,10 @@ namespace Core.Api.Integracao
             return RespostaGetTiposDocDigital;
         }
 
-        public string ObterDadosProcesso(string DadosProcesso, string codigo, out string retorno)
+        public string ObterDadosProcesso(string DadosProcesso, string codigo)
         {
             string RespostaDadosProcesso = "";
-            retorno = "0";
+            
             string strLogin;
 
             if (Autenticar(codigo, out strLogin))
@@ -163,12 +164,10 @@ namespace Core.Api.Integracao
                 IXml objXML = new Xml();
                 str = objXML.AssinarXmlString(str, repositorio, certificado, "");
                 RespostaDadosProcesso = objProxy.getDadosProcessoAsync(str).Result;
-
             }
             else
-            {
-                retorno = "Erro no Confirma Logon.";
-                RespostaDadosProcesso = strLogin;
+            {   
+                throw new Exception($"Erro ao tentar obter autenticar. Erro: {strLogin}");
             }
 
             return RespostaDadosProcesso;

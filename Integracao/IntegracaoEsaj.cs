@@ -9,6 +9,7 @@ using System.Web;
 using Core.Api.Entidades;
 using Core.Api.Objects;
 using CsQuery;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
 namespace Core.Api.Integracao
@@ -16,8 +17,10 @@ namespace Core.Api.Integracao
     public class IntegracaoEsaj
     {
         public Proxy ObjProxy { get; }
+        public IConfiguration Configuration { get; }
         public IntegracaoEsaj(Proxy proxy) 
         {
+            this.Configuration = ConfigurationManager.ConfigurationManager.AppSettings;
             this.ObjProxy = proxy;
         }
 
@@ -55,6 +58,8 @@ namespace Core.Api.Integracao
                 {
                     objDadosProcessoRetorno.MessageBody.Resposta.Processo.Area = this.obterMovimentacoes(consultarProcesso.numeroProcesso);
                 }
+
+                //UrlEsajMovimentacoes
             }
             catch (Exception ex)
             {
@@ -73,9 +78,12 @@ namespace Core.Api.Integracao
         public string obterMovimentacoes(string numeroProcesso)
         {
             //JavaScriptSerializer jss = new JavaScriptSerializer();
-            StringBuilder dados_movimentacoes_processo = new StringBuilder();
+            //StringBuilder dados_movimentacoes_processo = new StringBuilder();
             Dictionary<string, List<string>> jsonRetorno = new Dictionary<string, List<string>>();
             List<string> arrMovimentacoes = new List<string>();
+
+            Dictionary<string, Object> jsonRetornoNovo = new Dictionary<string, Object>();
+            Dictionary<string, Dictionary<string, string>> arrMovimentacoesNovo = new Dictionary<string, Dictionary<string, string>>();
             if (numeroProcesso.Length >= 20)
             {
                 try
@@ -87,7 +95,7 @@ namespace Core.Api.Integracao
                     //cookie gerado para permanecer a mesma sessão das requisições.
                     CookieContainer cookies = new CookieContainer();
                     //realiza a primeira busca para ir a pagina que retona o código saj do processo.
-                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://esaj.tjba.jus.br/cpopg/searchMobile.do?dePesquisa=" + numProcessoMascara + "&localPesquisa.cdLocal=1&cbPesquisa=NUMPROC");
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create($"{this.Configuration["ESAJ:UrlEsajMovimentacoes"]}/searchMobile.do?dePesquisa=" + numProcessoMascara + "&localPesquisa.cdLocal=1&cbPesquisa=NUMPROC");
                     req.Method = "GET";
                     req.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
                     req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";
@@ -105,7 +113,7 @@ namespace Core.Api.Integracao
                         //extrai o código do processo para buscar as movimentações do processo no esaj.
                         string codigoProcesso = res.ResponseUri.Query.ToString().Substring(17, (res.ResponseUri.Query.ToString().IndexOf("&") - 17));
                         //realiza a consulta no site para obter as movimentações.
-                        HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create("http://esaj.tjba.jus.br/cpopg/obterMovimentacoes.do?processo.codigo=" + codigoProcesso + "&todasMovimentacoes=S");
+                        HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{this.Configuration["ESAJ:UrlEsajMovimentacoes"]}/obterMovimentacoes.do?processo.codigo=" + codigoProcesso + "&todasMovimentacoes=S");
                         reqMovimentacoes.Method = "GET";
                         reqMovimentacoes.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
                         reqMovimentacoes.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";
@@ -147,17 +155,28 @@ namespace Core.Api.Integracao
                                         {
                                             string textoMovimentacao = this.obterDetalheMovimentacao(codigoProcesso, qtdMovimentacao.ToString(), cookies);
                                             arrMovimentacoes.Add(HttpUtility.HtmlEncode(domValor["a"][0].InnerHTML + "||" + textoMovimentacao.Trim()));
+                                            string data = domValor["a"][0].InnerHTML.Substring(0, 10);
+                                            string texto = domValor["a"][0].InnerHTML.Substring(10);
+                                            Dictionary<string, string> dados = new Dictionary<string, string>();
+                                            dados.Add(texto, textoMovimentacao);
+                                            arrMovimentacoesNovo.Add(data, dados);
                                         }
                                         else
                                         {
                                             if (domValor["label"].Length > 0)
                                             {
                                                 arrMovimentacoes.Add(HttpUtility.HtmlEncode(domValor["label"][0].InnerHTML));
+                                                string data = domValor["a"][0].InnerHTML.Substring(0, 10);
+                                                string texto = domValor["a"][0].InnerHTML.Substring(10);
+                                                Dictionary<string, string> dados = new Dictionary<string, string>();
+                                                dados.Add(texto, "");
+                                                arrMovimentacoesNovo.Add(data, dados);
                                             }
                                         }
                                         qtdMovimentacao--;
                                     }
                                 }
+                                jsonRetornoNovo.Add("true", arrMovimentacoesNovo);
                                 jsonRetorno.Add("true", arrMovimentacoes);
                             }
                         }
@@ -182,7 +201,7 @@ namespace Core.Api.Integracao
 
 
             //Serializa os dados para exibir o retorno das movimentações do processo.
-            var json = JsonConvert.SerializeObject(jsonRetorno, Formatting.Indented);
+            var json = JsonConvert.SerializeObject(jsonRetornoNovo, Formatting.Indented);
             //jss.Serialize(jsonRetorno, dados_movimentacoes_processo);
             return json;
 
@@ -191,7 +210,7 @@ namespace Core.Api.Integracao
         private string obterDetalheMovimentacao(string codigoProcesso, string numMovimentacao, CookieContainer cookies)
         {
             //realiza a consulta no site para obter as movimentações.
-            HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create("http://esaj.tjba.jus.br/cpopg/obterComplementoMovimentacao.do?processo.codigo=" + codigoProcesso + "&movimentacao=" + numMovimentacao);
+            HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{ this.Configuration["ESAJ:UrlEsajMovimentacoes"]}/obterComplementoMovimentacao.do?processo.codigo=" + codigoProcesso + "&movimentacao=" + numMovimentacao);
             reqMovimentacoes.Method = "GET";
             reqMovimentacoes.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
             reqMovimentacoes.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";

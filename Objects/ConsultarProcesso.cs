@@ -7,6 +7,7 @@ namespace Core.Api.Objects
 {
     public class ConsultarProcesso
     {
+        public string idConsultante { get; set; }
         public string numeroProcesso { get; set; }
         public bool movimentos { get; set; }
         

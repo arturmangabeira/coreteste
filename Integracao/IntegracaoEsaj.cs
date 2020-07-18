@@ -32,75 +32,255 @@ namespace Core.Api.Integracao
 
             try
             {
-                Entidades.ConsultaProcesso.Message Message = new Entidades.ConsultaProcesso.Message();
-                Entidades.ConsultaProcesso.MessageMessageId MessageMessageId = new Entidades.ConsultaProcesso.MessageMessageId();
-                Entidades.ConsultaProcesso.MessageMessageBody MessageMessageBody = new Entidades.ConsultaProcesso.MessageMessageBody();
-
-                MessageMessageId.Code = "201220001662";
-                MessageMessageId.Date = DateTime.Now.ToString("yyyy-MM-dd"); ;
-                MessageMessageId.FromAddress = "PGMS";
-                MessageMessageId.ToAddress = "TJ";
-                MessageMessageId.Version = Entidades.ConsultaProcesso.VersionType.Item10;
-                MessageMessageId.MsgDesc = "Consulta Processo";
-                MessageMessageId.ServiceId = Entidades.ConsultaProcesso.ServiceIdType.ConsultaProcesso;
-                Message.MessageId = MessageMessageId;
-
-                Entidades.ConsultaProcesso.MessageMessageBodyProcesso MessageBodyProcesso = new Entidades.ConsultaProcesso.MessageMessageBodyProcesso();
-                MessageBodyProcesso.Numero = consultarProcesso.numeroProcesso;
-                MessageMessageBody.Processo = MessageBodyProcesso;
-                Message.MessageBody = MessageMessageBody;
-
-                string xml = Message.Serialize();
-                
-                xmlDadosProcessoRetorno = this.ObjProxy.ObterDadosProcesso(xml, "201220001662");
-                objDadosProcessoRetorno = new Entidades.ConsultaProcessoResposta.Message();
-                objDadosProcessoRetorno = objDadosProcessoRetorno.ExtrairObjeto<Entidades.ConsultaProcessoResposta.Message>(xmlDadosProcessoRetorno);
-
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
-                                
-                if (consultarProcesso.movimentos)
+                if (consultarProcesso.incluirCabecalho)
                 {
-                    tipoProcessoJudicial.movimento = this.obterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
+                    Entidades.ConsultaProcesso.Message Message = new Entidades.ConsultaProcesso.Message();
+                    Entidades.ConsultaProcesso.MessageMessageId MessageMessageId = new Entidades.ConsultaProcesso.MessageMessageId();
+                    Entidades.ConsultaProcesso.MessageMessageBody MessageMessageBody = new Entidades.ConsultaProcesso.MessageMessageBody();
+
+                    MessageMessageId.Code = "201220001662";
+                    MessageMessageId.Date = DateTime.Now.ToString("yyyy-MM-dd"); ;
+                    MessageMessageId.FromAddress = "PGMS";
+                    MessageMessageId.ToAddress = "TJ";
+                    MessageMessageId.Version = Entidades.ConsultaProcesso.VersionType.Item10;
+                    MessageMessageId.MsgDesc = "Consulta Processo";
+                    MessageMessageId.ServiceId = Entidades.ConsultaProcesso.ServiceIdType.ConsultaProcesso;
+                    Message.MessageId = MessageMessageId;
+
+                    Entidades.ConsultaProcesso.MessageMessageBodyProcesso MessageBodyProcesso = new Entidades.ConsultaProcesso.MessageMessageBodyProcesso();
+                    MessageBodyProcesso.Numero = consultarProcesso.numeroProcesso;
+                    MessageMessageBody.Processo = MessageBodyProcesso;
+                    Message.MessageBody = MessageMessageBody;
+
+                    string xml = Message.Serialize();
+
+                    xmlDadosProcessoRetorno = this.ObjProxy.ObterDadosProcesso(xml, "201220001662");
+                    objDadosProcessoRetorno = new Entidades.ConsultaProcessoResposta.Message();
+                    objDadosProcessoRetorno = objDadosProcessoRetorno.ExtrairObjeto<Entidades.ConsultaProcessoResposta.Message>(xmlDadosProcessoRetorno);
+
+                    if (objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Codigo == "0")
+                    {                        
+                        //OBTÉM OS DADOS BÁSICOS
+                        tipoProcessoJudicial.dadosBasicos = this.ObterDadosBasicos(objDadosProcessoRetorno);
+                        //OBTÉM OS DADOS DA PARTE
+                        tipoProcessoJudicial.dadosBasicos.polo = this.ObterPartes(objDadosProcessoRetorno).ToArray();                        
+                        //ACRESCENTA A MOVIMENTAÇÃO CASO SEJA INFORMADO.
+                        if (consultarProcesso.movimentos)
+                        {
+                            tipoProcessoJudicial.movimento = this.ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
+                        }
+                    }
+                    else
+                    {
+                        //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ
+                        consultar = new consultarProcessoResponse()
+                        {
+                            mensagem = objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Descricao,
+                            sucesso = false,
+                            processo = null
+                        };
+                    }
+                }
+                else
+                {
+                    //ACRESCENTA A MOVIMENTAÇÃO CASO SEJA INFORMADO.
+                    if (consultarProcesso.movimentos)
+                    {
+                        tipoProcessoJudicial.movimento = this.ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
+                    }
                 }
 
-                var dadosBasicos = new tipoCabecalhoProcesso();
-                var processo = objDadosProcessoRetorno.MessageBody.Resposta.Processo;
-                
-                //INICIALIZANDO O PARSE PARA O PJE DO RETORNO DO PROCESSO JUDICIAL
-                dadosBasicos.assunto = new tipoAssuntoProcessual[] { new tipoAssuntoProcessual() { principal = true, codigoNacional = Int32.Parse(processo.AssuntoPrincipal.Codigo) } };
-
-                dadosBasicos.codigoLocalidade = "1";
-                dadosBasicos.dataAjuizamento = processo.DataAjuizamento;
-                dadosBasicos.classeProcessual = Int32.Parse(processo.Classe.Codigo);
-                dadosBasicos.competencia = 4;
-                dadosBasicos.numero = processo.Numero;
-
-                tipoProcessoJudicial.dadosBasicos = dadosBasicos;
-
+                //DEVOLVE O OBJETO DE ACORDO COM O CABEÇALHO SOLICITADO.
                 consultar = new consultarProcessoResponse()
                 {
                     mensagem = "Processo consultado com sucesso",
                     sucesso = true,
                     processo = tipoProcessoJudicial
                 };
-
-                //UrlEsajMovimentacoes
             }
             catch (Exception ex)
-            {
-                //Não envia e-mail caso a string seja diferente de vazio!
-                if (xmlDadosProcessoRetorno != String.Empty)
+            {   
+                consultar = new consultarProcessoResponse()
                 {
-                    //INSERE LOG CONTENDO ERRO.
-                    //this.EnviarEmailErroConsultarDadosDoProcesso(new StringBuilder().Append("<![CDATA[ " + xmlDadosProcessoRetorno + "]]>").Append(" <br /> Erro na comunicação com o e-SAJ TJ-BA : " + ex.Message));
-                }
-                throw new Exception(" Erro na comunicação com o e-SAJ TJ-BA : " + ex.Message);
+                    mensagem = $"Erro ao tentar consultar os dados do Processo. Ex:{ex.Message}",
+                    sucesso = false,
+                    processo = null
+                };
             }
 
             return consultar;
         }
 
-        public List<tipoMovimentoProcessual> obterMovimentacoes(string numeroProcesso)
+        /// <summary>
+        /// Método para obter os dados básicos informadas no XML do ESAJ e devolver no padrão do MNI PJE
+        /// </summary>
+        /// <param name="objDadosProcessoRetorno"></param>
+        /// <returns></returns>
+        private tipoCabecalhoProcesso ObterDadosBasicos(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
+        {
+            var processo = objDadosProcessoRetorno.MessageBody.Resposta.Processo;
+            var dadosBasicos = new tipoCabecalhoProcesso();
+
+            dadosBasicos.codigoLocalidade = "1";
+            dadosBasicos.dataAjuizamento = processo.DataAjuizamento;
+            dadosBasicos.classeProcessual = Int32.Parse(processo.Classe.Codigo);
+            dadosBasicos.competencia = 4;
+            dadosBasicos.numero = processo.Numero;
+
+            return dadosBasicos;
+        }
+
+        /// <summary>
+        /// Método para obter as partes informadas no XML do ESAJ e devolver no padrão do MNI PJE
+        /// </summary>
+        /// <param name="objDadosProcessoRetorno"></param>
+        /// <returns></returns>
+        private List<tipoPoloProcessual> ObterPartes(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
+        {
+            List<tipoPoloProcessual> tipoPoloProcessuais = new List<tipoPoloProcessual>();
+
+            var partes = objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes;
+
+            var parteAtivas = new List<tipoParte>();
+            foreach (var pAtiva in partes.PartesAtivas)
+            {
+                var documentos = new List<tipoDocumentoIdentificacao>();
+
+                var pessoaRelacionadas = new List<tipoRelacionamentoPessoal>();
+
+                //CASO EXISTA OS ADVS RELACIONA A PARTE.
+                if(pAtiva.Advogados != null && pAtiva.Advogados.Length > 0)
+                {
+                    foreach (var adv in pAtiva.Advogados)
+                    {
+                        pessoaRelacionadas.Add(
+                            new tipoRelacionamentoPessoal()
+                            {
+                                pessoa = new tipoPessoa()
+                                {
+                                    nome = adv.Nome,
+                                    documento = new tipoDocumentoIdentificacao[]
+                                    {
+                                        new tipoDocumentoIdentificacao()
+                                        { nome = "AOB",
+                                          codigoDocumento = adv.OAB
+                                        }
+                                    }
+                                },
+                                modalidadeRelacionamento = modalidadesRelacionamentoPessoal.AP
+                            });
+                    }
+                }                
+
+                if (pAtiva.Documentos != null && pAtiva.Documentos.Length > 0)
+                {
+                    foreach (var doc in pAtiva.Documentos)
+                    {
+                        documentos.Add(new tipoDocumentoIdentificacao()
+                        {
+                            nome = doc.Tipo,
+                            codigoDocumento = doc.Numero                            
+                        });
+                    }
+                }
+                
+                parteAtivas.Add(new tipoParte()
+                {
+                    pessoa = new tipoPessoa()
+                    {
+                        nome = pAtiva.Nome,
+                        documento = documentos.ToArray(),
+                        pessoaRelacionada = pessoaRelacionadas.ToArray(),
+                        sexo = modalidadeGeneroPessoa.M ,
+                        numeroDocumentoPrincipal = documentos.Count > 0 ? documentos[0].codigoDocumento : "",
+                        tipoPessoa1 = tipoQualificacaoPessoa.fisica,
+                        nacionalidade = "BR"
+                    }
+                });
+            }
+
+            tipoPoloProcessuais.Add(new tipoPoloProcessual()
+            {
+                polo = modalidadePoloProcessual.AT,
+                parte = parteAtivas.ToArray(),
+                poloSpecified = true
+            });
+
+            var partePassivas = new List<tipoParte>();
+            foreach (var pPassiva in partes.PartesPassivas)
+            {
+                var documentos = new List<tipoDocumentoIdentificacao>();
+
+                var pessoaRelacionadas = new List<tipoRelacionamentoPessoal>();
+
+                //CASO EXISTA OS ADVS RELACIONA A PARTE.
+                if (pPassiva.Advogados != null && pPassiva.Advogados.Length > 0)
+                {
+                    foreach (var adv in pPassiva.Advogados)
+                    {
+                        pessoaRelacionadas.Add(
+                            new tipoRelacionamentoPessoal()
+                            {
+                                pessoa = new tipoPessoa()
+                                {
+                                    nome = adv.Nome,
+                                    documento = new tipoDocumentoIdentificacao[]
+                                    {
+                                        new tipoDocumentoIdentificacao()
+                                        { nome = "AOB",
+                                          codigoDocumento = adv.OAB
+                                        }
+                                    }
+                                },
+                                modalidadeRelacionamento = modalidadesRelacionamentoPessoal.AP
+                            });
+                    }
+                }
+
+                if (pPassiva.Documentos != null && pPassiva.Documentos.Length > 0)
+                {
+                    foreach (var doc in pPassiva.Documentos)
+                    {
+                        documentos.Add(new tipoDocumentoIdentificacao()
+                        {
+                            nome = doc.Tipo,
+                            codigoDocumento = doc.Numero
+                        });
+                    }
+                }
+
+                partePassivas.Add(new tipoParte()
+                {
+                    pessoa = new tipoPessoa()
+                    {
+                        nome = pPassiva.Nome,
+                        documento = documentos.ToArray(),
+                        pessoaRelacionada = pessoaRelacionadas.ToArray(),
+                        sexo = modalidadeGeneroPessoa.M,
+                        numeroDocumentoPrincipal = documentos.Count > 0 ? documentos[0].codigoDocumento : "",
+                        tipoPessoa1 = tipoQualificacaoPessoa.fisica,
+                        nacionalidade = "BR"
+                    }
+                });
+            }
+
+            tipoPoloProcessuais.Add(new tipoPoloProcessual()
+            {
+                polo = modalidadePoloProcessual.PA,
+                parte = partePassivas.ToArray(),
+                poloSpecified = true
+            });
+
+            return tipoPoloProcessuais;
+        }
+
+        /// <summary>
+        /// Método para obter os dados básicos informadas no site do ESAJ - padrão HTML - e devolver no padrão do MNI PJE
+        /// </summary>
+        /// <param name="numeroProcesso"></param>
+        /// <returns></returns>
+        public List<tipoMovimentoProcessual> ObterMovimentacoes(string numeroProcesso)
         {
             //JavaScriptSerializer jss = new JavaScriptSerializer();
             //StringBuilder dados_movimentacoes_processo = new StringBuilder();
@@ -187,6 +367,8 @@ namespace Core.Api.Integracao
                                             {
                                                 var dadosTratado = HttpUtility.HtmlDecode(domValor["a"][0].InnerHTML).Replace("\n", "").Replace("\t", "").Trim();
                                                 string data = dadosTratado.Substring(0, 10).Trim();
+                                                string[] dataFormat = data.Split("/");
+                                                data = dataFormat[2] + dataFormat[1] + dataFormat[0]+ "000000";
                                                 string texto = dadosTratado.Substring(10).Trim();
                                                 //Dictionary<string, string> dados = new Dictionary<string, string>();
                                                 //dados.Add("texto", texto + " - " + HttpUtility.HtmlDecode(textoMovimentacao).Replace("\n", "").Replace("\t", "").Trim());
@@ -211,6 +393,8 @@ namespace Core.Api.Integracao
                                                 try
                                                 {
                                                     string data = HttpUtility.HtmlDecode(domValor["label"][0].InnerHTML).Replace("\n", "").Replace("\t", "").Substring(0, 10).Trim();
+                                                    string[] dataFormat = data.Split("/");
+                                                    data = dataFormat[2] + dataFormat[1] + dataFormat[0]+ "000000";
                                                     string texto = HttpUtility.HtmlDecode(domValor["label"][0].InnerHTML).Replace("\n", "").Replace("\t", "").Substring(10).Trim();
                                                     Dictionary<string, string> dados = new Dictionary<string, string>
                                                     {

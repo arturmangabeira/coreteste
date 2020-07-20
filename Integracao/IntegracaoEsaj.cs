@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Core.Api.Data;
 using Core.Api.Entidades;
 using Core.Api.Objects;
 using CsQuery;
@@ -18,10 +19,13 @@ namespace Core.Api.Integracao
     {
         public Proxy ObjProxy { get; }
         public IConfiguration Configuration { get; }
-        public IntegracaoEsaj(Proxy proxy) 
+
+        public Log logOperacao { get; }
+        public IntegracaoEsaj(Proxy proxy, DataContext dataContext) 
         {
             this.Configuration = ConfigurationManager.ConfigurationManager.AppSettings;
             this.ObjProxy = proxy;
+            this.logOperacao = new Log(dataContext);
         }
 
         public consultarProcessoResponse ObterDadosProcesso(ConsultarProcesso consultarProcesso)
@@ -33,6 +37,7 @@ namespace Core.Api.Integracao
             try
             {
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
+                this.ObjProxy.CdIdeia = consultarProcesso.idConsultante;
                 if (consultarProcesso.incluirCabecalho)
                 {
                     Entidades.ConsultaProcesso.Message Message = new Entidades.ConsultaProcesso.Message();

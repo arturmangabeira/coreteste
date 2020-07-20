@@ -22,54 +22,5 @@ namespace Core.Api.Controllers
         {
             this.Context = context;
         }
-
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            /*return new Evento[]{
-                new Evento(){
-                    DataEvento = "12/02/2020",
-                    EventoId = 1,
-                    Local = "testse",
-                    Lote = "1",
-                    QtdPessoas = 3,
-                    Tema = "Show" 
-                },
-                new Evento(){
-                    DataEvento = "12/02/2020",
-                    EventoId = 1,
-                    Local = "testse",
-                    Lote = "1",
-                    QtdPessoas = 3,
-                    Tema = "Show" 
-                }
-            };*/
-            try            
-            {
-                var results = await this.Context.Eventos.ToListAsync();     
-                return Ok(results);
-            }
-            catch (System.Exception)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError,"Falha no banco de dados!");                
-            }
-            
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
-        {
-            try
-            {
-                var result = await this.Context.Eventos.FirstOrDefaultAsync(x => x.EventoId == id);            
-                return Ok(result);
-
-            }
-            catch (System.Exception)
-            {
-                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha no banco de dados!");                
-            }
-            
-        }
     }
 }

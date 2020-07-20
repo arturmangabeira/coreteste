@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
+using Core.Api.Data;
 using Core.Api.Entidades;
+using Core.Api.Models;
 using IntegracaoTJBA;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Configuration;
@@ -13,12 +15,19 @@ namespace Core.Api.Integracao
         private readonly ServicoPJ2PortType objProxy;
         private readonly string repositorio;
         private readonly string certificado;
+        private Log logOperacao { get; }
+
+        private DataContext DataContext { get; }
 
         public IConfiguration Configuration { get; }
 
-        public Proxy()
+        public string CdIdeia { get; set; }
+
+        public Proxy(DataContext dataContext)
         {
             this.Configuration = ConfigurationManager.ConfigurationManager.AppSettings;
+            this.logOperacao = new Log(dataContext);
+
             if (this.objProxy == null)
             {
                 this.objProxy = new ServicoPJ2PortTypeClient(
@@ -38,14 +47,31 @@ namespace Core.Api.Integracao
             
             this.repositorio = this.Configuration["Certificado:RepositorioCertificado"];
             this.certificado = this.Configuration["Certificado:ThumberPrint"];
-
         }
 
         public string Login(Mensagem objmensagem)
         {
-
+            var dtInicial = DateTime.Now;
             Entidades.SolicitaLogonRetorno.Message objSolicitaLoginRetorno = SolicitaLogon(objmensagem);
-
+            var dtFinal = DateTime.Now;
+            //REGISTAR LOGON
+            TLogOperacao operacao = new TLogOperacao()
+            {
+                CdIdea = this.CdIdeia,
+                DsCaminhoDocumentosChamada = "/nfs/INTEGRADORIDEA_Desenvolvimento_VARDATA/xml/2020/07/18/365_chamada_consultaprocesso_20200718170200.xml",
+                DsCaminhoDocumentosRetorno = "/nfs/INTEGRADORIDEA_Desenvolvimento_VARDATA/xml/2020/07/18/365_retorno_consultaprocesso_20200718170300.xml",
+                DsIpdestino = "192.168.0.1",
+                DsIporigem = "192.168.0.1",
+                DsLogOperacao = "Login",
+                DtInicioOperacao = dtInicial,
+                DtFinalOperacao = dtFinal,
+                DtLogOperacao = DateTime.Now,
+                FlOperacao = true,
+                IdTipoOperacao = 1,
+                IdTipoRetorno = 1
+            };
+            //REGISTRA O LOG
+            this.logOperacao.RegistrarLOGOperacao(operacao);
             return ConfirmaLogon(objSolicitaLoginRetorno);
 
         }

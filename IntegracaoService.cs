@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Linq;
 using System.Collections.Generic;
-using Core.Api.Model;
+using Core.Api.Models;
 using Core.Api.Integracao;
 using Microsoft.Extensions.Logging;
 using Core.Api.Objects;
@@ -26,8 +26,8 @@ namespace Core.Api
             this.configuration = config;
             this.DataContext = dataContext;
             _logger = logger;
-            this.ObjProxy = new Proxy();
-            this.integracaoEsaj = new IntegracaoEsaj(this.ObjProxy);
+            this.ObjProxy = new Proxy(dataContext);
+            this.integracaoEsaj = new IntegracaoEsaj(this.ObjProxy, this.DataContext);
         }
 
         public string AutenticarESAJ()
@@ -47,9 +47,11 @@ namespace Core.Api
             return "<![CDATA[" + ObjProxy.GetTiposDocDigital(codigo) + "]]>";
         }
 
-        public List<DocumentoDigital> ObterDocumentoDigitaisBD()
+        public List<TTipoOperacao> ObterTipoOperacaoBD()
         {
-            return this.DataContext.DocumentoDigitais.ToList();
+            var retorno = this.DataContext.TTipoOperacao.ToList();
+
+            return retorno;
         }
 
         public consultarProcessoResponse ObterDadosProcesso(ConsultarProcesso consultarProcesso)

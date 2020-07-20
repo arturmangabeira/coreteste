@@ -1,4 +1,4 @@
-﻿using Core.Api.Model;
+﻿using Core.Api.Models;
 using Core.Api.Objects;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -17,7 +17,7 @@ namespace Core.Api.Integracao
         string GetTiposDocDigitalXML(string codigo);
 
         [OperationContract]
-        List<DocumentoDigital> ObterDocumentoDigitaisBD();
+        List<TTipoOperacao> ObterTipoOperacaoBD();
         [OperationContract]
         public consultarProcessoResponse ObterDadosProcesso(ConsultarProcesso consultarProcesso);
     }

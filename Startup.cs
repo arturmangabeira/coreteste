@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using SoapCore;
 
@@ -27,7 +28,7 @@ namespace Core.Api
                 x => x.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection"))
             );
                      
-            services.AddScoped<IIntegracaoService, IntegracaoService>();            
+            services.AddScoped<IIntegracaoService, IntegracaoService>();                        
             services.AddControllers();            
         }
 

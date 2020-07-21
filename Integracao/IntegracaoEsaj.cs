@@ -69,11 +69,43 @@ namespace Core.Api.Integracao
                     objDadosProcessoRetorno = objDadosProcessoRetorno.ExtrairObjeto<Entidades.ConsultaProcessoResposta.Message>(xmlDadosProcessoRetorno);
 
                     if (objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Codigo == "0")
-                    {                        
+                    {
+                        var processo = objDadosProcessoRetorno.MessageBody.Resposta.Processo;
                         //OBTÉM OS DADOS BÁSICOS
                         tipoProcessoJudicial.dadosBasicos = this.ObterDadosBasicos(objDadosProcessoRetorno);
                         //OBTÉM OS DADOS DA PARTE
-                        tipoProcessoJudicial.dadosBasicos.polo = this.ObterPartes(objDadosProcessoRetorno).ToArray();                        
+                        tipoProcessoJudicial.dadosBasicos.polo = this.ObterPartes(objDadosProcessoRetorno).ToArray();
+                        //OBTÉM OS DADOS DO ASSUNTO
+                        tipoProcessoJudicial.dadosBasicos.assunto = new tipoAssuntoProcessual[]{ 
+                            new tipoAssuntoProcessual()
+                            {
+                                codigoNacional = Int32.Parse(processo.AssuntoPrincipal.Codigo),
+                                assuntoLocal = new tipoAssuntoLocal(){ 
+                                    codigoAssunto = Int32.Parse(processo.AssuntoPrincipal.Codigo),
+                                    descricao = processo.AssuntoPrincipal.Descricao
+                                },
+                                principal = true,
+                                principalSpecified = true
+                            } 
+                        };
+                        //OBTÉM OS DADOS OUTROS PARAMETROS
+                        tipoProcessoJudicial.dadosBasicos.outroParametro = new tipoParametro[]
+                        {
+                            new tipoParametro()
+                            {
+                                nome = "mni:esaj:dataDistribuicao",
+                                valor = processo.DataDistribuicao.Replace("-","")+"000000"
+                            }
+                        };
+                        //OBTÉM OS DADOS DO VALOR CAUSA
+                        tipoProcessoJudicial.dadosBasicos.valorCausa = Double.Parse(processo.ValorCausa);
+                        //OBTÉM OS DADOS DO ORGAO JULGADOR
+                        tipoProcessoJudicial.dadosBasicos.orgaoJulgador = new tipoOrgaoJulgador()
+                        {
+                            codigoOrgao = processo.Vara.Codigo,
+                            instancia = processo.Vara.Competencia.Descricao,
+                            nomeOrgao = processo.Vara.Nome
+                        };
                         //ACRESCENTA A MOVIMENTAÇÃO CASO SEJA INFORMADO.
                         if (consultarProcesso.movimentos)
                         {
@@ -195,15 +227,17 @@ namespace Core.Api.Integracao
         private tipoCabecalhoProcesso ObterDadosBasicos(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
         {
             var processo = objDadosProcessoRetorno.MessageBody.Resposta.Processo;
-            var dadosBasicos = new tipoCabecalhoProcesso();
 
-            dadosBasicos.codigoLocalidade = "1";
-            dadosBasicos.dataAjuizamento = processo.DataAjuizamento;
-            dadosBasicos.classeProcessual = Int32.Parse(processo.Classe.Codigo);
-            dadosBasicos.competencia = 4;
-            dadosBasicos.numero = processo.Numero;
+            var dtAjuizamento = processo.DataAjuizamento.Replace("-", "") + "000000";
 
-            return dadosBasicos;
+            return new tipoCabecalhoProcesso() {
+                codigoLocalidade = "1",
+                dataAjuizamento = dtAjuizamento,
+                classeProcessual = Int32.Parse(processo.Classe.Codigo),
+                competencia = Int32.Parse(processo.Foro.Codigo),
+                numero = processo.Numero,
+                nivelSigilo = 0
+            };            
         }
 
         /// <summary>
@@ -215,17 +249,34 @@ namespace Core.Api.Integracao
         {
             List<tipoPoloProcessual> tipoPoloProcessuais = new List<tipoPoloProcessual>();
 
-            var partes = objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes;
+            tipoPoloProcessuais.Add(new tipoPoloProcessual()
+            {
+                polo = modalidadePoloProcessual.AT,
+                parte = this.ObterParteAtiva(objDadosProcessoRetorno).ToArray(),
+                poloSpecified = true
+            });
 
+            tipoPoloProcessuais.Add(new tipoPoloProcessual()
+            {
+                polo = modalidadePoloProcessual.PA,
+                parte = this.ObterPartePassiva(objDadosProcessoRetorno).ToArray(),
+                poloSpecified = true
+            });
+
+            return tipoPoloProcessuais;
+        }
+
+        private List<tipoParte> ObterParteAtiva(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
+        {
             var parteAtivas = new List<tipoParte>();
-            foreach (var pAtiva in partes.PartesAtivas)
+            foreach (var pAtiva in objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesAtivas)
             {
                 var documentos = new List<tipoDocumentoIdentificacao>();
 
                 var pessoaRelacionadas = new List<tipoRelacionamentoPessoal>();
 
                 //CASO EXISTA OS ADVS RELACIONA A PARTE.
-                if(pAtiva.Advogados != null && pAtiva.Advogados.Length > 0)
+                if (pAtiva.Advogados != null && pAtiva.Advogados.Length > 0)
                 {
                     foreach (var adv in pAtiva.Advogados)
                     {
@@ -239,14 +290,14 @@ namespace Core.Api.Integracao
                                     {
                                         new tipoDocumentoIdentificacao()
                                         { nome = "AOB",
-                                          codigoDocumento = adv.OAB
+                                          codigoDocumento = Util.OnlyNumbers(adv.OAB)
                                         }
                                     }
                                 },
                                 modalidadeRelacionamento = modalidadesRelacionamentoPessoal.AP
                             });
                     }
-                }                
+                }
 
                 if (pAtiva.Documentos != null && pAtiva.Documentos.Length > 0)
                 {
@@ -254,12 +305,37 @@ namespace Core.Api.Integracao
                     {
                         documentos.Add(new tipoDocumentoIdentificacao()
                         {
-                            nome = doc.Tipo,
-                            codigoDocumento = doc.Numero                            
+                            nome = doc.Tipo.Trim(),
+                            codigoDocumento = Util.OnlyNumbers(doc.Numero)
                         });
                     }
                 }
-                
+
+                modalidadeGeneroPessoa genero = modalidadeGeneroPessoa.M;
+                if (pAtiva.Genero == "Masculino")
+                {
+                    genero = modalidadeGeneroPessoa.M;
+                }
+                else
+                {
+                    if (pAtiva.Genero == "Feminino")
+                    {
+                        genero = modalidadeGeneroPessoa.F;
+                    }
+                    else
+                    {
+                        genero = modalidadeGeneroPessoa.D;
+                    }
+                }
+                tipoQualificacaoPessoa tipoPessoa = tipoQualificacaoPessoa.fisica;
+                if (pAtiva.TipoPessoa == "Juridica")
+                {
+                    tipoPessoa = tipoQualificacaoPessoa.juridica;
+                }
+                else
+                {
+                    tipoPessoa = tipoQualificacaoPessoa.fisica;
+                }
                 parteAtivas.Add(new tipoParte()
                 {
                     pessoa = new tipoPessoa()
@@ -267,23 +343,21 @@ namespace Core.Api.Integracao
                         nome = pAtiva.Nome,
                         documento = documentos.ToArray(),
                         pessoaRelacionada = pessoaRelacionadas.ToArray(),
-                        sexo = modalidadeGeneroPessoa.M ,
-                        numeroDocumentoPrincipal = documentos.Count > 0 ? documentos[0].codigoDocumento : "",
-                        tipoPessoa1 = tipoQualificacaoPessoa.fisica,
+                        sexo = genero,
+                        numeroDocumentoPrincipal = documentos.Count > 0 ? Util.OnlyNumbers(documentos[0].codigoDocumento) : "",
+                        tipoPessoa1 = tipoPessoa,
                         nacionalidade = "BR"
                     }
                 });
             }
 
-            tipoPoloProcessuais.Add(new tipoPoloProcessual()
-            {
-                polo = modalidadePoloProcessual.AT,
-                parte = parteAtivas.ToArray(),
-                poloSpecified = true
-            });
+            return parteAtivas;
+        }
 
+        private List<tipoParte> ObterPartePassiva(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
+        {
             var partePassivas = new List<tipoParte>();
-            foreach (var pPassiva in partes.PartesPassivas)
+            foreach (var pPassiva in objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesPassivas)
             {
                 var documentos = new List<tipoDocumentoIdentificacao>();
 
@@ -304,7 +378,7 @@ namespace Core.Api.Integracao
                                     {
                                         new tipoDocumentoIdentificacao()
                                         { nome = "AOB",
-                                          codigoDocumento = adv.OAB
+                                          codigoDocumento = Util.OnlyNumbers(adv.OAB)
                                         }
                                     }
                                 },
@@ -319,10 +393,36 @@ namespace Core.Api.Integracao
                     {
                         documentos.Add(new tipoDocumentoIdentificacao()
                         {
-                            nome = doc.Tipo,
-                            codigoDocumento = doc.Numero
+                            nome = doc.Tipo.Trim(),
+                            codigoDocumento = Util.OnlyNumbers(doc.Numero)
                         });
                     }
+                }
+
+                modalidadeGeneroPessoa genero = modalidadeGeneroPessoa.M;
+                if (pPassiva.Genero == "Masculino")
+                {
+                    genero = modalidadeGeneroPessoa.M;
+                }
+                else
+                {
+                    if (pPassiva.Genero == "Feminino")
+                    {
+                        genero = modalidadeGeneroPessoa.F;
+                    }
+                    else
+                    {
+                        genero = modalidadeGeneroPessoa.D;
+                    }
+                }
+                tipoQualificacaoPessoa tipoPessoa = tipoQualificacaoPessoa.fisica;
+                if (pPassiva.TipoPessoa == "Juridica")
+                {
+                    tipoPessoa = tipoQualificacaoPessoa.juridica;
+                }
+                else
+                {
+                    tipoPessoa = tipoQualificacaoPessoa.fisica;
                 }
 
                 partePassivas.Add(new tipoParte()
@@ -332,22 +432,15 @@ namespace Core.Api.Integracao
                         nome = pPassiva.Nome,
                         documento = documentos.ToArray(),
                         pessoaRelacionada = pessoaRelacionadas.ToArray(),
-                        sexo = modalidadeGeneroPessoa.M,
-                        numeroDocumentoPrincipal = documentos.Count > 0 ? documentos[0].codigoDocumento : "",
-                        tipoPessoa1 = tipoQualificacaoPessoa.fisica,
+                        sexo = genero,
+                        numeroDocumentoPrincipal = documentos.Count > 0 ? Util.OnlyNumbers(documentos[0].codigoDocumento) : "",
+                        tipoPessoa1 = tipoPessoa,
                         nacionalidade = "BR"
                     }
                 });
             }
 
-            tipoPoloProcessuais.Add(new tipoPoloProcessual()
-            {
-                polo = modalidadePoloProcessual.PA,
-                parte = partePassivas.ToArray(),
-                poloSpecified = true
-            });
-
-            return tipoPoloProcessuais;
+            return partePassivas;
         }
 
         /// <summary>
@@ -451,7 +544,9 @@ namespace Core.Api.Integracao
                                                 var movimento = new tipoMovimentoProcessual()
                                                 {
                                                     dataHora = data,
-                                                    complemento = new string [] {texto + HttpUtility.HtmlDecode(textoMovimentacao).Replace("\n", "").Replace("\t", "").Trim()}                                                    
+                                                    movimentoNacional = new tipoMovimentoNacional(){
+                                                       complemento = new string [] {texto + HttpUtility.HtmlDecode(textoMovimentacao).Replace("\n", "").Replace("\t", "").Trim()}
+                                                    }
                                                 };
                                                 tipoMovimentoProcessual.Add(movimento);
                                             }
@@ -479,7 +574,9 @@ namespace Core.Api.Integracao
                                                     var movimento = new tipoMovimentoProcessual()
                                                     {
                                                         dataHora = data,
-                                                        complemento = new string[] { texto.Trim() }
+                                                        movimentoNacional = new tipoMovimentoNacional() {
+                                                          complemento =  new string[] { texto.Trim() }
+                                                        }
                                                     };
                                                     tipoMovimentoProcessual.Add(movimento);
                                                 }

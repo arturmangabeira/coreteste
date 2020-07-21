@@ -276,8 +276,6 @@ C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\Sys
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.AssemblyInfoInputs.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.AssemblyInfo.cs
-C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.csproj.CoreCompileInputs.cache
-C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.RazorTargetAssemblyInfo.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.csproj.CopyComplete
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\staticwebassets\Core.Api.StaticWebAssets.Manifest.cache
@@ -286,3 +284,5 @@ C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.dll
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.pdb
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.genruntimeconfig.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.csprojAssemblyReference.cache
+C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.csproj.CoreCompileInputs.cache
+C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.MvcApplicationPartsAssemblyInfo.cache

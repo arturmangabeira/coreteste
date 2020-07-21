@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace Core.Api.Integracao
 {
     public class Util
     {
         private static Random random = new Random();
+        private static Regex numbersOnly = new Regex(@"[^\d]");
         public static string RandomString(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -56,6 +58,11 @@ namespace Core.Api.Integracao
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+
+        public static string OnlyNumbers(string document)
+        {
+            return numbersOnly.Replace(document.Trim(), "");
         }
     }
 }

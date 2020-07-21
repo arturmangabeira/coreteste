@@ -113,7 +113,7 @@ namespace Core.Api.Integracao
             //Procura como LocalMachine
             if (!encontradoCertificado)
             {
-                string nomeCertificado02 = configuration.GetValue<string>("Certificado:NomeCertificado");
+                string nomeCertificado02 = configuration.GetValue<string>("Certificado:ThumberPrint");
                 //string nomeCertificado02 = ConfigurationManager.AppSettings.Get("CertificadoEnvio02");
                 //busca por currentuser e depois
                 new X509Store(LocalRepositorio, StoreLocation.CurrentUser);

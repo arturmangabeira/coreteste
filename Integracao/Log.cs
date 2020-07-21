@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace Core.Api.Integracao
 {
@@ -29,7 +30,7 @@ namespace Core.Api.Integracao
                 logOperacao.DsCaminhoDocumentosRetorno = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosRetorno,
                     logOperacao.CdIdea,
                     logOperacao.IdTipoOperacao
-                    , "retorno");
+                    , "retorno");                
                 this.DataContext.TLogOperacao.Add(logOperacao);
                 this.DataContext.SaveChanges();
             }
@@ -44,16 +45,30 @@ namespace Core.Api.Integracao
             var config = ConfigurationManager.ConfigurationManager.AppSettings;
             var caminho = config["Diretorios:DsCaminhoDocumentos"];
             var pathDirectorySeparator = Path.DirectorySeparatorChar;
+            //CRIA AS PASTAS NECESSÁRIAS PARA ARMAZENAR NO SERVIDOR
+            this.CriarPastaLogs();
+
             string nomeFile = cdIdeia;
 
             if(IdTipoOperacao == config.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"))
             {
                 nomeFile += "_" + tipoCaminho + "_consultarprocesso_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
             }
+            var caminhoTotal = caminho + pathDirectorySeparator + DateTime.Now.ToString("yyyy") + pathDirectorySeparator + DateTime.Now.ToString("MM") + pathDirectorySeparator + DateTime.Now.ToString("dd") + pathDirectorySeparator + nomeFile;
+            //ESCREVE NO CAMINHO ESPECIFICADO 
+            File.WriteAllBytes(caminhoTotal, Convert.FromBase64String(Util.Base64Encode(XML)));
 
+            return caminhoTotal;
+        }
+
+        private void CriarPastaLogs()
+        {
+            var config = ConfigurationManager.ConfigurationManager.AppSettings;
+            var caminho = config["Diretorios:DsCaminhoDocumentos"];
+            var pathDirectorySeparator = Path.DirectorySeparatorChar;
             //VERIFICA O CAMINHO DA PASTA PARA GERAR E ESCREVER NO LOCAL
             //VERIFICACAO POR ANO
-            if(!Directory.Exists(caminho + pathDirectorySeparator + DateTime.Now.ToString("yyyy")))
+            if (!Directory.Exists(caminho + pathDirectorySeparator + DateTime.Now.ToString("yyyy")))
             {
                 Directory.CreateDirectory(caminho + pathDirectorySeparator + DateTime.Now.ToString("yyyy"));
             }
@@ -68,12 +83,6 @@ namespace Core.Api.Integracao
             {
                 Directory.CreateDirectory(caminho + pathDirectorySeparator + DateTime.Now.ToString("yyyy") + pathDirectorySeparator + DateTime.Now.ToString("MM") + pathDirectorySeparator + DateTime.Now.ToString("dd"));
             }
-            
-            var caminhoTotal = caminho + pathDirectorySeparator + DateTime.Now.ToString("yyyy") + pathDirectorySeparator + DateTime.Now.ToString("MM") + pathDirectorySeparator + DateTime.Now.ToString("dd") + pathDirectorySeparator + nomeFile;
-            //ESCREVE NO CAMINHO ESPECIFICADO 
-            File.WriteAllBytes(caminhoTotal, Convert.FromBase64String(Util.Base64Encode(XML)));
-
-            return caminhoTotal;
         }
     }
 }

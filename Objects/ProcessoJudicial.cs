@@ -82,6 +82,8 @@ namespace Core.Api.Objects
 
         private string[] complementoField;
 
+        private tipoMovimentoNacional movimentoNacionalField;
+
         private string dataHoraField;
 
         /// <remarks/>
@@ -98,6 +100,18 @@ namespace Core.Api.Objects
             }
         }
 
+        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        public tipoMovimentoNacional movimentoNacional
+        {
+            get
+            {
+                return this.movimentoNacionalField;
+            }
+            set
+            {
+                this.movimentoNacionalField = value;                
+            }
+        }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -120,12 +134,128 @@ namespace Core.Api.Objects
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    public partial class tipoOrgaoJulgador
+    {
+
+        private string codigoOrgaoField;
+
+        private string nomeOrgaoField;
+
+        private string instanciaField;
+
+        private int codigoMunicipioIBGEField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string codigoOrgao
+        {
+            get
+            {
+                return this.codigoOrgaoField;
+            }
+            set
+            {
+                this.codigoOrgaoField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string nomeOrgao
+        {
+            get
+            {
+                return this.nomeOrgaoField;
+            }
+            set
+            {
+                this.nomeOrgaoField = value;               
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string instancia
+        {
+            get
+            {
+                return this.instanciaField;
+            }
+            set
+            {
+                this.instanciaField = value;            
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int codigoMunicipioIBGE
+        {
+            get
+            {
+                return this.codigoMunicipioIBGEField;
+            }
+            set
+            {
+                this.codigoMunicipioIBGEField = value;         
+            }
+        }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    public partial class tipoMovimentoNacional
+    {
+
+        private string[] complementoField;
+
+        //private int codigoNacionalField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("complemento", IsNullable = true, Order = 0)]
+        public string[] complemento
+        {
+            get
+            {
+                return this.complementoField;
+            }
+            set
+            {
+                this.complementoField = value;                
+            }
+        }
+        /*
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int codigoNacional
+        {
+            get
+            {
+                return this.codigoNacionalField;
+            }
+            set
+            {
+                this.codigoNacionalField = value;         
+            }
+        }*/
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
     public partial class tipoCabecalhoProcesso
     {
 
         private tipoPoloProcessual[] poloField;
 
         private tipoAssuntoProcessual[] assuntoField;
+
+        private tipoParametro[] outroParametroField;
 
         private string[] magistradoAtuanteField;
         
@@ -134,7 +264,9 @@ namespace Core.Api.Objects
         private double valorCausaField;
 
         private bool valorCausaFieldSpecified;
-        
+
+        private tipoOrgaoJulgador orgaoJulgadorField;
+
         private string[] outrosnumerosField;
 
         private string numeroField;
@@ -172,8 +304,21 @@ namespace Core.Api.Objects
             }
         }
 
+        [System.Xml.Serialization.XmlElementAttribute("assunto", Order = 1)]
+        public tipoAssuntoProcessual[] assunto
+        {
+            get
+            {
+                return this.assuntoField;
+            }
+            set
+            {
+                this.assuntoField = value;                
+            }
+        }
+
         /// <remarks/>        
-        [System.Xml.Serialization.XmlElementAttribute("magistradoAtuante", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute("magistradoAtuante", Order = 2)]
         public string[] magistradoAtuante
         {
             get
@@ -191,7 +336,7 @@ namespace Core.Api.Objects
 
 
         /// <remarks/>        
-        [System.Xml.Serialization.XmlElementAttribute("prioridade", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute("prioridade", Order = 3)]
         public string[] prioridade
         {
             get
@@ -205,10 +350,21 @@ namespace Core.Api.Objects
             }
         }
 
-        /// <remarks/>               
+       
+        [System.Xml.Serialization.XmlElementAttribute("outroParametro", IsNullable = true, Order = 4)]
+        public tipoParametro[] outroParametro
+        {
+            get
+            {
+                return this.outroParametroField;
+            }
+            set
+            {
+                this.outroParametroField = value;                
+            }
+        }
 
-        /// <remarks/>        
-        [System.Xml.Serialization.XmlElementAttribute("valorCausa", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
         public double valorCausa
         {
             get
@@ -217,8 +373,7 @@ namespace Core.Api.Objects
             }
             set
             {
-                this.valorCausaField = value;
-                
+                this.valorCausaField = value;                
             }
         }
 
@@ -237,8 +392,21 @@ namespace Core.Api.Objects
             }
         }
 
+        [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+        public tipoOrgaoJulgador orgaoJulgador
+        {
+            get
+            {
+                return this.orgaoJulgadorField;
+            }
+            set
+            {
+                this.orgaoJulgadorField = value;             
+            }
+        }
+
         /// <remarks/>        
-        [System.Xml.Serialization.XmlElementAttribute("outrosnumeros", IsNullable = true, Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute("outrosnumeros", IsNullable = true, Order = 7)]
         /// <remarks/>        
         public string[] outrosnumeros
         {
@@ -412,6 +580,47 @@ namespace Core.Api.Objects
          
             }
         }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    public partial class tipoParametro
+    {
+
+        private string nomeField;
+
+        private string valorField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string nome
+        {
+            get
+            {
+                return this.nomeField;
+            }
+            set
+            {
+                this.nomeField = value;               
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string valor
+        {
+            get
+            {
+                return this.valorField;
+            }
+            set
+            {
+                this.valorField = value;         
+            }
+        }       
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
@@ -1401,29 +1610,11 @@ namespace Core.Api.Objects
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
     public partial class tipoAssuntoLocal
-    {
-
-        private tipoAssuntoLocal assuntoLocalPaiField;
+    {       
 
         private int codigoAssuntoField;
 
-        private int codigoPaiNacionalField;
-
         private string descricaoField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
-        public tipoAssuntoLocal assuntoLocalPai
-        {
-            get
-            {
-                return this.assuntoLocalPaiField;
-            }
-            set
-            {
-                this.assuntoLocalPaiField = value;                
-            }
-        }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -1436,20 +1627,6 @@ namespace Core.Api.Objects
             set
             {
                 this.codigoAssuntoField = value;                
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public int codigoPaiNacional
-        {
-            get
-            {
-                return this.codigoPaiNacionalField;
-            }
-            set
-            {
-                this.codigoPaiNacionalField = value;                
             }
         }
 

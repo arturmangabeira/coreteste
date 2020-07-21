@@ -11,22 +11,6 @@ namespace Core.Api.Data
             
         }
 
-        /*public DataContext(IConfiguration config)
-        {
-            this.configuration = config;
-        }*/
-
-        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            ///Configuration.GetConnectionString("DefaultConnection")
-            //optionsBuilder.
-            optionsBuilder.UseSqlite(this.configuration.GetConnectionString("DefaultConnection"));
-        }*/
-
-        //public DbSet<Evento> Eventos { get; set; }
-
-        //public DbSet<DocumentoDigital> DocumentoDigitais { get; set; }
-
         public virtual DbSet<TComunicacaoEletronica> TComunicacaoEletronica { get; set; }
         public virtual DbSet<TConfiguracao> TConfiguracao { get; set; }
         public virtual DbSet<TFilaPastaDigital> TFilaPastaDigital { get; set; }
@@ -41,15 +25,6 @@ namespace Core.Api.Data
         public virtual DbSet<TTipoOperacao> TTipoOperacao { get; set; }
         public virtual DbSet<TTipoRetorno> TTipoRetorno { get; set; }
         public virtual DbSet<TUsuario> TUsuario { get; set; }
-
-        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Persist Security Info=True;User ID=coreteste;Password=bdartur#2019;Initial Catalog=IntegradorIdea;");
-            }
-        }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

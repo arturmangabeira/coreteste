@@ -33,7 +33,7 @@ namespace Core.Api.Integracao
                 this.objProxy = new ServicoPJ2PortTypeClient(
                     new BasicHttpBinding()
                     {
-                        Name = "ServicoPJ2HttpBinding",
+                        Name = Configuration.GetValue<string>("ESAJ:BindingName"),
                         AllowCookies = true,
                         TextEncoding = System.Text.Encoding.UTF8,
                         TransferMode = System.ServiceModel.TransferMode.Buffered,
@@ -58,8 +58,8 @@ namespace Core.Api.Integracao
             TLogOperacao operacao = new TLogOperacao()
             {
                 CdIdea = this.CdIdeia,
-                DsCaminhoDocumentosChamada = "/nfs/INTEGRADORIDEA_Desenvolvimento_VARDATA/xml/2020/07/18/365_chamada_consultaprocesso_20200718170200.xml",
-                DsCaminhoDocumentosRetorno = "/nfs/INTEGRADORIDEA_Desenvolvimento_VARDATA/xml/2020/07/18/365_retorno_consultaprocesso_20200718170300.xml",
+                DsCaminhoDocumentosChamada = objmensagem.Serialize(),
+                DsCaminhoDocumentosRetorno = objSolicitaLoginRetorno.Serialize(),
                 DsIpdestino = "192.168.0.1",
                 DsIporigem = "192.168.0.1",
                 DsLogOperacao = "Login",
@@ -67,11 +67,11 @@ namespace Core.Api.Integracao
                 DtFinalOperacao = dtFinal,
                 DtLogOperacao = DateTime.Now,
                 FlOperacao = true,
-                IdTipoOperacao = 1,
+                IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
                 IdTipoRetorno = 1
             };
             //REGISTRA O LOG
-            this.logOperacao.RegistrarLOGOperacao(operacao);
+            this.logOperacao.RegistrarLogOperacao(operacao);
             return ConfirmaLogon(objSolicitaLoginRetorno);
 
         }
@@ -93,7 +93,29 @@ namespace Core.Api.Integracao
 
             string mensagem = objXML.AssinarXmlString(objConfirmaLogon.Serialize(), this.repositorio, this.certificado, "");
 
-            return objProxy.confirmaLogonAsync(mensagem).Result;
+            var dtInicial = DateTime.Now;                        
+            var retorno = objProxy.confirmaLogonAsync(mensagem).Result;
+            var dtFinal = DateTime.Now;
+            //REGISTAR LOGON
+            TLogOperacao operacao = new TLogOperacao()
+            {
+                CdIdea = this.CdIdeia,
+                DsCaminhoDocumentosChamada = mensagem,
+                DsCaminhoDocumentosRetorno = retorno,
+                DsIpdestino = "192.168.0.1",
+                DsIporigem = "192.168.0.1",
+                DsLogOperacao = "ConfirmaLogon",
+                DtInicioOperacao = dtInicial,
+                DtFinalOperacao = dtFinal,
+                DtLogOperacao = DateTime.Now,
+                FlOperacao = true,
+                IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                IdTipoRetorno = 1
+            };
+            //REGISTRA O LOG
+            this.logOperacao.RegistrarLogOperacao(operacao);
+
+            return retorno;
 
         }
 

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Core.Api.Data;
 using Core.Api.Entidades;
+using Core.Api.Models;
 using Core.Api.Objects;
 using CsQuery;
 using Microsoft.Extensions.Configuration;
@@ -33,7 +34,7 @@ namespace Core.Api.Integracao
             Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno = null;
             consultarProcessoResponse consultar = new consultarProcessoResponse();
             string xmlDadosProcessoRetorno = String.Empty;
-
+            var dtInicial = DateTime.Now;
             try
             {
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
@@ -44,9 +45,9 @@ namespace Core.Api.Integracao
                     Entidades.ConsultaProcesso.MessageMessageId MessageMessageId = new Entidades.ConsultaProcesso.MessageMessageId();
                     Entidades.ConsultaProcesso.MessageMessageBody MessageMessageBody = new Entidades.ConsultaProcesso.MessageMessageBody();
 
-                    MessageMessageId.Code = "201220001662";
+                    MessageMessageId.Code = "202020007662";
                     MessageMessageId.Date = DateTime.Now.ToString("yyyy-MM-dd"); ;
-                    MessageMessageId.FromAddress = "PGMS";
+                    MessageMessageId.FromAddress = "MP-BA";
                     MessageMessageId.ToAddress = "TJ";
                     MessageMessageId.Version = Entidades.ConsultaProcesso.VersionType.Item10;
                     MessageMessageId.MsgDesc = "Consulta Processo";
@@ -60,7 +61,10 @@ namespace Core.Api.Integracao
 
                     string xml = Message.Serialize();
 
-                    xmlDadosProcessoRetorno = this.ObjProxy.ObterDadosProcesso(xml, "201220001662");
+                    
+                    xmlDadosProcessoRetorno = this.ObjProxy.ObterDadosProcesso(xml, "202020007662");                    
+                    
+
                     objDadosProcessoRetorno = new Entidades.ConsultaProcessoResposta.Message();
                     objDadosProcessoRetorno = objDadosProcessoRetorno.ExtrairObjeto<Entidades.ConsultaProcessoResposta.Message>(xmlDadosProcessoRetorno);
 
@@ -75,6 +79,14 @@ namespace Core.Api.Integracao
                         {
                             tipoProcessoJudicial.movimento = this.ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
                         }
+
+                        //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ
+                        consultar = new consultarProcessoResponse()
+                        {
+                            mensagem = objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Descricao,
+                            sucesso = false,
+                            processo = tipoProcessoJudicial
+                        };
                     }
                     else
                     {
@@ -86,6 +98,26 @@ namespace Core.Api.Integracao
                             processo = null
                         };
                     }
+
+                    var dtFinal = DateTime.Now;
+                    //REGISTAR LOGON
+                    TLogOperacao operacao = new TLogOperacao()
+                    {
+                        CdIdea = consultarProcesso.idConsultante,
+                        DsCaminhoDocumentosChamada = xml,
+                        DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
+                        DsIpdestino = "192.168.0.1",
+                        DsIporigem = "192.168.0.1",
+                        DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
+                        DtInicioOperacao = dtInicial,
+                        DtFinalOperacao = dtFinal,
+                        DtLogOperacao = DateTime.Now,
+                        FlOperacao = true,
+                        IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                        IdTipoRetorno = 1
+                    };
+                    //REGISTRA O LOG
+                    this.logOperacao.RegistrarLogOperacao(operacao);
                 }
                 else
                 {
@@ -94,15 +126,34 @@ namespace Core.Api.Integracao
                     {
                         tipoProcessoJudicial.movimento = this.ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
                     }
-                }
+                    //DEVOLVE O OBJETO DE ACORDO COM O CABEÇALHO SOLICITADO.
+                    consultar = new consultarProcessoResponse()
+                    {
+                        mensagem = "Processo consultado com sucesso",
+                        sucesso = true,
+                        processo = tipoProcessoJudicial
+                    };
 
-                //DEVOLVE O OBJETO DE ACORDO COM O CABEÇALHO SOLICITADO.
-                consultar = new consultarProcessoResponse()
-                {
-                    mensagem = "Processo consultado com sucesso",
-                    sucesso = true,
-                    processo = tipoProcessoJudicial
-                };
+                    var dtFinal = DateTime.Now;
+                    //REGISTAR LOGON
+                    TLogOperacao operacao = new TLogOperacao()
+                    {
+                        CdIdea = consultarProcesso.idConsultante,
+                        DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),
+                        DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
+                        DsIpdestino = "192.168.0.1",
+                        DsIporigem = "192.168.0.1",
+                        DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
+                        DtInicioOperacao = dtInicial,
+                        DtFinalOperacao = dtFinal,
+                        DtLogOperacao = DateTime.Now,
+                        FlOperacao = true,
+                        IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                        IdTipoRetorno = 1
+                    };
+                    //REGISTRA O LOG
+                    this.logOperacao.RegistrarLogOperacao(operacao);
+                }
             }
             catch (Exception ex)
             {   
@@ -112,6 +163,25 @@ namespace Core.Api.Integracao
                     sucesso = false,
                     processo = null
                 };
+                var dtFinal = DateTime.Now;
+                //REGISTAR LOGON
+                TLogOperacao operacao = new TLogOperacao()
+                {
+                    CdIdea = consultarProcesso.idConsultante,
+                    DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),
+                    DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
+                    DsIpdestino = "192.168.0.1",
+                    DsIporigem = "192.168.0.1",
+                    DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
+                    DtInicioOperacao = dtInicial,
+                    DtFinalOperacao = dtFinal,
+                    DtLogOperacao = DateTime.Now,
+                    FlOperacao = false,
+                    IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                    IdTipoRetorno = 2
+                };
+                //REGISTRA O LOG
+                this.logOperacao.RegistrarLogOperacao(operacao);
             }
 
             return consultar;

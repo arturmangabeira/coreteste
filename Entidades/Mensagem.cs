@@ -1,7 +1,7 @@
 
 namespace Core.Api.Entidades
 {
-    public class Mensagem
+    public class Mensagem: EntidadeBase
     {
         private string servico;
 

@@ -22,17 +22,20 @@ namespace Core.Api.Integracao
         public void RegistrarLogOperacao(TLogOperacao logOperacao)
         {
             try
-            {                
-                logOperacao.DsCaminhoDocumentosChamada = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosChamada,
-                    logOperacao.CdIdea,
-                    logOperacao.IdTipoOperacao
-                    , "chamada");
-                logOperacao.DsCaminhoDocumentosRetorno = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosRetorno,
-                    logOperacao.CdIdea,
-                    logOperacao.IdTipoOperacao
-                    , "retorno");                
-                this.DataContext.TLogOperacao.Add(logOperacao);
-                this.DataContext.SaveChanges();
+            {
+                var config = ConfigurationManager.ConfigurationManager.AppSettings;
+                if(config.GetValue<bool>("RegistraLog:Registrar")){
+                    logOperacao.DsCaminhoDocumentosChamada = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosChamada,
+                        logOperacao.CdIdea,
+                        logOperacao.IdTipoOperacao
+                        , "chamada");
+                    logOperacao.DsCaminhoDocumentosRetorno = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosRetorno,
+                        logOperacao.CdIdea,
+                        logOperacao.IdTipoOperacao
+                        , "retorno");
+                    this.DataContext.TLogOperacao.Add(logOperacao);
+                    this.DataContext.SaveChanges();
+                }
             }
             catch(Exception ex)
             {
@@ -43,30 +46,47 @@ namespace Core.Api.Integracao
         private string GravarArquivoXML(string XML, string cdIdeia, int IdTipoOperacao, string tipoCaminho)
         {
             var config = ConfigurationManager.ConfigurationManager.AppSettings;
-            var caminho = config["Diretorios:DsCaminhoDocumentos"];
-            var pathDirectorySeparator = Path.DirectorySeparatorChar;
-            //CRIA AS PASTAS NECESSÁRIAS PARA ARMAZENAR NO SERVIDOR
-            this.CriarPastaLogs();
+            var caminhoRetorno = "";
+            if (config.GetValue<bool>("RegistraLog:GravarArquivosXMLs"))
+            {                
+                var caminho = config["Diretorios:DsCaminhoDocumentos"];
+                var caminhoPastaXmls = config["Diretorios:DsPastaXML"];
+                var pathDirectorySeparator = Path.DirectorySeparatorChar;
 
-            string nomeFile = cdIdeia;
+                //ATUALIZA A INFORMAÇÃO DO CAMINHO PARA GERAÇÃO DOS ARQUIVOS.
+                //caminho = caminho + pathDirectorySeparator + caminhoPastaXmls;
+                //CRIA AS PASTAS NECESSÁRIAS PARA ARMAZENAR NO SERVIDOR
+                this.CriarPastaLogs();
 
-            if(IdTipoOperacao == config.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"))
-            {
-                nomeFile += "_" + tipoCaminho + "_consultarprocesso_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                string nomeFile = cdIdeia;
+
+                if (IdTipoOperacao == config.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"))
+                {
+                    nomeFile += "_" + tipoCaminho + "_consultarprocesso_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                }
+                caminhoRetorno = caminhoPastaXmls + pathDirectorySeparator + DateTime.Now.ToString("yyyy") + pathDirectorySeparator + DateTime.Now.ToString("MM") + pathDirectorySeparator + DateTime.Now.ToString("dd") + pathDirectorySeparator + nomeFile;
+                string caminhoTotal = caminho + pathDirectorySeparator + caminhoRetorno;
+                //ESCREVE NO CAMINHO ESPECIFICADO 
+                File.WriteAllBytes(caminhoTotal, Convert.FromBase64String(Util.Base64Encode(XML)));
             }
-            var caminhoTotal = caminho + pathDirectorySeparator + DateTime.Now.ToString("yyyy") + pathDirectorySeparator + DateTime.Now.ToString("MM") + pathDirectorySeparator + DateTime.Now.ToString("dd") + pathDirectorySeparator + nomeFile;
-            //ESCREVE NO CAMINHO ESPECIFICADO 
-            File.WriteAllBytes(caminhoTotal, Convert.FromBase64String(Util.Base64Encode(XML)));
-
-            return caminhoTotal;
+            //RETORNA O CAMINHO RELATIVO 'A PARTIR DO CAMPO Diretorios:DsPastaXML DEFINIDO NO appsettings'
+            return caminhoRetorno;
         }
 
         private void CriarPastaLogs()
         {
             var config = ConfigurationManager.ConfigurationManager.AppSettings;
             var caminho = config["Diretorios:DsCaminhoDocumentos"];
+            var caminhoPastaXmls = config["Diretorios:DsPastaXML"];
             var pathDirectorySeparator = Path.DirectorySeparatorChar;
             //VERIFICA O CAMINHO DA PASTA PARA GERAR E ESCREVER NO LOCAL
+            //VERIFICA SE EXISTE A PASTA INICIAL PARA SALVAR OS ARQUIVOS EM XML
+            if(!Directory.Exists(caminho + pathDirectorySeparator + caminhoPastaXmls))
+            {
+                Directory.CreateDirectory(caminho + pathDirectorySeparator + caminhoPastaXmls);
+            }
+            //ATUALIZA A INFORMAÇÃO DO CAMINHO PARA GERAÇÃO DOS ARQUIVOS.
+            caminho = caminho + pathDirectorySeparator + caminhoPastaXmls;
             //VERIFICACAO POR ANO
             if (!Directory.Exists(caminho + pathDirectorySeparator + DateTime.Now.ToString("yyyy")))
             {

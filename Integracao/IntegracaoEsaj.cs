@@ -299,13 +299,43 @@ namespace Core.Api.Integracao
                     }
                 }
 
+                
+
                 if (pAtiva.Documentos != null && pAtiva.Documentos.Length > 0)
                 {
                     foreach (var doc in pAtiva.Documentos)
                     {
+                        //IDENTIFICACAO DE NOME DO DOCUMENTO:
+                        modalidadeDocumentoIdentificador tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+                        var emissorDocumento = "";
+
+                        switch (doc.Tipo.Trim())
+                        {
+                            case "CPF":
+                                tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+                                emissorDocumento = "Secretaria da Receita Federal do Brasil";
+                                break;
+                            case "RG":
+                                tipoDocumento = modalidadeDocumentoIdentificador.CI;
+                                emissorDocumento = "SSP";
+                                break;
+                            case "CNPJ":
+                                tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+                                emissorDocumento = "Secretaria da Receita Federal do Brasil";
+                                break;
+                            case "OAB":
+                                tipoDocumento = modalidadeDocumentoIdentificador.OAB;
+                                emissorDocumento = "Ordem dos Advogados do Brasil";
+                                break;
+                            default:
+                                break;
+                        }
+
                         documentos.Add(new tipoDocumentoIdentificacao()
                         {
-                            nome = doc.Tipo.Trim(),
+                            nome = pAtiva.Nome.Trim(),
+                            tipoDocumento = tipoDocumento,
+                            emissorDocumento = emissorDocumento,
                             codigoDocumento = Util.OnlyNumbers(doc.Numero)
                         });
                     }
@@ -391,9 +421,37 @@ namespace Core.Api.Integracao
                 {
                     foreach (var doc in pPassiva.Documentos)
                     {
+                        //IDENTIFICACAO DE NOME DO DOCUMENTO:
+                        modalidadeDocumentoIdentificador tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+                        var emissorDocumento = "";
+
+                        switch (doc.Tipo.Trim())
+                        {
+                            case "CPF":
+                                tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+                                emissorDocumento = "Secretaria da Receita Federal do Brasil";
+                                break;
+                            case "RG":
+                                tipoDocumento = modalidadeDocumentoIdentificador.CI;
+                                emissorDocumento = "SSP";
+                                break;
+                            case "CNPJ":
+                                tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+                                emissorDocumento = "Secretaria da Receita Federal do Brasil";
+                                break;
+                            case "OAB":
+                                tipoDocumento = modalidadeDocumentoIdentificador.OAB;
+                                emissorDocumento = "Ordem dos Advogados do Brasil";
+                                break;
+                            default:
+                                break;
+                        }
+
                         documentos.Add(new tipoDocumentoIdentificacao()
                         {
-                            nome = doc.Tipo.Trim(),
+                            nome = pPassiva.Nome.Trim(),
+                            tipoDocumento = tipoDocumento,
+                            emissorDocumento = emissorDocumento,
                             codigoDocumento = Util.OnlyNumbers(doc.Numero)
                         });
                     }

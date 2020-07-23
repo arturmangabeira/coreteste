@@ -54,24 +54,27 @@ namespace Core.Api.Integracao
             var dtInicial = DateTime.Now;
             Entidades.SolicitaLogonRetorno.Message objSolicitaLoginRetorno = SolicitaLogon(objmensagem);
             var dtFinal = DateTime.Now;
-            //REGISTAR LOGON
-            TLogOperacao operacao = new TLogOperacao()
+            if (Configuration.GetValue<bool>("RegistraLog:Metodos:Login"))
             {
-                CdIdea = this.CdIdeia,
-                DsCaminhoDocumentosChamada = objmensagem.Serialize(),
-                DsCaminhoDocumentosRetorno = objSolicitaLoginRetorno.Serialize(),
-                DsIpdestino = "192.168.0.1",
-                DsIporigem = "192.168.0.1",
-                DsLogOperacao = "Login",
-                DtInicioOperacao = dtInicial,
-                DtFinalOperacao = dtFinal,
-                DtLogOperacao = DateTime.Now,
-                FlOperacao = true,
-                IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
-                IdTipoRetorno = 1
-            };
-            //REGISTRA O LOG
-            this.logOperacao.RegistrarLogOperacao(operacao);
+                //REGISTAR LOGON
+                TLogOperacao operacao = new TLogOperacao()
+                {
+                    CdIdea = this.CdIdeia,
+                    DsCaminhoDocumentosChamada = objmensagem.Serialize(),
+                    DsCaminhoDocumentosRetorno = objSolicitaLoginRetorno.Serialize(),
+                    DsIpdestino = "192.168.0.1",
+                    DsIporigem = "192.168.0.1",
+                    DsLogOperacao = "Login",
+                    DtInicioOperacao = dtInicial,
+                    DtFinalOperacao = dtFinal,
+                    DtLogOperacao = DateTime.Now,
+                    FlOperacao = true,
+                    IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoLogin"),
+                    IdTipoRetorno = 1
+                };
+                //REGISTRA O LOG
+                this.logOperacao.RegistrarLogOperacao(operacao);
+            }
             return ConfirmaLogon(objSolicitaLoginRetorno);
 
         }
@@ -96,25 +99,27 @@ namespace Core.Api.Integracao
             var dtInicial = DateTime.Now;                        
             var retorno = objProxy.confirmaLogonAsync(mensagem).Result;
             var dtFinal = DateTime.Now;
-            //REGISTAR LOGON
-            TLogOperacao operacao = new TLogOperacao()
+            if (Configuration.GetValue<bool>("RegistraLog:Metodos:ConfirmaLogon"))
             {
-                CdIdea = this.CdIdeia,
-                DsCaminhoDocumentosChamada = mensagem,
-                DsCaminhoDocumentosRetorno = retorno,
-                DsIpdestino = "192.168.0.1",
-                DsIporigem = "192.168.0.1",
-                DsLogOperacao = "ConfirmaLogon",
-                DtInicioOperacao = dtInicial,
-                DtFinalOperacao = dtFinal,
-                DtLogOperacao = DateTime.Now,
-                FlOperacao = true,
-                IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
-                IdTipoRetorno = 1
-            };
-            //REGISTRA O LOG
-            this.logOperacao.RegistrarLogOperacao(operacao);
-
+                //REGISTAR LOGON
+                TLogOperacao operacao = new TLogOperacao()
+                {
+                    CdIdea = this.CdIdeia,
+                    DsCaminhoDocumentosChamada = mensagem,
+                    DsCaminhoDocumentosRetorno = retorno,
+                    DsIpdestino = "192.168.0.1",
+                    DsIporigem = "192.168.0.1",
+                    DsLogOperacao = "ConfirmaLogon",
+                    DtInicioOperacao = dtInicial,
+                    DtFinalOperacao = dtFinal,
+                    DtLogOperacao = DateTime.Now,
+                    FlOperacao = true,
+                    IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConfirmaLogon"),
+                    IdTipoRetorno = 1
+                };
+                //REGISTRA O LOG
+                this.logOperacao.RegistrarLogOperacao(operacao);
+            }
             return retorno;
 
         }
@@ -144,6 +149,31 @@ namespace Core.Api.Integracao
             Entidades.SolicitaLogonRetorno.Message objRespostaSolicitaLogon = new Entidades.SolicitaLogonRetorno.Message();
             //setProxy();
             string retorno = objProxy.solicitaLogonAsync(mensagem).Result;
+
+            var dtInicial = DateTime.Now;            
+            var dtFinal = DateTime.Now;
+            if (Configuration.GetValue<bool>("RegistraLog:Metodos:SolicitaLogon"))
+            {
+                //REGISTAR LOGON
+                TLogOperacao operacao = new TLogOperacao()
+                {
+                    CdIdea = this.CdIdeia,
+                    DsCaminhoDocumentosChamada = mensagem,
+                    DsCaminhoDocumentosRetorno = retorno,
+                    DsIpdestino = "192.168.0.1",
+                    DsIporigem = "192.168.0.1",
+                    DsLogOperacao = "SolicitaLogon",
+                    DtInicioOperacao = dtInicial,
+                    DtFinalOperacao = dtFinal,
+                    DtLogOperacao = DateTime.Now,
+                    FlOperacao = true,
+                    IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoSolicitaLogon"),
+                    IdTipoRetorno = 1
+                };
+                //REGISTRA O LOG
+                this.logOperacao.RegistrarLogOperacao(operacao);
+            }
+
 
             if (retorno == null)
             {

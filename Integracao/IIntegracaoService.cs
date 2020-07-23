@@ -17,8 +17,8 @@ namespace Core.Api.Integracao
         string GetTiposDocDigitalXML(string codigo);
 
         [OperationContract]
-        List<TTipoOperacao> ObterTipoOperacaoBD();
+        List<TipoOperacao> ObterTipoOperacaoBD();
         [OperationContract]
-        public consultarProcessoResponse ObterDadosProcesso(ConsultarProcesso consultarProcesso);
+        public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso);
     }
 }

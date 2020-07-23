@@ -272,7 +272,6 @@ C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\dbgshim.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\hostfxr.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\hostpolicy.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\mscordaccore.dll
-C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\mscordaccore_amd64_amd64_4.700.20.20201.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\mscordbi.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\mscorrc.debug.dll
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\mscorrc.dll
@@ -409,5 +408,23 @@ C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\win-x64\staticwebassets\Core.Api.S
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\win-x64\Core.Api.dll
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\win-x64\Core.Api.pdb
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\win-x64\Core.Api.genruntimeconfig.cache
-C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Connected Services\Correios\ConnectedService.json
 C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\BouncyCastle.Crypto.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\CsQuery.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Microsoft.Data.SqlClient.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Microsoft.Identity.Client.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Newtonsoft.Json.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Serilog.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Serilog.AspNetCore.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Serilog.Extensions.Hosting.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Serilog.Extensions.Logging.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Serilog.Formatting.Compact.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Serilog.Settings.Configuration.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Serilog.Sinks.Console.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Serilog.Sinks.Debug.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\Serilog.Sinks.File.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\System.Configuration.ConfigurationManager.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\System.Runtime.Caching.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\System.Security.Cryptography.ProtectedData.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\sni.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\win-x64\mscordaccore_amd64_amd64_4.700.20.26901.dll

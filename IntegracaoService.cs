@@ -47,14 +47,24 @@ namespace Core.Api
             return "<![CDATA[" + ObjProxy.GetTiposDocDigital(codigo) + "]]>";
         }
 
-        public List<TTipoOperacao> ObterTipoOperacaoBD()
+        public List<TipoOperacao> ObterTipoOperacaoBD()
         {
-            var retorno = this.DataContext.TTipoOperacao.ToList();
+            var collection = this.DataContext.TTipoOperacao.ToList();
+            List<TipoOperacao> operacaos = new List<TipoOperacao>();
+            foreach (var item in collection)
+            {
+                operacaos.Add(new TipoOperacao()
+                {
+                    DtCadastro = item.DtCadastro,
+                    IdTipoOperacao = item.IdTipoOperacao,
+                    NmTipoOperacao = item.NmTipoOperacao
+                });
+            }
 
-            return retorno;
+            return operacaos;
         }
 
-        public consultarProcessoResponse ObterDadosProcesso(ConsultarProcesso consultarProcesso)
+        public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso)
         {            
             return integracaoEsaj.ObterDadosProcesso(consultarProcesso);
         }

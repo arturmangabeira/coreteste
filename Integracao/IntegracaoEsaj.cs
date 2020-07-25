@@ -8,27 +8,37 @@ using System.Threading.Tasks;
 using System.Web;
 using Core.Api.Data;
 using Core.Api.Entidades;
+using Core.Api.Entidades.AssuntoClasse;
+using Core.Api.Entidades.CategoriaClasse;
+using Core.Api.Entidades.DocDigitalClasse;
+using Core.Api.Entidades.ForoClasse;
+using Core.Api.Entidades.TipoDiversasClasse;
+using Core.Api.Entidades.TpParteClasse;
 using Core.Api.Models;
 using Core.Api.Objects;
 using CsQuery;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace Core.Api.Integracao
 {
     public class IntegracaoEsaj
     {
-        public Proxy ObjProxy { get; }
+        public Proxy _Proxy { get; }
         public IConfiguration Configuration { get; }
 
+        public ILogger<IntegracaoService> _logger;
         public Log logOperacao { get; }
-        public IntegracaoEsaj(Proxy proxy, DataContext dataContext) 
+        public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger) 
         {
             this.Configuration = ConfigurationManager.ConfigurationManager.AppSettings;
-            this.ObjProxy = proxy;
+            _Proxy = proxy;
+            _logger = logger;
             this.logOperacao = new Log(dataContext);
         }
 
+        #region ObterDadosProcesso
         public consultarProcessoResponse ObterDadosProcesso(ConsultarProcesso consultarProcesso)
         {
             Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno = null;
@@ -38,7 +48,8 @@ namespace Core.Api.Integracao
             try
             {
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
-                this.ObjProxy.CdIdeia = consultarProcesso.idConsultante;
+                this._Proxy.CdIdeia = consultarProcesso.idConsultante;
+                _logger.LogInformation("ObterDadosProcesso ", consultarProcesso);
                 if (consultarProcesso.incluirCabecalho)
                 {
                     Entidades.ConsultaProcesso.Message Message = new Entidades.ConsultaProcesso.Message();
@@ -61,9 +72,9 @@ namespace Core.Api.Integracao
 
                     string xml = Message.Serialize();
 
-                    
-                    xmlDadosProcessoRetorno = this.ObjProxy.ObterDadosProcesso(xml, "202020007662");                    
-                    
+                    _logger.LogInformation("ObterDadosProcesso PROXY");
+                    xmlDadosProcessoRetorno = this._Proxy.ObterDadosProcesso(xml, "202020007662");
+                    _logger.LogInformation("RETORNO ObterDadosProcesso PROXY " + xmlDadosProcessoRetorno);
 
                     objDadosProcessoRetorno = new Entidades.ConsultaProcessoResposta.Message();
                     objDadosProcessoRetorno = objDadosProcessoRetorno.ExtrairObjeto<Entidades.ConsultaProcessoResposta.Message>(xmlDadosProcessoRetorno);
@@ -76,17 +87,17 @@ namespace Core.Api.Integracao
                         //OBTÉM OS DADOS DA PARTE
                         tipoProcessoJudicial.dadosBasicos.polo = this.ObterPartes(objDadosProcessoRetorno).ToArray();
                         //OBTÉM OS DADOS DO ASSUNTO
-                        tipoProcessoJudicial.dadosBasicos.assunto = new tipoAssuntoProcessual[]{ 
+                        tipoProcessoJudicial.dadosBasicos.assunto = new tipoAssuntoProcessual[]{
                             new tipoAssuntoProcessual()
                             {
                                 codigoNacional = Int32.Parse(processo.AssuntoPrincipal.Codigo),
-                                assuntoLocal = new tipoAssuntoLocal(){ 
+                                assuntoLocal = new tipoAssuntoLocal(){
                                     codigoAssunto = Int32.Parse(processo.AssuntoPrincipal.Codigo),
                                     descricao = processo.AssuntoPrincipal.Descricao
                                 },
                                 principal = true,
                                 principalSpecified = true
-                            } 
+                            }
                         };
                         //OBTÉM OS DADOS OUTROS PARAMETROS
                         tipoProcessoJudicial.dadosBasicos.outroParametro = new tipoParametro[]
@@ -116,7 +127,7 @@ namespace Core.Api.Integracao
                         consultar = new consultarProcessoResponse()
                         {
                             mensagem = objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Descricao,
-                            sucesso = false,
+                            sucesso = true,
                             processo = tipoProcessoJudicial
                         };
                     }
@@ -188,7 +199,7 @@ namespace Core.Api.Integracao
                 }
             }
             catch (Exception ex)
-            {   
+            {
                 consultar = new consultarProcessoResponse()
                 {
                     mensagem = $"Erro ao tentar consultar os dados do Processo. Ex:{ex.Message}",
@@ -218,7 +229,9 @@ namespace Core.Api.Integracao
 
             return consultar;
         }
+        #endregion
 
+        #region ObterDadosBasicos
         /// <summary>
         /// Método para obter os dados básicos informadas no XML do ESAJ e devolver no padrão do MNI PJE
         /// </summary>
@@ -230,16 +243,19 @@ namespace Core.Api.Integracao
 
             var dtAjuizamento = processo.DataAjuizamento.Replace("-", "") + "000000";
 
-            return new tipoCabecalhoProcesso() {
-                codigoLocalidade = "1",
+            return new tipoCabecalhoProcesso()
+            {
+                codigoLocalidade = processo.Foro.Codigo,
                 dataAjuizamento = dtAjuizamento,
                 classeProcessual = Int32.Parse(processo.Classe.Codigo),
                 competencia = Int32.Parse(processo.Foro.Codigo),
                 numero = processo.Numero,
-                nivelSigilo = 0
-            };            
+                nivelSigilo = processo.SegredoJustica == "S" ? 1 : 0
+            };
         }
+        #endregion
 
+        #region ObterPartes
         /// <summary>
         /// Método para obter as partes informadas no XML do ESAJ e devolver no padrão do MNI PJE
         /// </summary>
@@ -265,7 +281,9 @@ namespace Core.Api.Integracao
 
             return tipoPoloProcessuais;
         }
+        #endregion
 
+        #region ObterParteAtiva
         private List<tipoParte> ObterParteAtiva(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
         {
             var parteAtivas = new List<tipoParte>();
@@ -289,8 +307,11 @@ namespace Core.Api.Integracao
                                     documento = new tipoDocumentoIdentificacao[]
                                     {
                                         new tipoDocumentoIdentificacao()
-                                        { nome = "AOB",
-                                          codigoDocumento = Util.OnlyNumbers(adv.OAB)
+                                        {
+                                            nome = adv.Nome,
+                                            tipoDocumento = modalidadeDocumentoIdentificador.OAB,
+                                            codigoDocumento = Util.OnlyNumbers(adv.OAB),
+                                            emissorDocumento = ""
                                         }
                                     }
                                 },
@@ -299,7 +320,7 @@ namespace Core.Api.Integracao
                     }
                 }
 
-                
+
 
                 if (pAtiva.Documentos != null && pAtiva.Documentos.Length > 0)
                 {
@@ -383,7 +404,9 @@ namespace Core.Api.Integracao
 
             return parteAtivas;
         }
+        #endregion
 
+        #region ObterPartePassiva
         private List<tipoParte> ObterPartePassiva(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
         {
             var partePassivas = new List<tipoParte>();
@@ -407,8 +430,11 @@ namespace Core.Api.Integracao
                                     documento = new tipoDocumentoIdentificacao[]
                                     {
                                         new tipoDocumentoIdentificacao()
-                                        { nome = "AOB",
-                                          codigoDocumento = Util.OnlyNumbers(adv.OAB)
+                                        {
+                                            nome = adv.Nome,
+                                            tipoDocumento = modalidadeDocumentoIdentificador.OAB,
+                                            codigoDocumento = Util.OnlyNumbers(adv.OAB),
+                                            emissorDocumento = ""
                                         }
                                     }
                                 },
@@ -500,7 +526,9 @@ namespace Core.Api.Integracao
 
             return partePassivas;
         }
+        #endregion
 
+        #region ObterMovimentacoes
         /// <summary>
         /// Método para obter os dados básicos informadas no site do ESAJ - padrão HTML - e devolver no padrão do MNI PJE
         /// </summary>
@@ -517,7 +545,7 @@ namespace Core.Api.Integracao
             Dictionary<string, Dictionary<string, string>> arrMovimentacoesNovo = new Dictionary<string, Dictionary<string, string>>();
 
             List<tipoMovimentoProcessual> tipoMovimentoProcessual = new List<tipoMovimentoProcessual>();
-            
+
             if (numeroProcesso.Length >= 20)
             {
                 try
@@ -587,14 +615,14 @@ namespace Core.Api.Integracao
                                         CQ domValor = CQ.Create(item.InnerHTML);
                                         if (domValor["a"].Length > 0)
                                         {
-                                            string textoMovimentacao = this.obterDetalheMovimentacao(codigoProcesso, qtdMovimentacao.ToString(), cookies);
+                                            string textoMovimentacao = this.ObterDetalheMovimentacao(codigoProcesso, qtdMovimentacao.ToString(), cookies);
                                             arrMovimentacoes.Add(HttpUtility.HtmlEncode(domValor["a"][0].InnerHTML + "||" + textoMovimentacao.Trim()));
                                             try
                                             {
                                                 var dadosTratado = HttpUtility.HtmlDecode(domValor["a"][0].InnerHTML).Replace("\n", "").Replace("\t", "").Trim();
                                                 string data = dadosTratado.Substring(0, 10).Trim();
                                                 string[] dataFormat = data.Split("/");
-                                                data = dataFormat[2] + dataFormat[1] + dataFormat[0]+ "000000";
+                                                data = dataFormat[2] + dataFormat[1] + dataFormat[0] + "000000";
                                                 string texto = dadosTratado.Substring(10).Trim();
                                                 //Dictionary<string, string> dados = new Dictionary<string, string>();
                                                 //dados.Add("texto", texto + " - " + HttpUtility.HtmlDecode(textoMovimentacao).Replace("\n", "").Replace("\t", "").Trim());
@@ -602,8 +630,9 @@ namespace Core.Api.Integracao
                                                 var movimento = new tipoMovimentoProcessual()
                                                 {
                                                     dataHora = data,
-                                                    movimentoNacional = new tipoMovimentoNacional(){
-                                                       complemento = new string [] {texto + HttpUtility.HtmlDecode(textoMovimentacao).Replace("\n", "").Replace("\t", "").Trim()}
+                                                    movimentoNacional = new tipoMovimentoNacional()
+                                                    {
+                                                        complemento = new string[] { texto + HttpUtility.HtmlDecode(textoMovimentacao).Replace("\n", "").Replace("\t", "").Trim() }
                                                     }
                                                 };
                                                 tipoMovimentoProcessual.Add(movimento);
@@ -622,7 +651,7 @@ namespace Core.Api.Integracao
                                                 {
                                                     string data = HttpUtility.HtmlDecode(domValor["label"][0].InnerHTML).Replace("\n", "").Replace("\t", "").Substring(0, 10).Trim();
                                                     string[] dataFormat = data.Split("/");
-                                                    data = dataFormat[2] + dataFormat[1] + dataFormat[0]+ "000000";
+                                                    data = dataFormat[2] + dataFormat[1] + dataFormat[0] + "000000";
                                                     string texto = HttpUtility.HtmlDecode(domValor["label"][0].InnerHTML).Replace("\n", "").Replace("\t", "").Substring(10).Trim();
                                                     Dictionary<string, string> dados = new Dictionary<string, string>
                                                     {
@@ -632,8 +661,9 @@ namespace Core.Api.Integracao
                                                     var movimento = new tipoMovimentoProcessual()
                                                     {
                                                         dataHora = data,
-                                                        movimentoNacional = new tipoMovimentoNacional() {
-                                                          complemento =  new string[] { texto.Trim() }
+                                                        movimentoNacional = new tipoMovimentoNacional()
+                                                        {
+                                                            complemento = new string[] { texto.Trim() }
                                                         }
                                                     };
                                                     tipoMovimentoProcessual.Add(movimento);
@@ -677,8 +707,10 @@ namespace Core.Api.Integracao
             return tipoMovimentoProcessual;
 
         }
+        #endregion
 
-        private string obterDetalheMovimentacao(string codigoProcesso, string numMovimentacao, CookieContainer cookies)
+        #region ObterDetalheMovimentacao
+        private string ObterDetalheMovimentacao(string codigoProcesso, string numMovimentacao, CookieContainer cookies)
         {
             //realiza a consulta no site para obter as movimentações.
             HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{ this.Configuration["ESAJ:UrlEsajMovimentacoes"]}/obterComplementoMovimentacao.do?processo.codigo=" + codigoProcesso + "&movimentacao=" + numMovimentacao);
@@ -703,5 +735,97 @@ namespace Core.Api.Integracao
                 return "";
             }
         }
+        #endregion
+
+        #region getForosEVaras
+        public Foros getForosEVaras()
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando getForosEVaras.");
+            string retornoXmlEsaj = _Proxy.getForosEVaras();
+            //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
+            var objRetorno = new Foros().ExtrairObjeto<Foros>(retornoXmlEsaj);
+            return objRetorno;
+        }
+        #endregion
+
+        #region getClasseTpParte
+        public Classes getClasseTpParte()
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando getClasseTpParte.");
+            string retornoXmlEsaj = _Proxy.getClasseTpParte();
+            //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
+            var objRetorno = new Classes().ExtrairObjeto<Classes>(retornoXmlEsaj);
+            return objRetorno;
+        }
+        #endregion
+
+        #region getTiposDocDigital
+        public Documentos getTiposDocDigital()
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando getTiposDocDigital.");
+            string retornoXmlEsaj = _Proxy.getTiposDocDigital();
+            //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
+            var objRetorno = new Documentos().ExtrairObjeto<Documentos>(retornoXmlEsaj);
+            return objRetorno;            
+        }
+        #endregion
+
+        #region getCategoriasEClasses
+        public Categorias getCategoriasEClasses()
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando getCategoriasEClasses.");
+            string retornoXmlEsaj = _Proxy.getCategoriasEClasses();
+            //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
+            var objRetorno = new Categorias().ExtrairObjeto<Categorias>(retornoXmlEsaj);
+            return objRetorno;
+        }
+        #endregion
+
+        #region getTiposDiversas
+        public Tipos getTiposDiversas()
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando getTiposDiversas.");
+            string retornoXmlEsaj = _Proxy.getTiposDiversas();
+            //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
+            var objRetorno = new Tipos().ExtrairObjeto<Tipos>(retornoXmlEsaj);
+            return objRetorno;            
+        }
+        #endregion
+
+        #region getAreasCompetenciasEClasses
+        public string getAreasCompetenciasEClasses(int cdForo)
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando getAreasCompetenciasEClasses.");
+            return _Proxy.getAreasCompetenciasEClasses(cdForo);
+        }
+        #endregion
+
+        #region obterNumeroUnificadoDoProcesso
+        public string obterNumeroUnificadoDoProcesso(string numeroProcesso)
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando obterNumeroUnificadoDoProcesso.");
+            return _Proxy.obterNumeroUnificadoDoProcesso(numeroProcesso);
+        }
+        #endregion
+
+        #region obterNumeroSajDoProcesso
+        public string obterNumeroSajDoProcesso(string numeroProcesso)
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando obterNumeroSajDoProcesso.");
+            return _Proxy.obterNumeroSajDoProcesso(numeroProcesso);
+        }
+        #endregion
+
+        #region getAssuntos
+        public Assuntos getAssuntos(int cdCompetencia, int cdClasse)
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando getAssuntos.");
+            string retornoXmlEsaj = _Proxy.getAssuntos(cdCompetencia, cdClasse);
+            //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
+            var objRetorno = new Assuntos().ExtrairObjeto<Assuntos>(retornoXmlEsaj);
+            return objRetorno;
+        }
+        #endregion
+
     }
 }

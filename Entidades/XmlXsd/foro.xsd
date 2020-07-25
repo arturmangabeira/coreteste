@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xmldsig="http://www.w3.org/2000/09/xmldsig#">
+  <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig.xsd"/>
+  <xs:element name="Foros">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Foro"/>        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Foro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Comarca"/>
+        <xs:element ref="Municipio"/>
+        <xs:element maxOccurs="unbounded" ref="Vara"/>
+      </xs:sequence>
+      <xs:attribute name="Codigo" use="required" type="xs:integer"/>
+      <xs:attribute name="Nome" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Comarca">
+    <xs:complexType>
+      <xs:attribute name="Codigo" use="required" type="xs:integer"/>
+      <xs:attribute name="Nome" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Municipio">
+    <xs:complexType>
+      <xs:attribute name="Codigo" use="required" type="xs:integer"/>
+      <xs:attribute name="Nome" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Vara">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Competencia"/>
+      </xs:sequence>
+      <xs:attribute name="Codigo" use="required" type="xs:integer"/>
+      <xs:attribute name="Nome" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Competencia">
+    <xs:complexType>
+      <xs:attribute name="Descricao" use="required"/>
+      <xs:attribute name="Tipo" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

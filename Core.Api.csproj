@@ -25,6 +25,7 @@
     <WCFMetadata Include="Connected Services" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Entidades\XmlXsd\" />
     <Folder Include="logs\" />
   </ItemGroup>
 </Project>

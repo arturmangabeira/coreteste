@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <xs:element name="Assuntos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="Assunto">
+          <xs:complexType>
+            <xs:attribute name="codigo" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="codigoPai" type="xs:unsignedShort" use="optional" />
+            <xs:attribute name="descricao" type="xs:string" use="required" />
+            <xs:attribute name="flSelecionavel" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element xmlns:q1="http://www.w3.org/2000/09/xmldsig#" ref="q1:Signature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

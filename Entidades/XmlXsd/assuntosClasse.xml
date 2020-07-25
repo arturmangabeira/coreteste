@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><Assuntos> 
+<Assunto codigo="3445" codigoPai="287" descricao="Crimes contra a Organização do Trabalho" flSelecionavel="N"/>
+<Assunto codigo="3547" codigoPai="287" descricao="Crimes Praticados por Funcionários Públicos Contra a Administração em Geral" flSelecionavel="N"/>
+<Assunto codigo="2567" codigoPai="864" descricao="Responsabilidade Civil do Empregador" flSelecionavel="N"/>
+<Assunto codigo="1855" codigoPai="2567" descricao="Indenizaçao por Dano Moral" flSelecionavel="N"/>
+<Assunto codigo="8808" codigoPai="2567" descricao="Indenização por Dano Material" flSelecionavel="N"/>
+<Assunto codigo="3453" codigoPai="3445" descricao="Exercício de atividade com infração de decisão administrativa " flSelecionavel="S"/>
+<Assunto codigo="3559" codigoPai="3547" descricao="Advocacia administrativa " flSelecionavel="S"/>
+<Assunto codigo="5914" codigoPai="5913" descricao="Imunidade " flSelecionavel="N"/>
+<Assunto codigo="10527" codigoPai="5914" descricao="Livros / Jornais / Periódicos" flSelecionavel="S"/>
+<Assunto codigo="10528" codigoPai="5914" descricao="Entidades Sem Fins Lucrativos" flSelecionavel="S"/>
+<Assunto codigo="8809" codigoPai="8808" descricao="Acidente de Trabalho" flSelecionavel="S"/>
+<Assunto codigo="8828" codigoPai="8826" descricao="Jurisdição e Competência" flSelecionavel="N"/>
+<Assunto codigo="8842" codigoPai="8826" descricao=" Partes e Procuradores" flSelecionavel="N"/>
+<Assunto codigo="8875" codigoPai="8826" descricao="Ministério Público" flSelecionavel="S"/>
+<Assunto codigo="8883" codigoPai="8826" descricao="Órgãos Judiciários e Auxiliares da Justiça" flSelecionavel="N"/>
+<Assunto codigo="8893" codigoPai="8826" descricao="Atos Processuais" flSelecionavel="N"/>
+<Assunto codigo="8938" codigoPai="8826" descricao="Formação, Suspensão e Extinção do Processo" flSelecionavel="N"/>
+<Assunto codigo="8960" codigoPai="8826" descricao="Processo e Procedimento" flSelecionavel="N"/>
+<Assunto codigo="9045" codigoPai="8826" descricao="Recurso" flSelecionavel="N"/>
+<Assunto codigo="9148" codigoPai="8826" descricao="Liquidação / Cumprimento / Execução" flSelecionavel="N"/>
+<Assunto codigo="9192" codigoPai="8826" descricao="Tutela Provisória" flSelecionavel="N"/>
+<Assunto codigo="11781" codigoPai="8826" descricao="Objetos de cartas precatórias/de ordem" flSelecionavel="N"/>
+<Assunto codigo="8829" codigoPai="8828" descricao="Competência " flSelecionavel="N"/>
+<Assunto codigo="8838" codigoPai="8828" descricao="Imunidade de Jurisdição" flSelecionavel="S"/>
+<Assunto codigo="8843" codigoPai="8842" descricao="Assistência Judiciária Gratuita" flSelecionavel="S"/>
+<Assunto codigo="8859" codigoPai="8842" descricao="Intervenção de Terceiros " flSelecionavel="S"/>
+<Assunto codigo="8865" codigoPai="8842" descricao="Litigância de Má-Fé" flSelecionavel="S"/>
+<Assunto codigo="8866" codigoPai="8842" descricao="Litisconsórcio " flSelecionavel="S"/>
+<Assunto codigo="8867" codigoPai="8842" descricao="Sucessão Processual" flSelecionavel="S"/>
+<Assunto codigo="8868" codigoPai="8842" descricao="Procuração " flSelecionavel="S"/>
+<Assunto codigo="8873" codigoPai="8842" descricao="Representação em Juízo" flSelecionavel="S"/>
+<Assunto codigo="8874" codigoPai="8842" descricao="Sucumbência " flSelecionavel="N"/>
+<Assunto codigo="9258" codigoPai="8842" descricao="Honorários Periciais" flSelecionavel="S"/>
+<Assunto codigo="9493" codigoPai="8842" descricao="Capacidade Processual" flSelecionavel="S"/>
+<Assunto codigo="10655" codigoPai="8874" descricao="Honorários Advocatícios" flSelecionavel="S"/>
+<Assunto codigo="10656" codigoPai="8874" descricao="Honorários Advocatícios em Execução Contra a Fazenda Pública" flSelecionavel="S"/>
+<Assunto codigo="10658" codigoPai="8874" descricao="Custas" flSelecionavel="S"/>
+<Assunto codigo="8884" codigoPai="8883" descricao="Do Juiz" flSelecionavel="N"/>
+<Assunto codigo="8888" codigoPai="8883" descricao="Dos Auxiliares da Justiça" flSelecionavel="S"/>
+<Assunto codigo="8919" codigoPai="8893" descricao="Nulidade" flSelecionavel="N"/>
+<Assunto codigo="8928" codigoPai="8893" descricao=" Prazo" flSelecionavel="S"/>
+<Assunto codigo="8934" codigoPai="8893" descricao="Valor da Causa" flSelecionavel="S"/>
+<Assunto codigo="10938" codigoPai="8893" descricao="Citação" flSelecionavel="S"/>
+<Assunto codigo="10939" codigoPai="8893" descricao="Intimação / Notificação" flSelecionavel="S"/>
+<Assunto codigo="8939" codigoPai="8938" descricao=" Suspensão do Processo" flSelecionavel="S"/>
+<Assunto codigo="8941" codigoPai="8938" descricao="Modificação ou Alteração do Pedido" flSelecionavel="S"/>
+<Assunto codigo="8942" codigoPai="8938" descricao="Extinção do Processo Sem Resolução de Mérito" flSelecionavel="N"/>
+<Assunto codigo="8986" codigoPai="8960" descricao="Erro de Procedimento" flSelecionavel="S"/>
+<Assunto codigo="8990" codigoPai="8960" descricao="Provas" flSelecionavel="N"/>
+<Assunto codigo="9024" codigoPai="8960" descricao="Revelia " flSelecionavel="S"/>
+<Assunto codigo="9026" codigoPai="8960" descricao="Vícios Formais da Sentença" flSelecionavel="S"/>
+<Assunto codigo="10940" codigoPai="8990" descricao="Depoimento" flSelecionavel="S"/>
+<Assunto codigo="9047" codigoPai="9045" descricao="Efeitos" flSelecionavel="S"/>
+<Assunto codigo="9050" codigoPai="9045" descricao="Preparo / Deserção" flSelecionavel="S"/>
+<Assunto codigo="9060" codigoPai="9045" descricao="Prazo" flSelecionavel="N"/>
+<Assunto codigo="9098" codigoPai="9045" descricao=" Cabimento" flSelecionavel="S"/>
+<Assunto codigo="9149" codigoPai="9148" descricao="Valor da Execução / Cálculo / Atualização" flSelecionavel="N"/>
+<Assunto codigo="9160" codigoPai="9148" descricao="Levantamento de Valor" flSelecionavel="S"/>
+<Assunto codigo="9163" codigoPai="9148" descricao="Penhora / Depósito/ Avaliação " flSelecionavel="S"/>
+<Assunto codigo="9166" codigoPai="9148" descricao="Multa de 10%" flSelecionavel="S"/>
+<Assunto codigo="9178" codigoPai="9148" descricao="Inexequibilidade do Título / Inexigibilidade da Obrigação" flSelecionavel="S"/>
+<Assunto codigo="9180" codigoPai="9148" descricao="Expropriação de Bens" flSelecionavel="S"/>
+<Assunto codigo="9189" codigoPai="9148" descricao="Remição" flSelecionavel="S"/>
+<Assunto codigo="9414" codigoPai="9148" descricao="Extinção da Execução" flSelecionavel="S"/>
+<Assunto codigo="9418" codigoPai="9148" descricao="Concurso de Credores" flSelecionavel="S"/>
+<Assunto codigo="9419" codigoPai="9148" descricao="Execução Previdenciária" flSelecionavel="S"/>
+<Assunto codigo="9450" codigoPai="9148" descricao="Fraude à Execução" flSelecionavel="S"/>
+<Assunto codigo="9453" codigoPai="9148" descricao="Imunidade de Execução" flSelecionavel="S"/>
+<Assunto codigo="9484" codigoPai="9148" descricao="Sucessão" flSelecionavel="S"/>
+<Assunto codigo="9517" codigoPai="9148" descricao="Causas Supervenientes à Sentença" flSelecionavel="S"/>
+<Assunto codigo="9518" codigoPai="9148" descricao="Efeito Suspensivo / Impugnação / Embargos à Execução" flSelecionavel="S"/>
+<Assunto codigo="9519" codigoPai="9148" descricao="Benefício de Ordem" flSelecionavel="S"/>
+<Assunto codigo="9520" codigoPai="9148" descricao="Ato Atentatório à Dignidade da Justiça" flSelecionavel="S"/>
+<Assunto codigo="10670" codigoPai="9148" descricao="Obrigação de Entregar" flSelecionavel="N"/>
+<Assunto codigo="10671" codigoPai="9148" descricao="Obrigação de Fazer / Não Fazer" flSelecionavel="S"/>
+<Assunto codigo="10673" codigoPai="9148" descricao="Requisição de Pequeno Valor - RPV" flSelecionavel="S"/>
+<Assunto codigo="10686" codigoPai="9148" descricao="Multa Cominatória / Astreintes" flSelecionavel="S"/>
+<Assunto codigo="10880" codigoPai="9148" descricao="Cumprimento Provisório de Sentença" flSelecionavel="S"/>
+<Assunto codigo="100051" codigoPai="9148" descricao="Alimentos" flSelecionavel="S"/>
+<Assunto codigo="10684" codigoPai="9149" descricao="Juros" flSelecionavel="S"/>
+<Assunto codigo="10685" codigoPai="9149" descricao="Correção Monetária" flSelecionavel="S"/>
+<Assunto codigo="10687" codigoPai="9149" descricao="Taxa SELIC" flSelecionavel="S"/>
+<Assunto codigo="9196" codigoPai="9192" descricao="Liminar " flSelecionavel="S"/>
+<Assunto codigo="9524" codigoPai="9192" descricao="Indenização do Prejuízo" flSelecionavel="S"/>
+<Assunto codigo="9532" codigoPai="9192" descricao="Caução" flSelecionavel="S"/>
+<Assunto codigo="9986" codigoPai="9985" descricao="Garantias Constitucionais" flSelecionavel="N"/>
+<Assunto codigo="9991" codigoPai="9985" descricao="Responsabilidade da Administração" flSelecionavel="N"/>
+<Assunto codigo="9997" codigoPai="9985" descricao="Atos Administrativos" flSelecionavel="N"/>
+<Assunto codigo="10028" codigoPai="9985" descricao="Serviços" flSelecionavel="N"/>
+<Assunto codigo="10088" codigoPai="9985" descricao="Domínio Público" flSelecionavel="N"/>
+<Assunto codigo="10110" codigoPai="9985" descricao="Meio Ambiente" flSelecionavel="N"/>
+<Assunto codigo="10120" codigoPai="9985" descricao="Intervenção do Estado na Propriedade" flSelecionavel="N"/>
+<Assunto codigo="10136" codigoPai="9985" descricao="Intervenção no Domínio Econômico" flSelecionavel="N"/>
+<Assunto codigo="10157" codigoPai="9985" descricao="Organização Político-administrativa / Administração Pública" flSelecionavel="N"/>
+<Assunto codigo="10182" codigoPai="9985" descricao="Dívida Pública Mobiliária" flSelecionavel="N"/>
+<Assunto codigo="10186" codigoPai="9985" descricao="Agentes Políticos" flSelecionavel="N"/>
+<Assunto codigo="10219" codigoPai="9985" descricao="Servidor Público Civil" flSelecionavel="N"/>
+<Assunto codigo="10324" codigoPai="9985" descricao="Militar" flSelecionavel="N"/>
+<Assunto codigo="10370" codigoPai="9985" descricao="Concurso Público / Edital" flSelecionavel="N"/>
+<Assunto codigo="10385" codigoPai="9985" descricao="Licitações " flSelecionavel="N"/>
+<Assunto codigo="10394" codigoPai="9985" descricao="Dívida Ativa não-tributária" flSelecionavel="N"/>
+<Assunto codigo="10409" codigoPai="9985" descricao="Empregado Público / Temporário" flSelecionavel="N"/>
+<Assunto codigo="10412" codigoPai="9985" descricao="Comissão Parlamentar de Inquérito - CPI" flSelecionavel="N"/>
+<Assunto codigo="10417" codigoPai="9985" descricao="Sistema Nacional de Trânsito" flSelecionavel="N"/>
+<Assunto codigo="10421" codigoPai="9985" descricao="Contratos Administrativos" flSelecionavel="N"/>
+<Assunto codigo="10954" codigoPai="9985" descricao="Orçamento" flSelecionavel="N"/>
+<Assunto codigo="11802" codigoPai="9985" descricao="Ordem Urbanística" flSelecionavel="N"/>
+<Assunto codigo="11803" codigoPai="9985" descricao="CONSELHOS" flSelecionavel="N"/>
+<Assunto codigo="11831" codigoPai="9985" descricao="Controle Externo da atividade policial" flSelecionavel="S"/>
+<Assunto codigo="11841" codigoPai="9985" descricao="Política Agrícola" flSelecionavel="S"/>
+<Assunto codigo="11863" codigoPai="9985" descricao="Responsabilidade Fiscal" flSelecionavel="S"/>
+<Assunto codigo="11872" codigoPai="9985" descricao="Sistema de proteção especial a vítimas e a testemunhas" flSelecionavel="S"/>
+<Assunto codigo="11873" codigoPai="9985" descricao="Política fundiária e da reforma agrária" flSelecionavel="S"/>
+<Assunto codigo="9990" codigoPai="9986" descricao="Intervenção em Estado / Município" flSelecionavel="S"/>
+<Assunto codigo="11842" codigoPai="9986" descricao="Pessoa Idosa" flSelecionavel="S"/>
+<Assunto codigo="11843" codigoPai="9986" descricao="Pessoas com deficiência" flSelecionavel="S"/>
+<Assunto codigo="11844" codigoPai="9986" descricao="Minorias Étnicas" flSelecionavel="S"/>
+<Assunto codigo="11845" codigoPai="9986" descricao="Comunicação Social" flSelecionavel="S"/>
+<Assunto codigo="11846" codigoPai="9986" descricao="Moradia" flSelecionavel="S"/>
+<Assunto codigo="11847" codigoPai="9986" descricao="Assistência Social" flSelecionavel="S"/>
+<Assunto codigo="11848" codigoPai="9986" descricao="Alimentação" flSelecionavel="S"/>
+<Assunto codigo="11849" codigoPai="9986" descricao="Não Discriminação" flSelecionavel="S"/>
+<Assunto codigo="9992" codigoPai="9991" descricao="Indenização por Dano Moral" flSelecionavel="N"/>
+<Assunto codigo="9994" codigoPai="9991" descricao="Indenização por Dano Ambiental" flSelecionavel="S"/>
+<Assunto codigo="10502" codigoPai="9991" descricao="Indenização por Dano Material" flSelecionavel="N"/>
+<Assunto codigo="9995" codigoPai="9992" descricao="Erro Médico" flSelecionavel="S"/>
+<Assunto codigo="9996" codigoPai="9992" descricao="Acidente de Trânsito" flSelecionavel="S"/>
+<Assunto codigo="9998" codigoPai="9997" descricao="Licenças" flSelecionavel="N"/>
+<Assunto codigo="10009" codigoPai="9997" descricao="Inquérito / Processo / Recurso Administrativo" flSelecionavel="S"/>
+<Assunto codigo="10010" codigoPai="9997" descricao="Ato Lesivo ao Patrimônio Artístico, Estético, Histórico ou Turístico" flSelecionavel="S"/>
+<Assunto codigo="10011" codigoPai="9997" descricao="Improbidade Administrativa" flSelecionavel="N"/>
+<Assunto codigo="10015" codigoPai="9997" descricao="Fiscalização" flSelecionavel="N"/>
+<Assunto codigo="10022" codigoPai="9997" descricao="Infração Administrativa" flSelecionavel="N"/>
+<Assunto codigo="10894" codigoPai="9997" descricao="Abuso de Poder" flSelecionavel="S"/>
+<Assunto codigo="9999" codigoPai="9998" descricao="Declaração de Bagagem" flSelecionavel="S"/>
+<Assunto codigo="10000" codigoPai="9998" descricao="Declaração de Trânsito Aduaneiro" flSelecionavel="S"/>
+<Assunto codigo="10001" codigoPai="9998" descricao="Comercialização sem Restrições de Produtos Industrializados" flSelecionavel="S"/>
+<Assunto codigo="10002" codigoPai="9998" descricao="Comercialização sem Restrições de Gêneros Alimentícios" flSelecionavel="S"/>
+<Assunto codigo="10003" codigoPai="9998" descricao="Comercialização e/ou Utilização sem Restrições de Medicamentos" flSelecionavel="S"/>
+<Assunto codigo="10004" codigoPai="9998" descricao="Funcionamento de Comércio de Derivados de Petróleo" flSelecionavel="S"/>
+<Assunto codigo="10005" codigoPai="9998" descricao="Registro de Empresa" flSelecionavel="S"/>
+<Assunto codigo="10006" codigoPai="9998" descricao="Funcionamento de Estabelecimentos Empresariais" flSelecionavel="S"/>
+<Assunto codigo="10007" codigoPai="9998" descricao="Registro / Porte de arma de fogo" flSelecionavel="S"/>
+<Assunto codigo="10008" codigoPai="9998" descricao="Registro de Aeronave" flSelecionavel="S"/>
+<Assunto codigo="10079" codigoPai="9998" descricao="Loterias/Sorteio" flSelecionavel="S"/>
+<Assunto codigo="10084" codigoPai="9998" descricao="Jogos de Bingo e/ou Caça-níqueis" flSelecionavel="S"/>
+<Assunto codigo="10012" codigoPai="10011" descricao="Dano ao Erário" flSelecionavel="S"/>
+<Assunto codigo="10013" codigoPai="10011" descricao="Enriquecimento ilícito" flSelecionavel="S"/>
+<Assunto codigo="10014" codigoPai="10011" descricao="Violação aos Princípios Administrativos" flSelecionavel="S"/>
+<Assunto codigo="10016" codigoPai="10015" descricao="Inspeção Fitossanitária" flSelecionavel="S"/>
+<Assunto codigo="10018" codigoPai="10015" descricao="Inspeção Sanitária de Origem Animal" flSelecionavel="S"/>
+<Assunto codigo="10928" codigoPai="10015" descricao="Competência do Órgão Fiscalizador" flSelecionavel="S"/>
+<Assunto codigo="10023" codigoPai="10022" descricao="Multas e demais Sanções" flSelecionavel="S"/>
+<Assunto codigo="10024" codigoPai="10022" descricao="Interdição" flSelecionavel="S"/>
+<Assunto codigo="10025" codigoPai="10022" descricao="Apreensão" flSelecionavel="S"/>
+<Assunto codigo="10029" codigoPai="10028" descricao="Ensino Superior" flSelecionavel="N"/>
+<Assunto codigo="10051" codigoPai="10028" descricao="Ensino Fundamental e Médio" flSelecionavel="N"/>
+<Assunto codigo="10073" codigoPai="10028" descricao="Concessão / Permissão / Autorização" flSelecionavel="N"/>
+<Assunto codigo="10087" codigoPai="10028" descricao="Defensoria Pública" flSelecionavel="S"/>
+<Assunto codigo="10074" codigoPai="10073" descricao="Fornecimento de Gás" flSelecionavel="S"/>
+<Assunto codigo="10075" codigoPai="10073" descricao="Energia Elétrica" flSelecionavel="S"/>
+<Assunto codigo="10076" codigoPai="10073" descricao="Transporte Terrestre" flSelecionavel="S"/>
+<Assunto codigo="10080" codigoPai="10073" descricao="Telefonia" flSelecionavel="S"/>
+<Assunto codigo="10081" codigoPai="10073" descricao="Transporte Aquaviário" flSelecionavel="S"/>
+<Assunto codigo="10083" codigoPai="10073" descricao="Tabelionatos, Registros, Cartórios" flSelecionavel="N"/>
+<Assunto codigo="10085" codigoPai="10073" descricao="Água e/ou Esgoto" flSelecionavel="S"/>
+<Assunto codigo="10086" codigoPai="10073" descricao="Recolhimento e Tratamento de Lixo" flSelecionavel="S"/>
+<Assunto codigo="10089" codigoPai="10088" descricao="Bens Públicos" flSelecionavel="N"/>
+<Assunto codigo="10106" codigoPai="10088" descricao="Recursos Minerais" flSelecionavel="S"/>
+<Assunto codigo="10108" codigoPai="10088" descricao="Patrimônio Histórico / Tombamento" flSelecionavel="S"/>
+<Assunto codigo="10109" codigoPai="10088" descricao="Ordenação da Cidade / Plano Diretor" flSelecionavel="S"/>
+<Assunto codigo="10131" codigoPai="10088" descricao="Privatização" flSelecionavel="S"/>
+<Assunto codigo="10090" codigoPai="10089" descricao="Locação / Permissão / Concessão / Autorização / Cessão de Uso" flSelecionavel="S"/>
+<Assunto codigo="10092" codigoPai="10089" descricao="Taxa de Ocupação" flSelecionavel="S"/>
+<Assunto codigo="10093" codigoPai="10089" descricao="Foro / Laudêmio" flSelecionavel="S"/>
+<Assunto codigo="10094" codigoPai="10089" descricao="Terras Devolutas" flSelecionavel="S"/>
+<Assunto codigo="10095" codigoPai="10089" descricao="Águas Públicas" flSelecionavel="S"/>
+<Assunto codigo="10096" codigoPai="10089" descricao="Bloqueio de Valores de Contas Públicas" flSelecionavel="S"/>
+<Assunto codigo="11870" codigoPai="10089" descricao="Utilização de bens públicos" flSelecionavel="S"/>
+<Assunto codigo="10111" codigoPai="10110" descricao="Revogação/Concessão de Licença Ambiental" flSelecionavel="S"/>
+<Assunto codigo="10112" codigoPai="10110" descricao="Revogação/Anulação de multa ambiental" flSelecionavel="S"/>
+<Assunto codigo="10113" codigoPai="10110" descricao="Flora" flSelecionavel="S"/>
+<Assunto codigo="10114" codigoPai="10110" descricao="Fauna" flSelecionavel="S"/>
+<Assunto codigo="10115" codigoPai="10110" descricao="Transgênicos" flSelecionavel="S"/>
+<Assunto codigo="10116" codigoPai="10110" descricao="Agrotóxicos" flSelecionavel="S"/>
+<Assunto codigo="10118" codigoPai="10110" descricao="Unidade de Conservação da Natureza" flSelecionavel="S"/>
+<Assunto codigo="11822" codigoPai="10110" descricao="Mineração" flSelecionavel="S"/>
+<Assunto codigo="11823" codigoPai="10110" descricao="Reserva legal" flSelecionavel="S"/>
+<Assunto codigo="11824" codigoPai="10110" descricao="Recursos Hídricos" flSelecionavel="S"/>
+<Assunto codigo="11825" codigoPai="10110" descricao="Poluição" flSelecionavel="S"/>
+<Assunto codigo="11826" codigoPai="10110" descricao="Zoneamento Ecológico e Econômico" flSelecionavel="S"/>
+<Assunto codigo="11827" codigoPai="10110" descricao="Zona Costeira" flSelecionavel="S"/>
+<Assunto codigo="11828" codigoPai="10110" descricao="Área de Preservação Permanente" flSelecionavel="S"/>
+<Assunto codigo="11829" codigoPai="10110" descricao="Produtos Controlados / Perigosos" flSelecionavel="S"/>
+<Assunto codigo="11830" codigoPai="10110" descricao="Patrimônio Cultural" flSelecionavel="S"/>
+<Assunto codigo="11862" codigoPai="10110" descricao="Saneamento" flSelecionavel="S"/>
+<Assunto codigo="10121" codigoPai="10120" descricao="Desapropriação" flSelecionavel="S"/>
+<Assunto codigo="10122" codigoPai="10120" descricao="Desapropriação por Utilidade Pública / DL 3.365/1941" flSelecionavel="S"/>
+<Assunto codigo="10123" codigoPai="10120" descricao="Desapropriação por Interesse Social Comum / L 4.132/1962" flSelecionavel="S"/>
+<Assunto codigo="10125" codigoPai="10120" descricao="Desapropriação Indireta" flSelecionavel="S"/>
+<Assunto codigo="10126" codigoPai="10120" descricao="Retrocessão" flSelecionavel="S"/>
+<Assunto codigo="10127" codigoPai="10120" descricao="Vistoria" flSelecionavel="S"/>
+<Assunto codigo="10128" codigoPai="10120" descricao="Servidão Administrativa" flSelecionavel="S"/>
+<Assunto codigo="10129" codigoPai="10120" descricao="Ocupação Temporária" flSelecionavel="S"/>
+<Assunto codigo="10130" codigoPai="10120" descricao="Limitação Administrativa" flSelecionavel="S"/>
+<Assunto codigo="10132" codigoPai="10120" descricao="Restituição de área" flSelecionavel="S"/>
+<Assunto codigo="10133" codigoPai="10120" descricao="Direito de Preempção" flSelecionavel="S"/>
+<Assunto codigo="10134" codigoPai="10120" descricao="Desapropriação de Imóvel Urbano" flSelecionavel="S"/>
+<Assunto codigo="10135" codigoPai="10120" descricao="Requisição de Bem Particular" flSelecionavel="S"/>
+<Assunto codigo="11871" codigoPai="10136" descricao="Agências/órgãos de regulação" flSelecionavel="S"/>
+<Assunto codigo="10930" codigoPai="10157" descricao="Município" flSelecionavel="N"/>
+<Assunto codigo="10183" codigoPai="10182" descricao="Apólices da Dívida Pública" flSelecionavel="S"/>
+<Assunto codigo="10184" codigoPai="10182" descricao="Títulos da Dívida Pública" flSelecionavel="S"/>
+<Assunto codigo="10187" codigoPai="10186" descricao="Magistratura" flSelecionavel="N"/>
+<Assunto codigo="10194" codigoPai="10186" descricao="Ministério Público" flSelecionavel="N"/>
+<Assunto codigo="10201" codigoPai="10186" descricao="Prefeito" flSelecionavel="N"/>
+<Assunto codigo="10207" codigoPai="10186" descricao="Governador" flSelecionavel="N"/>
+<Assunto codigo="10213" codigoPai="10186" descricao="Parlamentares" flSelecionavel="N"/>
+<Assunto codigo="10188" codigoPai="10187" descricao="Remuneração" flSelecionavel="S"/>
+<Assunto codigo="10191" codigoPai="10187" descricao="Aposentadoria" flSelecionavel="N"/>
+<Assunto codigo="10195" codigoPai="10194" descricao="Remuneração" flSelecionavel="S"/>
+<Assunto codigo="10196" codigoPai="10194" descricao="Afastamento" flSelecionavel="S"/>
+<Assunto codigo="10197" codigoPai="10194" descricao="Processo Disciplinar / Sindicância" flSelecionavel="S"/>
+<Assunto codigo="10198" codigoPai="10194" descricao="Aposentadoria" flSelecionavel="N"/>
+<Assunto codigo="10199" codigoPai="10194" descricao="Promoção" flSelecionavel="S"/>
+<Assunto codigo="10200" codigoPai="10194" descricao="Remoção" flSelecionavel="N"/>
+<Assunto codigo="10202" codigoPai="10201" descricao="Afastamento do Cargo" flSelecionavel="S"/>
+<Assunto codigo="10203" codigoPai="10201" descricao="Remuneração" flSelecionavel="S"/>
+<Assunto codigo="10204" codigoPai="10201" descricao="Recondução" flSelecionavel="S"/>
+<Assunto codigo="10205" codigoPai="10201" descricao="Prestação de Contas" flSelecionavel="S"/>
+<Assunto codigo="10206" codigoPai="10201" descricao="Indisponibilidade de Bens" flSelecionavel="S"/>
+<Assunto codigo="10208" codigoPai="10207" descricao="Afastamento do Cargo" flSelecionavel="S"/>
+<Assunto codigo="10209" codigoPai="10207" descricao="Remuneração" flSelecionavel="S"/>
+<Assunto codigo="10210" codigoPai="10207" descricao="Recondução" flSelecionavel="S"/>
+<Assunto codigo="10211" codigoPai="10207" descricao="Prestação de Contas" flSelecionavel="S"/>
+<Assunto codigo="10212" codigoPai="10207" descricao="Indisponibilidade de Bens" flSelecionavel="S"/>
+<Assunto codigo="10214" codigoPai="10213" descricao="Remuneração" flSelecionavel="N"/>
+<Assunto codigo="10215" codigoPai="10213" descricao="Afastamento do Cargo" flSelecionavel="S"/>
+<Assunto codigo="10216" codigoPai="10213" descricao="Recondução" flSelecionavel="S"/>
+<Assunto codigo="10217" codigoPai="10213" descricao="Prestação de Contas" flSelecionavel="S"/>
+<Assunto codigo="10218" codigoPai="10213" descricao="Indisponibilidade de Bens" flSelecionavel="S"/>
+<Assunto codigo="10681" codigoPai="10213" descricao="Aposentadoria / Pensão Especial" flSelecionavel="S"/>
+<Assunto codigo="10732" codigoPai="10214" descricao="Verba de Representação" flSelecionavel="S"/>
+<Assunto codigo="10220" codigoPai="10219" descricao="Regime Estatutário" flSelecionavel="N"/>
+<Assunto codigo="10250" codigoPai="10219" descricao="Pensão" flSelecionavel="N"/>
+<Assunto codigo="10254" codigoPai="10219" descricao="Aposentadoria" flSelecionavel="N"/>
+<Assunto codigo="10258" codigoPai="10219" descricao="Licenças / Afastamentos" flSelecionavel="N"/>
+<Assunto codigo="10276" codigoPai="10219" descricao="Tempo de Serviço" flSelecionavel="N"/>
+<Assunto codigo="10279" codigoPai="10219" descricao="Processo Administrativo Disciplinar ou Sindicância" flSelecionavel="N"/>
+<Assunto codigo="10286" codigoPai="10219" descricao="Programa de Desligamento Voluntário (PDV)" flSelecionavel="S"/>
+<Assunto codigo="10287" codigoPai="10219" descricao="Jornada de Trabalho" flSelecionavel="S"/>
+<Assunto codigo="10288" codigoPai="10219" descricao="Sistema Remuneratório e Benefícios" flSelecionavel="N"/>
+<Assunto codigo="10313" codigoPai="10219" descricao="Reajustes de Remuneração, Proventos ou Pensão" flSelecionavel="N"/>
+<Assunto codigo="10222" codigoPai="10220" descricao="Estabilidade" flSelecionavel="S"/>
+<Assunto codigo="10223" codigoPai="10220" descricao="Enquadramento" flSelecionavel="S"/>
+<Assunto codigo="10224" codigoPai="10220" descricao="Recondução" flSelecionavel="S"/>
+<Assunto codigo="10225" codigoPai="10220" descricao="Acumulação de Cargos" flSelecionavel="S"/>
+<Assunto codigo="10226" codigoPai="10220" descricao="Reintegração" flSelecionavel="S"/>
+<Assunto codigo="10227" codigoPai="10220" descricao="Direito de Greve" flSelecionavel="S"/>
+<Assunto codigo="10228" codigoPai="10220" descricao="Transferência" flSelecionavel="S"/>
+<Assunto codigo="10229" codigoPai="10220" descricao="Remoção" flSelecionavel="S"/>
+<Assunto codigo="10230" codigoPai="10220" descricao="Regime Previdenciário" flSelecionavel="S"/>
+<Assunto codigo="10231" codigoPai="10220" descricao="Anistia Administrativa" flSelecionavel="S"/>
+<Assunto codigo="10232" codigoPai="10220" descricao="Reversão" flSelecionavel="S"/>
+<Assunto codigo="10233" codigoPai="10220" descricao="Redistribuição" flSelecionavel="S"/>
+<Assunto codigo="10234" codigoPai="10220" descricao="Disponibilidade / Aproveitamento" flSelecionavel="S"/>
+<Assunto codigo="10235" codigoPai="10220" descricao="Lotação" flSelecionavel="S"/>
+<Assunto codigo="10236" codigoPai="10220" descricao="Promoção / Ascensão" flSelecionavel="S"/>
+<Assunto codigo="10237" codigoPai="10220" descricao="Readaptação" flSelecionavel="S"/>
+<Assunto codigo="10238" codigoPai="10220" descricao="Estágio Probatório" flSelecionavel="S"/>
+<Assunto codigo="10239" codigoPai="10220" descricao="Nomeação" flSelecionavel="N"/>
+<Assunto codigo="10240" codigoPai="10220" descricao="Posse e Exercício" flSelecionavel="S"/>
+<Assunto codigo="10241" codigoPai="10220" descricao="Exoneração" flSelecionavel="S"/>
+<Assunto codigo="10251" codigoPai="10250" descricao="Provisória" flSelecionavel="S"/>
+<Assunto codigo="10252" codigoPai="10250" descricao="Concessão" flSelecionavel="S"/>
+<Assunto codigo="10253" codigoPai="10250" descricao="Restabelecimento" flSelecionavel="S"/>
+<Assunto codigo="10255" codigoPai="10254" descricao="Invalidez Permanente" flSelecionavel="S"/>
+<Assunto codigo="10256" codigoPai="10254" descricao="Compulsória" flSelecionavel="S"/>
+<Assunto codigo="10257" codigoPai="10254" descricao="Voluntária" flSelecionavel="S"/>
+<Assunto codigo="10259" codigoPai="10258" descricao="Dirigente Sindical" flSelecionavel="S"/>
+<Assunto codigo="10260" codigoPai="10258" descricao="Licença Capacitação (Aperfeiçoamento Profissional)" flSelecionavel="S"/>
+<Assunto codigo="10261" codigoPai="10258" descricao="Licença-Prêmio" flSelecionavel="N"/>
+<Assunto codigo="10262" codigoPai="10258" descricao="Doença em Pessoa da Família" flSelecionavel="S"/>
+<Assunto codigo="10263" codigoPai="10258" descricao="Tratamento da Própria Saúde" flSelecionavel="S"/>
+<Assunto codigo="10264" codigoPai="10258" descricao="Gestante / Adotante / Paternidade" flSelecionavel="S"/>
+<Assunto codigo="10265" codigoPai="10258" descricao="Interesse Particular" flSelecionavel="S"/>
+<Assunto codigo="10266" codigoPai="10258" descricao="Serviço Militar" flSelecionavel="S"/>
+<Assunto codigo="10267" codigoPai="10258" descricao="Atividade Política" flSelecionavel="S"/>
+<Assunto codigo="10268" codigoPai="10258" descricao="Casamento" flSelecionavel="S"/>
+<Assunto codigo="10269" codigoPai="10258" descricao="Luto" flSelecionavel="S"/>
+<Assunto codigo="10270" codigoPai="10258" descricao="Amamentação" flSelecionavel="S"/>
+<Assunto codigo="10271" codigoPai="10258" descricao="Doação de Sangue" flSelecionavel="S"/>
+<Assunto codigo="10272" codigoPai="10258" descricao="Alistamento / Serviço Eleitoral" flSelecionavel="S"/>
+<Assunto codigo="10273" codigoPai="10258" descricao="Acompanhamento de Cônjuge ou Companheiro" flSelecionavel="S"/>
+<Assunto codigo="10274" codigoPai="10258" descricao="Exercício em Outro Município" flSelecionavel="S"/>
+<Assunto codigo="10275" codigoPai="10258" descricao="Licença por Acidente em Serviço" flSelecionavel="S"/>
+<Assunto codigo="10277" codigoPai="10276" descricao="Averbação / Contagem de Tempo Especial" flSelecionavel="S"/>
+<Assunto codigo="10278" codigoPai="10276" descricao="Averbação / Contagem Recíproca" flSelecionavel="S"/>
+<Assunto codigo="10280" codigoPai="10279" descricao="Demissão ou Exoneração" flSelecionavel="S"/>
+<Assunto codigo="10281" codigoPai="10279" descricao="Advertência" flSelecionavel="S"/>
+<Assunto codigo="10282" codigoPai="10279" descricao="Suspensão" flSelecionavel="S"/>
+<Assunto codigo="10283" codigoPai="10279" descricao="Responsabilidade Civil do Servidor Público / Indenização ao Erário" flSelecionavel="S"/>
+<Assunto codigo="10221" codigoPai="10288" descricao="Isonomia/Equivalência Salarial" flSelecionavel="N"/>
+<Assunto codigo="10243" codigoPai="10288" descricao="Complementação de Benefício/Ferroviário" flSelecionavel="S"/>
+<Assunto codigo="10244" codigoPai="10288" descricao="Assistência à Saúde" flSelecionavel="S"/>
+<Assunto codigo="10245" codigoPai="10288" descricao="Assistência Pré-escolar" flSelecionavel="S"/>
+<Assunto codigo="10246" codigoPai="10288" descricao="Auxílio-Natalidade" flSelecionavel="S"/>
+<Assunto codigo="10247" codigoPai="10288" descricao="Auxílio-Reclusão" flSelecionavel="S"/>
+<Assunto codigo="10248" codigoPai="10288" descricao="Auxílio-Funeral" flSelecionavel="S"/>
+<Assunto codigo="10249" codigoPai="10288" descricao="Salário-Família" flSelecionavel="S"/>
+<Assunto codigo="10289" codigoPai="10288" descricao="Gratificações da Lei 8.112/1990" flSelecionavel="S"/>
+<Assunto codigo="10290" codigoPai="10288" descricao="Gratificação de Incentivo" flSelecionavel="S"/>
+<Assunto codigo="10291" codigoPai="10288" descricao="Adicional de Insalubridade" flSelecionavel="N"/>
+<Assunto codigo="10292" codigoPai="10288" descricao="Adicional de Periculosidade" flSelecionavel="S"/>
+<Assunto codigo="10293" codigoPai="10288" descricao="Adicional de Fronteira" flSelecionavel="S"/>
+<Assunto codigo="10294" codigoPai="10288" descricao="Abono Pecuniário (Art. 78 Lei 8.112/1990)" flSelecionavel="S"/>
+<Assunto codigo="10295" codigoPai="10288" descricao="Gratificação Incorporada / Quintos e Décimos / VPNI" flSelecionavel="S"/>
+<Assunto codigo="10296" codigoPai="10288" descricao="Descontos Indevidos" flSelecionavel="S"/>
+<Assunto codigo="10297" codigoPai="10288" descricao="Teto Salarial" flSelecionavel="S"/>
+<Assunto codigo="10298" codigoPai="10288" descricao="Diárias e Outras Indenizações" flSelecionavel="S"/>
+<Assunto codigo="10299" codigoPai="10288" descricao="Plano de Classificação de Cargos" flSelecionavel="S"/>
+<Assunto codigo="10300" codigoPai="10288" descricao="Data Base" flSelecionavel="S"/>
+<Assunto codigo="10301" codigoPai="10288" descricao="Férias" flSelecionavel="N"/>
+<Assunto codigo="10302" codigoPai="10288" descricao="Adicional por Tempo de Serviço" flSelecionavel="N"/>
+<Assunto codigo="10303" codigoPai="10288" descricao="Adicional de Horas Extras" flSelecionavel="S"/>
+<Assunto codigo="10304" codigoPai="10288" descricao="Auxílio-Alimentação" flSelecionavel="S"/>
+<Assunto codigo="10305" codigoPai="10288" descricao="Gratificações de Atividade" flSelecionavel="S"/>
+<Assunto codigo="10306" codigoPai="10288" descricao="Auxílio-transporte" flSelecionavel="S"/>
+<Assunto codigo="10307" codigoPai="10288" descricao="Revisão Geral Anual (Mora do Executivo - inciso X, art. 37, CF 1988)" flSelecionavel="S"/>
+<Assunto codigo="10308" codigoPai="10288" descricao="Adicional de Serviço Noturno" flSelecionavel="S"/>
+<Assunto codigo="10309" codigoPai="10288" descricao="Adicional de Produtividade" flSelecionavel="S"/>
+<Assunto codigo="10310" codigoPai="10288" descricao="Gratificação Natalina/13º salário" flSelecionavel="S"/>
+<Assunto codigo="10311" codigoPai="10288" descricao="Irredutibilidade de Vencimentos" flSelecionavel="S"/>
+<Assunto codigo="10312" codigoPai="10288" descricao="Piso Salarial" flSelecionavel="S"/>
+<Assunto codigo="10323" codigoPai="10288" descricao="Inclusão de Dependente" flSelecionavel="S"/>
+<Assunto codigo="10497" codigoPai="10288" descricao="Subsídios" flSelecionavel="S"/>
+<Assunto codigo="10638" codigoPai="10288" descricao="Acumulação de Proventos" flSelecionavel="S"/>
+<Assunto codigo="10662" codigoPai="10288" descricao="Abono de Permanência" flSelecionavel="S"/>
+<Assunto codigo="10667" codigoPai="10288" descricao="Gratificações Estaduais Específicas" flSelecionavel="N"/>
+<Assunto codigo="10706" codigoPai="10288" descricao="Gratificações Municipais Específicas" flSelecionavel="S"/>
+<Assunto codigo="11858" codigoPai="10288" descricao="Recebimento de bolsa de estudos" flSelecionavel="S"/>
+<Assunto codigo="10318" codigoPai="10313" descricao="Índice da URV Lei 8.880/1994" flSelecionavel="N"/>
+<Assunto codigo="10325" codigoPai="10324" descricao="Regime" flSelecionavel="N"/>
+<Assunto codigo="10337" codigoPai="10324" descricao="Sistema Remuneratório e Benefícios" flSelecionavel="N"/>
+<Assunto codigo="10342" codigoPai="10324" descricao="Reajuste de Remuneração, Soldo, Proventos ou Pensão" flSelecionavel="N"/>
+<Assunto codigo="10359" codigoPai="10324" descricao="Pensão" flSelecionavel="N"/>
+<Assunto codigo="10363" codigoPai="10324" descricao="Processo Administrativo Disciplinar / Sindicância" flSelecionavel="N"/>
+<Assunto codigo="10326" codigoPai="10325" descricao="Ingresso e Concurso" flSelecionavel="S"/>
+<Assunto codigo="10327" codigoPai="10325" descricao="Curso de Formação" flSelecionavel="S"/>
+<Assunto codigo="10328" codigoPai="10325" descricao="Reintegração" flSelecionavel="S"/>
+<Assunto codigo="10329" codigoPai="10325" descricao="Estabilidade" flSelecionavel="S"/>
+<Assunto codigo="10331" codigoPai="10325" descricao="Adidos, Agregados e Adjuntos" flSelecionavel="S"/>
+<Assunto codigo="10334" codigoPai="10325" descricao="Promoção" flSelecionavel="S"/>
+<Assunto codigo="10335" codigoPai="10325" descricao="Serviço Militar dos Profissionais da Saúde" flSelecionavel="S"/>
+<Assunto codigo="10336" codigoPai="10325" descricao="Corpo Feminino" flSelecionavel="S"/>
+<Assunto codigo="10338" codigoPai="10337" descricao="Gratificações e Adicionais" flSelecionavel="S"/>
+<Assunto codigo="10339" codigoPai="10337" descricao="Férias" flSelecionavel="S"/>
+<Assunto codigo="10340" codigoPai="10337" descricao="Indenizações Regulares" flSelecionavel="S"/>
+<Assunto codigo="10341" codigoPai="10337" descricao="Isonomia" flSelecionavel="N"/>
+<Assunto codigo="10349" codigoPai="10337" descricao="Reforma" flSelecionavel="S"/>
+<Assunto codigo="10350" codigoPai="10337" descricao="Licenças" flSelecionavel="S"/>
+<Assunto codigo="10351" codigoPai="10337" descricao="Agregação" flSelecionavel="S"/>
+<Assunto codigo="10352" codigoPai="10337" descricao="Reserva Remunerada" flSelecionavel="S"/>
+<Assunto codigo="10353" codigoPai="10337" descricao="Transferência ex-officio para reserva" flSelecionavel="S"/>
+<Assunto codigo="10354" codigoPai="10337" descricao="Tempo de Serviço" flSelecionavel="S"/>
+<Assunto codigo="10355" codigoPai="10337" descricao="Transferência para reserva" flSelecionavel="S"/>
+<Assunto codigo="10356" codigoPai="10337" descricao="Assistência Médico-Hospitalar" flSelecionavel="S"/>
+<Assunto codigo="10357" codigoPai="10337" descricao="Licença Prêmio" flSelecionavel="S"/>
+<Assunto codigo="10358" codigoPai="10337" descricao="Licenciamento" flSelecionavel="S"/>
+<Assunto codigo="10360" codigoPai="10359" descricao="Concessão" flSelecionavel="S"/>
+<Assunto codigo="10361" codigoPai="10359" descricao="Restabelecimento" flSelecionavel="S"/>
+<Assunto codigo="10362" codigoPai="10359" descricao="Provisória" flSelecionavel="S"/>
+<Assunto codigo="10364" codigoPai="10363" descricao="Advertência / Repreensão" flSelecionavel="S"/>
+<Assunto codigo="10365" codigoPai="10363" descricao="Impedimento / Detenção / Prisão" flSelecionavel="S"/>
+<Assunto codigo="10366" codigoPai="10363" descricao="Licenciamento / Exclusão" flSelecionavel="S"/>
+<Assunto codigo="10367" codigoPai="10363" descricao="Suspensão" flSelecionavel="S"/>
+<Assunto codigo="10371" codigoPai="10370" descricao="Reserva de Vagas para Deficientes" flSelecionavel="S"/>
+<Assunto codigo="10372" codigoPai="10370" descricao="Inscrição / Documentação" flSelecionavel="S"/>
+<Assunto codigo="10373" codigoPai="10370" descricao="Limite de Idade" flSelecionavel="S"/>
+<Assunto codigo="10374" codigoPai="10370" descricao="Exigência de Prática Forense" flSelecionavel="S"/>
+<Assunto codigo="10375" codigoPai="10370" descricao="Prova de Títulos" flSelecionavel="S"/>
+<Assunto codigo="10376" codigoPai="10370" descricao="Exame de Saúde e/ou Aptidão Física" flSelecionavel="S"/>
+<Assunto codigo="10377" codigoPai="10370" descricao="Curso de Formação" flSelecionavel="S"/>
+<Assunto codigo="10378" codigoPai="10370" descricao="Exame Psicotécnico / Psiquiátrico" flSelecionavel="S"/>
+<Assunto codigo="10379" codigoPai="10370" descricao="Anulação e Correção de Provas / Questões" flSelecionavel="S"/>
+<Assunto codigo="10380" codigoPai="10370" descricao="Escolaridade" flSelecionavel="S"/>
+<Assunto codigo="10381" codigoPai="10370" descricao="Classificação e/ou Preterição" flSelecionavel="S"/>
+<Assunto codigo="10382" codigoPai="10370" descricao="Anulação" flSelecionavel="S"/>
+<Assunto codigo="10383" codigoPai="10370" descricao="Prazo de Validade" flSelecionavel="S"/>
+<Assunto codigo="10384" codigoPai="10370" descricao="Condições Especiais para Prestação de Prova" flSelecionavel="S"/>
+<Assunto codigo="10386" codigoPai="10385" descricao="Modalidade / Limite / Dispensa / Inexigibilidade" flSelecionavel="S"/>
+<Assunto codigo="10387" codigoPai="10385" descricao="Habilitação / Registro Cadastral / Julgamento / Homologação" flSelecionavel="S"/>
+<Assunto codigo="10388" codigoPai="10385" descricao="Edital" flSelecionavel="S"/>
+<Assunto codigo="10389" codigoPai="10385" descricao="Revogação" flSelecionavel="S"/>
+<Assunto codigo="10390" codigoPai="10385" descricao="Sanções Administrativas" flSelecionavel="S"/>
+<Assunto codigo="10391" codigoPai="10385" descricao="Recursos Administrativos" flSelecionavel="S"/>
+<Assunto codigo="10392" codigoPai="10385" descricao="Convênio" flSelecionavel="S"/>
+<Assunto codigo="10393" codigoPai="10385" descricao="Adjudicação" flSelecionavel="S"/>
+<Assunto codigo="10395" codigoPai="10394" descricao="Multas e demais Sanções" flSelecionavel="N"/>
+<Assunto codigo="10401" codigoPai="10394" descricao="Taxa de Ocupação / Laudêmio / Foro" flSelecionavel="S"/>
+<Assunto codigo="10402" codigoPai="10394" descricao="Cessão de créditos não-tributários" flSelecionavel="S"/>
+<Assunto codigo="10396" codigoPai="10395" descricao="Ambiental" flSelecionavel="S"/>
+<Assunto codigo="10397" codigoPai="10395" descricao="Sanitárias" flSelecionavel="S"/>
+<Assunto codigo="10410" codigoPai="10409" descricao="Contrato Temporário de Mão de Obra L 8.745/1993" flSelecionavel="S"/>
+<Assunto codigo="10411" codigoPai="10409" descricao="Admissão / Permanência / Despedida" flSelecionavel="S"/>
+<Assunto codigo="10413" codigoPai="10412" descricao="Quebra de Sigilo Bancário / Fiscal / Telefônico" flSelecionavel="S"/>
+<Assunto codigo="10414" codigoPai="10412" descricao="Criação / Instalação / Prosseguimento / Encerramento" flSelecionavel="S"/>
+<Assunto codigo="10415" codigoPai="10412" descricao="Limites dos Poderes de Investigação" flSelecionavel="S"/>
+<Assunto codigo="10416" codigoPai="10412" descricao="Limites do Objeto" flSelecionavel="S"/>
+<Assunto codigo="10418" codigoPai="10417" descricao="CNH - Carteira Nacional de Habilitação" flSelecionavel="S"/>
+<Assunto codigo="10419" codigoPai="10417" descricao="Liberação de Veículo Apreendido" flSelecionavel="S"/>
+<Assunto codigo="10420" codigoPai="10417" descricao="Licenciamento de Veículo" flSelecionavel="S"/>
+<Assunto codigo="10422" codigoPai="10421" descricao="Pagamento Atrasado / Correção Monetária" flSelecionavel="S"/>
+<Assunto codigo="10423" codigoPai="10421" descricao="Anulação" flSelecionavel="S"/>
+<Assunto codigo="10424" codigoPai="10421" descricao="Suspensão" flSelecionavel="S"/>
+<Assunto codigo="10425" codigoPai="10421" descricao="Rescisão" flSelecionavel="S"/>
+<Assunto codigo="10426" codigoPai="10421" descricao="Prorrogação" flSelecionavel="S"/>
+<Assunto codigo="10427" codigoPai="10421" descricao="Termo Aditivo" flSelecionavel="S"/>
+<Assunto codigo="10428" codigoPai="10421" descricao="Penalidades" flSelecionavel="S"/>
+<Assunto codigo="10429" codigoPai="10421" descricao="Execução Contratual" flSelecionavel="S"/>
+<Assunto codigo="10430" codigoPai="10421" descricao="Equilíbrio Financeiro" flSelecionavel="S"/>
+<Assunto codigo="10503" codigoPai="10502" descricao="Erro Médico" flSelecionavel="S"/>
+<Assunto codigo="10504" codigoPai="10502" descricao="Acidente de Trânsito" flSelecionavel="S"/>
+<Assunto codigo="10505" codigoPai="10502" descricao="Variação Cambial" flSelecionavel="S"/>
+<Assunto codigo="10676" codigoPai="10670" descricao="Imissão na Posse" flSelecionavel="S"/>
+<Assunto codigo="10677" codigoPai="10670" descricao="Busca e Apreensão" flSelecionavel="S"/>
+<Assunto codigo="10931" codigoPai="10930" descricao="Criação" flSelecionavel="S"/>
+<Assunto codigo="10932" codigoPai="10930" descricao="Desmembramento" flSelecionavel="S"/>
+<Assunto codigo="10955" codigoPai="10954" descricao="Criação de Dotação Orçamentária" flSelecionavel="S"/>
+<Assunto codigo="10956" codigoPai="10954" descricao="Repasse de Duodécimos" flSelecionavel="S"/>
+<Assunto codigo="10957" codigoPai="10954" descricao="Repasse de Verbas Públicas" flSelecionavel="S"/>
+<Assunto codigo="10958" codigoPai="10954" descricao="Crédito Suplementar" flSelecionavel="S"/>
+<Assunto codigo="11051" codigoPai="11049" descricao="Correição Parcial" flSelecionavel="N"/>
+<Assunto codigo="11052" codigoPai="11049" descricao="Execução Penal" flSelecionavel="N"/>
+<Assunto codigo="11054" codigoPai="11049" descricao="Menagem" flSelecionavel="S"/>
+<Assunto codigo="11065" codigoPai="11051" descricao="Requerimento da Parte" flSelecionavel="S"/>
+<Assunto codigo="11057" codigoPai="11052" descricao="Penas restritivas de direitos" flSelecionavel="N"/>
+<Assunto codigo="11058" codigoPai="11057" descricao="Cassação de licença para direção de veículo motorizado" flSelecionavel="S"/>
+<Assunto codigo="11059" codigoPai="11057" descricao="Confisco" flSelecionavel="S"/>
+<Assunto codigo="11060" codigoPai="11057" descricao="Exílio local" flSelecionavel="S"/>
+<Assunto codigo="11061" codigoPai="11057" descricao="Interdição de estabecimento ou associação" flSelecionavel="S"/>
+<Assunto codigo="11062" codigoPai="11057" descricao="Proibição de frequentar determinados locais" flSelecionavel="S"/>
+<Assunto codigo="11063" codigoPai="11057" descricao="Suspensão do exercício do posto, graduação, cargo ou função" flSelecionavel="S"/>
+<Assunto codigo="11069" codigoPai="11068" descricao="Crime Culposo" flSelecionavel="S"/>
+<Assunto codigo="11071" codigoPai="11068" descricao="Crime Tentado" flSelecionavel="S"/>
+<Assunto codigo="11072" codigoPai="11068" descricao="Crimes contra a Administração da Justiça Militar" flSelecionavel="N"/>
+<Assunto codigo="11073" codigoPai="11068" descricao="Crimes contra a Administração Militar" flSelecionavel="N"/>
+<Assunto codigo="11074" codigoPai="11068" descricao="Crimes contra a Autoridade ou Disciplina Militar" flSelecionavel="N"/>
+<Assunto codigo="11075" codigoPai="11068" descricao="Crimes contra a Pessoa" flSelecionavel="N"/>
+<Assunto codigo="11077" codigoPai="11068" descricao="Crimes contra Incolumidade Pública" flSelecionavel="N"/>
+<Assunto codigo="11078" codigoPai="11068" descricao="Crimes contra o Patrimônio" flSelecionavel="N"/>
+<Assunto codigo="11079" codigoPai="11068" descricao="Crimes contra o Serviço Militar e o Dever Militar" flSelecionavel="N"/>
+<Assunto codigo="11080" codigoPai="11068" descricao="Parte Geral" flSelecionavel="N"/>
+<Assunto codigo="11358" codigoPai="11072" descricao="Auto-acusação falsa" flSelecionavel="S"/>
+<Assunto codigo="11359" codigoPai="11072" descricao="Coação" flSelecionavel="S"/>
+<Assunto codigo="11360" codigoPai="11072" descricao="Comunicação falsa de crime" flSelecionavel="S"/>
+<Assunto codigo="11361" codigoPai="11072" descricao="Corrupção ativa de testemunha, perito ou intérprete" flSelecionavel="S"/>
+<Assunto codigo="11362" codigoPai="11072" descricao="Denunciação caluniosa" flSelecionavel="S"/>
+<Assunto codigo="11363" codigoPai="11072" descricao="Desacato" flSelecionavel="S"/>
+<Assunto codigo="11364" codigoPai="11072" descricao="Desobediência a decisão judicial" flSelecionavel="S"/>
+<Assunto codigo="11365" codigoPai="11072" descricao="Desobediência a decisão sobre perda ou suspensão de atividade ou direito" flSelecionavel="S"/>
+<Assunto codigo="11366" codigoPai="11072" descricao="Exploração de prestígio" flSelecionavel="S"/>
+<Assunto codigo="11367" codigoPai="11072" descricao="Falso testemunho ou falsa perícia" flSelecionavel="S"/>
+<Assunto codigo="11368" codigoPai="11072" descricao="Favorecimento pessoal" flSelecionavel="S"/>
+<Assunto codigo="11369" codigoPai="11072" descricao="Favorecimento real" flSelecionavel="S"/>
+<Assunto codigo="11370" codigoPai="11072" descricao="Inutilização,sonegação ou descaminho de material probante" flSelecionavel="S"/>
+<Assunto codigo="11371" codigoPai="11072" descricao="Publicidade opressiva" flSelecionavel="S"/>
+<Assunto codigo="11372" codigoPai="11072" descricao="Recusa de função na Justiça Militar" flSelecionavel="S"/>
+<Assunto codigo="11308" codigoPai="11073" descricao="Concussão, Excesso de Exação e Desvio" flSelecionavel="N"/>
+<Assunto codigo="11309" codigoPai="11073" descricao="Corrupção" flSelecionavel="N"/>
+<Assunto codigo="11310" codigoPai="11073" descricao="Crimes contra o dever funcional" flSelecionavel="N"/>
+<Assunto codigo="11312" codigoPai="11073" descricao="Desacato e da Desobediência" flSelecionavel="N"/>
+<Assunto codigo="11313" codigoPai="11073" descricao="Falsidade" flSelecionavel="N"/>
+<Assunto codigo="11314" codigoPai="11073" descricao="Peculato" flSelecionavel="N"/>
+<Assunto codigo="11267" codigoPai="11074" descricao="Desrespeito a superior e a símbolo nacional ou farda" flSelecionavel="N"/>
+<Assunto codigo="11268" codigoPai="11074" descricao="Aliciação e incitamento" flSelecionavel="N"/>
+<Assunto codigo="11269" codigoPai="11074" descricao="Fuga, evasão, arrebatamento e amotinamento de presos" flSelecionavel="N"/>
+<Assunto codigo="11270" codigoPai="11074" descricao="Insubordinação" flSelecionavel="N"/>
+<Assunto codigo="11271" codigoPai="11074" descricao="Motim e Revolta" flSelecionavel="N"/>
+<Assunto codigo="11272" codigoPai="11074" descricao="Resistência" flSelecionavel="N"/>
+<Assunto codigo="11273" codigoPai="11074" descricao="Usurpação e excesso ou abuso de autoridade" flSelecionavel="N"/>
+<Assunto codigo="11274" codigoPai="11074" descricao="Violência contra superior ou militar de serviço" flSelecionavel="N"/>
+<Assunto codigo="11223" codigoPai="11075" descricao="Crimes contra a Honra" flSelecionavel="N"/>
+<Assunto codigo="11224" codigoPai="11075" descricao="Crimes contra a Liberdade" flSelecionavel="N"/>
+<Assunto codigo="11225" codigoPai="11075" descricao="Crimes Sexuais" flSelecionavel="N"/>
+<Assunto codigo="11226" codigoPai="11075" descricao="Genocídio" flSelecionavel="N"/>
+<Assunto codigo="11227" codigoPai="11075" descricao="Homicídio" flSelecionavel="N"/>
+<Assunto codigo="11228" codigoPai="11075" descricao="Lesão Corporal e Rixa" flSelecionavel="N"/>
+<Assunto codigo="11229" codigoPai="11075" descricao="Periclitação da Vida ou da Saúde" flSelecionavel="N"/>
+<Assunto codigo="11230" codigoPai="11075" descricao="Ultraje Público ao Pudor" flSelecionavel="N"/>
+<Assunto codigo="11178" codigoPai="11077" descricao="Contra a Saúde" flSelecionavel="N"/>
+<Assunto codigo="11179" codigoPai="11077" descricao="Crimes contra os Meios de Transporte e de Comunicação" flSelecionavel="N"/>
+<Assunto codigo="11180" codigoPai="11077" descricao="Crimes de Perigo Comum" flSelecionavel="N"/>
+<Assunto codigo="11144" codigoPai="11078" descricao="Apropriação Indébita" flSelecionavel="N"/>
+<Assunto codigo="11145" codigoPai="11078" descricao="Dano" flSelecionavel="N"/>
+<Assunto codigo="11146" codigoPai="11078" descricao="Estelionato e outras fraudes" flSelecionavel="N"/>
+<Assunto codigo="11147" codigoPai="11078" descricao="Furto" flSelecionavel="N"/>
+<Assunto codigo="11148" codigoPai="11078" descricao="Receptação" flSelecionavel="N"/>
+<Assunto codigo="11149" codigoPai="11078" descricao="Roubo e Extorsão" flSelecionavel="N"/>
+<Assunto codigo="11150" codigoPai="11078" descricao="Usura" flSelecionavel="N"/>
+<Assunto codigo="11151" codigoPai="11078" descricao="Usurpação" flSelecionavel="N"/>
+<Assunto codigo="11116" codigoPai="11079" descricao="Abandono de posto e de outros crimes em serviço" flSelecionavel="N"/>
+<Assunto codigo="11117" codigoPai="11079" descricao="Deserção" flSelecionavel="N"/>
+<Assunto codigo="11118" codigoPai="11079" descricao="Exercício de comércio" flSelecionavel="N"/>
+<Assunto codigo="11081" codigoPai="11080" descricao="Aplicação da Pena" flSelecionavel="N"/>
+<Assunto codigo="11082" codigoPai="11080" descricao="Efeitos da Condenação" flSelecionavel="N"/>
+<Assunto codigo="11083" codigoPai="11080" descricao="Excludentes" flSelecionavel="N"/>
+<Assunto codigo="11084" codigoPai="11080" descricao="Extinção da punibilidade" flSelecionavel="N"/>
+<Assunto codigo="11085" codigoPai="11080" descricao="Livramento Condicional" flSelecionavel="S"/>
+<Assunto codigo="11086" codigoPai="11080" descricao="Penas Acessórias" flSelecionavel="N"/>
+<Assunto codigo="11087" codigoPai="11080" descricao="Suspensão Condicional da Pena" flSelecionavel="S"/>
+<Assunto codigo="11088" codigoPai="11080" descricao="Tipicidade" flSelecionavel="N"/>
+<Assunto codigo="11114" codigoPai="11081" descricao="Conversão da Pena" flSelecionavel="S"/>
+<Assunto codigo="11115" codigoPai="11081" descricao="Substituição da Pena" flSelecionavel="S"/>
+<Assunto codigo="11112" codigoPai="11082" descricao="Perda em favor da Fazenda Pública" flSelecionavel="S"/>
+<Assunto codigo="11113" codigoPai="11082" descricao="Reparação do Dano" flSelecionavel="S"/>
+<Assunto codigo="11106" codigoPai="11083" descricao="Estado de Necessidade" flSelecionavel="S"/>
+<Assunto codigo="11108" codigoPai="11083" descricao="Estrito Cumprimento do Dever Legal" flSelecionavel="S"/>
+<Assunto codigo="11111" codigoPai="11083" descricao="Legítima Defesa" flSelecionavel="S"/>
+<Assunto codigo="11100" codigoPai="11084" descricao="Anistia" flSelecionavel="S"/>
+<Assunto codigo="11101" codigoPai="11084" descricao="Indulto" flSelecionavel="S"/>
+<Assunto codigo="11102" codigoPai="11084" descricao="Morte do Agente" flSelecionavel="S"/>
+<Assunto codigo="11103" codigoPai="11084" descricao="Prescrição" flSelecionavel="S"/>
+<Assunto codigo="11104" codigoPai="11084" descricao="Reabilitação" flSelecionavel="S"/>
+<Assunto codigo="11105" codigoPai="11084" descricao="Ressarcimento do Dano" flSelecionavel="S"/>
+<Assunto codigo="11092" codigoPai="11086" descricao="Inabilitação para o exercício de Função Pública" flSelecionavel="S"/>
+<Assunto codigo="11098" codigoPai="11086" descricao="Suspensão do pátrio poder, tutela ou curatela" flSelecionavel="S"/>
+<Assunto codigo="11099" codigoPai="11086" descricao="Suspensão dos direitos políticos" flSelecionavel="S"/>
+<Assunto codigo="11089" codigoPai="11088" descricao="Abolitio criminis" flSelecionavel="S"/>
+<Assunto codigo="11090" codigoPai="11088" descricao="Princípio da Insignificância" flSelecionavel="S"/>
+<Assunto codigo="11135" codigoPai="11116" descricao="Abandono de posto" flSelecionavel="S"/>
+<Assunto codigo="11136" codigoPai="11116" descricao="Descumprimento de missão" flSelecionavel="S"/>
+<Assunto codigo="11137" codigoPai="11116" descricao="Dormir em serviço" flSelecionavel="S"/>
+<Assunto codigo="11138" codigoPai="11116" descricao="Embriaguez em serviço" flSelecionavel="S"/>
+<Assunto codigo="11139" codigoPai="11116" descricao="Omissão de eficiência da força" flSelecionavel="S"/>
+<Assunto codigo="11140" codigoPai="11116" descricao="Omissão de providências para evitar danos" flSelecionavel="S"/>
+<Assunto codigo="11141" codigoPai="11116" descricao="Omissão de providências para salvar comandados" flSelecionavel="S"/>
+<Assunto codigo="11142" codigoPai="11116" descricao="Omissão de socorro" flSelecionavel="S"/>
+<Assunto codigo="11143" codigoPai="11116" descricao="Retenção indevida" flSelecionavel="S"/>
+<Assunto codigo="11126" codigoPai="11117" descricao="Concerto para deserção" flSelecionavel="S"/>
+<Assunto codigo="11127" codigoPai="11117" descricao="Deserção" flSelecionavel="S"/>
+<Assunto codigo="11128" codigoPai="11117" descricao="Deserção - casos assimilados" flSelecionavel="S"/>
+<Assunto codigo="11129" codigoPai="11117" descricao="Deserção especial" flSelecionavel="S"/>
+<Assunto codigo="11130" codigoPai="11117" descricao="Deserção por evasão ou fuga" flSelecionavel="S"/>
+<Assunto codigo="11131" codigoPai="11117" descricao="Deserção privilegiada" flSelecionavel="S"/>
+<Assunto codigo="11132" codigoPai="11117" descricao="Deserção qualificada" flSelecionavel="S"/>
+<Assunto codigo="11133" codigoPai="11117" descricao="Favorecimento a desertor" flSelecionavel="S"/>
+<Assunto codigo="11134" codigoPai="11117" descricao="Omissão de Oficial" flSelecionavel="S"/>
+<Assunto codigo="11125" codigoPai="11118" descricao="Exercício de comércio por oficial" flSelecionavel="S"/>
+<Assunto codigo="11175" codigoPai="11144" descricao="Apropriação de coisa achada" flSelecionavel="S"/>
+<Assunto codigo="11176" codigoPai="11144" descricao="Apropriação de coisa havida acidentalmente" flSelecionavel="S"/>
+<Assunto codigo="11177" codigoPai="11144" descricao="Apropriação indébita" flSelecionavel="S"/>
+<Assunto codigo="11168" codigoPai="11145" descricao="Dano atenuado" flSelecionavel="S"/>
+<Assunto codigo="11169" codigoPai="11145" descricao="Dano em aparelhos e instalações" flSelecionavel="S"/>
+<Assunto codigo="11171" codigoPai="11145" descricao="Dano material ou aparelhamento de guerra" flSelecionavel="S"/>
+<Assunto codigo="11172" codigoPai="11145" descricao="Dano qualificado" flSelecionavel="S"/>
+<Assunto codigo="11173" codigoPai="11145" descricao="Dano simples" flSelecionavel="S"/>
+<Assunto codigo="11174" codigoPai="11145" descricao="Desaparecimento,consunção ou extravio" flSelecionavel="S"/>
+<Assunto codigo="11166" codigoPai="11146" descricao="Abuso de pessoa" flSelecionavel="S"/>
+<Assunto codigo="11167" codigoPai="11146" descricao="Estelionato" flSelecionavel="S"/>
+<Assunto codigo="11163" codigoPai="11147" descricao="Furto" flSelecionavel="S"/>
+<Assunto codigo="11164" codigoPai="11147" descricao="Furto de uso" flSelecionavel="S"/>
+<Assunto codigo="11165" codigoPai="11147" descricao="Furto qualificado" flSelecionavel="S"/>
+<Assunto codigo="11162" codigoPai="11148" descricao="Receptação" flSelecionavel="S"/>
+<Assunto codigo="11155" codigoPai="11149" descricao="Chantagem" flSelecionavel="S"/>
+<Assunto codigo="11156" codigoPai="11149" descricao="Extorsão" flSelecionavel="S"/>
+<Assunto codigo="11157" codigoPai="11149" descricao="Extorsão indireta" flSelecionavel="S"/>
+<Assunto codigo="11158" codigoPai="11149" descricao="Extorsão mediante sequestro" flSelecionavel="S"/>
+<Assunto codigo="11159" codigoPai="11149" descricao="Latrocínio" flSelecionavel="S"/>
+<Assunto codigo="11160" codigoPai="11149" descricao="Roubo" flSelecionavel="S"/>
+<Assunto codigo="11161" codigoPai="11149" descricao="Roubo qualificado" flSelecionavel="S"/>
+<Assunto codigo="11154" codigoPai="11150" descricao="Usura pecuniária" flSelecionavel="S"/>
+<Assunto codigo="11152" codigoPai="11151" descricao="Alteração de Limites" flSelecionavel="S"/>
+<Assunto codigo="11153" codigoPai="11151" descricao="Aposição, supressão ou alteração de marca" flSelecionavel="S"/>
+<Assunto codigo="11200" codigoPai="11178" descricao="Corrupção ou poluição de água potável" flSelecionavel="S"/>
+<Assunto codigo="11201" codigoPai="11178" descricao="Envenenamento com perigo extensivo" flSelecionavel="S"/>
+<Assunto codigo="11202" codigoPai="11178" descricao="Epidemia" flSelecionavel="S"/>
+<Assunto codigo="11205" codigoPai="11178" descricao="Omissão de notificação de doença" flSelecionavel="S"/>
+<Assunto codigo="11206" codigoPai="11178" descricao="Receita Ilegal" flSelecionavel="S"/>
+<Assunto codigo="11207" codigoPai="11178" descricao="Tráfico, posse ou uso de entorpecente ou substância de efeito similar" flSelecionavel="S"/>
+<Assunto codigo="11194" codigoPai="11179" descricao="Arremesso de projétil" flSelecionavel="S"/>
+<Assunto codigo="11195" codigoPai="11179" descricao="Atentado contra serviço de utilidade militar" flSelecionavel="S"/>
+<Assunto codigo="11196" codigoPai="11179" descricao="Atentado contra transporte" flSelecionavel="S"/>
+<Assunto codigo="11197" codigoPai="11179" descricao="Atentado contra viatura ou outro meio de transporte" flSelecionavel="S"/>
+<Assunto codigo="11198" codigoPai="11179" descricao="Interrupção ou perturbação de serviço ou meio de comunicação" flSelecionavel="S"/>
+<Assunto codigo="11199" codigoPai="11179" descricao="Perigo de desastre ferroviário" flSelecionavel="S"/>
+<Assunto codigo="11181" codigoPai="11180" descricao="Abuso de radiação" flSelecionavel="S"/>
+<Assunto codigo="11182" codigoPai="11180" descricao="Desabamento ou desmoronamento" flSelecionavel="S"/>
+<Assunto codigo="11183" codigoPai="11180" descricao="Difusão de epizootia ou praga vegetal" flSelecionavel="S"/>
+<Assunto codigo="11184" codigoPai="11180" descricao="Embriaguez ao volante" flSelecionavel="S"/>
+<Assunto codigo="11185" codigoPai="11180" descricao="Emprego de gás tóxico ou asfixiante" flSelecionavel="S"/>
+<Assunto codigo="11186" codigoPai="11180" descricao="Explosão" flSelecionavel="S"/>
+<Assunto codigo="11188" codigoPai="11180" descricao="Fuga após acidente de trânsito" flSelecionavel="S"/>
+<Assunto codigo="11189" codigoPai="11180" descricao="Incêndio" flSelecionavel="S"/>
+<Assunto codigo="11190" codigoPai="11180" descricao="Inundação" flSelecionavel="S"/>
+<Assunto codigo="11191" codigoPai="11180" descricao="Perigo de inundação" flSelecionavel="S"/>
+<Assunto codigo="11192" codigoPai="11180" descricao="Perigo resultante de violação de regra de trânsito" flSelecionavel="S"/>
+<Assunto codigo="11193" codigoPai="11180" descricao="Subtração, ocultação ou inutilização de material de socorro" flSelecionavel="S"/>
+<Assunto codigo="11262" codigoPai="11223" descricao="Calúnia" flSelecionavel="S"/>
+<Assunto codigo="11263" codigoPai="11223" descricao="Difamação" flSelecionavel="S"/>
+<Assunto codigo="11264" codigoPai="11223" descricao="Injúria" flSelecionavel="S"/>
+<Assunto codigo="11265" codigoPai="11223" descricao="Injuria real" flSelecionavel="S"/>
+<Assunto codigo="11253" codigoPai="11224" descricao="Ameaça" flSelecionavel="S"/>
+<Assunto codigo="11254" codigoPai="11224" descricao="Constragimento ilegal" flSelecionavel="S"/>
+<Assunto codigo="11255" codigoPai="11224" descricao="Desafio para duelo" flSelecionavel="S"/>
+<Assunto codigo="11256" codigoPai="11224" descricao="Divulgação de segredo" flSelecionavel="S"/>
+<Assunto codigo="11257" codigoPai="11224" descricao="Sequestro ou cárcere privado" flSelecionavel="S"/>
+<Assunto codigo="11258" codigoPai="11224" descricao="Violação de correspondência" flSelecionavel="S"/>
+<Assunto codigo="11259" codigoPai="11224" descricao="Violação de domicílio" flSelecionavel="S"/>
+<Assunto codigo="11260" codigoPai="11224" descricao="Violação de recato" flSelecionavel="S"/>
+<Assunto codigo="11261" codigoPai="11224" descricao="Violação de segredo profissional" flSelecionavel="S"/>
+<Assunto codigo="11249" codigoPai="11225" descricao="Atentado violento ao pudor" flSelecionavel="S"/>
+<Assunto codigo="11250" codigoPai="11225" descricao="Corrupção de menores" flSelecionavel="S"/>
+<Assunto codigo="11251" codigoPai="11225" descricao="Estupro" flSelecionavel="S"/>
+<Assunto codigo="11252" codigoPai="11225" descricao="Pederastia ou outro ato de libidinagem" flSelecionavel="S"/>
+<Assunto codigo="11248" codigoPai="11226" descricao="Genocídio" flSelecionavel="S"/>
+<Assunto codigo="11243" codigoPai="11227" descricao="Homicídio" flSelecionavel="S"/>
+<Assunto codigo="11244" codigoPai="11227" descricao="Homicidio qualificado" flSelecionavel="S"/>
+<Assunto codigo="11245" codigoPai="11227" descricao="Homicido privilegiado" flSelecionavel="S"/>
+<Assunto codigo="11246" codigoPai="11227" descricao="Provocação direta ou auxílio a suicídio" flSelecionavel="S"/>
+<Assunto codigo="11247" codigoPai="11227" descricao="Provocação indireta ao suicídio" flSelecionavel="S"/>
+<Assunto codigo="11237" codigoPai="11228" descricao="Lesão grave" flSelecionavel="S"/>
+<Assunto codigo="11238" codigoPai="11228" descricao="Lesão leve" flSelecionavel="S"/>
+<Assunto codigo="11239" codigoPai="11228" descricao="Lesão levíssima" flSelecionavel="S"/>
+<Assunto codigo="11240" codigoPai="11228" descricao="Lesão privilegiada" flSelecionavel="S"/>
+<Assunto codigo="11241" codigoPai="11228" descricao="Lesão seguida de morte" flSelecionavel="S"/>
+<Assunto codigo="11242" codigoPai="11228" descricao="Participação em rixa" flSelecionavel="S"/>
+<Assunto codigo="11233" codigoPai="11229" descricao="Abandono de pessoa" flSelecionavel="S"/>
+<Assunto codigo="11234" codigoPai="11229" descricao="Abandono de pessoa seguida de morte ou lesão grave" flSelecionavel="S"/>
+<Assunto codigo="11235" codigoPai="11229" descricao="Maus tratos" flSelecionavel="S"/>
+<Assunto codigo="11236" codigoPai="11229" descricao="Maus tratos seguido de morte ou lesão grave" flSelecionavel="S"/>
+<Assunto codigo="11231" codigoPai="11230" descricao="Ato obsceno" flSelecionavel="S"/>
+<Assunto codigo="11232" codigoPai="11230" descricao="Escrito ou objeto obsceno" flSelecionavel="S"/>
+<Assunto codigo="11304" codigoPai="11267" descricao="Despojamento desprezível" flSelecionavel="S"/>
+<Assunto codigo="11305" codigoPai="11267" descricao="Desrespeito a comandante, oficial-general ou oficial de serviço" flSelecionavel="S"/>
+<Assunto codigo="11306" codigoPai="11267" descricao="Desrespeito a símbolo nacional" flSelecionavel="S"/>
+<Assunto codigo="11307" codigoPai="11267" descricao="Desrespeito a superior" flSelecionavel="S"/>
+<Assunto codigo="11301" codigoPai="11268" descricao="Aliciação para motim ou revolta" flSelecionavel="S"/>
+<Assunto codigo="11302" codigoPai="11268" descricao="Apologia de fato criminoso ou do seu autor" flSelecionavel="S"/>
+<Assunto codigo="11303" codigoPai="11268" descricao="Incitamento" flSelecionavel="S"/>
+<Assunto codigo="11297" codigoPai="11269" descricao="Amotinamento" flSelecionavel="S"/>
+<Assunto codigo="11298" codigoPai="11269" descricao="Arrebatamento de preso ou internado" flSelecionavel="S"/>
+<Assunto codigo="11299" codigoPai="11269" descricao="Evasão de preso ou internado" flSelecionavel="S"/>
+<Assunto codigo="11300" codigoPai="11269" descricao="Fuga de preso ou internado" flSelecionavel="S"/>
+<Assunto codigo="11293" codigoPai="11270" descricao="Oposição a ordem de sentinela" flSelecionavel="S"/>
+<Assunto codigo="11294" codigoPai="11270" descricao="Publicação ou crítica indevida" flSelecionavel="S"/>
+<Assunto codigo="11295" codigoPai="11270" descricao="Recusa a obediência" flSelecionavel="S"/>
+<Assunto codigo="11296" codigoPai="11270" descricao="Reunião ilícita" flSelecionavel="S"/>
+<Assunto codigo="11288" codigoPai="11271" descricao="Conspiração" flSelecionavel="S"/>
+<Assunto codigo="11289" codigoPai="11271" descricao="Motim" flSelecionavel="S"/>
+<Assunto codigo="11290" codigoPai="11271" descricao="Omissão de lealdade militar" flSelecionavel="S"/>
+<Assunto codigo="11291" codigoPai="11271" descricao="Organização de grupo para prática de violência" flSelecionavel="S"/>
+<Assunto codigo="11292" codigoPai="11271" descricao="Revolta" flSelecionavel="S"/>
+<Assunto codigo="11287" codigoPai="11272" descricao="Resistência mediante ameaça ou violência" flSelecionavel="S"/>
+<Assunto codigo="11277" codigoPai="11273" descricao="Abuso de requisição militar" flSelecionavel="S"/>
+<Assunto codigo="11278" codigoPai="11273" descricao="Assunção de comando sem ordem ou autorização" flSelecionavel="S"/>
+<Assunto codigo="11279" codigoPai="11273" descricao="Conservação ilegal de comando" flSelecionavel="S"/>
+<Assunto codigo="11280" codigoPai="11273" descricao="Ofensa aviltante a inferior" flSelecionavel="S"/>
+<Assunto codigo="11281" codigoPai="11273" descricao="Operação militar sem ordem superior" flSelecionavel="S"/>
+<Assunto codigo="11282" codigoPai="11273" descricao="Ordem arbitrária de invasão" flSelecionavel="S"/>
+<Assunto codigo="11283" codigoPai="11273" descricao="Rigor excessivo" flSelecionavel="S"/>
+<Assunto codigo="11285" codigoPai="11273" descricao="Uso indevido por militar de uniforme, distintivo ou insígnia" flSelecionavel="S"/>
+<Assunto codigo="11286" codigoPai="11273" descricao="Violência contra inferior" flSelecionavel="S"/>
+<Assunto codigo="11275" codigoPai="11274" descricao="Violência contra militar de serviço" flSelecionavel="S"/>
+<Assunto codigo="11276" codigoPai="11274" descricao="Violência contra superior" flSelecionavel="S"/>
+<Assunto codigo="11355" codigoPai="11308" descricao="Concussão" flSelecionavel="S"/>
+<Assunto codigo="11356" codigoPai="11308" descricao="Desvio" flSelecionavel="S"/>
+<Assunto codigo="11357" codigoPai="11308" descricao="Excesso de exação" flSelecionavel="S"/>
+<Assunto codigo="11352" codigoPai="11309" descricao="Corrupção ativa" flSelecionavel="S"/>
+<Assunto codigo="11353" codigoPai="11309" descricao="Corrupção passiva" flSelecionavel="S"/>
+<Assunto codigo="11354" codigoPai="11309" descricao="Participação ilícita" flSelecionavel="S"/>
+<Assunto codigo="11336" codigoPai="11310" descricao="Abandono de cargo" flSelecionavel="S"/>
+<Assunto codigo="11337" codigoPai="11310" descricao="Abuso de confiança ou boa fé" flSelecionavel="S"/>
+<Assunto codigo="11338" codigoPai="11310" descricao="Aplicação ilegal de verba ou dinheiro" flSelecionavel="S"/>
+<Assunto codigo="11339" codigoPai="11310" descricao="Condescendência criminosa" flSelecionavel="S"/>
+<Assunto codigo="11340" codigoPai="11310" descricao="Exercício funcional ilegal" flSelecionavel="S"/>
+<Assunto codigo="11341" codigoPai="11310" descricao="Extravio, sonegação ou inutilização de livro ou documento" flSelecionavel="S"/>
+<Assunto codigo="11342" codigoPai="11310" descricao="Inobservancia de lei, regulamento ou instrução" flSelecionavel="S"/>
+<Assunto codigo="11344" codigoPai="11310" descricao="Obstáculo à hasta pública, concorrência ou tomada de preços" flSelecionavel="S"/>
+<Assunto codigo="11345" codigoPai="11310" descricao="Patrocínio indébito" flSelecionavel="S"/>
+<Assunto codigo="11346" codigoPai="11310" descricao="Prevaricação" flSelecionavel="S"/>
+<Assunto codigo="11347" codigoPai="11310" descricao="Violação de sigilo de proposta de concorrência" flSelecionavel="S"/>
+<Assunto codigo="11348" codigoPai="11310" descricao="Violação de sigilo funcional" flSelecionavel="S"/>
+<Assunto codigo="11349" codigoPai="11310" descricao="Violação do dever funcional com o fim de lucro" flSelecionavel="S"/>
+<Assunto codigo="11350" codigoPai="11310" descricao="Violação ou divulgação indevida de correspondência ou comunicação" flSelecionavel="S"/>
+<Assunto codigo="11351" codigoPai="11310" descricao="Violência arbitrária" flSelecionavel="S"/>
+<Assunto codigo="11326" codigoPai="11312" descricao="Desacato a assemelhado ou funcionário" flSelecionavel="S"/>
+<Assunto codigo="11327" codigoPai="11312" descricao="Desacato a militar" flSelecionavel="S"/>
+<Assunto codigo="11328" codigoPai="11312" descricao="Desacato a superior" flSelecionavel="S"/>
+<Assunto codigo="11329" codigoPai="11312" descricao="Desobediência" flSelecionavel="S"/>
+<Assunto codigo="11330" codigoPai="11312" descricao="Ingresso clandestino" flSelecionavel="S"/>
+<Assunto codigo="11318" codigoPai="11313" descricao="Certidão ou atestado ideologicamente falso" flSelecionavel="S"/>
+<Assunto codigo="11319" codigoPai="11313" descricao="Cheques sem fundos" flSelecionavel="S"/>
+<Assunto codigo="11320" codigoPai="11313" descricao="Falsa identidade" flSelecionavel="S"/>
+<Assunto codigo="11321" codigoPai="11313" descricao="Falsidade ideológica" flSelecionavel="S"/>
+<Assunto codigo="11322" codigoPai="11313" descricao="Falsificação de documento" flSelecionavel="S"/>
+<Assunto codigo="11323" codigoPai="11313" descricao="Supressão de documento" flSelecionavel="S"/>
+<Assunto codigo="11324" codigoPai="11313" descricao="Uso de documento falso" flSelecionavel="S"/>
+<Assunto codigo="11325" codigoPai="11313" descricao="Uso de documento pessoal alheio" flSelecionavel="S"/>
+<Assunto codigo="11315" codigoPai="11314" descricao="Peculato" flSelecionavel="S"/>
+<Assunto codigo="11316" codigoPai="11314" descricao="Peculato mediante aproveitamento ou erro de outrem" flSelecionavel="S"/>
+<Assunto codigo="11317" codigoPai="11314" descricao="Peculato-furto" flSelecionavel="S"/>
+<Assunto codigo="11782" codigoPai="11781" descricao="Intimação" flSelecionavel="S"/>
+<Assunto codigo="11783" codigoPai="11781" descricao="Citação" flSelecionavel="S"/>
+<Assunto codigo="11784" codigoPai="11781" descricao="Oitiva" flSelecionavel="S"/>
+<Assunto codigo="11785" codigoPai="11781" descricao="Diligências" flSelecionavel="S"/>
+<Assunto codigo="11786" codigoPai="11781" descricao="Atos executórios" flSelecionavel="S"/>
+<Assunto codigo="11836" codigoPai="11802" descricao="Parcelamento do Solo" flSelecionavel="S"/>
+<Assunto codigo="11837" codigoPai="11802" descricao="Comércio Ambulante" flSelecionavel="S"/>
+<Assunto codigo="11838" codigoPai="11802" descricao="Operações Urbanas Consorciadas" flSelecionavel="S"/>
+<Assunto codigo="11839" codigoPai="11802" descricao="Posturas Municipais" flSelecionavel="S"/>
+<Assunto codigo="11840" codigoPai="11802" descricao="Segurança em Edificações" flSelecionavel="S"/>
+<Assunto codigo="11832" codigoPai="11803" descricao="Conselho do Idoso" flSelecionavel="S"/>
+<Assunto codigo="11833" codigoPai="11803" descricao="Conselho da Comunidade" flSelecionavel="S"/>
+<Assunto codigo="11834" codigoPai="11803" descricao="Conselho sobre Drogas" flSelecionavel="S"/>
+<Assunto codigo="11835" codigoPai="11803" descricao="Conselho de Direitos da Criança e Adolescente" flSelecionavel="S"/>
+<Assunto codigo="12612" codigoPai="12467" descricao="COVID-19" flSelecionavel="S"/>
+<Assunto codigo="287" descricao="DIREITO PENAL" flSelecionavel="N"/>
+<Assunto codigo="864" descricao="DIREITO DO TRABALHO" flSelecionavel="N"/>
+<Assunto codigo="8826" descricao="DIREITO PROCESSUAL CIVIL E DO TRABALHO" flSelecionavel="N"/>
+<Assunto codigo="9985" descricao="DIREITO ADMINISTRATIVO E OUTRAS MATÉRIAS DE DIREITO PÚBLICO" flSelecionavel="N"/>
+<Assunto codigo="11049" descricao="DIREITO PROCESSUAL PENAL MILITAR" flSelecionavel="N"/>
+<Assunto codigo="11068" descricao="DIREITO PENAL MILITAR" flSelecionavel="N"/>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>fNt9amoZVdITAPce4bZxZkrhyY4=</DigestValue></Reference></SignedInfo><SignatureValue>MkkIhKXCS+/z3l7DXnjFDEnj0iH7hTgHy7sFSoXCI/rMaQ/sLWYA2ZP2zFs2Z3urSpY5Qju59qFO
+wXCAJQT2th117QQvIaefHnEqUGnoLBJTzE/6yWND6iac/1YJMWMTU6YZEzFHJREew+ytF8ks2dTC
+djPpZpNLUPWRjVyert0=</SignatureValue><KeyInfo><X509Data><X509Certificate>MIICrzCCAhgCCQDVUHUkOXrNMDANBgkqhkiG9w0BAQUFADCBmzELMAkGA1UEBhMCQlIxDzANBgNV
+BAgTBkVTVEFETzEPMA0GA1UEBxMGQ0lEQURFMSIwIAYDVQQKExlUUklCVU5BTCBERSBKVVNUSUNB
+IFRFU1RFMSIwIAYDVQQLExlUUklCVU5BTCBERSBKVVNUSUNBIFRFU1RFMSIwIAYDVQQDExlUUklC
+VU5BTCBERSBKVVNUSUNBIFRFU1RFMB4XDTA4MDUxNDEzMDcwMVoXDTA5MDUxNDEzMDcwMVowgZsx
+CzAJBgNVBAYTAkJSMQ8wDQYDVQQIEwZFU1RBRE8xDzANBgNVBAcTBkNJREFERTEiMCAGA1UEChMZ
+VFJJQlVOQUwgREUgSlVTVElDQSBURVNURTEiMCAGA1UECxMZVFJJQlVOQUwgREUgSlVTVElDQSBU
+RVNURTEiMCAGA1UEAxMZVFJJQlVOQUwgREUgSlVTVElDQSBURVNURTCBnzANBgkqhkiG9w0BAQEF
+AAOBjQAwgYkCgYEA1I94HSi8/QfNhxtRUNIznHfWwekx6nRwc2KawCSCU7laOgI5gH8Hn7fcrgPP
+MqjyTPLRybZHuQvYBAVCoSutVbcDEPLZSuRs8oAriupJrNX1+3GUkVwrBTFVWhdmW7mUi88/+LJV
+1MPaweZBQ8oYDes3eLnHw9PaCs2myCQ2SzsCAwEAATANBgkqhkiG9w0BAQUFAAOBgQB6vlkAG9UI
+rl99AqV7KFPhw8b+ZtBsAfDO3wuL8SN57kIGmJ7UK03gAffOQl1KpzOxRFXPFnqyWH7yqZkpdUbL
+xuODBp7iQNNtxqQ20ZyBIAlpPJXM1zMP6FNtYKRWaQFVx00Jf7xQS7bJ584txWfMPKOJnlQ+KnuK
+im7ugk3hTQ==</X509Certificate></X509Data></KeyInfo></Signature></Assuntos>

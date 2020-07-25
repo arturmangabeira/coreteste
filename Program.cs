@@ -15,19 +15,20 @@ namespace Core.Api
     {
         public static void Main(string[] args)
         {
+            string loggingFilePath = ConfigurationManager.ConfigurationManager.AppSettings["Logging:FilePath"];
             Log.Logger = new LoggerConfiguration()
             .Enrich.FromLogContext()
             .WriteTo.Console()
-            .WriteTo.File(new RenderedCompactJsonFormatter(), "/logs/log.ndjson")
+            .WriteTo.File(loggingFilePath, rollingInterval: RollingInterval.Day)
             .CreateLogger();
 
             try
             {
+                Log.Information("Starting up");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
-
                 Log.Fatal(ex, "Application start-up failed");
             }
             finally

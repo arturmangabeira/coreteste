@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><Classes>
+  <Classe Descricao="Expropriação da Lei 8.257/91" Tipo="107">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Cumprimento Provisório de Sentença" Tipo="157">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Credor"/>
+    <Parte Descricao="Defensor"/>
+    <Parte Descricao="Devedor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Reclamado"/>
+    <Parte Descricao="Reclamante"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Embargos à Adjudicação" Tipo="170">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Embargado"/>
+    <Parte Descricao="Embargante"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Embargos à Arrematação" Tipo="171">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Embargado"/>
+    <Parte Descricao="Embargante"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Embargos à Execução" Tipo="172">
+    <Parte Descricao="Embargado"/>
+    <Parte Descricao="Embargante"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+  </Classe>
+  <Classe Descricao="Embargos de Retenção por Benfeitorias" Tipo="173">
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+  </Classe>
+  <Classe Descricao="Homologação do Penhor Legal" Tipo="188">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Justificado"/>
+    <Parte Descricao="Justificante"/>
+    <Parte Descricao="Representante"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Recursos" Tipo="197">
+    <Parte Descricao="Embargante"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+  </Classe>
+  <Classe Descricao="Apelação" Tipo="198">
+    <Parte Descricao="Apelante"/>
+  </Classe>
+  <Classe Descricao="Agravo de Instrumento" Tipo="202">
+    <Parte Descricao="Agravante"/>
+  </Classe>
+  <Classe Descricao="Agravo de Instrumento em Recurso Especial" Tipo="203">
+    <Parte Descricao="Agravante"/>
+  </Classe>
+  <Classe Descricao="Agravo de Instrumento em Recurso Extraordinário" Tipo="204">
+    <Parte Descricao="Agravante"/>
+  </Classe>
+  <Classe Descricao="Agravo Regimental" Tipo="206">
+    <Parte Descricao="Agravante"/>
+  </Classe>
+  <Classe Descricao="Embargos" Tipo="207">
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+  </Classe>
+  <Classe Descricao="Embargos Infringentes" Tipo="208">
+    <Parte Descricao="Embargante"/>
+  </Classe>
+  <Classe Descricao="Embargos Infringentes na Execução Fiscal" Tipo="210">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Incidentes" Tipo="215">
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+  </Classe>
+  <Classe Descricao="Assistência Judiciária" Tipo="218">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceções" Tipo="224">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exibição de Documento ou Coisa" Tipo="228">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Impugnação ao Cumprimento de Sentença" Tipo="229">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Impugnação ao Pedido de Assistência Litisconsorcial ou Simples" Tipo="230">
+    <Parte Descricao="Advogado"/>
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Impugnado"/>
+    <Parte Descricao="Impugnante"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Impugnação ao Valor da Causa" Tipo="231">
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+  </Classe>
+  <Classe Descricao="Incidente de Falsidade" Tipo="232">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Remoção de Inventariante" Tipo="234">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Oponente"/>
+    <Parte Descricao="Oposto"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Oposição" Tipo="236">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Representante"/>
+    <Parte Descricao="Representante Do Autor"/>
+    <Parte Descricao="Representante Do Réu"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Pedido de Arquivamento em Representação Criminal" Tipo="273">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Processo Sumário (Detenção)" Tipo="290">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceção de Suspeição" Tipo="318">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceção de Incompetência de Juízo" Tipo="319">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceção de Litispendência" Tipo="320">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceção de Ilegitimidade de Parte" Tipo="321">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceção de Coisa Julgada" Tipo="322">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceção de Impedimento" Tipo="323">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceção da Verdade" Tipo="324">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Restituição de Coisas Apreendidas" Tipo="326">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Arresto / Hipoteca Legal" Tipo="330">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Incidentes" Tipo="331">
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+  </Classe>
+  <Classe Descricao="Incidente de Falsidade" Tipo="332">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Insanidade Mental do Acusado" Tipo="333">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Conversão de Pena" Tipo="407">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Excesso ou Desvio" Tipo="408">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Anistia" Tipo="409">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Sentenciado"/>
+  </Classe>
+  <Classe Descricao="Indulto" Tipo="410">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Comutação de Pena" Tipo="411">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Embargante"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Recursos" Tipo="412">
+    <Parte Descricao="Embargante"/>
+  </Classe>
+  <Classe Descricao="Agravo de Execução Penal" Tipo="413">
+    <Parte Descricao="Agravante"/>
+  </Classe>
+  <Classe Descricao="Apelação em Mandado de Segurança" Tipo="416">
+    <Parte Descricao="Apelante"/>
+  </Classe>
+  <Classe Descricao="Apelação" Tipo="417">
+    <Parte Descricao="Apelante"/>
+  </Classe>
+  <Classe Descricao="Embargos de Declaração" Tipo="420">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Embargos Infringentes e de Nulidade" Tipo="421">
+    <Parte Descricao="Embargante"/>
+  </Classe>
+  <Classe Descricao="Recurso em Sentido Estrito" Tipo="426">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Recorrente"/>
+    <Parte Descricao="Recorrido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Desaforamento de Julgamento" Tipo="432">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Embargos à Execução Fiscal" Tipo="1118">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Embargado"/>
+    <Parte Descricao="Embargante"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Agravo" Tipo="1208">
+    <Parte Descricao="Agravante"/>
+  </Classe>
+  <Classe Descricao="Exceção de Impedimento" Tipo="1230">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceção de Suspeição" Tipo="1231">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Exceção de Incompetência" Tipo="1232">
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+  </Classe>
+  <Classe Descricao="Superveniência de doença mental" Tipo="1283">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Unificação de penas" Tipo="1284">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Transferência entre estabelecimentos penais" Tipo="1288">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Representante"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Reabilitação" Tipo="1291">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Execução de Multa" Tipo="1435">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Menor"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Socioeducando"/>
+  </Classe>
+  <Classe Descricao="Embargos de Declaração" Tipo="1689">
+    <Parte Descricao="Adjudicante"/>
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Autor do Fato"/>
+    <Parte Descricao="Autoridade Policial"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Indiciado"/>
+    <Parte Descricao="Indiciante"/>
+    <Parte Descricao="Menor Infrator"/>
+    <Parte Descricao="Representante"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Vítima"/>
+  </Classe>
+  <Classe Descricao="Impugnação de Assistência Judiciária" Tipo="1702">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Menor"/>
+    <Parte Descricao="Menor Infrator"/>
+    <Parte Descricao="Representante"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Agravo de Instrumento em Recurso Especial" Tipo="1711">
+    <Parte Descricao="Agravante"/>
+  </Classe>
+  <Classe Descricao="Agravo de Instrumento em Recurso Extraordinário" Tipo="1712">
+    <Parte Descricao="Agravante"/>
+  </Classe>
+  <Classe Descricao="Embargos do Acusado" Tipo="1715">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Alienação de Bens do Acusado" Tipo="1717">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Avaliação para atestar dependência de drogas" Tipo="1719">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Apelação / Remessa Necesária" Tipo="1728">
+    <Parte Descricao="Apelante"/>
+  </Classe>
+  <Classe Descricao="Agravo Regimental" Tipo="1729">
+    <Parte Descricao="Agravante"/>
+  </Classe>
+  <Classe Descricao="Declarações" Tipo="5502">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Homologação de acordo" Tipo="5503">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Laudo pericial" Tipo="5504">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Ofício" Tipo="5505">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Outros" Tipo="5506">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de extinção do processo" Tipo="5507">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Rol de testemunhas" Tipo="5508">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Denúncia" Tipo="5509">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Inquérito policial" Tipo="5510">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Justificação" Tipo="5511">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de desentranhamento de documentos" Tipo="5512">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de habilitação" Tipo="5513">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de redesignação de audiência" Tipo="5514">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de expedição de alvará" Tipo="5515">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Relatório de prestação de serviços à comunidade" Tipo="5516">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Alegações preliminares" Tipo="5517">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Renúncia de mandato/encargo" Tipo="5518">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Apensamento" Tipo="5519">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido Citação" Tipo="5520">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Citação dos Sócios" Tipo="5521">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Depósito" Tipo="5522">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Emenda da Inicial" Tipo="5523">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Penhora / Arresto" Tipo="5524">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Prosseguimento do Feito" Tipo="5525">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Calculo de Custas" Tipo="5526">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de vista dos autos" Tipo="5527">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Mudança de endereço" Tipo="5528">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Impugnação" Tipo="5529">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de impenhorabilidade de bens" Tipo="5530">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Nomeação de bens à penhora - Veículo de via terrestre" Tipo="5531">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Nomeação de bens à penhora - Móvel/Semovente" Tipo="5532">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Nomeação de bens à penhora - Múltipla categoria" Tipo="5533">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Carta testemunhável" Tipo="5534">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso de agravo - criminal" Tipo="5535">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Agravo retido" Tipo="5536">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens à penhora - Móvel/Semovente" Tipo="5537">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens para arresto - Imóvel" Tipo="5538">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens para arresto - Outros bens ou direitos" Tipo="5539">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de livramento condicional" Tipo="5540">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de restituição de fiança" Tipo="5541">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de progressão de regime" Tipo="5542">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de soma de pena" Tipo="5543">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de trabalho externo" Tipo="5544">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Nomeação de bens à penhora" Tipo="5545">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Restituição de objeto" Tipo="5546">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Auto de prisão em flagrante" Tipo="5547">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Exceção de pré-executividade" Tipo="5548">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de expedição de carta precatória" Tipo="5549">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comunicação de protocolo unificado" Tipo="5550">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Relatório de Cálculo de Custas" Tipo="5551">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens à penhora - Outros bens ou direitos" Tipo="5552">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de regressão de regime" Tipo="5553">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Alegações finais" Tipo="5554">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comprovante de recolhimento de despesas" Tipo="5555">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Defesa prévia" Tipo="5556">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresentação de documentos" Tipo="5557">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Reconvenção" Tipo="5558">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Procuração/Substabelecimento" Tipo="5559">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Manifestação sobre a contestação" Tipo="5560">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de desarquivamento" Tipo="5561">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de suspensão de prazo/processo" Tipo="5562">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Razões/Contrarrazões" Tipo="5563">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Manifestação sobre a impugnação" Tipo="5564">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Informações" Tipo="5565">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de desistência do processo" Tipo="5566">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Auto de exame de corpo de delito" Tipo="5567">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Embargos à Ação Monitória" Tipo="5568">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de adjudicação" Tipo="5569">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de assistência judiciária gratuita" Tipo="5570">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de expedição de mandado" Tipo="5571">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de restituição de bens" Tipo="5572">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de substituição de bens penhorados" Tipo="5573">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Proposição de acordo" Tipo="5574">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de liberdade provisória" Tipo="5575">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de utilização BACEN JUD" Tipo="5576">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Suspensão de Prazo" Tipo="5577">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens à penhora - Múltipla categoria" Tipo="5578">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Atualização da Avaliação da Penhora" Tipo="5579">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Citação em Novo Endereço" Tipo="5580">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Chamamento à Lide" Tipo="5581">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Intimação" Tipo="5582">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Designação de Data para Leilão" Tipo="5583">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Substituição da CDA" Tipo="5584">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Suspensão do Processo" Tipo="5585">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de desistência do prazo recursal" Tipo="5586">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de expedição de ofício" Tipo="5587">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Carta precatória" Tipo="5588">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Nomeação de bens à penhora - Depósito em dinheiro" Tipo="5589">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Nomeação de bens à penhora - Fiança bancária" Tipo="5590">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Nomeação de bens à penhora - Imóvel" Tipo="5591">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Nomeação de bens à penhora - Outros bens ou direitos" Tipo="5592">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens à penhora - Imóvel" Tipo="5593">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso em sentido estrito" Tipo="5594">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso de apelação" Tipo="5595">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso Adesivo" Tipo="5596">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens à penhora - Veículos de via terrestre" Tipo="5597">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens para arresto - Móvel/Semovente" Tipo="5598">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens para arresto - Múltipla categoria" Tipo="5599">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de revogação de prisão preventiva" Tipo="5600">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de prisão domiciliar" Tipo="5601">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de saída temporária" Tipo="5602">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de remição" Tipo="5603">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de levantamento de depósito bancário" Tipo="5604">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de exclusão de CDA" Tipo="5605">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de diligências" Tipo="5606">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de arquivamento" Tipo="5607">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresentação de proposta de honorários" Tipo="5608">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de baixa das restrições negativas" Tipo="5609">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Cancelamento de inscrição no cadastro de adoção" Tipo="5610">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Suspensão do Processo por Parcelamento" Tipo="5611">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Nomeação de bens à penhora - Bem de terceiro (móvel/imóvel)" Tipo="5612">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indicação de bens para arresto - Veículos de via terrestre" Tipo="5613">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de permissão de saída" Tipo="5614">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de parcelamento de custas" Tipo="5615">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Contestação" Tipo="5617">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="TIPOS DE PETIÇÃO" Tipo="8500">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Tipos De Petição Antigos Do Saipro" Tipo="9500">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Embargos de Declaração" Tipo="9501">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Embargos Infringentes" Tipo="9502">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso Extraordinário Ao Stf" Tipo="9503">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso Especial Ao Stj" Tipo="9504">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso Ordinario" Tipo="9505">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Agravo De Instrumento Ao Stj" Tipo="9506">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Agravo De Instrumento Ao Stf" Tipo="9507">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Agravo Regimental" Tipo="9508">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Devolução Dos Autos" Tipo="9509">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comunica Informações Prestadas" Tipo="9510">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso Adesivo" Tipo="9511">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso Inominado" Tipo="9512">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Solicitando Informações" Tipo="9513">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Desistência Dos Autos" Tipo="9514">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Remessa Dos Autos/Baixa" Tipo="9515">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Renúncia Ao Mandato" Tipo="9516">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Alvara De Soltura" Tipo="9517">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Concessão De Liminar" Tipo="9518">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Interpõe Agravo " Tipo="9519">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Ratificação" Tipo="9520">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Requer Devolução Dos Autos" Tipo="9521">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Para Instrução De Julgamento" Tipo="9522">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Resposta À Contestação" Tipo="9523">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Extra-Autos" Tipo="9524">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pauta Para Julgamento" Tipo="9525">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Adiamento Do Julgamento" Tipo="9526">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Vista Dos Autos" Tipo="9527">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Prosseguimento Do Feito" Tipo="9528">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Julgamento Dos Autos" Tipo="9529">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Retificação" Tipo="9530">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Desistência De Recurso" Tipo="9531">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Homologação" Tipo="9532">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Indica Endereço" Tipo="9533">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Precatório" Tipo="9534">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Expedição De Certidão" Tipo="9535">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Prazo" Tipo="9536">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Reconsideração Do Despacho" Tipo="9537">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pronunciamento" Tipo="9538">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Impugnação Ao Valor Da Causa" Tipo="9539">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Prestando Informações" Tipo="9540">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Devolvendo Carta De Ordem" Tipo="9541">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Devolvendo Carta Precatória" Tipo="9542">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Resposta De Agravado" Tipo="9543">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Expedição De Carta De Sentença" Tipo="9544">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Juntada De Documento" Tipo="9545">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Juntada De Procuração" Tipo="9546">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Juntada De Substabelecimento" Tipo="9547">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pronunciamento Do Litisconsorte" Tipo="9548">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Contestação" Tipo="9549">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Defesa Prévia" Tipo="9550">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Resposta Ao Recurso Especial" Tipo="9551">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Resposta Ao Recurso Extraordinário" Tipo="9552">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Resposta Ao Recurso Ordinário" Tipo="9553">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Exclusão Da Pauta Para Julgamento" Tipo="9554">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Contra Minuta" Tipo="9555">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Contra Razões" Tipo="9556">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Petição" Tipo="9557">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Aditamento A Inicial" Tipo="9558">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Interpoe Recurso" Tipo="9559">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Reconsideração Da Decisão" Tipo="9560">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comunica Acordo" Tipo="9561">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Gratuidade Judiciaria" Tipo="9562">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Originais Da Petição" Tipo="9563">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Interessado" Tipo="9564">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Redistribuicao Por Prevencao" Tipo="9565">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Razões Da Apelação" Tipo="9566">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Prioridade Na Tramitação Do Processo" Tipo="9567">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Extensão De Beneficio" Tipo="9568">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Intervenção No Feito" Tipo="9569">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Manifestação" Tipo="9570">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Renúnica Ao Mandato" Tipo="9571">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Renúncia Aos Poderes Que Lhes Fora Outorgado" Tipo="9572">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Encaminha Documentos" Tipo="9573">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Memorial" Tipo="9574">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Intervenção e Defesa" Tipo="9575">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Requer Citação " Tipo="9576">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Perda De Objeto" Tipo="9577">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Desarquivamento Dos Autos" Tipo="9578">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Oferecendo Denuncia" Tipo="9579">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comunica Decisão" Tipo="9580">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Arguir Impedimento" Tipo="9581">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Reitera Pedido Ja Formulado" Tipo="9582">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Razões De Apelação" Tipo="9583">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Expedição De Oficio" Tipo="9584">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comunica Interposição De Agi" Tipo="9585">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Desentranhamento de Documento" Tipo="9586">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Solicita Documentos" Tipo="9587">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Republicação Do Despacho" Tipo="9588">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Extinção Do Feito" Tipo="9589">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Desentranhamento  de Documentos" Tipo="9590">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Habilitação Nos Autos" Tipo="9591">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Efeito Suspensivo" Tipo="9592">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Declinio De Competência" Tipo="9593">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Transcrição De Notas Taquigraficas" Tipo="9594">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Recurso Da Correicao Parcial" Tipo="9595">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comunica Falecimento" Tipo="9596">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comunica Interposição De Agravo" Tipo="9597">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Republicação" Tipo="9598">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Exceçao De Suspeiçao" Tipo="9599">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Intimação" Tipo="9600">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Cumprimento da Liminar" Tipo="9601">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Expedição De Carta Precatoria" Tipo="9602">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Sua Defesa" Tipo="9603">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Deferimento Da Liminar" Tipo="9604">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Impugnação" Tipo="9605">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Expedição De Alvara" Tipo="9606">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Suspensão Do Feito" Tipo="9607">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Distribuição Por Prevenção" Tipo="9608">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Resposta A Ação" Tipo="9609">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Execução De Titulo Judicial" Tipo="9610">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Stj Comunica Decisão" Tipo="9611">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Stf Comunica Decisão" Tipo="9612">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Desconsideração do Pedido Liminar" Tipo="9613">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Expediente Avulso" Tipo="9614">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Stj Solicita Informações" Tipo="9615">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Stf Solicita Informações" Tipo="9616">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Solicita Providencias" Tipo="9617">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comunica Devolução Dos Autos" Tipo="9618">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Desistencia Do Pedido" Tipo="9619">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Encaminha Acórdão" Tipo="9620">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Concessão De Tutela" Tipo="9621">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Encaminha Decisão" Tipo="9622">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Publicações" Tipo="9623">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Resposta" Tipo="9624">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Restauração Dos Autos" Tipo="9625">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Cumprimento do Despacho" Tipo="9626">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Cumprimento da Decisão" Tipo="9627">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Incidente De Uniformização De Jurisprudência" Tipo="9628">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Parecer do MP" Tipo="9635">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Relatório Social" Tipo="9639">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Relatório Psicológico" Tipo="9641">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Perícia Social" Tipo="9643">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="PIA - Plano Individual de Atendimento" Tipo="9645">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Solicitação de Informações HC" Tipo="9647">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Parecer do MP" Tipo="9659">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Parecer do Ministerio Publico" Tipo="9663">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Cumprimento da Sentença" Tipo="9665">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Execução de Honorários" Tipo="9671">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Réplica" Tipo="9675">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Anulação da Intimação" Tipo="9677">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comprovante de Depósito" Tipo="9679">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de citação por Edital" Tipo="9681">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Comprovação de Pobreza" Tipo="9683">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Chamamento do Feito à Ordem" Tipo="9689">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Designação de Audiência" Tipo="9691">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Julgamento Antecipado da Lide" Tipo="9693">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Devolução / Prorrogação / Dilação de Prazo" Tipo="9695">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Antecipação de Tutela" Tipo="9697">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Suspensão da Execução" Tipo="9699">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Solicita prolação de Sentença" Tipo="9701">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Utilização INFOJUD / RENAJUD" Tipo="9703">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Encaminha Objeto(s)" Tipo="9705">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Cálculos" Tipo="9707">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Pedido de Revogação da Liminar" Tipo="9709">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Adiamento / Suspensão da Audiência" Tipo="9711">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Expedição de Guia" Tipo="9713">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Juntada de Guia(s) de Depósito(s) Judicial(is)" Tipo="9715">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Juntada de DAJE(s)" Tipo="9717">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresenta Quesitos / Assistente Técnico" Tipo="9719">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Dilação de Prazo" Tipo="9721">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Designação de Audiência" Tipo="9723">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Chamamento do Feito à Ordem" Tipo="9725">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Apresentação de Quesitos" Tipo="9729">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Encaminha Decisão" Tipo="9731">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Exceção de Incompetência" Tipo="9753">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Sobrepartilha" Tipo="9776">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Incidente de Desconsideração de Personalidade Jurídica" Tipo="9778">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Cumprimento Provisório da Sentença" Tipo="9782">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Cumprimento de Parcela Incontroversa de Sentença" Tipo="9784">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Comunica Descumprimento da Liminar" Tipo="9788">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Aditamento de Carta Precatória" Tipo="9790">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Impugnação de Assistência Judiciária" Tipo="9792">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Solicita Devolução de Carta Precatória" Tipo="9794">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Embargos Infringentes na Execução Fiscal" Tipo="9813">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Embargos Parciais à Ação Monitória" Tipo="9815">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Incidente de Impedimento" Tipo="9817">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Incidente de Suspeição" Tipo="9819">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Procedimento Conciliatório" Tipo="9821">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Cumprimento de Sentença contra a Fazenda Pública" Tipo="9823">
+    <Parte Descricao="Solicitante"/>
+  </Classe>
+  <Classe Descricao="Incidente de Sanidade Mental" Tipo="10960">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Notificado"/>
+    <Parte Descricao="Notificante"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Socioeducando"/>
+  </Classe>
+  <Classe Descricao="Incidentes" Tipo="10969">
+    <Parte Descricao="Agravado"/>
+    <Parte Descricao="Agravante"/>
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Autor do Fato"/>
+    <Parte Descricao="Denunciado"/>
+    <Parte Descricao="Denunciante"/>
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Jurado"/>
+    <Parte Descricao="Menor Infrator"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Socioeducando"/>
+  </Classe>
+  <Classe Descricao="Exceções" Tipo="10971">
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Socioeducando"/>
+  </Classe>
+  <Classe Descricao="Exibição de Documento ou Coisa" Tipo="10972">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Socioeducando"/>
+  </Classe>
+  <Classe Descricao="Impugnação ao Valor da Causa" Tipo="10973">
+    <Parte Descricao="Acusado"/>
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Indiciado"/>
+    <Parte Descricao="Indiciante"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Réu Preso"/>
+    <Parte Descricao="Socioeducando"/>
+    <Parte Descricao="Vítima"/>
+  </Classe>
+  <Classe Descricao="Incidente de Falsidade" Tipo="10974">
+    <Parte Descricao="Acusado"/>
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Autor do Fato"/>
+    <Parte Descricao="Autoridade Policial"/>
+    <Parte Descricao="Denunciado"/>
+    <Parte Descricao="Denunciante"/>
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Socioeducando"/>
+    <Parte Descricao="Vítima"/>
+  </Classe>
+  <Classe Descricao="Exceção de Impedimento" Tipo="10975">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Socioeducando"/>
+  </Classe>
+  <Classe Descricao="Exceção de Incompetência" Tipo="10976">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Socioeducando"/>
+  </Classe>
+  <Classe Descricao="Exceção de Suspeição" Tipo="10977">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Deprecado"/>
+    <Parte Descricao="Excepto"/>
+    <Parte Descricao="Excipiente"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Paciente"/>
+    <Parte Descricao="Réu"/>
+    <Parte Descricao="Socioeducando"/>
+  </Classe>
+  <Classe Descricao="Cumprimento Provisório de Decisão" Tipo="10980">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Impugnação ao Cumprimento de Decisão" Tipo="10981">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Infrator"/>
+    <Parte Descricao="Menor Infrator"/>
+    <Parte Descricao="Representante"/>
+    <Parte Descricao="Requerente"/>
+    <Parte Descricao="Requerido"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Agravo de instrumento" Tipo="106021">
+    <Parte Descricao="Agravado"/>
+    <Parte Descricao="Agravante"/>
+    <Parte Descricao="Apresentante"/>
+    <Parte Descricao="Assistente"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Representante"/>
+    <Parte Descricao="Representante Do Autor"/>
+    <Parte Descricao="Representante Do Réu"/>
+  </Classe>
+  <Classe Descricao="Excecao de impedimento" Tipo="106196">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Impugnacao ao valor da causa" Tipo="106257">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Impugnado"/>
+    <Parte Descricao="Impugnante"/>
+    <Parte Descricao="Representante"/>
+    <Parte Descricao="Representante Do Autor"/>
+    <Parte Descricao="Representante Do Réu"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+  <Classe Descricao="Pedido de assistencia judiciaria" Tipo="106344">
+    <Parte Descricao="Autor"/>
+    <Parte Descricao="Executado"/>
+    <Parte Descricao="Exequente"/>
+    <Parte Descricao="Representante"/>
+    <Parte Descricao="Representante Do Autor"/>
+    <Parte Descricao="Representante Do Réu"/>
+    <Parte Descricao="Réu"/>
+  </Classe>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>xIhMRASyI4PVkneBvsofD1v3XSY=</DigestValue></Reference></SignedInfo><SignatureValue>JuZwk1if20JcWuYGnXJQzPXHTjSYQ3vlCCeDobdr/qsKK1DG/VpgL0nx/MRc3PQmKw5+IN9saxj2
+/j6/S/dBgGb1FCnbqVI9Q3UKnMKiAA7DlCwc0c1P7rWx4HCHUP9hlBzXg9eXXbeVwhKSgelVgFyS
+XE48sfNFUxd4FlVFwRk=</SignatureValue><KeyInfo><X509Data><X509Certificate>MIICrzCCAhgCCQDVUHUkOXrNMDANBgkqhkiG9w0BAQUFADCBmzELMAkGA1UEBhMCQlIxDzANBgNV
+BAgTBkVTVEFETzEPMA0GA1UEBxMGQ0lEQURFMSIwIAYDVQQKExlUUklCVU5BTCBERSBKVVNUSUNB
+IFRFU1RFMSIwIAYDVQQLExlUUklCVU5BTCBERSBKVVNUSUNBIFRFU1RFMSIwIAYDVQQDExlUUklC
+VU5BTCBERSBKVVNUSUNBIFRFU1RFMB4XDTA4MDUxNDEzMDcwMVoXDTA5MDUxNDEzMDcwMVowgZsx
+CzAJBgNVBAYTAkJSMQ8wDQYDVQQIEwZFU1RBRE8xDzANBgNVBAcTBkNJREFERTEiMCAGA1UEChMZ
+VFJJQlVOQUwgREUgSlVTVElDQSBURVNURTEiMCAGA1UECxMZVFJJQlVOQUwgREUgSlVTVElDQSBU
+RVNURTEiMCAGA1UEAxMZVFJJQlVOQUwgREUgSlVTVElDQSBURVNURTCBnzANBgkqhkiG9w0BAQEF
+AAOBjQAwgYkCgYEA1I94HSi8/QfNhxtRUNIznHfWwekx6nRwc2KawCSCU7laOgI5gH8Hn7fcrgPP
+MqjyTPLRybZHuQvYBAVCoSutVbcDEPLZSuRs8oAriupJrNX1+3GUkVwrBTFVWhdmW7mUi88/+LJV
+1MPaweZBQ8oYDes3eLnHw9PaCs2myCQ2SzsCAwEAATANBgkqhkiG9w0BAQUFAAOBgQB6vlkAG9UI
+rl99AqV7KFPhw8b+ZtBsAfDO3wuL8SN57kIGmJ7UK03gAffOQl1KpzOxRFXPFnqyWH7yqZkpdUbL
+xuODBp7iQNNtxqQ20ZyBIAlpPJXM1zMP6FNtYKRWaQFVx00Jf7xQS7bJ584txWfMPKOJnlQ+KnuK
+im7ugk3hTQ==</X509Certificate></X509Data></KeyInfo></Signature></Classes>

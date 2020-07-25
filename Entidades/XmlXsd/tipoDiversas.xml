@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><Tipos>
+  <Tipo Descricao="Declarações" Tipo="5502"/>
+  <Tipo Descricao="Homologação de acordo" Tipo="5503"/>
+  <Tipo Descricao="Laudo pericial" Tipo="5504"/>
+  <Tipo Descricao="Ofício" Tipo="5505"/>
+  <Tipo Descricao="Outros" Tipo="5506"/>
+  <Tipo Descricao="Pedido de extinção do processo" Tipo="5507"/>
+  <Tipo Descricao="Rol de testemunhas" Tipo="5508"/>
+  <Tipo Descricao="Denúncia" Tipo="5509"/>
+  <Tipo Descricao="Inquérito policial" Tipo="5510"/>
+  <Tipo Descricao="Justificação" Tipo="5511"/>
+  <Tipo Descricao="Pedido de desentranhamento de documentos" Tipo="5512"/>
+  <Tipo Descricao="Pedido de habilitação" Tipo="5513"/>
+  <Tipo Descricao="Pedido de redesignação de audiência" Tipo="5514"/>
+  <Tipo Descricao="Pedido de expedição de alvará" Tipo="5515"/>
+  <Tipo Descricao="Relatório de prestação de serviços à comunidade" Tipo="5516"/>
+  <Tipo Descricao="Alegações preliminares" Tipo="5517"/>
+  <Tipo Descricao="Renúncia de mandato/encargo" Tipo="5518"/>
+  <Tipo Descricao="Pedido de Apensamento" Tipo="5519"/>
+  <Tipo Descricao="Pedido Citação" Tipo="5520"/>
+  <Tipo Descricao="Pedido de Citação dos Sócios" Tipo="5521"/>
+  <Tipo Descricao="Pedido de Depósito" Tipo="5522"/>
+  <Tipo Descricao="Emenda da Inicial" Tipo="5523"/>
+  <Tipo Descricao="Pedido de Penhora / Arresto" Tipo="5524"/>
+  <Tipo Descricao="Prosseguimento do Feito" Tipo="5525"/>
+  <Tipo Descricao="Pedido de Calculo de Custas" Tipo="5526"/>
+  <Tipo Descricao="Pedido de vista dos autos" Tipo="5527"/>
+  <Tipo Descricao="Mudança de endereço" Tipo="5528"/>
+  <Tipo Descricao="Impugnação" Tipo="5529"/>
+  <Tipo Descricao="Pedido de impenhorabilidade de bens" Tipo="5530"/>
+  <Tipo Descricao="Nomeação de bens à penhora - Veículo de via terrestre" Tipo="5531"/>
+  <Tipo Descricao="Nomeação de bens à penhora - Móvel/Semovente" Tipo="5532"/>
+  <Tipo Descricao="Nomeação de bens à penhora - Múltipla categoria" Tipo="5533"/>
+  <Tipo Descricao="Carta testemunhável" Tipo="5534"/>
+  <Tipo Descricao="Recurso de agravo - criminal" Tipo="5535"/>
+  <Tipo Descricao="Agravo retido" Tipo="5536"/>
+  <Tipo Descricao="Indicação de bens à penhora - Móvel/Semovente" Tipo="5537"/>
+  <Tipo Descricao="Indicação de bens para arresto - Imóvel" Tipo="5538"/>
+  <Tipo Descricao="Indicação de bens para arresto - Outros bens ou direitos" Tipo="5539"/>
+  <Tipo Descricao="Pedido de livramento condicional" Tipo="5540"/>
+  <Tipo Descricao="Pedido de restituição de fiança" Tipo="5541"/>
+  <Tipo Descricao="Pedido de progressão de regime" Tipo="5542"/>
+  <Tipo Descricao="Pedido de soma de pena" Tipo="5543"/>
+  <Tipo Descricao="Pedido de trabalho externo" Tipo="5544"/>
+  <Tipo Descricao="Nomeação de bens à penhora" Tipo="5545"/>
+  <Tipo Descricao="Restituição de objeto" Tipo="5546"/>
+  <Tipo Descricao="Auto de prisão em flagrante" Tipo="5547"/>
+  <Tipo Descricao="Exceção de pré-executividade" Tipo="5548"/>
+  <Tipo Descricao="Pedido de expedição de carta precatória" Tipo="5549"/>
+  <Tipo Descricao="Comunicação de protocolo unificado" Tipo="5550"/>
+  <Tipo Descricao="Relatório de Cálculo de Custas" Tipo="5551"/>
+  <Tipo Descricao="Indicação de bens à penhora - Outros bens ou direitos" Tipo="5552"/>
+  <Tipo Descricao="Pedido de regressão de regime" Tipo="5553"/>
+  <Tipo Descricao="Alegações finais" Tipo="5554"/>
+  <Tipo Descricao="Comprovante de recolhimento de despesas" Tipo="5555"/>
+  <Tipo Descricao="Defesa prévia" Tipo="5556"/>
+  <Tipo Descricao="Apresentação de documentos" Tipo="5557"/>
+  <Tipo Descricao="Reconvenção" Tipo="5558"/>
+  <Tipo Descricao="Procuração/Substabelecimento" Tipo="5559"/>
+  <Tipo Descricao="Manifestação sobre a contestação" Tipo="5560"/>
+  <Tipo Descricao="Pedido de desarquivamento" Tipo="5561"/>
+  <Tipo Descricao="Pedido de suspensão de prazo/processo" Tipo="5562"/>
+  <Tipo Descricao="Razões/Contrarrazões" Tipo="5563"/>
+  <Tipo Descricao="Manifestação sobre a impugnação" Tipo="5564"/>
+  <Tipo Descricao="Informações" Tipo="5565"/>
+  <Tipo Descricao="Pedido de desistência do processo" Tipo="5566"/>
+  <Tipo Descricao="Auto de exame de corpo de delito" Tipo="5567"/>
+  <Tipo Descricao="Embargos à Ação Monitória" Tipo="5568"/>
+  <Tipo Descricao="Pedido de adjudicação" Tipo="5569"/>
+  <Tipo Descricao="Pedido de assistência judiciária gratuita" Tipo="5570"/>
+  <Tipo Descricao="Pedido de expedição de mandado" Tipo="5571"/>
+  <Tipo Descricao="Pedido de restituição de bens" Tipo="5572"/>
+  <Tipo Descricao="Pedido de substituição de bens penhorados" Tipo="5573"/>
+  <Tipo Descricao="Proposição de acordo" Tipo="5574"/>
+  <Tipo Descricao="Pedido de liberdade provisória" Tipo="5575"/>
+  <Tipo Descricao="Pedido de utilização BACEN JUD" Tipo="5576"/>
+  <Tipo Descricao="Pedido de Suspensão de Prazo" Tipo="5577"/>
+  <Tipo Descricao="Indicação de bens à penhora - Múltipla categoria" Tipo="5578"/>
+  <Tipo Descricao="Atualização da Avaliação da Penhora" Tipo="5579"/>
+  <Tipo Descricao="Pedido de Citação em Novo Endereço" Tipo="5580"/>
+  <Tipo Descricao="Pedido de Chamamento à Lide" Tipo="5581"/>
+  <Tipo Descricao="Pedido de Intimação" Tipo="5582"/>
+  <Tipo Descricao="Pedido de Designação de Data para Leilão" Tipo="5583"/>
+  <Tipo Descricao="Substituição da CDA" Tipo="5584"/>
+  <Tipo Descricao="Pedido de Suspensão do Processo" Tipo="5585"/>
+  <Tipo Descricao="Pedido de desistência do prazo recursal" Tipo="5586"/>
+  <Tipo Descricao="Pedido de expedição de ofício" Tipo="5587"/>
+  <Tipo Descricao="Carta precatória" Tipo="5588"/>
+  <Tipo Descricao="Nomeação de bens à penhora - Depósito em dinheiro" Tipo="5589"/>
+  <Tipo Descricao="Nomeação de bens à penhora - Fiança bancária" Tipo="5590"/>
+  <Tipo Descricao="Nomeação de bens à penhora - Imóvel" Tipo="5591"/>
+  <Tipo Descricao="Nomeação de bens à penhora - Outros bens ou direitos" Tipo="5592"/>
+  <Tipo Descricao="Indicação de bens à penhora - Imóvel" Tipo="5593"/>
+  <Tipo Descricao="Recurso em sentido estrito" Tipo="5594"/>
+  <Tipo Descricao="Recurso de apelação" Tipo="5595"/>
+  <Tipo Descricao="Recurso Adesivo" Tipo="5596"/>
+  <Tipo Descricao="Indicação de bens à penhora - Veículos de via terrestre" Tipo="5597"/>
+  <Tipo Descricao="Indicação de bens para arresto - Móvel/Semovente" Tipo="5598"/>
+  <Tipo Descricao="Indicação de bens para arresto - Múltipla categoria" Tipo="5599"/>
+  <Tipo Descricao="Pedido de revogação de prisão preventiva" Tipo="5600"/>
+  <Tipo Descricao="Pedido de prisão domiciliar" Tipo="5601"/>
+  <Tipo Descricao="Pedido de saída temporária" Tipo="5602"/>
+  <Tipo Descricao="Pedido de remição" Tipo="5603"/>
+  <Tipo Descricao="Pedido de levantamento de depósito bancário" Tipo="5604"/>
+  <Tipo Descricao="Pedido de exclusão de CDA" Tipo="5605"/>
+  <Tipo Descricao="Pedido de diligências" Tipo="5606"/>
+  <Tipo Descricao="Pedido de arquivamento" Tipo="5607"/>
+  <Tipo Descricao="Apresentação de proposta de honorários" Tipo="5608"/>
+  <Tipo Descricao="Pedido de baixa das restrições negativas" Tipo="5609"/>
+  <Tipo Descricao="Cancelamento de inscrição no cadastro de adoção" Tipo="5610"/>
+  <Tipo Descricao="Pedido de Suspensão do Processo por Parcelamento" Tipo="5611"/>
+  <Tipo Descricao="Nomeação de bens à penhora - Bem de terceiro (móvel/imóvel)" Tipo="5612"/>
+  <Tipo Descricao="Indicação de bens para arresto - Veículos de via terrestre" Tipo="5613"/>
+  <Tipo Descricao="Pedido de permissão de saída" Tipo="5614"/>
+  <Tipo Descricao="Pedido de parcelamento de custas" Tipo="5615"/>
+  <Tipo Descricao="Contestação" Tipo="5617"/>
+  <Tipo Descricao="TIPOS DE PETIÇÃO" Tipo="8500"/>
+  <Tipo Descricao="Tipos De Petição Antigos Do Saipro" Tipo="9500"/>
+  <Tipo Descricao="Embargos de Declaração" Tipo="9501"/>
+  <Tipo Descricao="Embargos Infringentes" Tipo="9502"/>
+  <Tipo Descricao="Recurso Extraordinário Ao Stf" Tipo="9503"/>
+  <Tipo Descricao="Recurso Especial Ao Stj" Tipo="9504"/>
+  <Tipo Descricao="Recurso Ordinario" Tipo="9505"/>
+  <Tipo Descricao="Agravo De Instrumento Ao Stj" Tipo="9506"/>
+  <Tipo Descricao="Agravo De Instrumento Ao Stf" Tipo="9507"/>
+  <Tipo Descricao="Agravo Regimental" Tipo="9508"/>
+  <Tipo Descricao="Devolução Dos Autos" Tipo="9509"/>
+  <Tipo Descricao="Comunica Informações Prestadas" Tipo="9510"/>
+  <Tipo Descricao="Recurso Adesivo" Tipo="9511"/>
+  <Tipo Descricao="Recurso Inominado" Tipo="9512"/>
+  <Tipo Descricao="Solicitando Informações" Tipo="9513"/>
+  <Tipo Descricao="Desistência Dos Autos" Tipo="9514"/>
+  <Tipo Descricao="Remessa Dos Autos/Baixa" Tipo="9515"/>
+  <Tipo Descricao="Renúncia Ao Mandato" Tipo="9516"/>
+  <Tipo Descricao="Alvara De Soltura" Tipo="9517"/>
+  <Tipo Descricao="Concessão De Liminar" Tipo="9518"/>
+  <Tipo Descricao="Interpõe Agravo " Tipo="9519"/>
+  <Tipo Descricao="Ratificação" Tipo="9520"/>
+  <Tipo Descricao="Requer Devolução Dos Autos" Tipo="9521"/>
+  <Tipo Descricao="Para Instrução De Julgamento" Tipo="9522"/>
+  <Tipo Descricao="Resposta À Contestação" Tipo="9523"/>
+  <Tipo Descricao="Extra-Autos" Tipo="9524"/>
+  <Tipo Descricao="Pauta Para Julgamento" Tipo="9525"/>
+  <Tipo Descricao="Adiamento Do Julgamento" Tipo="9526"/>
+  <Tipo Descricao="Vista Dos Autos" Tipo="9527"/>
+  <Tipo Descricao="Prosseguimento Do Feito" Tipo="9528"/>
+  <Tipo Descricao="Julgamento Dos Autos" Tipo="9529"/>
+  <Tipo Descricao="Retificação" Tipo="9530"/>
+  <Tipo Descricao="Desistência De Recurso" Tipo="9531"/>
+  <Tipo Descricao="Homologação" Tipo="9532"/>
+  <Tipo Descricao="Indica Endereço" Tipo="9533"/>
+  <Tipo Descricao="Precatório" Tipo="9534"/>
+  <Tipo Descricao="Expedição De Certidão" Tipo="9535"/>
+  <Tipo Descricao="Prazo" Tipo="9536"/>
+  <Tipo Descricao="Reconsideração Do Despacho" Tipo="9537"/>
+  <Tipo Descricao="Pronunciamento" Tipo="9538"/>
+  <Tipo Descricao="Impugnação Ao Valor Da Causa" Tipo="9539"/>
+  <Tipo Descricao="Prestando Informações" Tipo="9540"/>
+  <Tipo Descricao="Devolvendo Carta De Ordem" Tipo="9541"/>
+  <Tipo Descricao="Devolvendo Carta Precatória" Tipo="9542"/>
+  <Tipo Descricao="Resposta De Agravado" Tipo="9543"/>
+  <Tipo Descricao="Expedição De Carta De Sentença" Tipo="9544"/>
+  <Tipo Descricao="Juntada De Documento" Tipo="9545"/>
+  <Tipo Descricao="Juntada De Procuração" Tipo="9546"/>
+  <Tipo Descricao="Juntada De Substabelecimento" Tipo="9547"/>
+  <Tipo Descricao="Pronunciamento Do Litisconsorte" Tipo="9548"/>
+  <Tipo Descricao="Apresenta Contestação" Tipo="9549"/>
+  <Tipo Descricao="Apresenta Defesa Prévia" Tipo="9550"/>
+  <Tipo Descricao="Resposta Ao Recurso Especial" Tipo="9551"/>
+  <Tipo Descricao="Resposta Ao Recurso Extraordinário" Tipo="9552"/>
+  <Tipo Descricao="Resposta Ao Recurso Ordinário" Tipo="9553"/>
+  <Tipo Descricao="Exclusão Da Pauta Para Julgamento" Tipo="9554"/>
+  <Tipo Descricao="Contra Minuta" Tipo="9555"/>
+  <Tipo Descricao="Contra Razões" Tipo="9556"/>
+  <Tipo Descricao="Petição" Tipo="9557"/>
+  <Tipo Descricao="Aditamento A Inicial" Tipo="9558"/>
+  <Tipo Descricao="Interpoe Recurso" Tipo="9559"/>
+  <Tipo Descricao="Reconsideração Da Decisão" Tipo="9560"/>
+  <Tipo Descricao="Comunica Acordo" Tipo="9561"/>
+  <Tipo Descricao="Gratuidade Judiciaria" Tipo="9562"/>
+  <Tipo Descricao="Originais Da Petição" Tipo="9563"/>
+  <Tipo Descricao="Interessado" Tipo="9564"/>
+  <Tipo Descricao="Redistribuicao Por Prevencao" Tipo="9565"/>
+  <Tipo Descricao="Razões Da Apelação" Tipo="9566"/>
+  <Tipo Descricao="Prioridade Na Tramitação Do Processo" Tipo="9567"/>
+  <Tipo Descricao="Extensão De Beneficio" Tipo="9568"/>
+  <Tipo Descricao="Intervenção No Feito" Tipo="9569"/>
+  <Tipo Descricao="Apresenta Manifestação" Tipo="9570"/>
+  <Tipo Descricao="Renúnica Ao Mandato" Tipo="9571"/>
+  <Tipo Descricao="Renúncia Aos Poderes Que Lhes Fora Outorgado" Tipo="9572"/>
+  <Tipo Descricao="Encaminha Documentos" Tipo="9573"/>
+  <Tipo Descricao="Apresenta Memorial" Tipo="9574"/>
+  <Tipo Descricao="Intervenção e Defesa" Tipo="9575"/>
+  <Tipo Descricao="Requer Citação " Tipo="9576"/>
+  <Tipo Descricao="Perda De Objeto" Tipo="9577"/>
+  <Tipo Descricao="Desarquivamento Dos Autos" Tipo="9578"/>
+  <Tipo Descricao="Oferecendo Denuncia" Tipo="9579"/>
+  <Tipo Descricao="Comunica Decisão" Tipo="9580"/>
+  <Tipo Descricao="Arguir Impedimento" Tipo="9581"/>
+  <Tipo Descricao="Reitera Pedido Ja Formulado" Tipo="9582"/>
+  <Tipo Descricao="Apresenta Razões De Apelação" Tipo="9583"/>
+  <Tipo Descricao="Expedição De Oficio" Tipo="9584"/>
+  <Tipo Descricao="Comunica Interposição De Agi" Tipo="9585"/>
+  <Tipo Descricao="Desentranhamento de Documento" Tipo="9586"/>
+  <Tipo Descricao="Solicita Documentos" Tipo="9587"/>
+  <Tipo Descricao="Republicação Do Despacho" Tipo="9588"/>
+  <Tipo Descricao="Extinção Do Feito" Tipo="9589"/>
+  <Tipo Descricao="Desentranhamento  de Documentos" Tipo="9590"/>
+  <Tipo Descricao="Habilitação Nos Autos" Tipo="9591"/>
+  <Tipo Descricao="Efeito Suspensivo" Tipo="9592"/>
+  <Tipo Descricao="Declinio De Competência" Tipo="9593"/>
+  <Tipo Descricao="Transcrição De Notas Taquigraficas" Tipo="9594"/>
+  <Tipo Descricao="Recurso Da Correicao Parcial" Tipo="9595"/>
+  <Tipo Descricao="Comunica Falecimento" Tipo="9596"/>
+  <Tipo Descricao="Comunica Interposição De Agravo" Tipo="9597"/>
+  <Tipo Descricao="Republicação" Tipo="9598"/>
+  <Tipo Descricao="Exceçao De Suspeiçao" Tipo="9599"/>
+  <Tipo Descricao="Intimação" Tipo="9600"/>
+  <Tipo Descricao="Cumprimento da Liminar" Tipo="9601"/>
+  <Tipo Descricao="Expedição De Carta Precatoria" Tipo="9602"/>
+  <Tipo Descricao="Apresenta Sua Defesa" Tipo="9603"/>
+  <Tipo Descricao="Deferimento Da Liminar" Tipo="9604"/>
+  <Tipo Descricao="Impugnação" Tipo="9605"/>
+  <Tipo Descricao="Expedição De Alvara" Tipo="9606"/>
+  <Tipo Descricao="Suspensão Do Feito" Tipo="9607"/>
+  <Tipo Descricao="Distribuição Por Prevenção" Tipo="9608"/>
+  <Tipo Descricao="Resposta A Ação" Tipo="9609"/>
+  <Tipo Descricao="Execução De Titulo Judicial" Tipo="9610"/>
+  <Tipo Descricao="Stj Comunica Decisão" Tipo="9611"/>
+  <Tipo Descricao="Stf Comunica Decisão" Tipo="9612"/>
+  <Tipo Descricao="Desconsideração do Pedido Liminar" Tipo="9613"/>
+  <Tipo Descricao="Expediente Avulso" Tipo="9614"/>
+  <Tipo Descricao="Stj Solicita Informações" Tipo="9615"/>
+  <Tipo Descricao="Stf Solicita Informações" Tipo="9616"/>
+  <Tipo Descricao="Solicita Providencias" Tipo="9617"/>
+  <Tipo Descricao="Comunica Devolução Dos Autos" Tipo="9618"/>
+  <Tipo Descricao="Desistencia Do Pedido" Tipo="9619"/>
+  <Tipo Descricao="Encaminha Acórdão" Tipo="9620"/>
+  <Tipo Descricao="Concessão De Tutela" Tipo="9621"/>
+  <Tipo Descricao="Encaminha Decisão" Tipo="9622"/>
+  <Tipo Descricao="Publicações" Tipo="9623"/>
+  <Tipo Descricao="Apresenta Resposta" Tipo="9624"/>
+  <Tipo Descricao="Restauração Dos Autos" Tipo="9625"/>
+  <Tipo Descricao="Cumprimento do Despacho" Tipo="9626"/>
+  <Tipo Descricao="Cumprimento da Decisão" Tipo="9627"/>
+  <Tipo Descricao="Incidente De Uniformização De Jurisprudência" Tipo="9628"/>
+  <Tipo Descricao="Parecer do MP" Tipo="9635"/>
+  <Tipo Descricao="Relatório Social" Tipo="9639"/>
+  <Tipo Descricao="Relatório Psicológico" Tipo="9641"/>
+  <Tipo Descricao="Perícia Social" Tipo="9643"/>
+  <Tipo Descricao="PIA - Plano Individual de Atendimento" Tipo="9645"/>
+  <Tipo Descricao="Solicitação de Informações HC" Tipo="9647"/>
+  <Tipo Descricao="Parecer do MP" Tipo="9659"/>
+  <Tipo Descricao="Parecer do Ministerio Publico" Tipo="9663"/>
+  <Tipo Descricao="Cumprimento da Sentença" Tipo="9665"/>
+  <Tipo Descricao="Execução de Honorários" Tipo="9671"/>
+  <Tipo Descricao="Réplica" Tipo="9675"/>
+  <Tipo Descricao="Anulação da Intimação" Tipo="9677"/>
+  <Tipo Descricao="Comprovante de Depósito" Tipo="9679"/>
+  <Tipo Descricao="Pedido de citação por Edital" Tipo="9681"/>
+  <Tipo Descricao="Apresenta Comprovação de Pobreza" Tipo="9683"/>
+  <Tipo Descricao="Chamamento do Feito à Ordem" Tipo="9689"/>
+  <Tipo Descricao="Pedido de Designação de Audiência" Tipo="9691"/>
+  <Tipo Descricao="Julgamento Antecipado da Lide" Tipo="9693"/>
+  <Tipo Descricao="Devolução / Prorrogação / Dilação de Prazo" Tipo="9695"/>
+  <Tipo Descricao="Pedido de Antecipação de Tutela" Tipo="9697"/>
+  <Tipo Descricao="Suspensão da Execução" Tipo="9699"/>
+  <Tipo Descricao="Solicita prolação de Sentença" Tipo="9701"/>
+  <Tipo Descricao="Pedido de Utilização INFOJUD / RENAJUD" Tipo="9703"/>
+  <Tipo Descricao="Encaminha Objeto(s)" Tipo="9705"/>
+  <Tipo Descricao="Apresenta Cálculos" Tipo="9707"/>
+  <Tipo Descricao="Pedido de Revogação da Liminar" Tipo="9709"/>
+  <Tipo Descricao="Adiamento / Suspensão da Audiência" Tipo="9711"/>
+  <Tipo Descricao="Expedição de Guia" Tipo="9713"/>
+  <Tipo Descricao="Juntada de Guia(s) de Depósito(s) Judicial(is)" Tipo="9715"/>
+  <Tipo Descricao="Juntada de DAJE(s)" Tipo="9717"/>
+  <Tipo Descricao="Apresenta Quesitos / Assistente Técnico" Tipo="9719"/>
+  <Tipo Descricao="Dilação de Prazo" Tipo="9721"/>
+  <Tipo Descricao="Designação de Audiência" Tipo="9723"/>
+  <Tipo Descricao="Chamamento do Feito à Ordem" Tipo="9725"/>
+  <Tipo Descricao="Apresentação de Quesitos" Tipo="9729"/>
+  <Tipo Descricao="Encaminha Decisão" Tipo="9731"/>
+  <Tipo Descricao="Exceção de Incompetência" Tipo="9753"/>
+  <Tipo Descricao="Sobrepartilha" Tipo="9776"/>
+  <Tipo Descricao="Incidente de Desconsideração de Personalidade Jurídica" Tipo="9778"/>
+  <Tipo Descricao="Cumprimento Provisório da Sentença" Tipo="9782"/>
+  <Tipo Descricao="Cumprimento de Parcela Incontroversa de Sentença" Tipo="9784"/>
+  <Tipo Descricao="Comunica Descumprimento da Liminar" Tipo="9788"/>
+  <Tipo Descricao="Aditamento de Carta Precatória" Tipo="9790"/>
+  <Tipo Descricao="Impugnação de Assistência Judiciária" Tipo="9792"/>
+  <Tipo Descricao="Solicita Devolução de Carta Precatória" Tipo="9794"/>
+  <Tipo Descricao="Embargos Infringentes na Execução Fiscal" Tipo="9813"/>
+  <Tipo Descricao="Embargos Parciais à Ação Monitória" Tipo="9815"/>
+  <Tipo Descricao="Incidente de Impedimento" Tipo="9817"/>
+  <Tipo Descricao="Incidente de Suspeição" Tipo="9819"/>
+  <Tipo Descricao="Procedimento Conciliatório" Tipo="9821"/>
+  <Tipo Descricao="Cumprimento de Sentença contra a Fazenda Pública" Tipo="9823"/>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>+Od6+NjBMcRc1bJoYJKUpxnT2xA=</DigestValue></Reference></SignedInfo><SignatureValue>LIwm8pQo2W5G26uwWUK/C8sH4YQOYx68OP31FSGqbKkcJTWY1daLEEt8PnNy1UK5AMQZDf9vh3Fm
+sG7e6FNJbobEptn9jIAYB3YJTULfq1mvK5m4m5vUm/o74NEEkeTnldSfEkRlaTtGwOkC+t9BuY7X
+hNmC7ykCWrXTiSvg7So=</SignatureValue><KeyInfo><X509Data><X509Certificate>MIICrzCCAhgCCQDVUHUkOXrNMDANBgkqhkiG9w0BAQUFADCBmzELMAkGA1UEBhMCQlIxDzANBgNV
+BAgTBkVTVEFETzEPMA0GA1UEBxMGQ0lEQURFMSIwIAYDVQQKExlUUklCVU5BTCBERSBKVVNUSUNB
+IFRFU1RFMSIwIAYDVQQLExlUUklCVU5BTCBERSBKVVNUSUNBIFRFU1RFMSIwIAYDVQQDExlUUklC
+VU5BTCBERSBKVVNUSUNBIFRFU1RFMB4XDTA4MDUxNDEzMDcwMVoXDTA5MDUxNDEzMDcwMVowgZsx
+CzAJBgNVBAYTAkJSMQ8wDQYDVQQIEwZFU1RBRE8xDzANBgNVBAcTBkNJREFERTEiMCAGA1UEChMZ
+VFJJQlVOQUwgREUgSlVTVElDQSBURVNURTEiMCAGA1UECxMZVFJJQlVOQUwgREUgSlVTVElDQSBU
+RVNURTEiMCAGA1UEAxMZVFJJQlVOQUwgREUgSlVTVElDQSBURVNURTCBnzANBgkqhkiG9w0BAQEF
+AAOBjQAwgYkCgYEA1I94HSi8/QfNhxtRUNIznHfWwekx6nRwc2KawCSCU7laOgI5gH8Hn7fcrgPP
+MqjyTPLRybZHuQvYBAVCoSutVbcDEPLZSuRs8oAriupJrNX1+3GUkVwrBTFVWhdmW7mUi88/+LJV
+1MPaweZBQ8oYDes3eLnHw9PaCs2myCQ2SzsCAwEAATANBgkqhkiG9w0BAQUFAAOBgQB6vlkAG9UI
+rl99AqV7KFPhw8b+ZtBsAfDO3wuL8SN57kIGmJ7UK03gAffOQl1KpzOxRFXPFnqyWH7yqZkpdUbL
+xuODBp7iQNNtxqQ20ZyBIAlpPJXM1zMP6FNtYKRWaQFVx00Jf7xQS7bJ584txWfMPKOJnlQ+KnuK
+im7ugk3hTQ==</X509Certificate></X509Data></KeyInfo></Signature></Tipos>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><Categorias>
+  <Categoria Descricao="Ação Incidente" Tipo="1">
+  </Categoria>
+  <Categoria Descricao="Execução de Sentença" Tipo="2">
+    <Classe Descricao="Cumprimento Provisório de Sentença" Tipo="157"/>
+    <Classe Descricao="Impugnação ao Cumprimento de Sentença" Tipo="229"/>
+    <Classe Descricao="Execução de Multa" Tipo="1435"/>
+    <Classe Descricao="Cumprimento Provisório de Decisão" Tipo="10980"/>
+    <Classe Descricao="Impugnação ao Cumprimento de Decisão" Tipo="10981"/>
+    <Classe Descricao="Cumprimento Provisório de Sentença" Tipo="157"/>
+    <Classe Descricao="Execução de Alimentos" Tipo="1112"/>
+    <Classe Descricao="Cumprimento de Sentença contra a Fazenda Pública" Tipo="12078"/>
+  </Categoria>
+  <Categoria Descricao="IncidenteProcessual" Tipo="3">
+    <Classe Descricao="Embargos à Adjudicação" Tipo="170"/>
+    <Classe Descricao="Embargos à Arrematação" Tipo="171"/>
+    <Classe Descricao="Embargos à Execução" Tipo="172"/>
+    <Classe Descricao="Embargos de Retenção por Benfeitorias" Tipo="173"/>
+    <Classe Descricao="Homologação do Penhor Legal" Tipo="188"/>
+    <Classe Descricao="Embargos Infringentes na Execução Fiscal" Tipo="210"/>
+    <Classe Descricao="Incidentes" Tipo="215"/>
+    <Classe Descricao="Assistência Judiciária" Tipo="218"/>
+    <Classe Descricao="Exceções" Tipo="224"/>
+    <Classe Descricao="Exibição de Documento ou Coisa" Tipo="228"/>
+    <Classe Descricao="Impugnação ao Pedido de Assistência Litisconsorcial ou Simples" Tipo="230"/>
+    <Classe Descricao="Impugnação ao Valor da Causa" Tipo="231"/>
+    <Classe Descricao="Incidente de Falsidade" Tipo="232"/>
+    <Classe Descricao="Remoção de Inventariante" Tipo="234"/>
+    <Classe Descricao="Oposição" Tipo="236"/>
+    <Classe Descricao="Questões e Processos Incidentes" Tipo="316"/>
+    <Classe Descricao="Exceções" Tipo="317"/>
+    <Classe Descricao="Exceção de Suspeição" Tipo="318"/>
+    <Classe Descricao="Exceção de Incompetência de Juízo" Tipo="319"/>
+    <Classe Descricao="Exceção de Litispendência" Tipo="320"/>
+    <Classe Descricao="Exceção de Ilegitimidade de Parte" Tipo="321"/>
+    <Classe Descricao="Exceção de Coisa Julgada" Tipo="322"/>
+    <Classe Descricao="Exceção de Impedimento" Tipo="323"/>
+    <Classe Descricao="Exceção da Verdade" Tipo="324"/>
+    <Classe Descricao="Restituição de Coisas Apreendidas" Tipo="326"/>
+    <Classe Descricao="Medidas Assecuratórias" Tipo="328"/>
+    <Classe Descricao="Seqüestro" Tipo="329"/>
+    <Classe Descricao="Arresto / Hipoteca Legal" Tipo="330"/>
+    <Classe Descricao="Incidentes" Tipo="331"/>
+    <Classe Descricao="Incidente de Falsidade" Tipo="332"/>
+    <Classe Descricao="Insanidade Mental do Acusado" Tipo="333"/>
+    <Classe Descricao="Incidentes" Tipo="406"/>
+    <Classe Descricao="Conversão de Pena" Tipo="407"/>
+    <Classe Descricao="Excesso ou Desvio" Tipo="408"/>
+    <Classe Descricao="Anistia" Tipo="409"/>
+    <Classe Descricao="Indulto" Tipo="410"/>
+    <Classe Descricao="Comutação de Pena" Tipo="411"/>
+    <Classe Descricao="Embargos de Declaração" Tipo="420"/>
+    <Classe Descricao="Embargos à Execução Fiscal" Tipo="1118"/>
+    <Classe Descricao="Exceção de Impedimento" Tipo="1230"/>
+    <Classe Descricao="Exceção de Suspeição" Tipo="1231"/>
+    <Classe Descricao="Exceção de Incompetência" Tipo="1232"/>
+    <Classe Descricao="Superveniência de doença mental" Tipo="1283"/>
+    <Classe Descricao="Unificação de penas" Tipo="1284"/>
+    <Classe Descricao="Transferência entre estabelecimentos penais" Tipo="1288"/>
+    <Classe Descricao="Reabilitação" Tipo="1291"/>
+    <Classe Descricao="Embargos de Declaração" Tipo="1689"/>
+    <Classe Descricao="Impugnação de Assistência Judiciária" Tipo="1702"/>
+    <Classe Descricao="Embargos do Acusado" Tipo="1715"/>
+    <Classe Descricao="Alienação de Bens do Acusado" Tipo="1717"/>
+    <Classe Descricao="Avaliação para atestar dependência de drogas" Tipo="1719"/>
+    <Classe Descricao="Incidente de Sanidade Mental" Tipo="10960"/>
+    <Classe Descricao="Incidentes" Tipo="10969"/>
+    <Classe Descricao="Exceções" Tipo="10971"/>
+    <Classe Descricao="Exibição de Documento ou Coisa" Tipo="10972"/>
+    <Classe Descricao="Impugnação ao Valor da Causa" Tipo="10973"/>
+    <Classe Descricao="Incidente de Falsidade" Tipo="10974"/>
+    <Classe Descricao="Exceção de Impedimento" Tipo="10975"/>
+    <Classe Descricao="Exceção de Incompetência" Tipo="10976"/>
+    <Classe Descricao="Exceção de Suspeição" Tipo="10977"/>
+    <Classe Descricao="Assistência Judiciária" Tipo="11787"/>
+    <Classe Descricao="Exibição de Documento ou Coisa " Tipo="11788"/>
+    <Classe Descricao="Impugnação ao Valor da Causa" Tipo="11789"/>
+    <Classe Descricao="Impugnação de Assistência Judiciária" Tipo="11790"/>
+    <Classe Descricao="Conflito de Competência" Tipo="10970"/>
+    <Classe Descricao="Assistência Judiciária" Tipo="11787"/>
+    <Classe Descricao="Exibição de Documento ou Coisa" Tipo="11788"/>
+    <Classe Descricao="Impugnação ao Valor da Causa" Tipo="11789"/>
+    <Classe Descricao="Impugnação de Assistência Judiciária" Tipo="11790"/>
+    <Classe Descricao="Agravo de instrumento" Tipo="106021"/>
+    <Classe Descricao="Excecao de impedimento" Tipo="106196"/>
+    <Classe Descricao="Impugnacao ao valor da causa" Tipo="106257"/>
+    <Classe Descricao="Pedido de assistencia judiciaria" Tipo="106344"/>
+    <Classe Descricao="Exceção de Incompetência" Tipo="1232"/>
+    <Classe Descricao="Impugnação ao Valor da Causa" Tipo="231"/>
+    <Classe Descricao="Procedimento Conciliatório" Tipo="12075"/>
+    <Classe Descricao="Homologação em Acordo de Colaboração Premiada" Tipo="12077"/>
+    <Classe Descricao="Incidente de Impedimento" Tipo="12080"/>
+    <Classe Descricao="Incidente de Suspeição" Tipo="12081"/>
+    <Classe Descricao="Incidente de Resolução de Demandas Repetitivas" Tipo="12085"/>
+    <Classe Descricao="Incidente de Assunção de Competência" Tipo="12087"/>
+    <Classe Descricao="Renovação de Permanência em Estabelecimento Penal Federal" Tipo="12089"/>
+    <Classe Descricao="Outros Incidentes de Execução Iniciados de Ofício" Tipo="12129"/>
+    <Classe Descricao="Livramento Condicional" Tipo="12128"/>
+    <Classe Descricao="Remição" Tipo="12127"/>
+    <Classe Descricao="Regressão de Regime" Tipo="12126"/>
+    <Classe Descricao="Progressão de Regime" Tipo="12125"/>
+    <Classe Descricao="Roteiro de Pena" Tipo="12123"/>
+    <Classe Descricao="Remição de Pena" Tipo="11957"/>
+    <Classe Descricao="Incidente de Desconsideração de Personalidade Jurídica" Tipo="12119"/>
+    <Classe Descricao="Embargos Parciais à Ação Monitória" Tipo="12153"/>
+  </Categoria>
+  <Categoria Descricao="Recurso" Tipo="4">
+    <Classe Descricao="Recursos" Tipo="197"/>
+    <Classe Descricao="Embargos" Tipo="207"/>
+    <Classe Descricao="Recursos" Tipo="412"/>
+    <Classe Descricao="Recurso em Sentido Estrito" Tipo="426"/>
+    <Classe Descricao="Protesto por Novo Júri" Tipo="422"/>
+    <Classe Descricao="Recurso em sentido estrito/Recurso ex officio" Tipo="11398"/>
+    <Classe Descricao="Recurso em sentido estrito/Recurso ex officio" Tipo="11398"/>
+  </Categoria>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>QiSsTN41ikflyEVDloLqjM5/1Oc=</DigestValue></Reference></SignedInfo><SignatureValue>mtRR11Ay7RhBz4wIxrpYzxdWiNjHR8eMDW8723jckNJRA9oaDB4fl2/TzOlgTp67u8rXyuh93m+v
+tnO4B/O1snpHGQkL/REqIyV+9d8cqnGzPh/T+d4cX0VF84TRKEtQ1syJbPXb6Q1CSdlLeDj/G5CD
+K0X2sPsAUSxHmyvcA58=</SignatureValue><KeyInfo><X509Data><X509Certificate>MIICrzCCAhgCCQDVUHUkOXrNMDANBgkqhkiG9w0BAQUFADCBmzELMAkGA1UEBhMCQlIxDzANBgNV
+BAgTBkVTVEFETzEPMA0GA1UEBxMGQ0lEQURFMSIwIAYDVQQKExlUUklCVU5BTCBERSBKVVNUSUNB
+IFRFU1RFMSIwIAYDVQQLExlUUklCVU5BTCBERSBKVVNUSUNBIFRFU1RFMSIwIAYDVQQDExlUUklC
+VU5BTCBERSBKVVNUSUNBIFRFU1RFMB4XDTA4MDUxNDEzMDcwMVoXDTA5MDUxNDEzMDcwMVowgZsx
+CzAJBgNVBAYTAkJSMQ8wDQYDVQQIEwZFU1RBRE8xDzANBgNVBAcTBkNJREFERTEiMCAGA1UEChMZ
+VFJJQlVOQUwgREUgSlVTVElDQSBURVNURTEiMCAGA1UECxMZVFJJQlVOQUwgREUgSlVTVElDQSBU
+RVNURTEiMCAGA1UEAxMZVFJJQlVOQUwgREUgSlVTVElDQSBURVNURTCBnzANBgkqhkiG9w0BAQEF
+AAOBjQAwgYkCgYEA1I94HSi8/QfNhxtRUNIznHfWwekx6nRwc2KawCSCU7laOgI5gH8Hn7fcrgPP
+MqjyTPLRybZHuQvYBAVCoSutVbcDEPLZSuRs8oAriupJrNX1+3GUkVwrBTFVWhdmW7mUi88/+LJV
+1MPaweZBQ8oYDes3eLnHw9PaCs2myCQ2SzsCAwEAATANBgkqhkiG9w0BAQUFAAOBgQB6vlkAG9UI
+rl99AqV7KFPhw8b+ZtBsAfDO3wuL8SN57kIGmJ7UK03gAffOQl1KpzOxRFXPFnqyWH7yqZkpdUbL
+xuODBp7iQNNtxqQ20ZyBIAlpPJXM1zMP6FNtYKRWaQFVx00Jf7xQS7bJ584txWfMPKOJnlQ+KnuK
+im7ugk3hTQ==</X509Certificate></X509Data></KeyInfo></Signature></Categorias>

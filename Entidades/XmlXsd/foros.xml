@@ -1,0 +1,2661 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Foros>
+  <Foro Codigo="1" Nome="Salvador">
+    <Comarca Codigo="1" Nome="Salvador"/>
+    <Municipio Codigo="174" Nome="Salvador"/>
+    <Vara Codigo="1" Nome="Vara de Registros Públicos">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="2" Nome="Vara de Auditoria Militar">
+      <Competencia Descricao="Auditoria Militar" Tipo="1"/>
+    </Vara>
+    <Vara Codigo="4" Nome="Vara de Execuções de Penas e Medidas Alternativas">
+      <Competencia Descricao="Penas e Medidas Alternativas" Tipo="5"/>
+    </Vara>
+    <Vara Codigo="6" Nome="Vara de Acidentes de Trabalho">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Tóxicos">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="8" Nome="2ª Vara de Tóxicos">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="9" Nome="1ª Vara de Sucessões, Órfãos e Interditos Ausentes">
+      <Competencia Descricao="Sucessões, Órfãos, Interditos e Ausentes" Tipo="123"/>
+    </Vara>
+    <Vara Codigo="10" Nome="2ª Vara de Sucessões, Órfãos e Interditos Ausentes">
+      <Competencia Descricao="Sucessões, Órfãos, Interditos e Ausentes" Tipo="123"/>
+    </Vara>
+    <Vara Codigo="11" Nome="1ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="12" Nome="2ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="13" Nome="3ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="15" Nome="4ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="16" Nome="5ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="17" Nome="6ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="18" Nome="7ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="19" Nome="8ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="20" Nome="3ª Vara de Sucessões, Órfãos e Interditos Ausentes">
+      <Competencia Descricao="Sucessões, Órfãos, Interditos e Ausentes" Tipo="123"/>
+    </Vara>
+    <Vara Codigo="21" Nome="9ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="22" Nome="4ª Vara de Sucessões, Órfãos e interditos Ausentes">
+      <Competencia Descricao="Sucessões, Órfãos, Interditos e Ausentes" Tipo="123"/>
+    </Vara>
+    <Vara Codigo="23" Nome="10ª Vara de Família">
+      <Competencia Descricao="Família Capital" Tipo="124"/>
+    </Vara>
+    <Vara Codigo="24" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="25" Nome="2ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="26" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos Municipio" Tipo="113"/>
+    </Vara>
+    <Vara Codigo="28" Nome="3ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos Estado" Tipo="112"/>
+    </Vara>
+    <Vara Codigo="29" Nome="4ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="29" Nome="4ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos Estado" Tipo="112"/>
+    </Vara>
+    <Vara Codigo="30" Nome="5ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="31" Nome="6ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="32" Nome="7ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="33" Nome="8ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="34" Nome="9ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="35" Nome="10ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara Criminal Especializada">
+      <Competencia Descricao="Criminal Especializada" Tipo="18"/>
+    </Vara>
+    <Vara Codigo="37" Nome="2ª Vara Criminal Especializada">
+      <Competencia Descricao="Criminal Especializada" Tipo="18"/>
+    </Vara>
+    <Vara Codigo="38" Nome="3ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="39" Nome="4ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="40" Nome="5ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="41" Nome="6ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="42" Nome="7ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="43" Nome="8ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="44" Nome="9ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="45" Nome="10ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="46" Nome="11ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="47" Nome="12ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="48" Nome="13ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="49" Nome="14ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="50" Nome="15ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="51" Nome="16ª Vara Criminal">
+      <Competencia Descricao="Torcedor" Tipo="107"/>
+    </Vara>
+    <Vara Codigo="51" Nome="16ª Vara Criminal">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="51" Nome="16ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="52" Nome="17ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="52" Nome="17ª Vara Criminal">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="53" Nome="1ª Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="54" Nome="1ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="55" Nome="1ª Vara Empresarial">
+      <Competencia Descricao="Varas Empresarial" Tipo="140"/>
+    </Vara>
+    <Vara Codigo="56" Nome="2ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="57" Nome="3ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="58" Nome="3ª Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="59" Nome="4ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="60" Nome="5ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="61" Nome="8ª Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="62" Nome="6ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="63" Nome="7ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="64" Nome="5ª Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="65" Nome="6ª Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="66" Nome="8ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="67" Nome="9ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="68" Nome="7ª Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="69" Nome="2ª Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="70" Nome="10ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="71" Nome="11ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="72" Nome="9 Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="73" Nome="4ª Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="74" Nome="12ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="75" Nome="13ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="76" Nome="14ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="77" Nome="15ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="78" Nome="2ª Vara Empresarial">
+      <Competencia Descricao="Varas Empresarial" Tipo="140"/>
+    </Vara>
+    <Vara Codigo="79" Nome="16ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="80" Nome="10ª Vara Cível e Comercial">
+      <Competencia Descricao="Cível Capital" Tipo="40"/>
+    </Vara>
+    <Vara Codigo="81" Nome="17ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="82" Nome="18ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="83" Nome="19ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="84" Nome="20ª Vara de Relações de Consumo">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="85" Nome="1ª Vara dos Feitos Relativos aos Crimes Praticados Contra Criança e Adolescente">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="86" Nome="2ª Vara dos Feitos Relativos aos Crimes Praticados Contra Criança e Adolescente">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="87" Nome="1ª Vara da Violência Doméstica e Familiar contra a Mulher">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="90" Nome="1º Juízo da 1ª Vara do Tribunal do Júri">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="90" Nome="1º Juízo da 1ª Vara do Tribunal do Júri">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="91" Nome="1º Juízo da 2ª Vara do Tribunal do Júri">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="91" Nome="1º Juízo da 2ª Vara do Tribunal do Júri">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="92" Nome="2º Juízo da 1ª Vara do Tribunal do Júri">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="92" Nome="2º Juízo da 1ª Vara do Tribunal do Júri">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="93" Nome="2º Juízo da 2ª Vara do Tribunal do Júri">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="93" Nome="2º Juízo da 2ª Vara do Tribunal do Júri">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="107" Nome="Vara de Audiência de Custódia da Comarca de Salvador">
+      <Competencia Descricao="Audiência de Custódia" Tipo="43"/>
+    </Vara>
+    <Vara Codigo="111" Nome="CETRI - Centro Judiciário de Soluções de Conflitos Tributários">
+      <Competencia Descricao="Núcleo de Conciliação Tributária" Tipo="36"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça San Martin" Tipo="45"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Bairro da Paz " Tipo="46"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Ministério Público" Tipo="47"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Bonfim " Tipo="48"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Brotas " Tipo="49"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça São Caetano " Tipo="73"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça São Cristóvão " Tipo="74"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Stiep (FIB) " Tipo="75"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Sussuarana " Tipo="76"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Tancredo Neves " Tipo="77"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Uruguai " Tipo="78"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Valéria " Tipo="79"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Calçada" Tipo="80"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Móvel" Tipo="89"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Paripe" Tipo="92"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Abaeté" Tipo="97"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Multishop" Tipo="98"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Cajazeiras-Prefeitura" Tipo="99"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Ribeira-Prefeitura" Tipo="100"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Paripe-Prefeitura" Tipo="101"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Rio Vermelho" Tipo="102"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Cejusc - Mediação Família" Tipo="119"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Cejusc - Conciliação Família" Tipo="120"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Cajazeiras " Tipo="50"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Castelo Branco " Tipo="51"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Comércio " Tipo="52"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Faz. Coutos " Tipo="53"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Garibaldi " Tipo="54"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Imbui " Tipo="55"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Itaigara " Tipo="56"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Itapuã " Tipo="57"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Liberdade " Tipo="58"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Lobato " Tipo="59"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Luís Anselmo " Tipo="60"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Mussurunga " Tipo="61"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Narandiba " Tipo="62"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Nordeste de Amaralina" Tipo="63"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Cabula" Tipo="64"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Ondina " Tipo="65"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Patamares " Tipo="66"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Pau da Lima 1 " Tipo="67"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Mansão do Caminho" Tipo="68"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Periperi " Tipo="69"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Pernambués " Tipo="70"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Piatã " Tipo="71"/>
+    </Vara>
+    <Vara Codigo="125" Nome="Secretaria Jurídica do Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça Plataforma " Tipo="72"/>
+    </Vara>
+    <Vara Codigo="126" Nome="Secretaria Jurídica da Casa de Justiça">
+      <Competencia Descricao="Casa da Justiça" Tipo="32"/>
+    </Vara>
+    <Vara Codigo="127" Nome="11ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="128" Nome="Mutirão Carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="133" Nome="3ª Vara de Tóxicos">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="134" Nome="5ª Vara da Infância e da Juventude - Execução de MSE">
+      <Competencia Descricao="Execução de Medidas Sócio-Educativas" Tipo="96"/>
+    </Vara>
+    <Vara Codigo="136" Nome="13ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="139" Nome="Plantão Judiciário 1º grau">
+      <Competencia Descricao="Plantão Judiciário - WEB" Tipo="26"/>
+    </Vara>
+    <Vara Codigo="139" Nome="Plantão Judiciário 1º grau">
+      <Competencia Descricao="Plantão Judiciário" Tipo="104"/>
+    </Vara>
+    <Vara Codigo="142" Nome="2ª Vara de Violência Doméstica e Familiar Contra a Mulher">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="143" Nome="4ª Vara de Violencia Domestica e Familiar Contra a Mulher">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="145" Nome="CEJUSC PRÉ-PROCESSUAL CÍVEL E RELAÇÕES DE CONSUMO">
+      <Competencia Descricao="CEJUSC - Pré Processual" Tipo="106"/>
+    </Vara>
+    <Vara Codigo="148" Nome="4ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="149" Nome="Vara dos Feitos Relativos a Delitos Praticados por Organização Criminosa">
+      <Competencia Descricao="Crimes Organizados" Tipo="111"/>
+    </Vara>
+    <Vara Codigo="176" Nome="3ª Vara de Violência Doméstica e Familiar Contra a Mulher">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="177" Nome="CEJUSC Fazendário Pré-Processual">
+      <Competencia Descricao="CEJUSC FAZENDA" Tipo="122"/>
+    </Vara>
+    <Vara Codigo="180" Nome="Vara Recesso Consumo">
+      <Competencia Descricao="Plantão Recesso Consumo" Tipo="126"/>
+    </Vara>
+    <Vara Codigo="181" Nome="Vara Recesso Cível">
+      <Competencia Descricao="Plantão Recesso Cível" Tipo="127"/>
+    </Vara>
+    <Vara Codigo="182" Nome="Vara Recesso Sucessões">
+      <Competencia Descricao="Plantão Recesso Sucessões" Tipo="128"/>
+    </Vara>
+    <Vara Codigo="183" Nome="Vara Recesso Família">
+      <Competencia Descricao="Plantão Recesso Família" Tipo="129"/>
+    </Vara>
+    <Vara Codigo="184" Nome="Vara Recesso Fazenda">
+      <Competencia Descricao="Plantão Recesso Fazenda" Tipo="130"/>
+    </Vara>
+    <Vara Codigo="185" Nome="Vara Recesso Criminal">
+      <Competencia Descricao="Plantão Recesso Criminal" Tipo="131"/>
+    </Vara>
+    <Vara Codigo="186" Nome="Vara Recesso Execuções">
+      <Competencia Descricao="Plantão Recesso Execuções" Tipo="132"/>
+    </Vara>
+    <Vara Codigo="187" Nome="Vara Recesso Núcleo de Prisão em Flagrante">
+      <Competencia Descricao="Plantão Recesso Núcleo de P. Flagrante" Tipo="133"/>
+    </Vara>
+    <Vara Codigo="188" Nome="Vara Recesso Infância e Juventude">
+      <Competencia Descricao="Plantão Recesso Inf. Juventude" Tipo="134"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="4" Nome="Alagoinhas">
+    <Comarca Codigo="6" Nome="Alagoinhas"/>
+    <Municipio Codigo="408" Nome="Alagoinhas"/>
+    <Vara Codigo="36" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Conselho Municipal e Conciliação - Civel" Tipo="42"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="37" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="37" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="37" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="37" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="37" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="37" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="37" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="37" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="38" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="38" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="38" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="38" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="38" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal Especializada" Tipo="18"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="40" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="42" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="42" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="42" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="42" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="46" Nome="2ª Vara Criminal, Violência Doméstica e Fami. Contra a Mulher, e Exec. de Med Protetiva de Urgência">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="46" Nome="2ª Vara Criminal, Violência Doméstica e Fami. Contra a Mulher, e Exec. de Med Protetiva de Urgência">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="46" Nome="2ª Vara Criminal, Violência Doméstica e Fami. Contra a Mulher, e Exec. de Med Protetiva de Urgência">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="46" Nome="2ª Vara Criminal, Violência Doméstica e Fami. Contra a Mulher, e Exec. de Med Protetiva de Urgência">
+      <Competencia Descricao="Criminal Especializada" Tipo="18"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="6" Nome="Amargosa">
+    <Comarca Codigo="8" Nome="Amargosa"/>
+    <Municipio Codigo="411" Nome="Amargosa"/>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="7" Nome="Amélia Rodrigues">
+    <Comarca Codigo="9" Nome="Amélia Rodrigues"/>
+    <Municipio Codigo="412" Nome="Amelia Rodrigues"/>
+    <Vara Codigo="6" Nome="Cartório dos F. Cíveis, das Relações de Consumo, de Família e Suc, de Registros Públicos e Fazenda">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="6" Nome="Cartório dos F. Cíveis, das Relações de Consumo, de Família e Suc, de Registros Públicos e Fazenda">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="6" Nome="Cartório dos F. Cíveis, das Relações de Consumo, de Família e Suc, de Registros Públicos e Fazenda">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="6" Nome="Cartório dos F. Cíveis, das Relações de Consumo, de Família e Suc, de Registros Públicos e Fazenda">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="6" Nome="Cartório dos F. Cíveis, das Relações de Consumo, de Família e Suc, de Registros Públicos e Fazenda">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="6" Nome="Cartório dos F. Cíveis, das Relações de Consumo, de Família e Suc, de Registros Públicos e Fazenda">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="6" Nome="Cartório dos F. Cíveis, das Relações de Consumo, de Família e Suc, de Registros Públicos e Fazenda">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="6" Nome="Cartório dos F. Cíveis, das Relações de Consumo, de Família e Suc, de Registros Públicos e Fazenda">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="6" Nome="Cartório dos F. Cíveis, das Relações de Consumo, de Família e Suc, de Registros Públicos e Fazenda">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="7" Nome="Cartório dos Feitos Criminais, Júri, Execuções Penais e de Infância e Juventude">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="7" Nome="Cartório dos Feitos Criminais, Júri, Execuções Penais e de Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="7" Nome="Cartório dos Feitos Criminais, Júri, Execuções Penais e de Infância e Juventude">
+      <Competencia Descricao="Penas e Medidas Alternativas" Tipo="5"/>
+    </Vara>
+    <Vara Codigo="7" Nome="Cartório dos Feitos Criminais, Júri, Execuções Penais e de Infância e Juventude">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="22" Nome="Barreiras">
+    <Comarca Codigo="24" Nome="Barreiras"/>
+    <Municipio Codigo="439" Nome="Barreiras"/>
+    <Vara Codigo="12" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="12" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="12" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="12" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="13" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="13" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="13" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="25" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="27" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="27" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="27" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="27" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="27" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="45" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="45" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="46" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="46" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="46" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="47" Nome="1ª Vara de Família, Órfãos, Sucessões e Interditos">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="47" Nome="1ª Vara de Família, Órfãos, Sucessões e Interditos">
+      <Competencia Descricao="Conflitos Agrário e Meio ambiente" Tipo="110"/>
+    </Vara>
+    <Vara Codigo="50" Nome="Nucleo de Prisão em Flagrante">
+      <Competencia Descricao="Audiência de Custódia" Tipo="43"/>
+    </Vara>
+    <Vara Codigo="55" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Penas e Medidas Alternativas" Tipo="5"/>
+    </Vara>
+    <Vara Codigo="55" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="39" Nome="Camaçari">
+    <Comarca Codigo="41" Nome="Camaçari"/>
+    <Municipio Codigo="470" Nome="Camacari"/>
+    <Vara Codigo="1" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="1" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="1" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="6" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="6" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="17" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="17" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="17" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="17" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="17" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="24" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="24" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal Especializada" Tipo="18"/>
+    </Vara>
+    <Vara Codigo="41" Nome="1ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="44" Nome="1° Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="44" Nome="1° Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="44" Nome="1° Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="44" Nome="1° Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="44" Nome="1° Vara da Infância e Juventude">
+      <Competencia Descricao="Especializada Criminal pela Infância E J" Tipo="24"/>
+    </Vara>
+    <Vara Codigo="46" Nome="Vara de Violência Doméstica e Familiar Contra a Mulher">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="49" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Penas e Medidas Alternativas" Tipo="5"/>
+    </Vara>
+    <Vara Codigo="49" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Execuções Penais" Tipo="11"/>
+    </Vara>
+    <Vara Codigo="49" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="49" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="49" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="51" Nome="2ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="51" Nome="2ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="51" Nome="2ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="51" Nome="2ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="51" Nome="2ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="53" Nome="2ª Vara da Família de Camaçari">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="40" Nome="Camamu">
+    <Comarca Codigo="42" Nome="Camamu"/>
+    <Municipio Codigo="471" Nome="Camamu"/>
+    <Vara Codigo="5" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="5" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="5" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="5" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="5" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="5" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="5" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="5" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="5" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="7" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="54" Nome="Catu">
+    <Comarca Codigo="57" Nome="Catu"/>
+    <Municipio Codigo="492" Nome="Catu"/>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Juizado Especial Cível" Tipo="20"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="6" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="64" Nome="Conceição Do Jacuípe">
+    <Comarca Codigo="67" Nome="Conceição do Jacuípe"/>
+    <Municipio Codigo="503" Nome="Conceição do Jacuípe"/>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="8" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="8" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="8" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="8" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="8" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="10" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="78" Nome="Euclides da Cunha">
+    <Comarca Codigo="80" Nome="Euclides da Cunha"/>
+    <Municipio Codigo="527" Nome="Euclides da Cunha"/>
+    <Vara Codigo="18" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="18" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="18" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="18" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="19" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="19" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="19" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="19" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="19" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="19" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="19" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="19" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="20" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="20" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="20" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="20" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="79" Nome="Eunápolis">
+    <Comarca Codigo="81" Nome="Eunápolis"/>
+    <Municipio Codigo="528" Nome="Eunapolis"/>
+    <Vara Codigo="28" Nome="1ª Vara dos Feitos de Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara dos Feitos de Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara dos Feitos de Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara dos Feitos de Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara dos Feitos de Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara dos Feitos de Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara dos Feitos de Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara dos Feitos de Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara dos Feitos de Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="31" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="32" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="80" Nome="Feira de Santana">
+    <Comarca Codigo="82" Nome="Feira de Santana"/>
+    <Municipio Codigo="137" Nome="Feira de Santana"/>
+    <Vara Codigo="56" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="56" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="57" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="57" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="58" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="58" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="59" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="59" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="60" Nome="5ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="60" Nome="5ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="61" Nome="6ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="61" Nome="6ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="62" Nome="7ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="62" Nome="7ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="63" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="63" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="63" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="64" Nome="Núcleo de Conciliação - Família">
+      <Competencia Descricao="Núcleo de Conciliação Família" Tipo="85"/>
+    </Vara>
+    <Vara Codigo="65" Nome="1ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Conselho Municipal e Conciliação - Fami" Tipo="31"/>
+    </Vara>
+    <Vara Codigo="65" Nome="1ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="66" Nome="2ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="67" Nome="3ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="68" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="68" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="69" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="69" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Crime Contra a Administração Pública" Tipo="29"/>
+    </Vara>
+    <Vara Codigo="70" Nome="3ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="70" Nome="3ª Vara Criminal">
+      <Competencia Descricao="Crime Contra Idosos" Tipo="28"/>
+    </Vara>
+    <Vara Codigo="71" Nome="Vara do Júri">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="71" Nome="Vara do Júri">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="71" Nome="Vara do Júri">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="72" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="72" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="72" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="73" Nome="Vara de Violência Doméstica e Familiar Contra a Mulher">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="74" Nome="1º Vara de Tóxicos">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="74" Nome="1º Vara de Tóxicos">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="76" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="80" Nome="2ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="81" Nome="Mutirão Carcerário - Feira de Santana">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="85" Nome="Vara de Registros Públicos e Acidentes de Trabalho">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="85" Nome="Vara de Registros Públicos e Acidentes de Trabalho">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="89" Nome="Núcleo de Prisão em Flagrante">
+      <Competencia Descricao="Audiência de Custódia" Tipo="43"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="87" Nome="Governador Mangabeira">
+    <Comarca Codigo="89" Nome="Governador Mangabeira"/>
+    <Municipio Codigo="540" Nome="Governador Mangabeira"/>
+    <Vara Codigo="5" Nome="V Dos Feitos De Rel De Cons Civ E Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="88" Nome="Guanambi">
+    <Comarca Codigo="90" Nome="Guanambi"/>
+    <Municipio Codigo="542" Nome="Guanambi"/>
+    <Vara Codigo="26" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="26" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="26" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="26" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara dos Feitos Cíveis e Anexos">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara dos Feitos Cíveis e Anexos">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara dos Feitos Cíveis e Anexos">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara dos Feitos Cíveis e Anexos">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara dos Feitos Cíveis e Anexos">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara dos Feitos Cíveis e Anexos">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara dos Feitos Cíveis e Anexos">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara dos Feitos Cíveis e Anexos">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="27" Nome="2ª Vara dos Feitos Cíveis e Anexos">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="30" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="103" Nome="Ilhéus">
+    <Comarca Codigo="104" Nome="Ilhéus"/>
+    <Municipio Codigo="563" Nome="Ilhéus"/>
+    <Vara Codigo="7" Nome="2ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="8" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="8" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="8" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="9" Nome="4ª Vara de Feitos de Relação de Consumo Cíveis e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="9" Nome="4ª Vara de Feitos de Relação de Consumo Cíveis e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="16" Nome="Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="16" Nome="Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="16" Nome="Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="16" Nome="Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="26" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Crimes de Imprensa" Tipo="38"/>
+    </Vara>
+    <Vara Codigo="26" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="26" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="26" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="27" Nome="1ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara do Júri">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara do Júri">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara do Júri">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="58" Nome="3ª Vara dos Feitos de Rel de Cons.,Cíveis e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="58" Nome="3ª Vara dos Feitos de Rel de Cons.,Cíveis e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="58" Nome="3ª Vara dos Feitos de Rel de Cons.,Cíveis e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="59" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="59" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="59" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="59" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Crimes de Imprensa" Tipo="38"/>
+    </Vara>
+    <Vara Codigo="60" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="60" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="60" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="72" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="74" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="74" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="74" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="74" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="74" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="75" Nome="Mutirão carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="76" Nome="Núcleo de prisão em Flagrante">
+      <Competencia Descricao="Audiência de Custódia" Tipo="43"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="105" Nome="Ipiaú">
+    <Comarca Codigo="106" Nome="Ipiaú"/>
+    <Municipio Codigo="566" Nome="Ipiaú"/>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="15" Nome="Vara Crime, Infância e Adolescência e Tribunal do Júri">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="15" Nome="Vara Crime, Infância e Adolescência e Tribunal do Júri">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="15" Nome="Vara Crime, Infância e Adolescência e Tribunal do Júri">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="15" Nome="Vara Crime, Infância e Adolescência e Tribunal do Júri">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="15" Nome="Vara Crime, Infância e Adolescência e Tribunal do Júri">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="15" Nome="Vara Crime, Infância e Adolescência e Tribunal do Júri">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="112" Nome="Itaberaba">
+    <Comarca Codigo="113" Nome="Itaberaba"/>
+    <Municipio Codigo="575" Nome="Itaberaba"/>
+    <Vara Codigo="19" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="19" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="19" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="19" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="19" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="19" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="19" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="19" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="19" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="20" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="20" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="20" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="113" Nome="Itabuna">
+    <Comarca Codigo="114" Nome="Itabuna"/>
+    <Municipio Codigo="576" Nome="Itabuna"/>
+    <Vara Codigo="73" Nome="1ª Vara dos Feitos Relativo às Relações de Consumo, Cível, Comercial e Acidentes de Trabalho">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="73" Nome="1ª Vara dos Feitos Relativo às Relações de Consumo, Cível, Comercial e Acidentes de Trabalho">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="73" Nome="1ª Vara dos Feitos Relativo às Relações de Consumo, Cível, Comercial e Acidentes de Trabalho">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="73" Nome="1ª Vara dos Feitos Relativo às Relações de Consumo, Cível, Comercial e Acidentes de Trabalho">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="74" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="74" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="74" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="74" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="75" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="75" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="75" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="75" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="76" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="76" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="76" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="76" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="76" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="77" Nome="JUIZO DE DIREITO DA 5ª VARA DOS FEITOS REL. ÀS REL. CONS. CÍVEIS E COMERCIAIS DA COMARCA DE ITABUNA">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="77" Nome="JUIZO DE DIREITO DA 5ª VARA DOS FEITOS REL. ÀS REL. CONS. CÍVEIS E COMERCIAIS DA COMARCA DE ITABUNA">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="77" Nome="JUIZO DE DIREITO DA 5ª VARA DOS FEITOS REL. ÀS REL. CONS. CÍVEIS E COMERCIAIS DA COMARCA DE ITABUNA">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="77" Nome="JUIZO DE DIREITO DA 5ª VARA DOS FEITOS REL. ÀS REL. CONS. CÍVEIS E COMERCIAIS DA COMARCA DE ITABUNA">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="78" Nome="1ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="79" Nome="2ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="80" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="80" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="80" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="80" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="80" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="81" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="81" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="82" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="82" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="83" Nome="Vara do Júri">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="84" Nome="1ª Vara da Infância e Juventude e Medidas Alternativas">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="84" Nome="1ª Vara da Infância e Juventude e Medidas Alternativas">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="90" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="92" Nome="Mutirão carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="96" Nome="Núcleo de Prisão em Flagrante">
+      <Competencia Descricao="Audiência de Custódia" Tipo="43"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="126" Nome="Itapetinga">
+    <Comarca Codigo="127" Nome="Itapetinga"/>
+    <Municipio Codigo="593" Nome="Itapetinga"/>
+    <Vara Codigo="29" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="29" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="29" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="29" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="29" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="29" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="29" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="29" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="29" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="30" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="30" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="30" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="137" Nome="Jacobina">
+    <Comarca Codigo="139" Nome="Jacobina"/>
+    <Municipio Codigo="607" Nome="Jacobina"/>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Conselho Municipal e Conciliação - Civel" Tipo="42"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Conselho Municipal e Conciliação - Fami" Tipo="31"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="35" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="35" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="35" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="35" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="38" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="141" Nome="Jequié">
+    <Comarca Codigo="143" Nome="Jequié"/>
+    <Municipio Codigo="612" Nome="Jequié"/>
+    <Vara Codigo="37" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="38" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="38" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="38" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="38" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="38" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="38" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="38" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="38" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="39" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="39" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="39" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="39" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="40" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="40" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="43" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="45" Nome="Mutirão Carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="46" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="46" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="46" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="46" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="146" Nome="Juazeiro">
+    <Comarca Codigo="148" Nome="Juazeiro"/>
+    <Municipio Codigo="617" Nome="Juazeiro"/>
+    <Vara Codigo="8" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="8" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="8" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="8" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="9" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="9" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="9" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="10" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Crimes de Imprensa" Tipo="38"/>
+    </Vara>
+    <Vara Codigo="10" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="10" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Crime Contra Idosos" Tipo="28"/>
+    </Vara>
+    <Vara Codigo="10" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara de Feitos Relativos às Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara de Feitos Relativos às Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="21" Nome="1ª Vara de Feitos Relativos às Relações de Consumo, Cíveis, Comerciais e Registros Públicos">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="22" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="22" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Crimes de Imprensa" Tipo="38"/>
+    </Vara>
+    <Vara Codigo="22" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Crime Contra Idosos" Tipo="28"/>
+    </Vara>
+    <Vara Codigo="22" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="44" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Penas e Medidas Alternativas" Tipo="5"/>
+    </Vara>
+    <Vara Codigo="44" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="44" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="46" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="48" Nome="Mutirão carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="49" Nome="Vara de Violência Doméstica e Familiar Contra a Mulher">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="51" Nome="1ª Vara de Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="51" Nome="1ª Vara de Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="52" Nome="1ª VARA DE FAMÍLIA, ÓRFÃOS, SUCESSÕES E INTERDITOS">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="150" Nome="Lauro De Freitas">
+    <Comarca Codigo="152" Nome="Lauro de Freitas"/>
+    <Municipio Codigo="630" Nome="Lauro De Freitas"/>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="7" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="22" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="28" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="28" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="28" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara Da Fazenda  Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara Da Fazenda  Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara Da Fazenda  Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara Da Fazenda  Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="30" Nome="1ª Vara Da Fazenda  Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="38" Nome="CETRI - Centro de Soluções de Conflitos Tributários">
+      <Competencia Descricao="Núcleo de Conciliação Tributária" Tipo="36"/>
+    </Vara>
+    <Vara Codigo="39" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="39" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="39" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Penas e Medidas Alternativas" Tipo="5"/>
+    </Vara>
+    <Vara Codigo="40" Nome="Mutirão carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="41" Nome="Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="41" Nome="Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="41" Nome="Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="44" Nome="2 ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="45" Nome="Núcleo de Prisão em Flagrante">
+      <Competencia Descricao="Audiência de Custódia" Tipo="43"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="151" Nome="Lençóis">
+    <Comarca Codigo="153" Nome="Lençóis"/>
+    <Municipio Codigo="631" Nome="Lencois"/>
+    <Vara Codigo="5" Nome="Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="201" Nome="Porto Seguro">
+    <Comarca Codigo="201" Nome="Porto Seguro"/>
+    <Municipio Codigo="709" Nome="Porto Seguro"/>
+    <Vara Codigo="33" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="33" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="33" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="35" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="37" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="38" Nome="1ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="41" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="41" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="229" Nome="Santo Antônio De Jesus">
+    <Comarca Codigo="229" Nome="Santo Antônio de Jesus"/>
+    <Municipio Codigo="747" Nome="Santo Antonio De Jesus"/>
+    <Vara Codigo="28" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="30" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="30" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="30" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="30" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="30" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="30" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="30" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Juizado Especial Criminal" Tipo="21"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="31" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="33" Nome="1ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="244" Nome="Senhor do Bonfim">
+    <Comarca Codigo="244" Nome="Senhor do Bonfim"/>
+    <Municipio Codigo="767" Nome="Senhor do Bonfim"/>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="14" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="15" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="15" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="15" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="15" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="15" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="15" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="15" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="15" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="16" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="16" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="16" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="16" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="16" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="16" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="16" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="16" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="16" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="18" Nome="Balcão de Justiça e Cidadania">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="250" Nome="Simões Filho">
+    <Comarca Codigo="250" Nome="Simões Filho"/>
+    <Municipio Codigo="774" Nome="Simões Filho"/>
+    <Vara Codigo="1" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="1" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="1" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="1" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="1" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="2" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="2" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="2" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="2" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="13" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="13" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="13" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="13" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="13" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="17" Nome="2ª Vara Criminal e Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="17" Nome="2ª Vara Criminal e Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="17" Nome="2ª Vara Criminal e Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="17" Nome="2ª Vara Criminal e Infância e Juventude">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="17" Nome="2ª Vara Criminal e Infância e Juventude">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="19" Nome="Mutirão Carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="20" Nome="CEJUSC PRÉ-PROCESSUAL CÍVEL E RELAÇÕES DE CONSUMO">
+      <Competencia Descricao="CEJUSC - Pré Processual" Tipo="106"/>
+    </Vara>
+    <Vara Codigo="24" Nome="CEJUSC Fazendário Pré-Processual">
+      <Competencia Descricao="CEJUSC - Pré Processual" Tipo="106"/>
+    </Vara>
+    <Vara Codigo="24" Nome="CEJUSC Fazendário Pré-Processual">
+      <Competencia Descricao="CEJUSC FAZENDA" Tipo="122"/>
+    </Vara>
+    <Vara Codigo="26" Nome="2ª Vara dos Feitos Relativos à Relações de Consumo, Cíveis, Comerciais, e Acidentes de Trabalho">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="26" Nome="2ª Vara dos Feitos Relativos à Relações de Consumo, Cíveis, Comerciais, e Acidentes de Trabalho">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="26" Nome="2ª Vara dos Feitos Relativos à Relações de Consumo, Cíveis, Comerciais, e Acidentes de Trabalho">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="26" Nome="2ª Vara dos Feitos Relativos à Relações de Consumo, Cíveis, Comerciais, e Acidentes de Trabalho">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="256" Nome="Teixeira De Freitas">
+    <Comarca Codigo="256" Nome="Teixeira de Freitas"/>
+    <Municipio Codigo="785" Nome="Teixeira de Freitas"/>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="34" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="35" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="35" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="35" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="36" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara de Execuções Penais e Juri">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara de Execuções Penais e Juri">
+      <Competencia Descricao="Júri - Presidência" Tipo="33"/>
+    </Vara>
+    <Vara Codigo="39" Nome="1ª Vara de Execuções Penais e Juri">
+      <Competencia Descricao="Júri - Sumariante" Tipo="19"/>
+    </Vara>
+    <Vara Codigo="40" Nome="Mutirão carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="41" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="41" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="41" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="41" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="42" Nome="Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="42" Nome="Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="42" Nome="Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="42" Nome="Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos Estado" Tipo="112"/>
+    </Vara>
+    <Vara Codigo="42" Nome="Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos Municipio" Tipo="113"/>
+    </Vara>
+    <Vara Codigo="42" Nome="Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="42" Nome="Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="42" Nome="Vara da Fazenda Pública">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="43" Nome="2ª Vara Crime, Privativa de Violência Doméstica">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="43" Nome="2ª Vara Crime, Privativa de Violência Doméstica">
+      <Competencia Descricao="Acidentes de Veículo" Tipo="16"/>
+    </Vara>
+    <Vara Codigo="43" Nome="2ª Vara Crime, Privativa de Violência Doméstica">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="271" Nome="Valença">
+    <Comarca Codigo="270" Nome="Valença"/>
+    <Municipio Codigo="802" Nome="Valença"/>
+    <Vara Codigo="27" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="27" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="27" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="27" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="28" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Tóxicos" Tipo="4"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="29" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="30" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="32" Nome="Mutirão Carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="33" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="33" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="33" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="33" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="33" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="33" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos Municipio" Tipo="113"/>
+    </Vara>
+    <Vara Codigo="33" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Tributos Estado" Tipo="112"/>
+    </Vara>
+    <Vara Codigo="33" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="33" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+  </Foro>
+  <Foro Codigo="274" Nome="Vitória Da Conquista">
+    <Comarca Codigo="273" Nome="Vitória da Conquista"/>
+    <Municipio Codigo="810" Nome="Vitória da Conquista"/>
+    <Vara Codigo="38" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="38" Nome="1ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="39" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="39" Nome="2ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="40" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="40" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Acidentes de Trabalho" Tipo="13"/>
+    </Vara>
+    <Vara Codigo="40" Nome="3ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="41" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="41" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Registros Públicos" Tipo="12"/>
+    </Vara>
+    <Vara Codigo="41" Nome="4ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="42" Nome="5ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Cível" Tipo="2"/>
+    </Vara>
+    <Vara Codigo="42" Nome="5ª Vara de Feitos de Rel de Cons. Cível e Comerciais">
+      <Competencia Descricao="Relações de Consumo" Tipo="17"/>
+    </Vara>
+    <Vara Codigo="43" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Estado" Tipo="88"/>
+    </Vara>
+    <Vara Codigo="43" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Execução Municipio" Tipo="87"/>
+    </Vara>
+    <Vara Codigo="43" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos União" Tipo="86"/>
+    </Vara>
+    <Vara Codigo="43" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Tributos" Tipo="8"/>
+    </Vara>
+    <Vara Codigo="43" Nome="1ª Vara da Fazenda Pública">
+      <Competencia Descricao="Fazenda Pública - Atos Administrativos" Tipo="7"/>
+    </Vara>
+    <Vara Codigo="44" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Crimes de Imprensa" Tipo="38"/>
+    </Vara>
+    <Vara Codigo="44" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal Especializada" Tipo="18"/>
+    </Vara>
+    <Vara Codigo="44" Nome="1ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="45" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="45" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Crimes de Imprensa" Tipo="38"/>
+    </Vara>
+    <Vara Codigo="45" Nome="2ª Vara Criminal">
+      <Competencia Descricao="Criminal Especializada" Tipo="18"/>
+    </Vara>
+    <Vara Codigo="46" Nome="3ª Vara Criminal">
+      <Competencia Descricao="Crimes de Imprensa" Tipo="38"/>
+    </Vara>
+    <Vara Codigo="46" Nome="3ª Vara Criminal">
+      <Competencia Descricao="Criminal Especializada" Tipo="18"/>
+    </Vara>
+    <Vara Codigo="46" Nome="3ª Vara Criminal">
+      <Competencia Descricao="Criminal" Tipo="3"/>
+    </Vara>
+    <Vara Codigo="47" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Penas e Medidas Alternativas" Tipo="5"/>
+    </Vara>
+    <Vara Codigo="47" Nome="Vara do Júri e Execuções Penais">
+      <Competencia Descricao="Júri" Tipo="41"/>
+    </Vara>
+    <Vara Codigo="48" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Cível" Tipo="9"/>
+    </Vara>
+    <Vara Codigo="48" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Ato Infracional" Tipo="35"/>
+    </Vara>
+    <Vara Codigo="48" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude" Tipo="23"/>
+    </Vara>
+    <Vara Codigo="48" Nome="1ª Vara da Infância e Juventude">
+      <Competencia Descricao="Infância e Juventude - Especializ Crime" Tipo="10"/>
+    </Vara>
+    <Vara Codigo="49" Nome="1ª Vara de Família Suces. Orfãos Interd. e Ausentes">
+      <Competencia Descricao="Família,  Sucessões, Órfãos, Interditos" Tipo="6"/>
+    </Vara>
+    <Vara Codigo="50" Nome="Secretaria Jurídica do Balcão de Justiça">
+      <Competencia Descricao="Balcão de Justiça" Tipo="27"/>
+    </Vara>
+    <Vara Codigo="53" Nome="Mutirão carcerário">
+      <Competencia Descricao="Mutirão Carcerário" Tipo="95"/>
+    </Vara>
+    <Vara Codigo="56" Nome="Vara de Violência Doméstica e Familiar Contra a Mulher">
+      <Competencia Descricao="Violência Doméstica e Familiar" Tipo="14"/>
+    </Vara>
+    <Vara Codigo="57" Nome="Núcleo de Prisão em Flagrante">
+      <Competencia Descricao="Audiência de Custódia" Tipo="43"/>
+    </Vara>
+    <Vara Codigo="58" Nome="Cejusc Pré processual Cível e Relação de Consumo">
+      <Competencia Descricao="CEJUSC - Pré Processual" Tipo="106"/>
+    </Vara>
+    <Vara Codigo="62" Nome="Cejusc Fazendário Pré-Processual">
+      <Competencia Descricao="CEJUSC FAZENDA" Tipo="122"/>
+    </Vara>
+  </Foro>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>DvImxxpvaY9690T885IQe5j/0aU=</DigestValue></Reference></SignedInfo><SignatureValue>YbGPVSgyai2QMWr6Nyw7DPQtpNEu9HNigCTKwXlVYt8PDpccDWAR0f3n5APRwB7brC/AO2tG6MxO
+gMTqls2+6VGoAS3iZF7mHpgYwDLujThQYW7cedfb/XeY5vDcqUjqWE3+vK2dOsyUCnw7u250MiEQ
+pu9g9kjoHfCVvBkvQVo=</SignatureValue><KeyInfo><X509Data><X509Certificate>MIICrzCCAhgCCQDVUHUkOXrNMDANBgkqhkiG9w0BAQUFADCBmzELMAkGA1UEBhMCQlIxDzANBgNV
+BAgTBkVTVEFETzEPMA0GA1UEBxMGQ0lEQURFMSIwIAYDVQQKExlUUklCVU5BTCBERSBKVVNUSUNB
+IFRFU1RFMSIwIAYDVQQLExlUUklCVU5BTCBERSBKVVNUSUNBIFRFU1RFMSIwIAYDVQQDExlUUklC
+VU5BTCBERSBKVVNUSUNBIFRFU1RFMB4XDTA4MDUxNDEzMDcwMVoXDTA5MDUxNDEzMDcwMVowgZsx
+CzAJBgNVBAYTAkJSMQ8wDQYDVQQIEwZFU1RBRE8xDzANBgNVBAcTBkNJREFERTEiMCAGA1UEChMZ
+VFJJQlVOQUwgREUgSlVTVElDQSBURVNURTEiMCAGA1UECxMZVFJJQlVOQUwgREUgSlVTVElDQSBU
+RVNURTEiMCAGA1UEAxMZVFJJQlVOQUwgREUgSlVTVElDQSBURVNURTCBnzANBgkqhkiG9w0BAQEF
+AAOBjQAwgYkCgYEA1I94HSi8/QfNhxtRUNIznHfWwekx6nRwc2KawCSCU7laOgI5gH8Hn7fcrgPP
+MqjyTPLRybZHuQvYBAVCoSutVbcDEPLZSuRs8oAriupJrNX1+3GUkVwrBTFVWhdmW7mUi88/+LJV
+1MPaweZBQ8oYDes3eLnHw9PaCs2myCQ2SzsCAwEAATANBgkqhkiG9w0BAQUFAAOBgQB6vlkAG9UI
+rl99AqV7KFPhw8b+ZtBsAfDO3wuL8SN57kIGmJ7UK03gAffOQl1KpzOxRFXPFnqyWH7yqZkpdUbL
+xuODBp7iQNNtxqQ20ZyBIAlpPJXM1zMP6FNtYKRWaQFVx00Jf7xQS7bJ584txWfMPKOJnlQ+KnuK
+im7ugk3hTQ==</X509Certificate></X509Data></KeyInfo></Signature></Foros>

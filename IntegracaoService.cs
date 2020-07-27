@@ -40,7 +40,7 @@ namespace Core.Api
 
         public string AutenticarESAJ()
         {
-            _logger.LogInformation("Inciando a AutenticarESAJ.");
+            _logger.LogInformation("Iniciando a AutenticarESAJ.");
             try
             {
                 if (ObjProxy.Autenticar("1", out string strLogin))
@@ -49,19 +49,19 @@ namespace Core.Api
                 }
                 else
                 {
-                    _logger.LogInformation("Inciando a AutenticarESAJ. ERRO");
+                    _logger.LogInformation("Iniciando a AutenticarESAJ. ERRO");
                     return $"Não foi possível autenticar no ESAJ. Erro: {strLogin}";
                 }
             }catch(Exception ex)
             {
-                _logger.LogInformation("Inciando a AutenticarESAJ. ERRO");
+                _logger.LogInformation("Iniciando a AutenticarESAJ. ERRO");
                 return $"Não foi possível autenticar no ESAJ. Erro: {ex.Message}";
             }
         }
                
         public List<TipoOperacao> ObterTipoOperacaoBD()
         {
-            _logger.LogInformation("Inciando ObterTipoOperacaoBD.");
+            _logger.LogInformation("Iniciando ObterTipoOperacaoBD.");
             var collection = this.DataContext.TTipoOperacao.ToList();
             List<TipoOperacao> operacaos = new List<TipoOperacao>();
             foreach (var item in collection)
@@ -79,67 +79,74 @@ namespace Core.Api
 
         public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso)
         {
-            _logger.LogInformation("Inciando consultarProcesso.");
+            _logger.LogInformation("Iniciando consultarProcesso.");
             return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
         }
 
         public Foros getForosEVaras()
         {
-            _logger.LogInformation("Inciando getForosEVaras.");
+            _logger.LogInformation("Iniciando getForosEVaras.");
             return _integracaoEsaj.getForosEVaras(); 
         }
 
         public Classes getClasseTpParte()
         {
-            _logger.LogInformation("Inciando getClasseTpParte.");
+            _logger.LogInformation("Iniciando getClasseTpParte.");
             return _integracaoEsaj.getClasseTpParte();
         }
 
         public Documentos getTiposDocDigital()
         {
-            _logger.LogInformation("Inciando getTiposDocDigital.");
+            _logger.LogInformation("Iniciando getTiposDocDigital.");
             return _integracaoEsaj.getTiposDocDigital();
         }
 
         public Categorias getCategoriasEClasses()
         {
-            _logger.LogInformation("Inciando getCategoriasEClasses.");
+            _logger.LogInformation("Iniciando getCategoriasEClasses.");
             return _integracaoEsaj.getCategoriasEClasses();
         }
 
         public Tipos getTiposDiversas()
         {
-            _logger.LogInformation("Inciando getTiposDiversas.");
+            _logger.LogInformation("Iniciando getTiposDiversas.");
             return _integracaoEsaj.getTiposDiversas();
         }
 
         public string getAreasCompetenciasEClasses(int cdForo)
         {
-            _logger.LogInformation("Inciando getAreasCompetenciasEClasses.");
+            _logger.LogInformation("Iniciando getAreasCompetenciasEClasses.");
             return _integracaoEsaj.getAreasCompetenciasEClasses(cdForo);
         }
 
         public string obterNumeroUnificadoDoProcesso(string numeroProcesso)
         {
-            _logger.LogInformation("Inciando obterNumeroUnificadoDoProcesso.");
+            _logger.LogInformation("Iniciando obterNumeroUnificadoDoProcesso.");
             return _integracaoEsaj.obterNumeroUnificadoDoProcesso(numeroProcesso);
         }
 
         public string obterNumeroSajDoProcesso(string numeroProcesso)
         {
-            _logger.LogInformation("Inciando obterNumeroSajDoProcesso.");
+            _logger.LogInformation("Iniciando obterNumeroSajDoProcesso.");
             return _integracaoEsaj.obterNumeroSajDoProcesso(numeroProcesso);
         }
 
         public Assuntos getAssuntos(int cdCompetencia, int cdClasse)
         {
-            _logger.LogInformation("Inciando getAssuntos.");
+            _logger.LogInformation("Iniciando getAssuntos.");
             return _integracaoEsaj.getAssuntos(cdCompetencia, cdClasse);
         }
 
         public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso)
         {
+            _logger.LogInformation("Iniciando consultarSituacaoDocumentosProcesso.");
             return _integracaoEsaj.consultarSituacaoDocumentosProcesso(Cdidea, numeroProcesso);
+        }
+
+        public consultarAvisosPendentesResponse consultarAvisosPendentes(ConsultarAvisosPendentes consultarAvisosPendentes)
+        {
+            _logger.LogInformation("Iniciando consultarAvisosPendentes.");
+            return _integracaoEsaj.consultarAvisosPendentes(consultarAvisosPendentes);
         }
     }
 }

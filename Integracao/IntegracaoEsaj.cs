@@ -879,5 +879,346 @@ namespace Core.Api.Integracao
         }
         #endregion
 
+        #region SolicitaListaCitacoesAguardandoCiencia
+        private List<tipoAvisoComunicacaoPendente> SolicitaListaCitacoesAguardandoCiencia()
+        {
+            Entidades.SolicitaListaCitacoesAguardandoCiencia.Message MessageCitacoes = new Entidades.SolicitaListaCitacoesAguardandoCiencia.Message();
+            Entidades.SolicitaListaCitacoesAguardandoCiencia.MessageIdType MessageIdCitacoes = new Entidades.SolicitaListaCitacoesAguardandoCiencia.MessageIdType();
+            Entidades.SolicitaListaCitacoesAguardandoCiencia.MessageMessageBody MessageBodyCitacoes = new Entidades.SolicitaListaCitacoesAguardandoCiencia.MessageMessageBody();
+
+            MessageIdCitacoes.Code = "202099000001";
+            MessageIdCitacoes.Date = DateTime.Now.ToString("yyyy-MM-dd"); ;
+            MessageIdCitacoes.FromAddress = "MP-BA";
+            MessageIdCitacoes.ToAddress = "TJ";
+            MessageIdCitacoes.MsgDesc = "Solicitação da quantidade e relação de processos com citações aguardando ciência";
+            MessageIdCitacoes.VersionSpecified = true;
+            MessageIdCitacoes.Version = Entidades.SolicitaListaCitacoesAguardandoCiencia.VersionType.Item10;
+            MessageIdCitacoes.ServiceIdSpecified = true;
+            MessageIdCitacoes.ServiceId = Entidades.SolicitaListaCitacoesAguardandoCiencia.ServiceIdSolicitaListaCitacoesAguardandoCiencia.SolicitaListaCitacoesAguardandoCiencia;
+            MessageCitacoes.MessageId = MessageIdCitacoes;
+
+            // Filtro
+            Entidades.SolicitaListaCitacoesAguardandoCiencia.ComarcaType Comarca = new Entidades.SolicitaListaCitacoesAguardandoCiencia.ComarcaType();
+            Comarca.cdComarca = "1";
+            MessageBodyCitacoes.Item = Comarca;
+            MessageCitacoes.MessageBody = MessageBodyCitacoes;
+            // Gerando o XML
+            string xml = MessageCitacoes.Serialize();
+
+            var retornoCitacaoXML = _Proxy.SolicitaListaCitacoesAguardandoCiencia(xml);
+
+            Entidades.CitacaoAguardandoCiencia.Message message = new Entidades.CitacaoAguardandoCiencia.Message();
+
+            message = message.ExtrairObjeto<Entidades.CitacaoAguardandoCiencia.Message>(retornoCitacaoXML);
+
+            List<tipoAvisoComunicacaoPendente> listaTipoAvisos = new List<tipoAvisoComunicacaoPendente>();
+
+            Compressao objCompressao = new Compressao();
+            ArquivoPdf[] colArquivos;
+
+            if (message.MessageBody.Resposta.qtIntimacoes > 0)
+            {
+                //LISTA AS CITAÇÕES PARA TRANSFORMAR NO FORMATO DO PJE
+                foreach (var citacao in message.MessageBody.Resposta.Citacoes)
+                {
+
+                    //OBTÉM O DOCUMENTO CONTENDO INFORMAÇÃO DO ATO
+                    //var docAnexoAto = this.SolicitacaoDocCienciaAto(citacao.cdAto.ToString());
+                    var prazo = "";
+                    var teorAto = "";
+
+                    /*colArquivos = objCompressao.DescomprimirBase64(docAnexoAto);
+
+                    foreach (var arquivoRetorno in colArquivos)
+                    {
+                        byte[] dadosArquivo = arquivoRetorno.Dados;
+                        //Após assinatura será feito a leitura do arquivo em pdf para retirar as informações do prazo e do complemento do ato
+                        //para preenchimento do model.
+                        try
+                        {
+                            string arquivoPDF = Util.ExtrairTexto_PDF(dadosArquivo);
+                            //obtem no texto do pdf o prazo
+                            string prazoStr = arquivoPDF.Substring(arquivoPDF.IndexOf("Prazo:") + 6, 5).Trim();
+
+                            foreach (var ch in prazoStr)
+                            {
+                                //verifica se é número e concatena a string para formar o prazo
+                                if (Char.IsNumber(ch))
+                                {
+                                    prazo += ch;
+                                }
+                            }
+
+                            //obtem no texto do pdf o campo intimado
+                            teorAto = arquivoPDF.Substring(arquivoPDF.IndexOf("Teor do Ato:") + 12).Trim();
+                        }
+                        catch
+                        {
+
+                        }
+                    }*/
+
+                    listaTipoAvisos.Add(new tipoAvisoComunicacaoPendente
+                    {
+                        dataDisponibilizacao = citacao.dtDisponibilizacao.ToString("yyyy-mm-dd hh:mm:ss"),
+                        idAviso = citacao.cdAto.ToString(),
+                        tipoComunicacao = "CIT",
+                        processo = new tipoCabecalhoProcesso
+                        {
+                            assunto = new tipoAssuntoProcessual[]
+                            {
+                                new tipoAssuntoProcessual{
+                                    principal = true,
+                                    principalSpecified = true,
+                                    codigoNacional = citacao.Assunto != null ? Int32.Parse(citacao.Assunto.cdAssunto.ToString()) : 9999
+                                }
+                            },
+                            outroParametro = new tipoParametro[]
+                            {
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedientePrazo",
+                                    valor = prazo + " D"
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:teorAto",
+                                    valor = teorAto
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedienteDataLimiteCiencia",
+                                    valor = ""
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedienteDescricaoAto",
+                                    valor = ""
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedienteDataExpedicao",
+                                    valor = ""
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedienteMeio",
+                                    valor = ""
+                                },
+                            },
+                            orgaoJulgador = new tipoOrgaoJulgador
+                            {
+                                codigoOrgao = citacao.ForoVara.cdVara.ToString(),
+                                instancia = "ORI",
+                                nomeOrgao = citacao.ForoVara.nmVara
+                            }
+                        }
+                    }); 
+                }
+            }
+
+            return listaTipoAvisos;
+        }
+        #endregion
+
+        #region SolicitaListaIntimacoesAguardandoCiencia
+        private List<tipoAvisoComunicacaoPendente> SolicitaListaIntimacoesAguardandoCiencia()
+        {
+            Entidades.SolicitaListaIntimacoesAguardandoCiencia.Message MessageIntimacoes = new Entidades.SolicitaListaIntimacoesAguardandoCiencia.Message();
+            Entidades.SolicitaListaIntimacoesAguardandoCiencia.MessageIdType MessageIdIntimacoes = new Entidades.SolicitaListaIntimacoesAguardandoCiencia.MessageIdType();
+            Entidades.SolicitaListaIntimacoesAguardandoCiencia.MessageMessageBody MessageBodyIntimacoes = new Entidades.SolicitaListaIntimacoesAguardandoCiencia.MessageMessageBody();
+
+            MessageIdIntimacoes.Code = "202099000001";
+            MessageIdIntimacoes.Date = DateTime.Now.ToString("yyyy-MM-dd");
+            MessageIdIntimacoes.FromAddress = "MP-BA";
+            MessageIdIntimacoes.ToAddress = "TJ";
+            MessageIdIntimacoes.MsgDesc = "Solicitação da quantidade e relação de processos com intimações aguardando ciência";
+            MessageIdIntimacoes.VersionSpecified = true;
+            MessageIdIntimacoes.Version = Entidades.SolicitaListaIntimacoesAguardandoCiencia.VersionType.Item10;
+            MessageIdIntimacoes.ServiceIdSpecified = true;
+            MessageIdIntimacoes.ServiceId = Entidades.SolicitaListaIntimacoesAguardandoCiencia.ServiceIdSolicitaListaIntimacoesAguardandoCiencia.SolicitaListaIntimacoesAguardandoCiencia;
+            MessageIntimacoes.MessageId = MessageIdIntimacoes;
+
+            Entidades.SolicitaListaIntimacoesAguardandoCiencia.ComarcaType Comarca = new Entidades.SolicitaListaIntimacoesAguardandoCiencia.ComarcaType();
+            Comarca.cdComarca = "1";
+            MessageBodyIntimacoes.Item = Comarca;
+            MessageIntimacoes.MessageBody = MessageBodyIntimacoes;
+            string xml = MessageIntimacoes.Serialize();
+
+            var retornoCitacaoXML =_Proxy.SolicitaListaIntimacoesAguardandoCiencia(xml);
+
+            Entidades.IntimacaoAguardandoCiencia.Message message = new Entidades.IntimacaoAguardandoCiencia.Message();
+
+            message = message.ExtrairObjeto<Entidades.IntimacaoAguardandoCiencia.Message>(retornoCitacaoXML);
+
+            List<tipoAvisoComunicacaoPendente> listaTipoAvisos = new List<tipoAvisoComunicacaoPendente>();
+
+            Compressao objCompressao = new Compressao();
+            ArquivoPdf[] colArquivos;
+
+            if (message.MessageBody.Resposta.qtIntimacoes > 0)
+            {
+                //LISTA AS CITAÇÕES PARA TRANSFORMAR NO FORMATO DO PJE
+                foreach (var intimacao in message.MessageBody.Resposta.Intimacoes)
+                {
+
+                    //OBTÉM O DOCUMENTO CONTENDO INFORMAÇÃO DO ATO
+                    //var docAnexoAto = this.SolicitacaoDocCienciaAto(intimacao.cdAto.ToString());
+                    var prazo = "";
+                    var teorAto = "";
+
+                    /*colArquivos = objCompressao.DescomprimirBase64(docAnexoAto);
+
+                    foreach (var arquivoRetorno in colArquivos)
+                    {
+                        byte[] dadosArquivo = arquivoRetorno.Dados;
+                        //Após assinatura será feito a leitura do arquivo em pdf para retirar as informações do prazo e do complemento do ato
+                        //para preenchimento do model. 
+                        try
+                        {
+                            string arquivoPDF = Util.ExtrairTexto_PDF(dadosArquivo);
+                            //obtem no texto do pdf o prazo
+                            string prazoStr = arquivoPDF.Substring(arquivoPDF.IndexOf("Prazo:") + 6, 5).Trim();
+
+                            foreach (var ch in prazoStr)
+                            {
+                                //verifica se é número e concatena a string para formar o prazo
+                                if (Char.IsNumber(ch))
+                                {
+                                    prazo += ch;
+                                }
+                            }
+
+                            //obtem no texto do pdf o campo intimado
+                            teorAto = arquivoPDF.Substring(arquivoPDF.IndexOf("Teor do Ato:") + 12).Trim();
+                        }
+                        catch
+                        {
+
+                        }
+                    }*/
+
+                    listaTipoAvisos.Add(new tipoAvisoComunicacaoPendente
+                    {
+                        dataDisponibilizacao = intimacao.dtDisponibilizacao.ToString("yyyy-mm-dd hh:mm:ss"),
+                        idAviso = intimacao.cdAto.ToString(),
+                        tipoComunicacao = "CIT",
+                        processo = new tipoCabecalhoProcesso
+                        {
+                            assunto = new tipoAssuntoProcessual[]
+                            {
+                                new tipoAssuntoProcessual{
+                                    principal = true,
+                                    principalSpecified = true,
+                                    codigoNacional = intimacao.Assunto != null ? Int32.Parse(intimacao.Assunto.cdAssunto.ToString()) : 9999
+                                }
+                            },
+                            outroParametro = new tipoParametro[]
+                            {
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedientePrazo",
+                                    valor = prazo + " D"
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:teorAto",
+                                    valor = teorAto
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedienteDataLimiteCiencia",
+                                    valor = ""
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedienteDescricaoAto",
+                                    valor = ""
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedienteDataExpedicao",
+                                    valor = ""
+                                },
+                                new tipoParametro
+                                {
+                                    nome = "mni:pje:expedienteMeio",
+                                    valor = ""
+                                },
+                            },
+                            orgaoJulgador = new tipoOrgaoJulgador
+                            {
+                                codigoOrgao = intimacao.ForoVara.cdVara.ToString(),
+                                instancia = "ORI",
+                                nomeOrgao = intimacao.ForoVara.nmVara
+                            }
+                        }
+                    });
+                }
+            }
+
+            return listaTipoAvisos;
+        }
+        #endregion
+
+        #region consultarAvisosPendentes
+        public consultarAvisosPendentesResponse consultarAvisosPendentes(ConsultarAvisosPendentes consultarAvisosPendentes)
+        {
+            _logger.LogInformation("IntegracaoEsaj iniciando consultarAvisosPendentes.");
+            _logger.LogInformation("Obtendo SolicitaListaIntimacoesAguardandoCiencia.");
+            //OBTÉM INFORMAÇÃO REFERENTE A INTIMACAO DO ESAJ
+            var intimacoes = this.SolicitaListaIntimacoesAguardandoCiencia();
+            _logger.LogInformation("Retorno SolicitaListaIntimacoesAguardandoCiencia. Qtd" + intimacoes.Count);
+
+            //OBTÉM INFORMAÇÃO REFERENTE A CITACAO DO ESAJ
+            _logger.LogInformation("Obtendo SolicitaListaCitacoesAguardandoCiencia.");
+            var citacoes = this.SolicitaListaCitacoesAguardandoCiencia();
+            _logger.LogInformation("Retorno SolicitaListaCitacoesAguardandoCiencia.Qtd" + citacoes.Count);
+
+            List<tipoAvisoComunicacaoPendente> tipoAvisoComunicacaoPendente = new List<tipoAvisoComunicacaoPendente>();
+            //ADICIONA A COLEÇÃO AO LIST QUE SERÁ ADICIONADO AO OBJETO DE RETORNO.
+            tipoAvisoComunicacaoPendente.AddRange(intimacoes);
+            tipoAvisoComunicacaoPendente.AddRange(citacoes);
+
+            var qtdTotalAtos = intimacoes.Count + citacoes.Count;
+            
+            var consultaAvisoPendenteResposta = new consultarAvisosPendentesResponse
+            {
+                mensagem = $"Avisos de comunicação processual consultados com sucesso! Consultados {qtdTotalAtos} de {qtdTotalAtos}.",
+                sucesso = true,
+                aviso = tipoAvisoComunicacaoPendente.ToArray()
+            };
+
+            return consultaAvisoPendenteResposta;
+        }
+        #endregion
+
+        #region SolicitacaoDocCienciaAto
+        private string SolicitacaoDocCienciaAto(string cdAto)
+        {
+            Entidades.SolicitacaoDocCienciaAto.Message Message = new Entidades.SolicitacaoDocCienciaAto.Message();
+            Entidades.SolicitacaoDocCienciaAto.MessageIdType MessageIdType = new Entidades.SolicitacaoDocCienciaAto.MessageIdType();
+            Entidades.SolicitacaoDocCienciaAto.MessageMessageBody MessageMessageBody = new Entidades.SolicitacaoDocCienciaAto.MessageMessageBody();
+
+            MessageIdType.Code = "202099000001";
+            MessageIdType.Date = DateTime.Now.ToString("yyyy-MM-dd"); ;
+            MessageIdType.FromAddress = "MP-BA";
+            MessageIdType.ToAddress = "TJ";
+            MessageIdType.MsgDesc = "Solicitação de documento de ciência para um ato específico";
+            MessageIdType.VersionSpecified = true;
+            MessageIdType.Version = Entidades.SolicitacaoDocCienciaAto.VersionType.Item10;
+            MessageIdType.ServiceId = Entidades.SolicitacaoDocCienciaAto.ServiceIdSolicitacaoDocCienciaAtoType.SolicitacaoDocCienciaAto;
+            Message.MessageId = MessageIdType;
+
+            MessageMessageBody.cdAto = cdAto;
+            Message.MessageBody = MessageMessageBody;
+
+            // Gerando o XML
+            string xml = Message.Serialize();
+
+            return _Proxy.SolicitacaoDocCienciaAto(xml);
+        }
+        #endregion
+
     }
 }

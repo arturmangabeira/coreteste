@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "hw06E6G0XFPPCnqLBgs20XfKv8zLGVsWMxKuHB6xyfKuHMIVYHecnt5uP9spHmtPoxshe9NlO5w+hMEWTJ1jAQ==",
+  "dgSpecHash": "e8pQ0vxk//D4+WcVhqSbGWP3uBDAi48YCMIVFGUDmzoH78Pip6JEZ+JhkvjnSXCAhir0UjS+XEKE9jF9bhKAMw==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\coreteste\\Core.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Artur Mangabeira\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
     "C:\\Users\\Artur Mangabeira\\.nuget\\packages\\csquery\\1.3.4\\csquery.1.3.4.nupkg.sha512",
+    "C:\\Users\\Artur Mangabeira\\.nuget\\packages\\icsharpcode.sharpziplib.dll\\0.85.4.369\\icsharpcode.sharpziplib.dll.0.85.4.369.nupkg.sha512",
+    "C:\\Users\\Artur Mangabeira\\.nuget\\packages\\ionic.zip\\1.9.1.8\\ionic.zip.1.9.1.8.nupkg.sha512",
+    "C:\\Users\\Artur Mangabeira\\.nuget\\packages\\itextsharp\\5.5.13.1\\itextsharp.5.5.13.1.nupkg.sha512",
     "C:\\Users\\Artur Mangabeira\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.0.0\\microsoft.aspnetcore.hosting.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\Artur Mangabeira\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.0.0\\microsoft.aspnetcore.hosting.server.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\Artur Mangabeira\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
@@ -175,6 +178,36 @@
       "warningLevel": 1,
       "message": "Package 'CsQuery 1.3.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "CsQuery",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ICSharpCode.SharpZipLib.dll 0.85.4.369' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "ICSharpCode.SharpZipLib.dll",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Ionic.Zip 1.9.1.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Ionic.Zip",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'iTextSharp 5.5.13.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "iTextSharp",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]

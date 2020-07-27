@@ -12,7 +12,7 @@ namespace Core.Api.Integracao
 {
     public class Proxy
     {
-        private readonly ServicoPJ2PortType objProxy;
+        private readonly ServicoPJ2PortType _Proxy;
         private readonly string repositorio;
         private readonly string certificado;
         private Log _logOperacao { get; }
@@ -35,9 +35,9 @@ namespace Core.Api.Integracao
             _logger = logger;
             _codigo = "1";
 
-            if (this.objProxy == null)
+            if (this._Proxy == null)
             {
-                this.objProxy = new ServicoPJ2PortTypeClient(
+                this._Proxy = new ServicoPJ2PortTypeClient(
                     new BasicHttpBinding()
                     {
                         Name = Configuration.GetValue<string>("ESAJ:BindingName"),
@@ -108,7 +108,7 @@ namespace Core.Api.Integracao
             string mensagem = objXML.AssinarXmlString(objConfirmaLogon.Serialize(), this.repositorio, this.certificado, "");
 
             var dtInicial = DateTime.Now;
-            var retorno = objProxy.confirmaLogonAsync(mensagem).Result;
+            var retorno = _Proxy.confirmaLogonAsync(mensagem).Result;
             var dtFinal = DateTime.Now;
             if (Configuration.GetValue<bool>("RegistraLog:Metodos:ConfirmaLogon"))
             {
@@ -161,7 +161,7 @@ namespace Core.Api.Integracao
 
             Entidades.SolicitaLogonRetorno.Message objRespostaSolicitaLogon = new Entidades.SolicitaLogonRetorno.Message();
             //setProxy();
-            string retorno = objProxy.solicitaLogonAsync(mensagem).Result;
+            string retorno = _Proxy.solicitaLogonAsync(mensagem).Result;
 
             var dtInicial = DateTime.Now;
             var dtFinal = DateTime.Now;
@@ -234,7 +234,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(codigo, out strLogin))
             {
-                resposta = objProxy.getTiposDocDigitalAsync().Result;
+                resposta = _Proxy.getTiposDocDigitalAsync().Result;
             }
             else
             {
@@ -260,7 +260,7 @@ namespace Core.Api.Integracao
 
                 IXml objXML = new Xml();
                 str = objXML.AssinarXmlString(str, repositorio, certificado, "");
-                RespostaDadosProcesso = objProxy.getDadosProcessoAsync(str).Result;
+                RespostaDadosProcesso = _Proxy.getDadosProcessoAsync(str).Result;
             }
             else
             {
@@ -280,7 +280,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = objProxy.getForosEVarasAsync().Result;
+                resposta = _Proxy.getForosEVarasAsync().Result;
             }
             else
             {
@@ -297,7 +297,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = objProxy.getClasseTpParteAsync().Result;
+                resposta = _Proxy.getClasseTpParteAsync().Result;
             }
             else
             {
@@ -314,7 +314,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = objProxy.getTiposDocDigitalAsync().Result;
+                resposta = _Proxy.getTiposDocDigitalAsync().Result;
             }
             else
             {
@@ -331,7 +331,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = objProxy.getCategoriasEClassesAsync().Result;
+                resposta = _Proxy.getCategoriasEClassesAsync().Result;
             }
             else
             {
@@ -348,7 +348,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = objProxy.getTiposDiversasAsync().Result;
+                resposta = _Proxy.getTiposDiversasAsync().Result;
             }
             else
             {
@@ -365,7 +365,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = objProxy.getAreasCompetenciasEClassesAsync(cdForo).Result;
+                resposta = _Proxy.getAreasCompetenciasEClassesAsync(cdForo).Result;
             }
             else
             {
@@ -382,7 +382,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = objProxy.obterNumeroUnificadoDoProcessoAsync(numeroProcesso).Result;
+                resposta = _Proxy.obterNumeroUnificadoDoProcessoAsync(numeroProcesso).Result;
             }
             else
             {
@@ -399,7 +399,7 @@ namespace Core.Api.Integracao
 
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = objProxy.obterNumeroSajDoProcessoAsync(numeroProcesso).Result;
+                resposta = _Proxy.obterNumeroSajDoProcessoAsync(numeroProcesso).Result;
             }
             else
             {
@@ -416,7 +416,56 @@ namespace Core.Api.Integracao
 
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = objProxy.getAssuntosAsync(cdCompetencia,cdClasse).Result;
+                resposta = _Proxy.getAssuntosAsync(cdCompetencia,cdClasse).Result;
+            }
+            else
+            {
+                resposta = strLogin;
+            }
+            return resposta;
+        }
+
+        public string SolicitaListaCitacoesAguardandoCiencia(string strXMLSolicitacao)
+        {
+            string strLogin;
+
+            string resposta;
+            if (Autenticar(_codigo, out strLogin))
+            {
+                resposta = _Proxy.SolicitaListaCitacoesAguardandoCienciaAsync(strXMLSolicitacao).Result;
+            }
+            else
+            {
+                resposta = strLogin;
+            }
+            return resposta;
+
+        }
+
+        public string SolicitaListaIntimacoesAguardandoCiencia(string strXMLSolicitacao)
+        {
+            string strLogin;
+
+            string resposta;
+            if (Autenticar(_codigo, out strLogin))
+            {
+                resposta = _Proxy.SolicitaListaIntimacoesAguardandoCienciaAsync(strXMLSolicitacao).Result;
+            }
+            else
+            {
+                resposta = strLogin;
+            }
+            return resposta;
+        }
+
+        public string SolicitacaoDocCienciaAto(string strXMLSolicitacao)
+        {
+            string strLogin;
+
+            string resposta;
+            if (Autenticar(_codigo, out strLogin))
+            {
+                resposta = _Proxy.solicitacaoDocCienciaAtoAsync(strXMLSolicitacao).Result;
             }
             else
             {

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageId">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ServiceId" type="xs:string" />
+              <xs:element name="Version" type="xs:decimal" />
+              <xs:element name="MsgDesc" type="xs:string" />
+              <xs:element name="Code" type="xs:unsignedLong" />
+              <xs:element name="FromAddress" type="xs:string" />
+              <xs:element name="ToAddress" type="xs:string" />
+              <xs:element name="Date" type="xs:date" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MessageBody">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Resposta">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="qtIntimacoes" type="xs:unsignedShort" />
+                    <xs:element name="Intimacoes">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="Intimacao">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="cdAto" type="xs:unsignedInt" />
+                                <xs:element name="nuProcesso" type="xs:string" />
+                                <xs:element name="dtDisponibilizacao" type="xs:date" />
+                                <xs:element name="ForoVara">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="cdForo" type="xs:unsignedByte" />
+                                      <xs:element name="nmForo" type="xs:string" />
+                                      <xs:element name="cdVara" type="xs:unsignedByte" />
+                                      <xs:element name="nmVara" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="Classe">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="cdClasse" type="xs:unsignedShort" />
+                                      <xs:element name="deClasse" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="Assunto">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="cdAssunto" type="xs:unsignedShort" />
+                                      <xs:element name="deAssunto" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element xmlns:q1="http://www.w3.org/2000/09/xmldsig#" ref="q1:Signature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

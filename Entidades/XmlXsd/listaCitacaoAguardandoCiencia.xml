@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><Message>
+	<MessageId>
+		<ServiceId>SolicitaListaCitacoesAguardandoCiencia</ServiceId>
+		<Version>1.0</Version>
+		<MsgDesc>Solicitação da quantidade e relação de processos com intimações aguardando ciência</MsgDesc>
+		<Code>202099000001</Code>
+		<FromAddress>MP-BA</FromAddress>
+		<ToAddress>TJ</ToAddress>
+		<Date>2020-07-27</Date>
+	</MessageId>
+	<MessageBody>
+		<Resposta>
+			<qtIntimacoes>23</qtIntimacoes>
+			<Citacoes>
+				<Citacao>
+					<cdAto>3190060</cdAto>
+					<nuProcesso>0373192-21.2013.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-23</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>33</cdVara>
+						<nmVara>8ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>7</cdClasse>
+						<deClasse>Procedimento Comum</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>8826</cdAssunto>
+						<deAssunto>DIREITO PROCESSUAL CIVIL E DO TRABALHO</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3192563</cdAto>
+					<nuProcesso>0404019-15.2013.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-26</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>31</cdVara>
+						<nmVara>6ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>7</cdClasse>
+						<deClasse>Procedimento Comum</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>899</cdAssunto>
+						<deAssunto>DIREITO CIVIL</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3189369</cdAto>
+					<nuProcesso>0540593-69.2018.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-23</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>27</cdVara>
+						<nmVara>2ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>7</cdClasse>
+						<deClasse>Procedimento Comum</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>5951</cdAssunto>
+						<deAssunto>ISS/ Imposto sobre Serviços</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>2692256</cdAto>
+					<nuProcesso>0762200-62.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2019-09-25</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>5951</cdAssunto>
+						<deAssunto>ISS/ Imposto sobre Serviços</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>2693592</cdAto>
+					<nuProcesso>0756474-10.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2019-09-26</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>5951</cdAssunto>
+						<deAssunto>ISS/ Imposto sobre Serviços</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3184998</cdAto>
+					<nuProcesso>0501146-74.2018.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>33</cdVara>
+						<nmVara>8ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>7</cdClasse>
+						<deClasse>Procedimento Comum</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>7760</cdAssunto>
+						<deAssunto>Fornecimento de Energia Elétrica</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185436</cdAto>
+					<nuProcesso>0820527-34.2014.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>5951</cdAssunto>
+						<deAssunto>ISS/ Imposto sobre Serviços</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3180060</cdAto>
+					<nuProcesso>0781064-51.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-19</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10538</cdAssunto>
+						<deAssunto>Taxa de Licenciamento de Estabelecimento</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185435</cdAto>
+					<nuProcesso>0805460-29.2014.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10538</cdAssunto>
+						<deAssunto>Taxa de Licenciamento de Estabelecimento</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185451</cdAto>
+					<nuProcesso>0789683-33.2016.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10538</cdAssunto>
+						<deAssunto>Taxa de Licenciamento de Estabelecimento</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185458</cdAto>
+					<nuProcesso>0856540-61.2016.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10538</cdAssunto>
+						<deAssunto>Taxa de Licenciamento de Estabelecimento</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185460</cdAto>
+					<nuProcesso>0775594-39.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10538</cdAssunto>
+						<deAssunto>Taxa de Licenciamento de Estabelecimento</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185462</cdAto>
+					<nuProcesso>0765970-63.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10538</cdAssunto>
+						<deAssunto>Taxa de Licenciamento de Estabelecimento</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3182790</cdAto>
+					<nuProcesso>0511851-73.2014.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-20</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>31</cdVara>
+						<nmVara>6ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>120</cdClasse>
+						<deClasse>Mandado de Segurança</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10376</cdAssunto>
+						<deAssunto>Exame de Saúde e/ou Aptidão Física</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3191731</cdAto>
+					<nuProcesso>0575127-73.2017.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-24</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>31</cdVara>
+						<nmVara>6ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>7</cdClasse>
+						<deClasse>Procedimento Comum</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10303</cdAssunto>
+						<deAssunto>Adicional de Horas Extras</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185053</cdAto>
+					<nuProcesso>0756828-35.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>35</cdVara>
+						<nmVara>10ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>5951</cdAssunto>
+						<deAssunto>ISS/ Imposto sobre Serviços</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185363</cdAto>
+					<nuProcesso>0564500-15.2014.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>7</cdClasse>
+						<deClasse>Procedimento Comum</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>6004</cdAssunto>
+						<deAssunto>Anulação de Débito Fiscal</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185440</cdAto>
+					<nuProcesso>0783672-85.2016.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>5951</cdAssunto>
+						<deAssunto>ISS/ Imposto sobre Serviços</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185441</cdAto>
+					<nuProcesso>0769391-61.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10538</cdAssunto>
+						<deAssunto>Taxa de Licenciamento de Estabelecimento</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3185442</cdAto>
+					<nuProcesso>0753904-51.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-21</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10538</cdAssunto>
+						<deAssunto>Taxa de Licenciamento de Estabelecimento</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3190463</cdAto>
+					<nuProcesso>0817818-26.2014.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-24</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>1116</cdClasse>
+						<deClasse>Execução Fiscal</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10538</cdAssunto>
+						<deAssunto>Taxa de Licenciamento de Estabelecimento</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3190887</cdAto>
+					<nuProcesso>0515636-09.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-24</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>31</cdVara>
+						<nmVara>6ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>120</cdClasse>
+						<deClasse>Mandado de Segurança</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>10381</cdAssunto>
+						<deAssunto>Classificação e/ou Preterição</deAssunto>
+					</Assunto>
+				</Citacao>
+				<Citacao>
+					<cdAto>3194605</cdAto>
+					<nuProcesso>0559619-58.2015.8.05.0001</nuProcesso>
+					<dtDisponibilizacao>2020-07-27</dtDisponibilizacao>
+					<ForoVara>
+						<cdForo>1</cdForo>
+						<nmForo>Salvador</nmForo>
+						<cdVara>136</cdVara>
+						<nmVara>13ª Vara da Fazenda Pública</nmVara>
+					</ForoVara>
+					<Classe>
+						<cdClasse>7</cdClasse>
+						<deClasse>Procedimento Comum</deClasse>
+					</Classe>
+					<Assunto>
+						<cdAssunto>6004</cdAssunto>
+						<deAssunto>Anulação de Débito Fiscal</deAssunto>
+					</Assunto>
+				</Citacao>
+			</Citacoes>
+		</Resposta>
+	</MessageBody>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>8xAiW9QePGH7cEE2cH4ZUALaQ5k=</DigestValue></Reference></SignedInfo><SignatureValue>Amup3cFsgPyNyf1h961CMua3m+amuKsyNEvRhwBmvajBPf72q9eZiR9rt6r9ETVeC2kESju/K2Cv
+KG3ZmLio+0o+wBhlOygPkxM2Mz96WU1bAO1MPQ/iSv1N4qa448gFBXp/b+olCPGVsRjJNZ/q8zK4
+BYx3CsMqA5Sd+TIW7kU=</SignatureValue><KeyInfo><X509Data><X509Certificate>MIICrzCCAhgCCQDVUHUkOXrNMDANBgkqhkiG9w0BAQUFADCBmzELMAkGA1UEBhMCQlIxDzANBgNV
+BAgTBkVTVEFETzEPMA0GA1UEBxMGQ0lEQURFMSIwIAYDVQQKExlUUklCVU5BTCBERSBKVVNUSUNB
+IFRFU1RFMSIwIAYDVQQLExlUUklCVU5BTCBERSBKVVNUSUNBIFRFU1RFMSIwIAYDVQQDExlUUklC
+VU5BTCBERSBKVVNUSUNBIFRFU1RFMB4XDTA4MDUxNDEzMDcwMVoXDTA5MDUxNDEzMDcwMVowgZsx
+CzAJBgNVBAYTAkJSMQ8wDQYDVQQIEwZFU1RBRE8xDzANBgNVBAcTBkNJREFERTEiMCAGA1UEChMZ
+VFJJQlVOQUwgREUgSlVTVElDQSBURVNURTEiMCAGA1UECxMZVFJJQlVOQUwgREUgSlVTVElDQSBU
+RVNURTEiMCAGA1UEAxMZVFJJQlVOQUwgREUgSlVTVElDQSBURVNURTCBnzANBgkqhkiG9w0BAQEF
+AAOBjQAwgYkCgYEA1I94HSi8/QfNhxtRUNIznHfWwekx6nRwc2KawCSCU7laOgI5gH8Hn7fcrgPP
+MqjyTPLRybZHuQvYBAVCoSutVbcDEPLZSuRs8oAriupJrNX1+3GUkVwrBTFVWhdmW7mUi88/+LJV
+1MPaweZBQ8oYDes3eLnHw9PaCs2myCQ2SzsCAwEAATANBgkqhkiG9w0BAQUFAAOBgQB6vlkAG9UI
+rl99AqV7KFPhw8b+ZtBsAfDO3wuL8SN57kIGmJ7UK03gAffOQl1KpzOxRFXPFnqyWH7yqZkpdUbL
+xuODBp7iQNNtxqQ20ZyBIAlpPJXM1zMP6FNtYKRWaQFVx00Jf7xQS7bJ584txWfMPKOJnlQ+KnuK
+im7ugk3hTQ==</X509Certificate></X509Data></KeyInfo></Signature></Message>

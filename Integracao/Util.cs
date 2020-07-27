@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 using System.Text.RegularExpressions;
+using iTextSharp.text.pdf;
+using System.Text;
+using iTextSharp.text.pdf.parser;
 
 namespace Core.Api.Integracao
 {
@@ -63,6 +66,20 @@ namespace Core.Api.Integracao
         public static string OnlyNumbers(string document)
         {
             return numbersOnly.Replace(document.Trim(), "");
+        }
+
+        public static string ExtrairTexto_PDF(byte[] pdf)
+        {
+            PdfReader leitor = new PdfReader(pdf);
+
+            StringBuilder texto = new StringBuilder();
+            for (int i = 1; i <= leitor.NumberOfPages; i++)
+            {
+                texto.Append(PdfTextExtractor.GetTextFromPage(leitor, i));
+            }
+
+            return texto.ToString();
+
         }
     }
 }

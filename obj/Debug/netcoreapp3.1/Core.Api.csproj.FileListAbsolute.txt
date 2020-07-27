@@ -284,5 +284,8 @@ C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.dll
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.pdb
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.genruntimeconfig.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.csprojAssemblyReference.cache
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\Ionic.Zip.dll
+C:\Projetos\coreteste\bin\Debug\netcoreapp3.1\itextsharp.dll
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.csproj.CoreCompileInputs.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\Core.Api.MvcApplicationPartsAssemblyInfo.cache

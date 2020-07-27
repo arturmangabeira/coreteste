@@ -13,22 +13,14 @@ namespace Core.Api.Integracao
 {
     [ServiceContract]
     public interface IIntegracaoService
-    {
-        [OperationContract]
-        [XmlSerializerFormat(SupportFaults = false)]
-        string AutenticarESAJ();
-        
-        [OperationContract]
-        List<TipoOperacao> ObterTipoOperacaoBD();
+    {           
         [OperationContract]
         public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso);
         [OperationContract]
         [XmlSerializerFormat(SupportFaults = true,Style = OperationFormatStyle.Rpc,Use = OperationFormatUse.Encoded)]        
         public Foros getForosEVaras();
         [OperationContract]
-        public Classes getClasseTpParte();
-        [OperationContract]
-        public Documentos getTiposDocDigital();
+        public Classes getClasseTpParte();        
         [OperationContract]
         public Categorias getCategoriasEClasses();
         [OperationContract]
@@ -43,5 +35,7 @@ namespace Core.Api.Integracao
         public Assuntos getAssuntos(int cdCompetencia, int cdClasse);
         [OperationContract]
         public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso);
+        [OperationContract]
+        public consultarAvisosPendentesResponse consultarAvisosPendentes(ConsultarAvisosPendentes consultarAvisosPendentes);
     }
 }

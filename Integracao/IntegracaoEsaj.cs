@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Core.Api.ConfigurationManager;
 using Core.Api.Data;
 using Core.Api.Entidades;
 using Core.Api.Entidades.AssuntoClasse;
@@ -29,12 +31,15 @@ namespace Core.Api.Integracao
         public IConfiguration Configuration { get; }
 
         public ILogger<IntegracaoService> _logger;
+
+        private DataContext _dataContext { get; }
         public Log logOperacao { get; }
         public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger) 
         {
             this.Configuration = ConfigurationManager.ConfigurationManager.AppSettings;
             _Proxy = proxy;
             _logger = logger;
+            _dataContext = dataContext;
             this.logOperacao = new Log(dataContext);
         }
 
@@ -121,6 +126,11 @@ namespace Core.Api.Integracao
                         if (consultarProcesso.movimentos)
                         {
                             tipoProcessoJudicial.movimento = this.ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
+                        }
+                        //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
+                        if (consultarProcesso.incluirDocumentos)
+                        {
+                            tipoProcessoJudicial.documento = this.ObterDocumentos(consultarProcesso.numeroProcesso).ToArray();
                         }
 
                         //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ
@@ -230,6 +240,39 @@ namespace Core.Api.Integracao
             return consultar;
         }
         #endregion
+
+        private List<tipoDocumento> ObterDocumentos(string numeroProcesso)
+        {
+            var pathDirectorySeparator = Path.DirectorySeparatorChar;
+
+             var caminhoArquivos = ConfigurationManager.ConfigurationManager.AppSettings["Diretorios:DsCaminhoProcessos"] + pathDirectorySeparator + numeroProcesso;
+
+            var documentos = new List<tipoDocumento>();
+
+            var diretorios = Directory.GetDirectories(caminhoArquivos);
+
+            foreach (var diretorio in diretorios)
+            {
+                var arquivos = Directory.GetFiles(diretorio);
+
+                var docVinculado = new List<tipoDocumento>();
+                foreach (var arquivo in arquivos)
+                {
+                    docVinculado.Add(new tipoDocumento
+                    {
+                        conteudo = File.ReadAllBytes(arquivo),
+                        descricao = arquivo,
+                    });
+                }
+                documentos.Add(new tipoDocumento
+                {                    
+                    descricao = diretorio,
+                    documentoVinculado = docVinculado.ToArray()
+                });
+            }
+
+            return documentos;
+        }
 
         #region ObterDadosBasicos
         /// <summary>
@@ -824,6 +867,39 @@ namespace Core.Api.Integracao
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Assuntos().ExtrairObjeto<Assuntos>(retornoXmlEsaj);
             return objRetorno;
+        }
+        #endregion
+
+        #region consultarSituacaoDocumentosProcesso
+        public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso)
+        {
+            //var filaPastaDigital = _dataContext.TFilaPastaDigital.ToList();
+            //JOIN IN LINQ
+            var retorno = (from p in _dataContext.TFilaPastaDigital
+                           join s in _dataContext.TSituacaoPastaDigital on p.IdSituacaoPastaDigital equals s.IdSituacaoPastaDigital
+                           join sr in _dataContext.TServidor on p.IdServidor equals sr.IdServidor
+                           where (p.CdIdea == Cdidea && p.NuProcesso == numeroProcesso)
+                           select new FilaPastaDigital
+                           {
+                               DsServidor = sr.DsServidor,
+                               NuProcesso = p.NuProcesso,
+                               CdIdea = p.CdIdea,
+                               DsCaminhoPastaDigital = p.DsCaminhoPastaDigital,
+                               DsErro = p.DsErro,
+                               DtCadastro = p.DtCadastro,
+                               DtFinal = p.DtFinal,
+                               DtInicial = p.DtInicial,
+                               DtInicioProcessamento = p.DtInicioProcessamento,
+                               IdFilaPastaDigital = p.IdFilaPastaDigital,
+                               IdServidor = p.IdServidor,
+                               IdSituacaoPastaDigital = p.IdSituacaoPastaDigital,
+                               NmServidor = sr.NmServidor,
+                               NmSituacaoPastaDigital = s.NmSituacaoPastaDigital,
+                               NuUltimaPaginaBaixada = p.NuUltimaPaginaBaixada
+                           }
+                           ).ToList();
+
+            return retorno;
         }
         #endregion
 

@@ -136,5 +136,10 @@ namespace Core.Api
             _logger.LogInformation("Inciando getAssuntos.");
             return _integracaoEsaj.getAssuntos(cdCompetencia, cdClasse);
         }
+
+        public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso)
+        {
+            return _integracaoEsaj.consultarSituacaoDocumentosProcesso(Cdidea, numeroProcesso);
+        }
     }
 }

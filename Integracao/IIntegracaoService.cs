@@ -41,5 +41,7 @@ namespace Core.Api.Integracao
         public string obterNumeroSajDoProcesso(string numeroUnificadoProcesso);
         [OperationContract]
         public Assuntos getAssuntos(int cdCompetencia, int cdClasse);
+        [OperationContract]
+        public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso);
     }
 }

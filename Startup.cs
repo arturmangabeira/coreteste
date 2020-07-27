@@ -29,7 +29,8 @@ namespace Core.Api
                 x => x.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection"))
             );
                      
-            services.AddScoped<IIntegracaoService, IntegracaoService>();                        
+            services.AddScoped<IIntegracaoService, IntegracaoService>();
+            services.AddSoapExceptionTransformer((ex) => ex.Message);
             services.AddControllers();            
         }
 
@@ -58,6 +59,7 @@ namespace Core.Api
 
             //REFERENCIA A INTERFACE DE "ServiceContract -> IIntegracaoService" PARA QUE SEJA REFLETIDA COMO SERVIÇOS EM SOAP.
             app.UseSoapEndpoint<IIntegracaoService>("/Integrador.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
+
         }
     }
 }

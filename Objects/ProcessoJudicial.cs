@@ -43,6 +43,8 @@ namespace Core.Api.Objects
 
         private tipoMovimentoProcessual[] movimentoField;
 
+        private tipoDocumento[] documentoField;
+
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public tipoCabecalhoProcesso dadosBasicos
@@ -69,7 +71,21 @@ namespace Core.Api.Objects
             {
                 this.movimentoField = value;                
             }
-        }               
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true, Order = 2)]
+        public tipoDocumento[] documento
+        {
+            get
+            {
+                return this.documentoField;
+            }
+            set
+            {
+                this.documentoField = value;                
+            }
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
@@ -127,6 +143,464 @@ namespace Core.Api.Objects
                 
             }
         }     
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    public partial class tipoDocumento
+    {
+
+        private byte[] conteudoField;
+
+        private tipoAssinatura[] assinaturaField;
+
+        private tipoParametro[] outroParametroField;
+
+        private System.Xml.XmlElement anyField;
+
+        private tipoDocumento[] documentoVinculadoField;
+
+        private string idDocumentoField;
+
+        private string idDocumentoVinculadoField;
+
+        private string tipoDocumento1Field;
+
+        private string dataHoraField;
+
+        private string mimetypeField;
+
+        private int nivelSigiloField;
+
+        private bool nivelSigiloFieldSpecified;
+
+        private int movimentoField;
+
+        private bool movimentoFieldSpecified;
+
+        private string hashField;
+
+        private string descricaoField;
+
+        private string tipoDocumentoLocalField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary", Order = 0)]
+        public byte[] conteudo
+        {
+            get
+            {
+                return this.conteudoField;
+            }
+            set
+            {
+                this.conteudoField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("assinatura", IsNullable = true, Order = 1)]
+        public tipoAssinatura[] assinatura
+        {
+            get
+            {
+                return this.assinaturaField;
+            }
+            set
+            {
+                this.assinaturaField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("outroParametro", IsNullable = true, Order = 2)]
+        public tipoParametro[] outroParametro
+        {
+            get
+            {
+                return this.outroParametroField;
+            }
+            set
+            {
+                this.outroParametroField = value;             
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
+        public System.Xml.XmlElement Any
+        {
+            get
+            {
+                return this.anyField;
+            }
+            set
+            {
+                this.anyField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("documentoVinculado", IsNullable = true, Order = 4)]
+        public tipoDocumento[] documentoVinculado
+        {
+            get
+            {
+                return this.documentoVinculadoField;
+            }
+            set
+            {
+                this.documentoVinculadoField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string idDocumento
+        {
+            get
+            {
+                return this.idDocumentoField;
+            }
+            set
+            {
+                this.idDocumentoField = value;             
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string idDocumentoVinculado
+        {
+            get
+            {
+                return this.idDocumentoVinculadoField;
+            }
+            set
+            {
+                this.idDocumentoVinculadoField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute("tipoDocumento")]
+        public string tipoDocumento1
+        {
+            get
+            {
+                return this.tipoDocumento1Field;
+            }
+            set
+            {
+                this.tipoDocumento1Field = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string dataHora
+        {
+            get
+            {
+                return this.dataHoraField;
+            }
+            set
+            {
+                this.dataHoraField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string mimetype
+        {
+            get
+            {
+                return this.mimetypeField;
+            }
+            set
+            {
+                this.mimetypeField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int nivelSigilo
+        {
+            get
+            {
+                return this.nivelSigiloField;
+            }
+            set
+            {
+                this.nivelSigiloField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nivelSigiloSpecified
+        {
+            get
+            {
+                return this.nivelSigiloFieldSpecified;
+            }
+            set
+            {
+                this.nivelSigiloFieldSpecified = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int movimento
+        {
+            get
+            {
+                return this.movimentoField;
+            }
+            set
+            {
+                this.movimentoField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool movimentoSpecified
+        {
+            get
+            {
+                return this.movimentoFieldSpecified;
+            }
+            set
+            {
+                this.movimentoFieldSpecified = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string hash
+        {
+            get
+            {
+                return this.hashField;
+            }
+            set
+            {
+                this.hashField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string descricao
+        {
+            get
+            {
+                return this.descricaoField;
+            }
+            set
+            {
+                this.descricaoField = value;                
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string tipoDocumentoLocal
+        {
+            get
+            {
+                return this.tipoDocumentoLocalField;
+            }
+            set
+            {
+                this.tipoDocumentoLocalField = value;         
+            }
+        }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    public partial class tipoAssinatura : object, System.ComponentModel.INotifyPropertyChanged
+    {
+
+        private tipoSignatarioSimples[] signatarioLoginField;
+
+        private string assinaturaField;
+
+        private string dataAssinaturaField;
+
+        private string cadeiaCertificadoField;
+
+        private string algoritmoHashField;
+
+        private string codificacaoCertificadoField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("signatarioLogin", IsNullable = true, Order = 0)]
+        public tipoSignatarioSimples[] signatarioLogin
+        {
+            get
+            {
+                return this.signatarioLoginField;
+            }
+            set
+            {
+                this.signatarioLoginField = value;
+                this.RaisePropertyChanged("signatarioLogin");
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string assinatura
+        {
+            get
+            {
+                return this.assinaturaField;
+            }
+            set
+            {
+                this.assinaturaField = value;
+                this.RaisePropertyChanged("assinatura");
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string dataAssinatura
+        {
+            get
+            {
+                return this.dataAssinaturaField;
+            }
+            set
+            {
+                this.dataAssinaturaField = value;
+                this.RaisePropertyChanged("dataAssinatura");
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string cadeiaCertificado
+        {
+            get
+            {
+                return this.cadeiaCertificadoField;
+            }
+            set
+            {
+                this.cadeiaCertificadoField = value;
+                this.RaisePropertyChanged("cadeiaCertificado");
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string algoritmoHash
+        {
+            get
+            {
+                return this.algoritmoHashField;
+            }
+            set
+            {
+                this.algoritmoHashField = value;
+                this.RaisePropertyChanged("algoritmoHash");
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string codificacaoCertificado
+        {
+            get
+            {
+                return this.codificacaoCertificadoField;
+            }
+            set
+            {
+                this.codificacaoCertificadoField = value;
+                this.RaisePropertyChanged("codificacaoCertificado");
+            }
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+       
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    public partial class tipoSignatarioSimples : object, System.ComponentModel.INotifyPropertyChanged
+    {
+
+        private string identificadorField;
+
+        private string dataHoraField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string identificador
+        {
+            get
+            {
+                return this.identificadorField;
+            }
+            set
+            {
+                this.identificadorField = value;
+                this.RaisePropertyChanged("identificador");
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string dataHora
+        {
+            get
+            {
+                return this.dataHoraField;
+            }
+            set
+            {
+                this.dataHoraField = value;
+                this.RaisePropertyChanged("dataHora");
+            }
+        }
+
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]

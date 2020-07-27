@@ -43,8 +43,8 @@ namespace Core.Api.Integracao
             this.logOperacao = new Log(dataContext);
         }
 
-        #region ObterDadosProcesso
-        public consultarProcessoResponse ObterDadosProcesso(ConsultarProcesso consultarProcesso)
+        #region ConsultarProcesso
+        public consultarProcessoResponse ConsultarProcesso(ConsultarProcesso consultarProcesso)
         {
             Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno = null;
             consultarProcessoResponse consultar = new consultarProcessoResponse();
@@ -241,11 +241,12 @@ namespace Core.Api.Integracao
         }
         #endregion
 
+        #region ObterDocumentos
         private List<tipoDocumento> ObterDocumentos(string numeroProcesso)
         {
             var pathDirectorySeparator = Path.DirectorySeparatorChar;
 
-             var caminhoArquivos = ConfigurationManager.ConfigurationManager.AppSettings["Diretorios:DsCaminhoProcessos"] + pathDirectorySeparator + numeroProcesso;
+            var caminhoArquivos = ConfigurationManager.ConfigurationManager.AppSettings["Diretorios:DsCaminhoProcessos"] + pathDirectorySeparator + numeroProcesso;
 
             var documentos = new List<tipoDocumento>();
 
@@ -265,7 +266,7 @@ namespace Core.Api.Integracao
                     });
                 }
                 documentos.Add(new tipoDocumento
-                {                    
+                {
                     descricao = diretorio,
                     documentoVinculado = docVinculado.ToArray()
                 });
@@ -273,6 +274,7 @@ namespace Core.Api.Integracao
 
             return documentos;
         }
+        #endregion
 
         #region ObterDadosBasicos
         /// <summary>
@@ -334,36 +336,22 @@ namespace Core.Api.Integracao
             {
                 var documentos = new List<tipoDocumentoIdentificacao>();
 
-                var pessoaRelacionadas = new List<tipoRelacionamentoPessoal>();
+                var advogados = new List<tipoRepresentanteProcessual>();
 
                 //CASO EXISTA OS ADVS RELACIONA A PARTE.
                 if (pAtiva.Advogados != null && pAtiva.Advogados.Length > 0)
                 {
                     foreach (var adv in pAtiva.Advogados)
                     {
-                        pessoaRelacionadas.Add(
-                            new tipoRelacionamentoPessoal()
-                            {
-                                pessoa = new tipoPessoa()
-                                {
+                        advogados.Add(
+                            new tipoRepresentanteProcessual()
+                            {   
                                     nome = adv.Nome,
-                                    documento = new tipoDocumentoIdentificacao[]
-                                    {
-                                        new tipoDocumentoIdentificacao()
-                                        {
-                                            nome = adv.Nome,
-                                            tipoDocumento = modalidadeDocumentoIdentificador.OAB,
-                                            codigoDocumento = Util.OnlyNumbers(adv.OAB),
-                                            emissorDocumento = ""
-                                        }
-                                    }
-                                },
-                                modalidadeRelacionamento = modalidadesRelacionamentoPessoal.AP
+                                    numeroDocumentoPrincipal = adv.OAB,
+                                    tipoRepresentante = modalidadeRepresentanteProcessual.A                                
                             });
                     }
                 }
-
-
 
                 if (pAtiva.Documentos != null && pAtiva.Documentos.Length > 0)
                 {
@@ -435,13 +423,13 @@ namespace Core.Api.Integracao
                     pessoa = new tipoPessoa()
                     {
                         nome = pAtiva.Nome,
-                        documento = documentos.ToArray(),
-                        pessoaRelacionada = pessoaRelacionadas.ToArray(),
+                        documento = documentos.ToArray(),                        
                         sexo = genero,
                         numeroDocumentoPrincipal = documentos.Count > 0 ? Util.OnlyNumbers(documentos[0].codigoDocumento) : "",
                         tipoPessoa1 = tipoPessoa,
                         nacionalidade = "BR"
-                    }
+                    },
+                    advogado = advogados.ToArray()
                 });
             }
 
@@ -457,31 +445,19 @@ namespace Core.Api.Integracao
             {
                 var documentos = new List<tipoDocumentoIdentificacao>();
 
-                var pessoaRelacionadas = new List<tipoRelacionamentoPessoal>();
+                var advogados = new List<tipoRepresentanteProcessual>();
 
                 //CASO EXISTA OS ADVS RELACIONA A PARTE.
                 if (pPassiva.Advogados != null && pPassiva.Advogados.Length > 0)
                 {
                     foreach (var adv in pPassiva.Advogados)
                     {
-                        pessoaRelacionadas.Add(
-                            new tipoRelacionamentoPessoal()
+                        advogados.Add(
+                            new tipoRepresentanteProcessual()
                             {
-                                pessoa = new tipoPessoa()
-                                {
-                                    nome = adv.Nome,
-                                    documento = new tipoDocumentoIdentificacao[]
-                                    {
-                                        new tipoDocumentoIdentificacao()
-                                        {
-                                            nome = adv.Nome,
-                                            tipoDocumento = modalidadeDocumentoIdentificador.OAB,
-                                            codigoDocumento = Util.OnlyNumbers(adv.OAB),
-                                            emissorDocumento = ""
-                                        }
-                                    }
-                                },
-                                modalidadeRelacionamento = modalidadesRelacionamentoPessoal.AP
+                                nome = adv.Nome,
+                                numeroDocumentoPrincipal = adv.OAB,
+                                tipoRepresentante = modalidadeRepresentanteProcessual.A
                             });
                     }
                 }
@@ -557,13 +533,13 @@ namespace Core.Api.Integracao
                     pessoa = new tipoPessoa()
                     {
                         nome = pPassiva.Nome,
-                        documento = documentos.ToArray(),
-                        pessoaRelacionada = pessoaRelacionadas.ToArray(),
+                        documento = documentos.ToArray(),                        
                         sexo = genero,
                         numeroDocumentoPrincipal = documentos.Count > 0 ? Util.OnlyNumbers(documentos[0].codigoDocumento) : "",
                         tipoPessoa1 = tipoPessoa,
                         nacionalidade = "BR"
-                    }
+                    },
+                    advogado = advogados.ToArray()
                 });
             }
 

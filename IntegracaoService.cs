@@ -80,7 +80,7 @@ namespace Core.Api
         public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso)
         {
             _logger.LogInformation("Inciando consultarProcesso.");
-            return _integracaoEsaj.ObterDadosProcesso(consultarProcesso);
+            return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
         }
 
         public Foros getForosEVaras()

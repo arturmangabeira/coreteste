@@ -28,7 +28,7 @@ namespace Core.Api.Integracao
     public class IntegracaoEsaj
     {
         public Proxy _Proxy { get; }
-        public IConfiguration Configuration { get; }
+        public IConfiguration _configuration { get; }
 
         public ILogger<IntegracaoService> _logger;
 
@@ -36,7 +36,7 @@ namespace Core.Api.Integracao
         public Log logOperacao { get; }
         public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger) 
         {
-            this.Configuration = ConfigurationManager.ConfigurationManager.AppSettings;
+            this._configuration = ConfigurationManager.ConfigurationManager.AppSettings;
             _Proxy = proxy;
             _logger = logger;
             _dataContext = dataContext;
@@ -130,7 +130,7 @@ namespace Core.Api.Integracao
                         //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
                         if (consultarProcesso.incluirDocumentos)
                         {
-                            tipoProcessoJudicial.documento = this.ObterDocumentos(consultarProcesso.numeroProcesso).ToArray();
+                            tipoProcessoJudicial.documento = this.ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
                         }
 
                         //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ
@@ -166,7 +166,7 @@ namespace Core.Api.Integracao
                         DtFinalOperacao = dtFinal,
                         DtLogOperacao = DateTime.Now,
                         FlOperacao = true,
-                        IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                        IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
                         IdTipoRetorno = 1
                     };
                     //REGISTRA O LOG
@@ -201,7 +201,7 @@ namespace Core.Api.Integracao
                         DtFinalOperacao = dtFinal,
                         DtLogOperacao = DateTime.Now,
                         FlOperacao = true,
-                        IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                        IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
                         IdTipoRetorno = 1
                     };
                     //REGISTRA O LOG
@@ -230,7 +230,7 @@ namespace Core.Api.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = false,
-                    IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
                     IdTipoRetorno = 2
                 };
                 //REGISTRA O LOG
@@ -242,7 +242,7 @@ namespace Core.Api.Integracao
         #endregion
 
         #region ObterDocumentos
-        private List<tipoDocumento> ObterDocumentos(string numeroProcesso)
+        private List<tipoDocumento> ObterDocumentos(string numeroProcesso, string[] nmDocumentos)
         {
             var pathDirectorySeparator = Path.DirectorySeparatorChar;
 
@@ -252,24 +252,93 @@ namespace Core.Api.Integracao
 
             var diretorios = Directory.GetDirectories(caminhoArquivos);
 
+            if(nmDocumentos.Length == 0)
+            {
+                nmDocumentos = new string[] { "" };
+            }
+
             foreach (var diretorio in diretorios)
             {
                 var arquivos = Directory.GetFiles(diretorio);
 
                 var docVinculado = new List<tipoDocumento>();
-                foreach (var arquivo in arquivos)
+                if (nmDocumentos.Length > 0 && nmDocumentos[0] == "")
                 {
-                    docVinculado.Add(new tipoDocumento
+                    foreach (var arquivo in arquivos)
                     {
-                        conteudo = File.ReadAllBytes(arquivo),
-                        descricao = arquivo,
+                        docVinculado.Add(new tipoDocumento
+                        {
+                            conteudo = null,
+                            descricao = Path.GetFileName(arquivo),
+                            idDocumentoVinculado = Path.GetFileName(diretorio),
+                            nivelSigilo = 0,
+                            dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                        });
+                        
+                    }
+                    documentos.Add(new tipoDocumento
+                    {
+                        descricao = Path.GetFileName(diretorio),
+                        documentoVinculado = docVinculado.ToArray(),
+                        nivelSigilo = 0,
+                        dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
                     });
                 }
-                documentos.Add(new tipoDocumento
+                else
                 {
-                    descricao = diretorio,
-                    documentoVinculado = docVinculado.ToArray()
-                });
+                    var insereSubPasta = false;
+                    foreach (var arquivo in arquivos)
+                    {
+                        byte[] conteudo = null;
+                        //SE CONTIVER A INFORMAÇÃO NO PRIMEIRO ITEM COM * SIGNIFICA TRAZER TODOS OS DOCUMENTOS CONTENDO O CONTEÚDO
+                        if (nmDocumentos.Length > 0 && nmDocumentos[0].Contains("*"))
+                        {
+                            conteudo = File.ReadAllBytes(arquivo);
+                        }
+                        else
+                        {
+                            conteudo = nmDocumentos.Where(d => Path.GetFileName(arquivo).Contains(d)).FirstOrDefault() != null ? File.ReadAllBytes(arquivo) : null;
+                        }
+
+                        if(conteudo != null)
+                        {
+                            insereSubPasta = true;
+                        }
+
+                        docVinculado.Add(new tipoDocumento
+                        {
+                            conteudo = conteudo,
+                            descricao = Path.GetFileName(arquivo),
+                            idDocumentoVinculado = Path.GetFileName(diretorio),
+                            nivelSigilo = 0,
+                            dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                        });
+
+                    }
+                    if (nmDocumentos.Length > 0 && nmDocumentos[0].Contains("*"))
+                    {
+                        documentos.Add(new tipoDocumento
+                        {
+                            descricao = Path.GetFileName(diretorio),
+                            documentoVinculado = docVinculado.ToArray(),
+                            nivelSigilo = 0,
+                            dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                        });
+                    }
+                    else
+                    {
+                        if (insereSubPasta)
+                        {
+                            documentos.Add(new tipoDocumento
+                            {
+                                descricao = Path.GetFileName(diretorio),
+                                documentoVinculado = docVinculado.ToArray(),
+                                nivelSigilo = 0,
+                                dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                            });
+                        }
+                    }
+                }
             }
 
             return documentos;
@@ -576,7 +645,7 @@ namespace Core.Api.Integracao
                     //cookie gerado para permanecer a mesma sessão das requisições.
                     CookieContainer cookies = new CookieContainer();
                     //realiza a primeira busca para ir a pagina que retona o código saj do processo.
-                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create($"{this.Configuration["ESAJ:UrlEsajMovimentacoes"]}/searchMobile.do?dePesquisa=" + numProcessoMascara + "&localPesquisa.cdLocal=1&cbPesquisa=NUMPROC");
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create($"{this._configuration["ESAJ:UrlEsajMovimentacoes"]}/searchMobile.do?dePesquisa=" + numProcessoMascara + "&localPesquisa.cdLocal=1&cbPesquisa=NUMPROC");
                     req.Method = "GET";
                     req.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
                     req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";
@@ -594,7 +663,7 @@ namespace Core.Api.Integracao
                         //extrai o código do processo para buscar as movimentações do processo no esaj.
                         string codigoProcesso = res.ResponseUri.Query.ToString().Substring(17, (res.ResponseUri.Query.ToString().IndexOf("&") - 17));
                         //realiza a consulta no site para obter as movimentações.
-                        HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{this.Configuration["ESAJ:UrlEsajMovimentacoes"]}/obterMovimentacoes.do?processo.codigo=" + codigoProcesso + "&todasMovimentacoes=S");
+                        HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{this._configuration["ESAJ:UrlEsajMovimentacoes"]}/obterMovimentacoes.do?processo.codigo=" + codigoProcesso + "&todasMovimentacoes=S");
                         reqMovimentacoes.Method = "GET";
                         reqMovimentacoes.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
                         reqMovimentacoes.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";
@@ -732,7 +801,7 @@ namespace Core.Api.Integracao
         private string ObterDetalheMovimentacao(string codigoProcesso, string numMovimentacao, CookieContainer cookies)
         {
             //realiza a consulta no site para obter as movimentações.
-            HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{ this.Configuration["ESAJ:UrlEsajMovimentacoes"]}/obterComplementoMovimentacao.do?processo.codigo=" + codigoProcesso + "&movimentacao=" + numMovimentacao);
+            HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{ this._configuration["ESAJ:UrlEsajMovimentacoes"]}/obterComplementoMovimentacao.do?processo.codigo=" + codigoProcesso + "&movimentacao=" + numMovimentacao);
             reqMovimentacoes.Method = "GET";
             reqMovimentacoes.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
             reqMovimentacoes.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";
@@ -920,43 +989,44 @@ namespace Core.Api.Integracao
             {
                 //LISTA AS CITAÇÕES PARA TRANSFORMAR NO FORMATO DO PJE
                 foreach (var citacao in message.MessageBody.Resposta.Citacoes)
-                {
-
-                    //OBTÉM O DOCUMENTO CONTENDO INFORMAÇÃO DO ATO
-                    //var docAnexoAto = this.SolicitacaoDocCienciaAto(citacao.cdAto.ToString());
+                {                    
                     var prazo = "";
                     var teorAto = "";
-
-                    /*colArquivos = objCompressao.DescomprimirBase64(docAnexoAto);
-
-                    foreach (var arquivoRetorno in colArquivos)
+                    if (_configuration.GetValue<bool>("Configuracoes:baixarDocumentoSolicitacaoDocCienciaAto"))
                     {
-                        byte[] dadosArquivo = arquivoRetorno.Dados;
-                        //Após assinatura será feito a leitura do arquivo em pdf para retirar as informações do prazo e do complemento do ato
-                        //para preenchimento do model.
-                        try
-                        {
-                            string arquivoPDF = Util.ExtrairTexto_PDF(dadosArquivo);
-                            //obtem no texto do pdf o prazo
-                            string prazoStr = arquivoPDF.Substring(arquivoPDF.IndexOf("Prazo:") + 6, 5).Trim();
+                        //OBTÉM O DOCUMENTO CONTENDO INFORMAÇÃO DO ATO
+                        var docAnexoAto = this.SolicitacaoDocCienciaAto(citacao.cdAto.ToString());
+                        colArquivos = objCompressao.DescomprimirBase64(docAnexoAto);
 
-                            foreach (var ch in prazoStr)
+                        foreach (var arquivoRetorno in colArquivos)
+                        {
+                            byte[] dadosArquivo = arquivoRetorno.Dados;
+                            //Após assinatura será feito a leitura do arquivo em pdf para retirar as informações do prazo e do complemento do ato
+                            //para preenchimento do model.
+                            try
                             {
-                                //verifica se é número e concatena a string para formar o prazo
-                                if (Char.IsNumber(ch))
+                                string arquivoPDF = Util.ExtrairTexto_PDF(dadosArquivo);
+                                //obtem no texto do pdf o prazo
+                                string prazoStr = arquivoPDF.Substring(arquivoPDF.IndexOf("Prazo:") + 6, 5).Trim();
+
+                                foreach (var ch in prazoStr)
                                 {
-                                    prazo += ch;
+                                    //verifica se é número e concatena a string para formar o prazo
+                                    if (Char.IsNumber(ch))
+                                    {
+                                        prazo += ch;
+                                    }
                                 }
+
+                                //obtem no texto do pdf o campo intimado
+                                teorAto = arquivoPDF.Substring(arquivoPDF.IndexOf("Teor do Ato:") + 12).Trim();
                             }
+                            catch
+                            {
 
-                            //obtem no texto do pdf o campo intimado
-                            teorAto = arquivoPDF.Substring(arquivoPDF.IndexOf("Teor do Ato:") + 12).Trim();
+                            }
                         }
-                        catch
-                        {
-
-                        }
-                    }*/
+                    }
 
                     listaTipoAvisos.Add(new tipoAvisoComunicacaoPendente
                     {
@@ -970,7 +1040,8 @@ namespace Core.Api.Integracao
                                 new tipoAssuntoProcessual{
                                     principal = true,
                                     principalSpecified = true,
-                                    codigoNacional = citacao.Assunto != null ? Int32.Parse(citacao.Assunto.cdAssunto.ToString()) : 9999
+                                    codigoNacional = citacao.Assunto != null ? Int32.Parse(citacao.Assunto.cdAssunto.ToString()) : 9999,
+                                    codigoNacionalSpecified = true
                                 }
                             },
                             outroParametro = new tipoParametro[]
@@ -1062,42 +1133,44 @@ namespace Core.Api.Integracao
                 foreach (var intimacao in message.MessageBody.Resposta.Intimacoes)
                 {
 
-                    //OBTÉM O DOCUMENTO CONTENDO INFORMAÇÃO DO ATO
-                    //var docAnexoAto = this.SolicitacaoDocCienciaAto(intimacao.cdAto.ToString());
+                    
                     var prazo = "";
                     var teorAto = "";
-
-                    /*colArquivos = objCompressao.DescomprimirBase64(docAnexoAto);
-
-                    foreach (var arquivoRetorno in colArquivos)
+                    if (_configuration.GetValue<bool>("Configuracoes:baixarDocumentoSolicitacaoDocCienciaAto"))
                     {
-                        byte[] dadosArquivo = arquivoRetorno.Dados;
-                        //Após assinatura será feito a leitura do arquivo em pdf para retirar as informações do prazo e do complemento do ato
-                        //para preenchimento do model. 
-                        try
-                        {
-                            string arquivoPDF = Util.ExtrairTexto_PDF(dadosArquivo);
-                            //obtem no texto do pdf o prazo
-                            string prazoStr = arquivoPDF.Substring(arquivoPDF.IndexOf("Prazo:") + 6, 5).Trim();
+                        //OBTÉM O DOCUMENTO CONTENDO INFORMAÇÃO DO ATO
+                        var docAnexoAto = this.SolicitacaoDocCienciaAto(intimacao.cdAto.ToString());
+                        colArquivos = objCompressao.DescomprimirBase64(docAnexoAto);
 
-                            foreach (var ch in prazoStr)
+                        foreach (var arquivoRetorno in colArquivos)
+                        {
+                            byte[] dadosArquivo = arquivoRetorno.Dados;
+                            //Após assinatura será feito a leitura do arquivo em pdf para retirar as informações do prazo e do complemento do ato
+                            //para preenchimento do model. 
+                            try
                             {
-                                //verifica se é número e concatena a string para formar o prazo
-                                if (Char.IsNumber(ch))
+                                string arquivoPDF = Util.ExtrairTexto_PDF(dadosArquivo);
+                                //obtem no texto do pdf o prazo
+                                string prazoStr = arquivoPDF.Substring(arquivoPDF.IndexOf("Prazo:") + 6, 5).Trim();
+
+                                foreach (var ch in prazoStr)
                                 {
-                                    prazo += ch;
+                                    //verifica se é número e concatena a string para formar o prazo
+                                    if (Char.IsNumber(ch))
+                                    {
+                                        prazo += ch;
+                                    }
                                 }
+
+                                //obtem no texto do pdf o campo intimado
+                                teorAto = arquivoPDF.Substring(arquivoPDF.IndexOf("Teor do Ato:") + 12).Trim();
                             }
+                            catch
+                            {
 
-                            //obtem no texto do pdf o campo intimado
-                            teorAto = arquivoPDF.Substring(arquivoPDF.IndexOf("Teor do Ato:") + 12).Trim();
+                            }
                         }
-                        catch
-                        {
-
-                        }
-                    }*/
-
+                    }
                     listaTipoAvisos.Add(new tipoAvisoComunicacaoPendente
                     {
                         dataDisponibilizacao = intimacao.dtDisponibilizacao.ToString("yyyy-mm-dd hh:mm:ss"),
@@ -1110,7 +1183,8 @@ namespace Core.Api.Integracao
                                 new tipoAssuntoProcessual{
                                     principal = true,
                                     principalSpecified = true,
-                                    codigoNacional = intimacao.Assunto != null ? Int32.Parse(intimacao.Assunto.cdAssunto.ToString()) : 9999
+                                    codigoNacional = intimacao.Assunto != null ? Int32.Parse(intimacao.Assunto.cdAssunto.ToString()) : 9999,
+                                    codigoNacionalSpecified = true
                                 }
                             },
                             outroParametro = new tipoParametro[]

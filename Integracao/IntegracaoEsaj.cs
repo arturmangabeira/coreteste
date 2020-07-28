@@ -1044,6 +1044,7 @@ namespace Core.Api.Integracao
                                     codigoNacionalSpecified = true
                                 }
                             },
+                            numero = citacao.nuProcesso,
                             outroParametro = new tipoParametro[]
                             {
                                 new tipoParametro
@@ -1187,6 +1188,7 @@ namespace Core.Api.Integracao
                                     codigoNacionalSpecified = true
                                 }
                             },
+                            numero = intimacao.nuProcesso,
                             outroParametro = new tipoParametro[]
                             {
                                 new tipoParametro

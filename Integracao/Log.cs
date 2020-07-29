@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.HttpOverrides;
+
 
 namespace Core.Api.Integracao
 {
@@ -14,9 +14,12 @@ namespace Core.Api.Integracao
     {
         public DataContext DataContext { get; }
 
-        public Log(DataContext dataContext)
+        public string _ipDestino { get; }
+
+        public Log(DataContext dataContext, string ipDestino)
         {
             this.DataContext = dataContext;
+            _ipDestino = ipDestino;
         }
 
         public void RegistrarLogOperacao(TLogOperacao logOperacao)
@@ -24,15 +27,24 @@ namespace Core.Api.Integracao
             try
             {
                 var config = ConfigurationManager.ConfigurationManager.AppSettings;
-                if(config.GetValue<bool>("RegistraLog:Registrar")){
+
+                var ipOrigem = Util.GetIpOrigem();
+
+                if (config.GetValue<bool>("RegistraLog:Registrar")){
+
                     logOperacao.DsCaminhoDocumentosChamada = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosChamada,
                         logOperacao.CdIdea,
                         logOperacao.IdTipoOperacao
                         , "chamada");
+
                     logOperacao.DsCaminhoDocumentosRetorno = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosRetorno,
                         logOperacao.CdIdea,
                         logOperacao.IdTipoOperacao
                         , "retorno");
+
+                    logOperacao.DsIporigem = ipOrigem;
+                    logOperacao.DsIpdestino = _ipDestino;
+
                     this.DataContext.TLogOperacao.Add(logOperacao);
                     this.DataContext.SaveChanges();
                 }

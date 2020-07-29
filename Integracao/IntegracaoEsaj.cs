@@ -34,13 +34,13 @@ namespace Core.Api.Integracao
 
         private DataContext _dataContext { get; }
         public Log logOperacao { get; }
-        public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger) 
+        public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger, string ipDestino) 
         {
             this._configuration = ConfigurationManager.ConfigurationManager.AppSettings;
             _Proxy = proxy;
             _logger = logger;
             _dataContext = dataContext;
-            this.logOperacao = new Log(dataContext);
+            this.logOperacao = new Log(dataContext, ipDestino);
         }
 
         #region ConsultarProcesso
@@ -53,7 +53,7 @@ namespace Core.Api.Integracao
             try
             {
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
-                this._Proxy.CdIdeia = consultarProcesso.idConsultante;
+                this._Proxy._CdIdeia = consultarProcesso.idConsultante;
                 _logger.LogInformation("ObterDadosProcesso ", consultarProcesso);
                 if (consultarProcesso.incluirCabecalho)
                 {
@@ -157,10 +157,8 @@ namespace Core.Api.Integracao
                     TLogOperacao operacao = new TLogOperacao()
                     {
                         CdIdea = consultarProcesso.idConsultante,
-                        DsCaminhoDocumentosChamada = xml,
+                        DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),
                         DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-                        DsIpdestino = "192.168.0.1",
-                        DsIporigem = "192.168.0.1",
                         DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
                         DtInicioOperacao = dtInicial,
                         DtFinalOperacao = dtFinal,
@@ -194,8 +192,6 @@ namespace Core.Api.Integracao
                         CdIdea = consultarProcesso.idConsultante,
                         DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),
                         DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-                        DsIpdestino = "192.168.0.1",
-                        DsIporigem = "192.168.0.1",
                         DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
                         DtInicioOperacao = dtInicial,
                         DtFinalOperacao = dtFinal,
@@ -223,8 +219,6 @@ namespace Core.Api.Integracao
                     CdIdea = consultarProcesso.idConsultante,
                     DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),
                     DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-                    DsIpdestino = "192.168.0.1",
-                    DsIporigem = "192.168.0.1",
                     DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
                     DtInicioOperacao = dtInicial,
                     DtFinalOperacao = dtFinal,
@@ -272,7 +266,7 @@ namespace Core.Api.Integracao
                             descricao = Path.GetFileName(arquivo),
                             idDocumentoVinculado = Path.GetFileName(diretorio),
                             nivelSigilo = 0,
-                            dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                            dataHora = DateTime.Now.ToString("yyyymmddhhmmss")
                         });
                         
                     }
@@ -281,7 +275,7 @@ namespace Core.Api.Integracao
                         descricao = Path.GetFileName(diretorio),
                         documentoVinculado = docVinculado.ToArray(),
                         nivelSigilo = 0,
-                        dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                        dataHora = DateTime.Now.ToString("yyyymmddhhmmss")
                     });
                 }
                 else
@@ -362,7 +356,7 @@ namespace Core.Api.Integracao
                 codigoLocalidade = processo.Foro.Codigo,
                 dataAjuizamento = dtAjuizamento,
                 classeProcessual = Int32.Parse(processo.Classe.Codigo),
-                competencia = Int32.Parse(processo.Foro.Codigo),
+                competencia = Int32.Parse(processo.Vara.Competencia.Codigo),
                 numero = processo.Numero,
                 nivelSigilo = processo.SegredoJustica == "S" ? 1 : 0
             };
@@ -427,10 +421,18 @@ namespace Core.Api.Integracao
                     foreach (var doc in pAtiva.Documentos)
                     {
                         //IDENTIFICACAO DE NOME DO DOCUMENTO:
-                        modalidadeDocumentoIdentificador tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+                        var tipoDocumento = "";
                         var emissorDocumento = "";
 
-                        switch (doc.Tipo.Trim())
+                        //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
+                        var documentoParte = _dataContext.TTipoDocumentoParte.Where(documento => documento.SgTipoDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())).FirstOrDefault();
+
+                        if(documentoParte != null)
+                        {
+                            tipoDocumento = documentoParte.SgTipoDocumentoPje;
+                            emissorDocumento = documentoParte.DsDescricaoEmissorDocumento;
+                        }
+                        /*switch (doc.Tipo.Trim())
                         {
                             case "CPF":
                                 tipoDocumento = modalidadeDocumentoIdentificador.CMF;
@@ -450,7 +452,7 @@ namespace Core.Api.Integracao
                                 break;
                             default:
                                 break;
-                        }
+                        }*/
 
                         documentos.Add(new tipoDocumentoIdentificacao()
                         {
@@ -536,10 +538,17 @@ namespace Core.Api.Integracao
                     foreach (var doc in pPassiva.Documentos)
                     {
                         //IDENTIFICACAO DE NOME DO DOCUMENTO:
-                        modalidadeDocumentoIdentificador tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+                        var tipoDocumento = "";
                         var emissorDocumento = "";
+                        //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
+                        var documentoParte = _dataContext.TTipoDocumentoParte.Where(documento => documento.SgTipoDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())).FirstOrDefault();
 
-                        switch (doc.Tipo.Trim())
+                        if (documentoParte != null)
+                        {
+                            tipoDocumento = documentoParte.SgTipoDocumentoPje;
+                            emissorDocumento = documentoParte.DsDescricaoEmissorDocumento;
+                        }
+                        /*switch (doc.Tipo.Trim())
                         {
                             case "CPF":
                                 tipoDocumento = modalidadeDocumentoIdentificador.CMF;
@@ -559,7 +568,7 @@ namespace Core.Api.Integracao
                                 break;
                             default:
                                 break;
-                        }
+                        }*/
 
                         documentos.Add(new tipoDocumentoIdentificacao()
                         {
@@ -1005,7 +1014,7 @@ namespace Core.Api.Integracao
                             //para preenchimento do model.
                             try
                             {
-                                string arquivoPDF = Util.ExtrairTexto_PDF(dadosArquivo);
+                                string arquivoPDF = Util.ExtrairTextoPDF(dadosArquivo);
                                 //obtem no texto do pdf o prazo
                                 string prazoStr = arquivoPDF.Substring(arquivoPDF.IndexOf("Prazo:") + 6, 5).Trim();
 
@@ -1030,7 +1039,7 @@ namespace Core.Api.Integracao
 
                     listaTipoAvisos.Add(new tipoAvisoComunicacaoPendente
                     {
-                        dataDisponibilizacao = citacao.dtDisponibilizacao.ToString("yyyy-mm-dd hh:mm:ss"),
+                        dataDisponibilizacao = citacao.dtDisponibilizacao.ToString("yyyymmddhhmmss"),
                         idAviso = citacao.cdAto.ToString(),
                         tipoComunicacao = "CIT",
                         processo = new tipoCabecalhoProcesso
@@ -1044,7 +1053,12 @@ namespace Core.Api.Integracao
                                     codigoNacionalSpecified = true
                                 }
                             },
-                            numero = citacao.nuProcesso,
+                            numero = Util.OnlyNumbers(citacao.nuProcesso),
+                            //competencia = citacao.ForoVara.cdVara,
+                            //competenciaSpecified = true,
+                            nivelSigilo = 0,
+                            codigoLocalidade = citacao.ForoVara.cdForo.ToString(),
+                            classeProcessual = citacao.Classe.cdClasse,
                             outroParametro = new tipoParametro[]
                             {
                                 new tipoParametro
@@ -1150,7 +1164,7 @@ namespace Core.Api.Integracao
                             //para preenchimento do model. 
                             try
                             {
-                                string arquivoPDF = Util.ExtrairTexto_PDF(dadosArquivo);
+                                string arquivoPDF = Util.ExtrairTextoPDF(dadosArquivo);
                                 //obtem no texto do pdf o prazo
                                 string prazoStr = arquivoPDF.Substring(arquivoPDF.IndexOf("Prazo:") + 6, 5).Trim();
 
@@ -1174,9 +1188,9 @@ namespace Core.Api.Integracao
                     }
                     listaTipoAvisos.Add(new tipoAvisoComunicacaoPendente
                     {
-                        dataDisponibilizacao = intimacao.dtDisponibilizacao.ToString("yyyy-mm-dd hh:mm:ss"),
+                        dataDisponibilizacao = intimacao.dtDisponibilizacao.ToString("yyyymmddhhmmss"),
                         idAviso = intimacao.cdAto.ToString(),
-                        tipoComunicacao = "CIT",
+                        tipoComunicacao = "INT",
                         processo = new tipoCabecalhoProcesso
                         {
                             assunto = new tipoAssuntoProcessual[]
@@ -1188,7 +1202,12 @@ namespace Core.Api.Integracao
                                     codigoNacionalSpecified = true
                                 }
                             },
-                            numero = intimacao.nuProcesso,
+                            numero = Util.OnlyNumbers(intimacao.nuProcesso),
+                            //competencia = intimacao.ForoVara.cdVara,
+                            //competenciaSpecified = true,
+                            nivelSigilo = 0,
+                            codigoLocalidade = intimacao.ForoVara.cdForo.ToString(),
+                            classeProcessual = intimacao.Classe.cdClasse,                            
                             outroParametro = new tipoParametro[]
                             {
                                 new tipoParametro

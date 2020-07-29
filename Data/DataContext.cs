@@ -25,6 +25,7 @@ namespace Core.Api.Data
         public virtual DbSet<TTipoOperacao> TTipoOperacao { get; set; }
         public virtual DbSet<TTipoRetorno> TTipoRetorno { get; set; }
         public virtual DbSet<TUsuario> TUsuario { get; set; }
+        public virtual DbSet<TTipoDocumentoParte> TTipoDocumentoParte { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -506,6 +507,32 @@ namespace Core.Api.Data
                     .HasForeignKey(d => d.IdPerfil)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_tUsuario_tPerfil");
+            });
+
+            modelBuilder.Entity<TTipoDocumentoParte>(entity =>
+            {
+                entity.HasKey(e => e.IdTipoDocumentoParte)
+                    .HasName("pk_tTipoDocumentoParte");
+
+                entity.ToTable("tTipoDocumentoParte");
+                
+                entity.Property(e => e.SgTipoDocumentoPje)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SgTipoDocumentoEsaj)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DsDescricaoEmissorDocumento)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DtCadastro)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
             });
         }
     }

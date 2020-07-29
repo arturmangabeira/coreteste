@@ -5,6 +5,51 @@ using System.Threading.Tasks;
 
 namespace Core.Api.Objects
 {
+
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "consultarProcesso", WrapperNamespace = "", IsWrapped = true)]
+    public partial class consultarProcessoRequest
+    {
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 0)]
+        public string idConsultante;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 1)]
+        public string senhaConsultante;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 2)]
+        public string numeroProcesso;
+                
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 3)]
+        public bool movimentos;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 4)]
+        public bool incluirCabecalho;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 5)]
+        public bool incluirDocumentos;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 6)]
+        [System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true)]
+        public string[] documento;
+
+        public consultarProcessoRequest()
+        {
+        }
+
+        public consultarProcessoRequest(string idConsultante, string senhaConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento)
+        {
+            this.idConsultante = idConsultante;
+            this.senhaConsultante = senhaConsultante;
+            this.numeroProcesso = numeroProcesso;            
+            this.movimentos = movimentos;
+            this.incluirCabecalho = incluirCabecalho;
+            this.incluirDocumentos = incluirDocumentos;
+            this.documento = documento;
+        }
+    }
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName = "consultarProcessoResposta", WrapperNamespace = "", IsWrapped = true)]
@@ -1729,7 +1774,7 @@ namespace Core.Api.Objects
 
         private string emissorDocumentoField;
 
-        private modalidadeDocumentoIdentificador tipoDocumentoField;
+        private string tipoDocumentoField;
 
         private string nomeField;
 
@@ -1763,7 +1808,7 @@ namespace Core.Api.Objects
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public modalidadeDocumentoIdentificador tipoDocumento
+        public string tipoDocumento
         {
             get
             {

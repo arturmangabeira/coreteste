@@ -15,7 +15,7 @@ namespace Core.Api.Integracao
     public interface IIntegracaoService
     {           
         [OperationContract]
-        public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso);
+        public consultarProcessoResponse consultarProcesso(string idConsultante, string senhaConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento);
         [OperationContract]
         [XmlSerializerFormat(SupportFaults = true,Style = OperationFormatStyle.Rpc,Use = OperationFormatUse.Encoded)]        
         public Foros getForosEVaras();

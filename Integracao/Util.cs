@@ -10,6 +10,8 @@ using System.Text.RegularExpressions;
 using iTextSharp.text.pdf;
 using System.Text;
 using iTextSharp.text.pdf.parser;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Core.Api.Integracao
 {
@@ -68,7 +70,7 @@ namespace Core.Api.Integracao
             return numbersOnly.Replace(document.Trim(), "");
         }
 
-        public static string ExtrairTexto_PDF(byte[] pdf)
+        public static string ExtrairTextoPDF(byte[] pdf)
         {
             PdfReader leitor = new PdfReader(pdf);
 
@@ -79,7 +81,18 @@ namespace Core.Api.Integracao
             }
 
             return texto.ToString();
+        }
 
+        public static string GetIpOrigem()
+        {
+            if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
+            {
+                return null;
+            }
+            IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+            return host
+               .AddressList
+               .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork).ToString();
         }
     }
 }

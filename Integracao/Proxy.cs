@@ -23,37 +23,37 @@ namespace Core.Api.Integracao
 
         private DataContext DataContext { get; }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration _configuration { get; }
 
-        public string CdIdeia { get; set; }
+        public string _CdIdeia { get; set; }
 
         #region Proxy
-        public Proxy(DataContext dataContext, ILogger<IntegracaoService> logger)
+        public Proxy(DataContext dataContext, ILogger<IntegracaoService> logger, string ipDestino)
         {
-            this.Configuration = ConfigurationManager.ConfigurationManager.AppSettings;
-            this._logOperacao = new Log(dataContext);
+            this._configuration = ConfigurationManager.ConfigurationManager.AppSettings;
+            this._logOperacao = new Log(dataContext, ipDestino);
             _logger = logger;
-            _codigo = "1";
+            _codigo = "1";            
 
             if (this._Proxy == null)
             {
                 this._Proxy = new ServicoPJ2PortTypeClient(
                     new BasicHttpBinding()
                     {
-                        Name = Configuration.GetValue<string>("ESAJ:BindingName"),
+                        Name = _configuration.GetValue<string>("ESAJ:BindingName"),
                         AllowCookies = true,
                         TextEncoding = System.Text.Encoding.UTF8,
                         TransferMode = System.ServiceModel.TransferMode.Buffered,
                         UseDefaultWebProxy = true,
-                        MaxReceivedMessageSize = Configuration.GetValue<long>("ESAJ:MaxReceivedMessageSize"),
-                        MaxBufferSize = Configuration.GetValue<int>("ESAJ:MaxBufferSize")
+                        MaxReceivedMessageSize = _configuration.GetValue<long>("ESAJ:MaxReceivedMessageSize"),
+                        MaxBufferSize = _configuration.GetValue<int>("ESAJ:MaxBufferSize")
                     },
-                    new EndpointAddress(Configuration.GetValue<string>("ESAJ:UrlTJ"))
+                    new EndpointAddress(_configuration.GetValue<string>("ESAJ:UrlTJ"))
                 );
             }
 
-            this.repositorio = this.Configuration["Certificado:RepositorioCertificado"];
-            this.certificado = this.Configuration["Certificado:ThumberPrint"];
+            this.repositorio = this._configuration["Certificado:RepositorioCertificado"];
+            this.certificado = this._configuration["Certificado:ThumberPrint"];
         }
         #endregion
 
@@ -63,22 +63,20 @@ namespace Core.Api.Integracao
             var dtInicial = DateTime.Now;
             Entidades.SolicitaLogonRetorno.Message objSolicitaLoginRetorno = SolicitaLogon(objmensagem);
             var dtFinal = DateTime.Now;
-            if (Configuration.GetValue<bool>("RegistraLog:Metodos:Login"))
+            if (_configuration.GetValue<bool>("RegistraLog:Metodos:Login"))
             {
                 //REGISTAR LOGON
                 TLogOperacao operacao = new TLogOperacao()
                 {
-                    CdIdea = this.CdIdeia,
+                    CdIdea = this._CdIdeia,
                     DsCaminhoDocumentosChamada = objmensagem.Serialize(),
                     DsCaminhoDocumentosRetorno = objSolicitaLoginRetorno.Serialize(),
-                    DsIpdestino = "192.168.0.1",
-                    DsIporigem = "192.168.0.1",
                     DsLogOperacao = "Login",
                     DtInicioOperacao = dtInicial,
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoLogin"),
+                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoLogin"),
                     IdTipoRetorno = 1
                 };
                 //REGISTRA O LOG
@@ -110,22 +108,20 @@ namespace Core.Api.Integracao
             var dtInicial = DateTime.Now;
             var retorno = _Proxy.confirmaLogonAsync(mensagem).Result;
             var dtFinal = DateTime.Now;
-            if (Configuration.GetValue<bool>("RegistraLog:Metodos:ConfirmaLogon"))
+            if (_configuration.GetValue<bool>("RegistraLog:Metodos:ConfirmaLogon"))
             {
                 //REGISTAR LOGON
                 TLogOperacao operacao = new TLogOperacao()
                 {
-                    CdIdea = this.CdIdeia,
+                    CdIdea = this._CdIdeia,
                     DsCaminhoDocumentosChamada = mensagem,
                     DsCaminhoDocumentosRetorno = retorno,
-                    DsIpdestino = "192.168.0.1",
-                    DsIporigem = "192.168.0.1",
                     DsLogOperacao = "ConfirmaLogon",
                     DtInicioOperacao = dtInicial,
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoConfirmaLogon"),
+                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConfirmaLogon"),
                     IdTipoRetorno = 1
                 };
                 //REGISTRA O LOG
@@ -151,7 +147,6 @@ namespace Core.Api.Integracao
             objMessageId.MsgDesc = objmensagem.MsgDesc;
             objMessageId.Version = VersionType.Item10;
             objMessageId.ToAddress = objmensagem.Destino;
-
             objSolicitaLogin.MessageId = objMessageId;
             objSolicitaLogin.MessageBody = objMessageBody;
 
@@ -165,22 +160,20 @@ namespace Core.Api.Integracao
 
             var dtInicial = DateTime.Now;
             var dtFinal = DateTime.Now;
-            if (Configuration.GetValue<bool>("RegistraLog:Metodos:SolicitaLogon"))
+            if (_configuration.GetValue<bool>("RegistraLog:Metodos:SolicitaLogon"))
             {
                 //REGISTAR LOGON
                 TLogOperacao operacao = new TLogOperacao()
                 {
-                    CdIdea = this.CdIdeia,
+                    CdIdea = this._CdIdeia,
                     DsCaminhoDocumentosChamada = mensagem,
                     DsCaminhoDocumentosRetorno = retorno,
-                    DsIpdestino = "192.168.0.1",
-                    DsIporigem = "192.168.0.1",
                     DsLogOperacao = "SolicitaLogon",
                     DtInicioOperacao = dtInicial,
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = this.Configuration.GetValue<int>("Constantes:IdTipoOperacaoSolicitaLogon"),
+                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoSolicitaLogon"),
                     IdTipoRetorno = 1
                 };
                 //REGISTRA O LOG
@@ -256,11 +249,27 @@ namespace Core.Api.Integracao
 
                 Entidades.ConsultaProcesso.Message objAjuizamento = new Entidades.ConsultaProcesso.Message();
                 objAjuizamento = objAjuizamento.ExtrairObjeto<Entidades.ConsultaProcesso.Message>(DadosProcesso);
-                string str = objAjuizamento.Serialize();
+                string xmlDadosProcesso = objAjuizamento.Serialize();
 
                 IXml objXML = new Xml();
-                str = objXML.AssinarXmlString(str, repositorio, certificado, "");
-                RespostaDadosProcesso = _Proxy.getDadosProcessoAsync(str).Result;
+                xmlDadosProcesso = objXML.AssinarXmlString(xmlDadosProcesso, repositorio, certificado, "");
+                var dtInicial = DateTime.Now;
+                RespostaDadosProcesso = _Proxy.getDadosProcessoAsync(xmlDadosProcesso).Result;
+                var dtFinal = DateTime.Now;
+                //REGISTAR LOGON
+                TLogOperacao operacao = new TLogOperacao()
+                {
+                    CdIdea = _CdIdeia,
+                    DsCaminhoDocumentosChamada = xmlDadosProcesso,
+                    DsCaminhoDocumentosRetorno = RespostaDadosProcesso,
+                    DsLogOperacao = "Consulta do Processo no ESAJ: " + objAjuizamento.MessageBody.Processo.Numero,
+                    DtInicioOperacao = dtInicial,
+                    DtFinalOperacao = dtFinal,
+                    DtLogOperacao = DateTime.Now,
+                    FlOperacao = true,
+                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                    IdTipoRetorno = 1
+                };
             }
             else
             {

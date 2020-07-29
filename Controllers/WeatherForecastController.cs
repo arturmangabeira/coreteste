@@ -21,6 +21,7 @@ namespace Core.Api.Controllers
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
+            var remoteIpAddress = HttpContext.Connection.RemoteIpAddress;
         }
 
         [HttpGet]

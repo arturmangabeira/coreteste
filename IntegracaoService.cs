@@ -2,67 +2,46 @@
 using Microsoft.Extensions.Configuration;
 using System.Linq;
 using System.Collections.Generic;
-using Core.Api.Models;
 using Core.Api.Integracao;
 using Microsoft.Extensions.Logging;
 using Core.Api.Objects;
 using System;
-using Core.Api.Entidades;
 using Core.Api.Entidades.ForoClasse;
 using Core.Api.Entidades.TpParteClasse;
 using Core.Api.Entidades.DocDigitalClasse;
 using Core.Api.Entidades.CategoriaClasse;
 using Core.Api.Entidades.TipoDiversasClasse;
 using Core.Api.Entidades.AssuntoClasse;
+using Microsoft.AspNetCore.Http;
 
 namespace Core.Api
 {
-    public class IntegracaoService: IIntegracaoService
+    public class IntegracaoService: IIntegracaoService 
     {
-        private readonly IConfiguration configuration;
-        public DataContext DataContext { get; }
-        public System.IServiceProvider ServiceProvider { get; }
+        private readonly IConfiguration _configuration;
+        public DataContext _dataContext { get; }
+        public System.IServiceProvider _serviceProvider { get; }
 
         private readonly ILogger<IntegracaoService> _logger;
 
-        public Proxy ObjProxy { get; }
+        public Proxy _proxy { get; }
 
         public IntegracaoEsaj _integracaoEsaj { get; }
 
-        public IntegracaoService(DataContext dataContext, IConfiguration config, ILogger<IntegracaoService> logger)
+        public IntegracaoService(DataContext dataContext, IConfiguration config, ILogger<IntegracaoService> logger, IHttpContextAccessor contexto)
         {
-            this.configuration = config;
-            this.DataContext = dataContext;
+            _configuration = config;
+            _dataContext = dataContext;
             _logger = logger;
-            this.ObjProxy = new Proxy(dataContext, _logger);
-            this._integracaoEsaj = new IntegracaoEsaj(this.ObjProxy, this.DataContext, _logger);
+            var ipDestino = contexto.HttpContext.Connection.RemoteIpAddress.ToString();            
+            _proxy = new Proxy(dataContext, _logger, ipDestino);            
+            _integracaoEsaj = new IntegracaoEsaj(_proxy, _dataContext, _logger, ipDestino);
         }
-
-        public string AutenticarESAJ()
-        {
-            _logger.LogInformation("Iniciando a AutenticarESAJ.");
-            try
-            {
-                if (ObjProxy.Autenticar("1", out string strLogin))
-                {
-                    return "Autenticação realizado com sucesso!";
-                }
-                else
-                {
-                    _logger.LogInformation("Iniciando a AutenticarESAJ. ERRO");
-                    return $"Não foi possível autenticar no ESAJ. Erro: {strLogin}";
-                }
-            }catch(Exception ex)
-            {
-                _logger.LogInformation("Iniciando a AutenticarESAJ. ERRO");
-                return $"Não foi possível autenticar no ESAJ. Erro: {ex.Message}";
-            }
-        }
-               
+       
         public List<TipoOperacao> ObterTipoOperacaoBD()
         {
             _logger.LogInformation("Iniciando ObterTipoOperacaoBD.");
-            var collection = this.DataContext.TTipoOperacao.ToList();
+            var collection = _dataContext.TTipoOperacao.ToList();
             List<TipoOperacao> operacaos = new List<TipoOperacao>();
             foreach (var item in collection)
             {
@@ -77,10 +56,18 @@ namespace Core.Api
             return operacaos;
         }
 
-        public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso)
+        public consultarProcessoResponse consultarProcesso(string idConsultante, string senhaConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento)
         {
             _logger.LogInformation("Iniciando consultarProcesso.");
-            return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
+            return _integracaoEsaj.ConsultarProcesso(new ConsultarProcesso 
+            {
+                documento = documento,
+                idConsultante = idConsultante,
+                incluirCabecalho = incluirCabecalho,
+                incluirDocumentos = incluirDocumentos,
+                movimentos = movimentos,
+                numeroProcesso = numeroProcesso
+            });
         }
 
         public Foros getForosEVaras()

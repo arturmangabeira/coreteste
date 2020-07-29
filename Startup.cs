@@ -3,7 +3,9 @@ using Core.Api.Data;
 using Core.Api.Integracao;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,9 +30,10 @@ namespace Core.Api
             services.AddDbContext<DataContext>(
                 x => x.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection"))
             );
-                     
-            services.AddScoped<IIntegracaoService, IntegracaoService>();
-            services.AddSoapExceptionTransformer((ex) => ex.Message);
+            //ID NECESSÁRIA PARA OBTER O IP REMOTO.            
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IIntegracaoService, IntegracaoService>();            
+            services.AddSoapExceptionTransformer((ex) => ex.Message);            
             services.AddControllers();            
         }
 

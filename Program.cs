@@ -24,12 +24,12 @@ namespace Core.Api
 
             try
             {
-                Log.Information("Starting up");
+                Log.Information("Incializando a aplicacao");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Application start-up failed");
+                Log.Fatal(ex, "Erro ao incializar a aplicação");
             }
             finally
             {

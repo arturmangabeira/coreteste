@@ -4,12 +4,8 @@ using Microsoft.Extensions.Configuration;
 namespace Core.Api.Data
 {
     public class DataContext : DbContext 
-    {
-        private readonly IConfiguration configuration;
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
-        {
-            
-        }
+    {        
+        public DataContext(DbContextOptions<DataContext> options) : base(options) {}
 
         public virtual DbSet<TComunicacaoEletronica> TComunicacaoEletronica { get; set; }
         public virtual DbSet<TConfiguracao> TConfiguracao { get; set; }
@@ -137,8 +133,7 @@ namespace Core.Api.Data
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DsErro)
-                    .IsRequired()
+                entity.Property(e => e.DsErro)                    
                     .HasMaxLength(25)
                     .IsUnicode(false);
 

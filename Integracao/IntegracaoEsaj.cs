@@ -34,7 +34,9 @@ namespace Core.Api.Integracao
 
         private DataContext _dataContext { get; }
         public Log logOperacao { get; }
-        public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger, string ipDestino) 
+
+        #region IntegracaoEsaj
+        public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger, string ipDestino)
         {
             this._configuration = ConfigurationManager.ConfigurationManager.AppSettings;
             _Proxy = proxy;
@@ -42,6 +44,7 @@ namespace Core.Api.Integracao
             _dataContext = dataContext;
             this.logOperacao = new Log(dataContext, ipDestino);
         }
+        #endregion
 
         #region ConsultarProcesso
         public consultarProcessoResponse ConsultarProcesso(ConsultarProcesso consultarProcesso)
@@ -49,11 +52,12 @@ namespace Core.Api.Integracao
             Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno = null;
             consultarProcessoResponse consultar = new consultarProcessoResponse();
             string xmlDadosProcessoRetorno = String.Empty;
+            var config = ConfigurationManager.ConfigurationManager.AppSettings;
             var dtInicial = DateTime.Now;
             try
             {
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
-                this._Proxy._CdIdeia = consultarProcesso.idConsultante;
+                this._Proxy._cdIdeia = consultarProcesso.idConsultante;
                 _logger.LogInformation("ObterDadosProcesso ", consultarProcesso);
                 if (consultarProcesso.incluirCabecalho)
                 {
@@ -130,6 +134,12 @@ namespace Core.Api.Integracao
                         //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
                         if (consultarProcesso.incluirDocumentos)
                         {
+                            //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
+                            if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigital"))
+                            {
+                                this.InserirFilaPastaDigital(consultarProcesso);
+                            }
+                            //OBTÉM OS DOCUMENTOS DO PROCESSO CASO JÁ TENHA SIDP FEITO O DOWNLOAD DOS DOCUMENTOS NO E-SAJ.
                             tipoProcessoJudicial.documento = this.ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
                         }
 
@@ -164,7 +174,7 @@ namespace Core.Api.Integracao
                         DtFinalOperacao = dtFinal,
                         DtLogOperacao = DateTime.Now,
                         FlOperacao = true,
-                        IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                        IdTipoOperacao = this._configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                         IdTipoRetorno = 1
                     };
                     //REGISTRA O LOG
@@ -197,7 +207,7 @@ namespace Core.Api.Integracao
                         DtFinalOperacao = dtFinal,
                         DtLogOperacao = DateTime.Now,
                         FlOperacao = true,
-                        IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                        IdTipoOperacao = this._configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                         IdTipoRetorno = 1
                     };
                     //REGISTRA O LOG
@@ -224,7 +234,7 @@ namespace Core.Api.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = false,
-                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                    IdTipoOperacao = this._configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                     IdTipoRetorno = 2
                 };
                 //REGISTRA O LOG
@@ -232,6 +242,23 @@ namespace Core.Api.Integracao
             }
 
             return consultar;
+        }
+        #endregion
+
+        #region InserirFilaPastaDigital
+        private void InserirFilaPastaDigital(ConsultarProcesso consultarProcesso)
+        {
+            var pastaDigital = new TFilaPastaDigital()
+            {
+                CdIdea = Int32.Parse(consultarProcesso.idConsultante),
+                DtCadastro = DateTime.Now,
+                DtInicial = DateTime.Now,
+                NuProcesso = consultarProcesso.numeroProcesso,
+                DtInicioProcessamento = DateTime.Now
+            };
+
+            _dataContext.TFilaPastaDigital.Add(pastaDigital);
+            _dataContext.SaveChanges();
         }
         #endregion
 
@@ -425,7 +452,9 @@ namespace Core.Api.Integracao
                         var emissorDocumento = "";
 
                         //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
-                        var documentoParte = _dataContext.TTipoDocumentoParte.Where(documento => documento.SgTipoDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())).FirstOrDefault();
+                        var documentoParte = _dataContext.TTipoDocumentoParte.Where(
+                            documento => documento.SgTipoDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
+                            ).FirstOrDefault();
 
                         if(documentoParte != null)
                         {
@@ -541,7 +570,9 @@ namespace Core.Api.Integracao
                         var tipoDocumento = "";
                         var emissorDocumento = "";
                         //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
-                        var documentoParte = _dataContext.TTipoDocumentoParte.Where(documento => documento.SgTipoDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())).FirstOrDefault();
+                        var documentoParte = _dataContext.TTipoDocumentoParte.Where(
+                            documento => documento.SgTipoDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
+                            ).FirstOrDefault();
 
                         if (documentoParte != null)
                         {

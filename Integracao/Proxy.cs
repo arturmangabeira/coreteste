@@ -12,32 +12,32 @@ namespace Core.Api.Integracao
 {
     public class Proxy
     {
-        private readonly ServicoPJ2PortType _Proxy;
-        private readonly string repositorio;
-        private readonly string certificado;
+        private readonly ServicoPJ2PortType _serviceESAJ;
+        private readonly string _repositorio;
+        private readonly string _certificado;
         private Log _logOperacao { get; }
 
         private string _codigo { get; }
 
         public ILogger<IntegracaoService> _logger;
 
-        private DataContext DataContext { get; }
+        //private DataContext DataContext { get; }
 
         public IConfiguration _configuration { get; }
 
-        public string _CdIdeia { get; set; }
+        public string _cdIdeia { get; set; }
 
         #region Proxy
         public Proxy(DataContext dataContext, ILogger<IntegracaoService> logger, string ipDestino)
         {
-            this._configuration = ConfigurationManager.ConfigurationManager.AppSettings;
-            this._logOperacao = new Log(dataContext, ipDestino);
+            _configuration = ConfigurationManager.ConfigurationManager.AppSettings;
+            _logOperacao = new Log(dataContext, ipDestino);
             _logger = logger;
             _codigo = "1";            
 
-            if (this._Proxy == null)
+            if (_serviceESAJ == null)
             {
-                this._Proxy = new ServicoPJ2PortTypeClient(
+                _serviceESAJ = new ServicoPJ2PortTypeClient(
                     new BasicHttpBinding()
                     {
                         Name = _configuration.GetValue<string>("ESAJ:BindingName"),
@@ -52,36 +52,15 @@ namespace Core.Api.Integracao
                 );
             }
 
-            this.repositorio = this._configuration["Certificado:RepositorioCertificado"];
-            this.certificado = this._configuration["Certificado:ThumberPrint"];
+            _repositorio = _configuration["Certificado:RepositorioCertificado"];
+            _certificado = _configuration["Certificado:ThumberPrint"];
         }
         #endregion
 
         #region Login
         public string Login(Mensagem objmensagem)
-        {
-            var dtInicial = DateTime.Now;
+        {            
             Entidades.SolicitaLogonRetorno.Message objSolicitaLoginRetorno = SolicitaLogon(objmensagem);
-            var dtFinal = DateTime.Now;
-            if (_configuration.GetValue<bool>("RegistraLog:Metodos:Login"))
-            {
-                //REGISTAR LOGON
-                TLogOperacao operacao = new TLogOperacao()
-                {
-                    CdIdea = this._CdIdeia,
-                    DsCaminhoDocumentosChamada = objmensagem.Serialize(),
-                    DsCaminhoDocumentosRetorno = objSolicitaLoginRetorno.Serialize(),
-                    DsLogOperacao = "Login",
-                    DtInicioOperacao = dtInicial,
-                    DtFinalOperacao = dtFinal,
-                    DtLogOperacao = DateTime.Now,
-                    FlOperacao = true,
-                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoLogin"),
-                    IdTipoRetorno = 1
-                };
-                //REGISTRA O LOG
-                this._logOperacao.RegistrarLogOperacao(operacao);
-            }
             return ConfirmaLogon(objSolicitaLoginRetorno);
 
         }
@@ -99,21 +78,21 @@ namespace Core.Api.Integracao
             objConfirmaLogon.MessageId.Date = DateTime.Now.ToString("yyyy-MM-dd");
 
             Entidades.ConfirmaLogon.MessageMessageBody messageBody = new Entidades.ConfirmaLogon.MessageMessageBody();
-            messageBody.DesafioAssinado = objXML.AssinarDados(objSolicitaLoginRetorno.MessageBody.Resposta.Desafio, this.repositorio, this.certificado, "Desafio");
+            messageBody.DesafioAssinado = objXML.AssinarDados(objSolicitaLoginRetorno.MessageBody.Resposta.Desafio, _repositorio, _certificado, "Desafio");
 
             objConfirmaLogon.MessageBody = messageBody;
 
-            string mensagem = objXML.AssinarXmlString(objConfirmaLogon.Serialize(), this.repositorio, this.certificado, "");
+            string mensagem = objXML.AssinarXmlString(objConfirmaLogon.Serialize(), _repositorio, _certificado, "");
 
             var dtInicial = DateTime.Now;
-            var retorno = _Proxy.confirmaLogonAsync(mensagem).Result;
+            var retorno = _serviceESAJ.confirmaLogonAsync(mensagem).Result;
             var dtFinal = DateTime.Now;
             if (_configuration.GetValue<bool>("RegistraLog:Metodos:ConfirmaLogon"))
             {
                 //REGISTAR LOGON
                 TLogOperacao operacao = new TLogOperacao()
                 {
-                    CdIdea = this._CdIdeia,
+                    CdIdea = _cdIdeia,
                     DsCaminhoDocumentosChamada = mensagem,
                     DsCaminhoDocumentosRetorno = retorno,
                     DsLogOperacao = "ConfirmaLogon",
@@ -121,11 +100,11 @@ namespace Core.Api.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConfirmaLogon"),
+                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConfirmaLogon:id"),
                     IdTipoRetorno = 1
                 };
                 //REGISTRA O LOG
-                this._logOperacao.RegistrarLogOperacao(operacao);
+                _logOperacao.RegistrarLogOperacao(operacao);
             }
             return retorno;
 
@@ -152,11 +131,11 @@ namespace Core.Api.Integracao
 
             IXml objXML = new Xml();
 
-            string mensagem = objXML.AssinarXmlString(objSolicitaLogin.Serialize(), repositorio, certificado, "");
+            string mensagem = objXML.AssinarXmlString(objSolicitaLogin.Serialize(), _repositorio, _certificado, "");
 
             Entidades.SolicitaLogonRetorno.Message objRespostaSolicitaLogon = new Entidades.SolicitaLogonRetorno.Message();
             //setProxy();
-            string retorno = _Proxy.solicitaLogonAsync(mensagem).Result;
+            string retorno = _serviceESAJ.solicitaLogonAsync(mensagem).Result;
 
             var dtInicial = DateTime.Now;
             var dtFinal = DateTime.Now;
@@ -165,7 +144,7 @@ namespace Core.Api.Integracao
                 //REGISTAR LOGON
                 TLogOperacao operacao = new TLogOperacao()
                 {
-                    CdIdea = this._CdIdeia,
+                    CdIdea = _cdIdeia,
                     DsCaminhoDocumentosChamada = mensagem,
                     DsCaminhoDocumentosRetorno = retorno,
                     DsLogOperacao = "SolicitaLogon",
@@ -173,11 +152,11 @@ namespace Core.Api.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoSolicitaLogon"),
+                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitaLogon:id"),
                     IdTipoRetorno = 1
                 };
                 //REGISTRA O LOG
-                this._logOperacao.RegistrarLogOperacao(operacao);
+                _logOperacao.RegistrarLogOperacao(operacao);
             }
 
 
@@ -227,7 +206,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(codigo, out strLogin))
             {
-                resposta = _Proxy.getTiposDocDigitalAsync().Result;
+                resposta = _serviceESAJ.getTiposDocDigitalAsync().Result;
             }
             else
             {
@@ -252,14 +231,14 @@ namespace Core.Api.Integracao
                 string xmlDadosProcesso = objAjuizamento.Serialize();
 
                 IXml objXML = new Xml();
-                xmlDadosProcesso = objXML.AssinarXmlString(xmlDadosProcesso, repositorio, certificado, "");
+                xmlDadosProcesso = objXML.AssinarXmlString(xmlDadosProcesso, _repositorio, _certificado, "");
                 var dtInicial = DateTime.Now;
-                RespostaDadosProcesso = _Proxy.getDadosProcessoAsync(xmlDadosProcesso).Result;
+                RespostaDadosProcesso = _serviceESAJ.getDadosProcessoAsync(xmlDadosProcesso).Result;
                 var dtFinal = DateTime.Now;
                 //REGISTAR LOGON
                 TLogOperacao operacao = new TLogOperacao()
                 {
-                    CdIdea = _CdIdeia,
+                    CdIdea = _cdIdeia,
                     DsCaminhoDocumentosChamada = xmlDadosProcesso,
                     DsCaminhoDocumentosRetorno = RespostaDadosProcesso,
                     DsLogOperacao = "Consulta do Processo no ESAJ: " + objAjuizamento.MessageBody.Processo.Numero,
@@ -267,13 +246,13 @@ namespace Core.Api.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = this._configuration.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"),
+                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                     IdTipoRetorno = 1
                 };
             }
             else
             {
-                throw new Exception($"Erro ao tentar obter autenticar. Erro: {strLogin}");
+                throw new Exception($"Erro ao tentar obter dados do processo. Erro: {strLogin}");
             }
 
             return RespostaDadosProcesso;
@@ -281,6 +260,7 @@ namespace Core.Api.Integracao
         }
         #endregion
 
+        #region getForosEVaras
         public string getForosEVaras()
         {
             _logger.LogInformation("Proxy iniciando getForosEVaras.");
@@ -289,7 +269,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.getForosEVarasAsync().Result;
+                resposta = _serviceESAJ.getForosEVarasAsync().Result;
             }
             else
             {
@@ -297,7 +277,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region getClasseTpParte
         public string getClasseTpParte()
         {
             _logger.LogInformation("Proxy iniciando getClasseTpParte.");
@@ -306,7 +288,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.getClasseTpParteAsync().Result;
+                resposta = _serviceESAJ.getClasseTpParteAsync().Result;
             }
             else
             {
@@ -314,7 +296,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region getTiposDocDigital
         public string getTiposDocDigital()
         {
             _logger.LogInformation("Proxy iniciando getTiposDocDigital.");
@@ -323,7 +307,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.getTiposDocDigitalAsync().Result;
+                resposta = _serviceESAJ.getTiposDocDigitalAsync().Result;
             }
             else
             {
@@ -331,7 +315,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region getCategoriasEClasses
         public string getCategoriasEClasses()
         {
             _logger.LogInformation("Proxy iniciando getCategoriasEClasses.");
@@ -340,7 +326,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.getCategoriasEClassesAsync().Result;
+                resposta = _serviceESAJ.getCategoriasEClassesAsync().Result;
             }
             else
             {
@@ -348,7 +334,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region getTiposDiversas
         public string getTiposDiversas()
         {
             _logger.LogInformation("Proxy iniciando getTiposDiversas.");
@@ -357,7 +345,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.getTiposDiversasAsync().Result;
+                resposta = _serviceESAJ.getTiposDiversasAsync().Result;
             }
             else
             {
@@ -365,7 +353,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region getAreasCompetenciasEClasses
         public string getAreasCompetenciasEClasses(int cdForo)
         {
             _logger.LogInformation("Proxy iniciando getAreasCompetenciasEClasses.");
@@ -374,7 +364,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.getAreasCompetenciasEClassesAsync(cdForo).Result;
+                resposta = _serviceESAJ.getAreasCompetenciasEClassesAsync(cdForo).Result;
             }
             else
             {
@@ -382,7 +372,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region obterNumeroUnificadoDoProcesso
         public string obterNumeroUnificadoDoProcesso(string numeroProcesso)
         {
             _logger.LogInformation("Proxy iniciando obterNumeroUnificadoDoProcesso.");
@@ -391,7 +383,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.obterNumeroUnificadoDoProcessoAsync(numeroProcesso).Result;
+                resposta = _serviceESAJ.obterNumeroUnificadoDoProcessoAsync(numeroProcesso).Result;
             }
             else
             {
@@ -399,7 +391,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region obterNumeroSajDoProcesso
         public string obterNumeroSajDoProcesso(string numeroProcesso)
         {
             _logger.LogInformation("Proxy iniciando obterNumeroSajDoProcesso.");
@@ -408,7 +402,7 @@ namespace Core.Api.Integracao
 
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.obterNumeroSajDoProcessoAsync(numeroProcesso).Result;
+                resposta = _serviceESAJ.obterNumeroSajDoProcessoAsync(numeroProcesso).Result;
             }
             else
             {
@@ -416,7 +410,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region getAssuntos
         public string getAssuntos(int cdCompetencia, int cdClasse)
         {
             _logger.LogInformation("Proxy iniciando getAssuntos.");
@@ -425,7 +421,7 @@ namespace Core.Api.Integracao
 
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.getAssuntosAsync(cdCompetencia,cdClasse).Result;
+                resposta = _serviceESAJ.getAssuntosAsync(cdCompetencia, cdClasse).Result;
             }
             else
             {
@@ -433,7 +429,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region SolicitaListaCitacoesAguardandoCiencia
         public string SolicitaListaCitacoesAguardandoCiencia(string strXMLSolicitacao)
         {
             string strLogin;
@@ -441,7 +439,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.SolicitaListaCitacoesAguardandoCienciaAsync(strXMLSolicitacao).Result;
+                resposta = _serviceESAJ.SolicitaListaCitacoesAguardandoCienciaAsync(strXMLSolicitacao).Result;
             }
             else
             {
@@ -450,7 +448,9 @@ namespace Core.Api.Integracao
             return resposta;
 
         }
+        #endregion
 
+        #region SolicitaListaIntimacoesAguardandoCiencia
         public string SolicitaListaIntimacoesAguardandoCiencia(string strXMLSolicitacao)
         {
             string strLogin;
@@ -458,7 +458,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.SolicitaListaIntimacoesAguardandoCienciaAsync(strXMLSolicitacao).Result;
+                resposta = _serviceESAJ.SolicitaListaIntimacoesAguardandoCienciaAsync(strXMLSolicitacao).Result;
             }
             else
             {
@@ -466,7 +466,9 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
+        #region SolicitacaoDocCienciaAto
         public string SolicitacaoDocCienciaAto(string strXMLSolicitacao)
         {
             string strLogin;
@@ -474,7 +476,7 @@ namespace Core.Api.Integracao
             string resposta;
             if (Autenticar(_codigo, out strLogin))
             {
-                resposta = _Proxy.solicitacaoDocCienciaAtoAsync(strXMLSolicitacao).Result;
+                resposta = _serviceESAJ.solicitacaoDocCienciaAtoAsync(strXMLSolicitacao).Result;
             }
             else
             {
@@ -482,6 +484,7 @@ namespace Core.Api.Integracao
             }
             return resposta;
         }
+        #endregion
 
         #region Serializar
         private string Serializar(string objeto)
@@ -491,7 +494,7 @@ namespace Core.Api.Integracao
             string str = objAjuizamento.Serialize();
 
             IXml objXML = new Xml();
-            return objXML.AssinarXmlString(str, repositorio, certificado, "");
+            return objXML.AssinarXmlString(str, _repositorio, _certificado, "");
         }
         #endregion
 

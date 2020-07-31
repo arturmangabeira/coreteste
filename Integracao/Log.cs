@@ -12,13 +12,13 @@ namespace Core.Api.Integracao
 {
     public class Log
     {
-        public DataContext DataContext { get; }
+        public DataContext _dataContext { get; }
 
         public string _ipDestino { get; }
 
         public Log(DataContext dataContext, string ipDestino)
         {
-            this.DataContext = dataContext;
+            _dataContext = dataContext;
             _ipDestino = ipDestino;
         }
 
@@ -45,11 +45,11 @@ namespace Core.Api.Integracao
                     logOperacao.DsIporigem = ipOrigem;
                     logOperacao.DsIpdestino = _ipDestino;
 
-                    this.DataContext.TLogOperacao.Add(logOperacao);
-                    this.DataContext.SaveChanges();
+                    _dataContext.TLogOperacao.Add(logOperacao);
+                    _dataContext.SaveChanges();
                 }
             }
-            catch(Exception ex)
+            catch
             {
                 
             }
@@ -72,10 +72,47 @@ namespace Core.Api.Integracao
 
                 string nomeFile = cdIdeia;
 
-                if (IdTipoOperacao == config.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"))
+                /*if (IdTipoOperacao == config.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"))
                 {
                     nomeFile += "_" + tipoCaminho + "_consultarprocesso_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                }*/
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoConsultaProcesso:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
                 }
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoCiencia:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoCiencia:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                }
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoPeticionamentoInicial:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoPeticionamentoInicial:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                }
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoPeticionamentoIntermediario:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoPeticionamentoIntermediario:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                }
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoSolicitaLogon:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoSolicitaLogon:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                }
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoConfirmaLogon:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoConfirmaLogon:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                }
+
                 caminhoRetorno = caminhoPastaXmls + pathDirectorySeparator + DateTime.Now.ToString("yyyy") + pathDirectorySeparator + DateTime.Now.ToString("MM") + pathDirectorySeparator + DateTime.Now.ToString("dd") + pathDirectorySeparator + nomeFile;
                 string caminhoTotal = caminho + pathDirectorySeparator + caminhoRetorno;
                 //ESCREVE NO CAMINHO ESPECIFICADO 

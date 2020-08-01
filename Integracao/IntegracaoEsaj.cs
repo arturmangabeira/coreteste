@@ -38,7 +38,7 @@ namespace Core.Api.Integracao
         #region IntegracaoEsaj
         public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger, string ipDestino)
         {
-            this._configuration = ConfigurationManager.ConfigurationManager.AppSettings;
+            _configuration = ConfigurationManager.ConfigurationManager.AppSettings;
             _Proxy = proxy;
             _logger = logger;
             _dataContext = dataContext;
@@ -174,7 +174,7 @@ namespace Core.Api.Integracao
                         DtFinalOperacao = dtFinal,
                         DtLogOperacao = DateTime.Now,
                         FlOperacao = true,
-                        IdTipoOperacao = this._configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                        IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                         IdTipoRetorno = 1
                     };
                     //REGISTRA O LOG
@@ -186,6 +186,17 @@ namespace Core.Api.Integracao
                     if (consultarProcesso.movimentos)
                     {
                         tipoProcessoJudicial.movimento = this.ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
+                    }
+                    //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
+                    if (consultarProcesso.incluirDocumentos)
+                    {
+                        //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
+                        if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigital"))
+                        {
+                            this.InserirFilaPastaDigital(consultarProcesso);
+                        }
+                        //OBTÉM OS DOCUMENTOS DO PROCESSO CASO JÁ TENHA SIDP FEITO O DOWNLOAD DOS DOCUMENTOS NO E-SAJ.
+                        tipoProcessoJudicial.documento = this.ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
                     }
                     //DEVOLVE O OBJETO DE ACORDO COM O CABEÇALHO SOLICITADO.
                     consultar = new consultarProcessoResponse()
@@ -207,7 +218,7 @@ namespace Core.Api.Integracao
                         DtFinalOperacao = dtFinal,
                         DtLogOperacao = DateTime.Now,
                         FlOperacao = true,
-                        IdTipoOperacao = this._configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                        IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                         IdTipoRetorno = 1
                     };
                     //REGISTRA O LOG
@@ -234,7 +245,7 @@ namespace Core.Api.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = false,
-                    IdTipoOperacao = this._configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                     IdTipoRetorno = 2
                 };
                 //REGISTRA O LOG
@@ -254,11 +265,19 @@ namespace Core.Api.Integracao
                 DtCadastro = DateTime.Now,
                 DtInicial = DateTime.Now,
                 NuProcesso = consultarProcesso.numeroProcesso,
-                DtInicioProcessamento = DateTime.Now
+                DtInicioProcessamento = DateTime.Now,
+                IdSituacaoPastaDigital = _configuration.GetValue<int>("Configuracoes:situacaoPastaDigitalAguardando")
             };
+            try
+            {
+                _dataContext.TFilaPastaDigital.Add(pastaDigital);
+                _dataContext.SaveChanges();
+            }
+            catch
+            {
 
-            _dataContext.TFilaPastaDigital.Add(pastaDigital);
-            _dataContext.SaveChanges();
+            }
+            
         }
         #endregion
 
@@ -685,7 +704,7 @@ namespace Core.Api.Integracao
                     //cookie gerado para permanecer a mesma sessão das requisições.
                     CookieContainer cookies = new CookieContainer();
                     //realiza a primeira busca para ir a pagina que retona o código saj do processo.
-                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create($"{this._configuration["ESAJ:UrlEsajMovimentacoes"]}/searchMobile.do?dePesquisa=" + numProcessoMascara + "&localPesquisa.cdLocal=1&cbPesquisa=NUMPROC");
+                    HttpWebRequest req = (HttpWebRequest)WebRequest.Create($"{_configuration["ESAJ:UrlEsajMovimentacoes"]}/searchMobile.do?dePesquisa=" + numProcessoMascara + "&localPesquisa.cdLocal=1&cbPesquisa=NUMPROC");
                     req.Method = "GET";
                     req.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
                     req.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";
@@ -703,7 +722,7 @@ namespace Core.Api.Integracao
                         //extrai o código do processo para buscar as movimentações do processo no esaj.
                         string codigoProcesso = res.ResponseUri.Query.ToString().Substring(17, (res.ResponseUri.Query.ToString().IndexOf("&") - 17));
                         //realiza a consulta no site para obter as movimentações.
-                        HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{this._configuration["ESAJ:UrlEsajMovimentacoes"]}/obterMovimentacoes.do?processo.codigo=" + codigoProcesso + "&todasMovimentacoes=S");
+                        HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{_configuration["ESAJ:UrlEsajMovimentacoes"]}/obterMovimentacoes.do?processo.codigo=" + codigoProcesso + "&todasMovimentacoes=S");
                         reqMovimentacoes.Method = "GET";
                         reqMovimentacoes.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
                         reqMovimentacoes.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";
@@ -841,7 +860,7 @@ namespace Core.Api.Integracao
         private string ObterDetalheMovimentacao(string codigoProcesso, string numMovimentacao, CookieContainer cookies)
         {
             //realiza a consulta no site para obter as movimentações.
-            HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{ this._configuration["ESAJ:UrlEsajMovimentacoes"]}/obterComplementoMovimentacao.do?processo.codigo=" + codigoProcesso + "&movimentacao=" + numMovimentacao);
+            HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{ _configuration["ESAJ:UrlEsajMovimentacoes"]}/obterComplementoMovimentacao.do?processo.codigo=" + codigoProcesso + "&movimentacao=" + numMovimentacao);
             reqMovimentacoes.Method = "GET";
             reqMovimentacoes.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
             reqMovimentacoes.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";

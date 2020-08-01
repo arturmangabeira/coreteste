@@ -27,22 +27,22 @@ namespace Core.Api.Integracao
 {
     public class IntegracaoEsaj
     {
-        public Proxy _Proxy { get; }
+        public Proxy _proxy { get; }
         public IConfiguration _configuration { get; }
 
         public ILogger<IntegracaoService> _logger;
 
         private DataContext _dataContext { get; }
-        public Log logOperacao { get; }
+        public Log _logOperacao { get; }
 
         #region IntegracaoEsaj
         public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger, string ipDestino)
         {
             _configuration = ConfigurationManager.ConfigurationManager.AppSettings;
-            _Proxy = proxy;
+            _proxy = proxy;
             _logger = logger;
             _dataContext = dataContext;
-            this.logOperacao = new Log(dataContext, ipDestino);
+            _logOperacao = new Log(dataContext, ipDestino);
         }
         #endregion
 
@@ -57,7 +57,7 @@ namespace Core.Api.Integracao
             try
             {
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
-                this._Proxy._cdIdeia = consultarProcesso.idConsultante;
+                _proxy._cdIdeia = consultarProcesso.idConsultante;
                 _logger.LogInformation("ObterDadosProcesso ", consultarProcesso);
                 if (consultarProcesso.incluirCabecalho)
                 {
@@ -82,7 +82,7 @@ namespace Core.Api.Integracao
                     string xml = Message.Serialize();
 
                     _logger.LogInformation("ObterDadosProcesso PROXY");
-                    xmlDadosProcessoRetorno = this._Proxy.ObterDadosProcesso(xml, "202020007662");
+                    xmlDadosProcessoRetorno = _proxy.ObterDadosProcesso(xml, "202020007662");
                     _logger.LogInformation("RETORNO ObterDadosProcesso PROXY " + xmlDadosProcessoRetorno);
 
                     objDadosProcessoRetorno = new Entidades.ConsultaProcessoResposta.Message();
@@ -92,9 +92,9 @@ namespace Core.Api.Integracao
                     {
                         var processo = objDadosProcessoRetorno.MessageBody.Resposta.Processo;
                         //OBTÉM OS DADOS BÁSICOS
-                        tipoProcessoJudicial.dadosBasicos = this.ObterDadosBasicos(objDadosProcessoRetorno);
+                        tipoProcessoJudicial.dadosBasicos = ObterDadosBasicos(objDadosProcessoRetorno);
                         //OBTÉM OS DADOS DA PARTE
-                        tipoProcessoJudicial.dadosBasicos.polo = this.ObterPartes(objDadosProcessoRetorno).ToArray();
+                        tipoProcessoJudicial.dadosBasicos.polo = ObterPartes(objDadosProcessoRetorno).ToArray();
                         //OBTÉM OS DADOS DO ASSUNTO
                         tipoProcessoJudicial.dadosBasicos.assunto = new tipoAssuntoProcessual[]{
                             new tipoAssuntoProcessual()
@@ -129,7 +129,7 @@ namespace Core.Api.Integracao
                         //ACRESCENTA A MOVIMENTAÇÃO CASO SEJA INFORMADO.
                         if (consultarProcesso.movimentos)
                         {
-                            tipoProcessoJudicial.movimento = this.ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
+                            tipoProcessoJudicial.movimento = ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
                         }
                         //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
                         if (consultarProcesso.incluirDocumentos)
@@ -137,10 +137,10 @@ namespace Core.Api.Integracao
                             //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
                             if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigital"))
                             {
-                                this.InserirFilaPastaDigital(consultarProcesso);
+                                InserirFilaPastaDigital(consultarProcesso);
                             }
                             //OBTÉM OS DOCUMENTOS DO PROCESSO CASO JÁ TENHA SIDP FEITO O DOWNLOAD DOS DOCUMENTOS NO E-SAJ.
-                            tipoProcessoJudicial.documento = this.ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
+                            tipoProcessoJudicial.documento = ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
                         }
 
                         //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ
@@ -178,14 +178,14 @@ namespace Core.Api.Integracao
                         IdTipoRetorno = 1
                     };
                     //REGISTRA O LOG
-                    this.logOperacao.RegistrarLogOperacao(operacao);
+                    _logOperacao.RegistrarLogOperacao(operacao);
                 }
                 else
                 {
                     //ACRESCENTA A MOVIMENTAÇÃO CASO SEJA INFORMADO.
                     if (consultarProcesso.movimentos)
                     {
-                        tipoProcessoJudicial.movimento = this.ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
+                        tipoProcessoJudicial.movimento = ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
                     }
                     //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
                     if (consultarProcesso.incluirDocumentos)
@@ -193,10 +193,10 @@ namespace Core.Api.Integracao
                         //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
                         if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigital"))
                         {
-                            this.InserirFilaPastaDigital(consultarProcesso);
+                            InserirFilaPastaDigital(consultarProcesso);
                         }
                         //OBTÉM OS DOCUMENTOS DO PROCESSO CASO JÁ TENHA SIDP FEITO O DOWNLOAD DOS DOCUMENTOS NO E-SAJ.
-                        tipoProcessoJudicial.documento = this.ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
+                        tipoProcessoJudicial.documento = ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
                     }
                     //DEVOLVE O OBJETO DE ACORDO COM O CABEÇALHO SOLICITADO.
                     consultar = new consultarProcessoResponse()
@@ -222,7 +222,7 @@ namespace Core.Api.Integracao
                         IdTipoRetorno = 1
                     };
                     //REGISTRA O LOG
-                    this.logOperacao.RegistrarLogOperacao(operacao);
+                    _logOperacao.RegistrarLogOperacao(operacao);
                 }
             }
             catch (Exception ex)
@@ -249,7 +249,7 @@ namespace Core.Api.Integracao
                     IdTipoRetorno = 2
                 };
                 //REGISTRA O LOG
-                this.logOperacao.RegistrarLogOperacao(operacao);
+                _logOperacao.RegistrarLogOperacao(operacao);
             }
 
             return consultar;
@@ -422,14 +422,14 @@ namespace Core.Api.Integracao
             tipoPoloProcessuais.Add(new tipoPoloProcessual()
             {
                 polo = modalidadePoloProcessual.AT,
-                parte = this.ObterParteAtiva(objDadosProcessoRetorno).ToArray(),
+                parte = ObterParteAtiva(objDadosProcessoRetorno).ToArray(),
                 poloSpecified = true
             });
 
             tipoPoloProcessuais.Add(new tipoPoloProcessual()
             {
                 polo = modalidadePoloProcessual.PA,
-                parte = this.ObterPartePassiva(objDadosProcessoRetorno).ToArray(),
+                parte = ObterPartePassiva(objDadosProcessoRetorno).ToArray(),
                 poloSpecified = true
             });
 
@@ -762,7 +762,7 @@ namespace Core.Api.Integracao
                                         CQ domValor = CQ.Create(item.InnerHTML);
                                         if (domValor["a"].Length > 0)
                                         {
-                                            string textoMovimentacao = this.ObterDetalheMovimentacao(codigoProcesso, qtdMovimentacao.ToString(), cookies);
+                                            string textoMovimentacao = ObterDetalheMovimentacao(codigoProcesso, qtdMovimentacao.ToString(), cookies);
                                             arrMovimentacoes.Add(HttpUtility.HtmlEncode(domValor["a"][0].InnerHTML + "||" + textoMovimentacao.Trim()));
                                             try
                                             {
@@ -888,7 +888,7 @@ namespace Core.Api.Integracao
         public Foros getForosEVaras()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getForosEVaras.");
-            string retornoXmlEsaj = _Proxy.getForosEVaras();
+            string retornoXmlEsaj = _proxy.getForosEVaras();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Foros().ExtrairObjeto<Foros>(retornoXmlEsaj);
             return objRetorno;
@@ -899,7 +899,7 @@ namespace Core.Api.Integracao
         public Classes getClasseTpParte()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getClasseTpParte.");
-            string retornoXmlEsaj = _Proxy.getClasseTpParte();
+            string retornoXmlEsaj = _proxy.getClasseTpParte();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Classes().ExtrairObjeto<Classes>(retornoXmlEsaj);
             return objRetorno;
@@ -910,7 +910,7 @@ namespace Core.Api.Integracao
         public Documentos getTiposDocDigital()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getTiposDocDigital.");
-            string retornoXmlEsaj = _Proxy.getTiposDocDigital();
+            string retornoXmlEsaj = _proxy.getTiposDocDigital();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Documentos().ExtrairObjeto<Documentos>(retornoXmlEsaj);
             return objRetorno;            
@@ -921,7 +921,7 @@ namespace Core.Api.Integracao
         public Categorias getCategoriasEClasses()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getCategoriasEClasses.");
-            string retornoXmlEsaj = _Proxy.getCategoriasEClasses();
+            string retornoXmlEsaj = _proxy.getCategoriasEClasses();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Categorias().ExtrairObjeto<Categorias>(retornoXmlEsaj);
             return objRetorno;
@@ -932,7 +932,7 @@ namespace Core.Api.Integracao
         public Tipos getTiposDiversas()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getTiposDiversas.");
-            string retornoXmlEsaj = _Proxy.getTiposDiversas();
+            string retornoXmlEsaj = _proxy.getTiposDiversas();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Tipos().ExtrairObjeto<Tipos>(retornoXmlEsaj);
             return objRetorno;            
@@ -943,7 +943,7 @@ namespace Core.Api.Integracao
         public string getAreasCompetenciasEClasses(int cdForo)
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getAreasCompetenciasEClasses.");
-            return _Proxy.getAreasCompetenciasEClasses(cdForo);
+            return _proxy.getAreasCompetenciasEClasses(cdForo);
         }
         #endregion
 
@@ -951,7 +951,7 @@ namespace Core.Api.Integracao
         public string obterNumeroUnificadoDoProcesso(string numeroProcesso)
         {
             _logger.LogInformation("IntegracaoEsaj iniciando obterNumeroUnificadoDoProcesso.");
-            return _Proxy.obterNumeroUnificadoDoProcesso(numeroProcesso);
+            return _proxy.obterNumeroUnificadoDoProcesso(numeroProcesso);
         }
         #endregion
 
@@ -959,7 +959,7 @@ namespace Core.Api.Integracao
         public string obterNumeroSajDoProcesso(string numeroProcesso)
         {
             _logger.LogInformation("IntegracaoEsaj iniciando obterNumeroSajDoProcesso.");
-            return _Proxy.obterNumeroSajDoProcesso(numeroProcesso);
+            return _proxy.obterNumeroSajDoProcesso(numeroProcesso);
         }
         #endregion
 
@@ -967,7 +967,7 @@ namespace Core.Api.Integracao
         public Assuntos getAssuntos(int cdCompetencia, int cdClasse)
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getAssuntos.");
-            string retornoXmlEsaj = _Proxy.getAssuntos(cdCompetencia, cdClasse);
+            string retornoXmlEsaj = _proxy.getAssuntos(cdCompetencia, cdClasse);
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Assuntos().ExtrairObjeto<Assuntos>(retornoXmlEsaj);
             return objRetorno;
@@ -979,9 +979,10 @@ namespace Core.Api.Integracao
         {
             //var filaPastaDigital = _dataContext.TFilaPastaDigital.ToList();
             //JOIN IN LINQ
-            var retorno = (from p in _dataContext.TFilaPastaDigital
+             var retorno = (from p in _dataContext.TFilaPastaDigital
                            join s in _dataContext.TSituacaoPastaDigital on p.IdSituacaoPastaDigital equals s.IdSituacaoPastaDigital
-                           join sr in _dataContext.TServidor on p.IdServidor equals sr.IdServidor
+                           join sr in _dataContext.TServidor on p.IdServidor equals sr.IdServidor into cl
+                           from sr in cl.DefaultIfEmpty()
                            where (p.CdIdea == Cdidea && p.NuProcesso == numeroProcesso)
                            select new FilaPastaDigital
                            {
@@ -1033,7 +1034,7 @@ namespace Core.Api.Integracao
             // Gerando o XML
             string xml = MessageCitacoes.Serialize();
 
-            var retornoCitacaoXML = _Proxy.SolicitaListaCitacoesAguardandoCiencia(xml);
+            var retornoCitacaoXML = _proxy.SolicitaListaCitacoesAguardandoCiencia(xml);
 
             Entidades.CitacaoAguardandoCiencia.Message message = new Entidades.CitacaoAguardandoCiencia.Message();
 
@@ -1054,7 +1055,7 @@ namespace Core.Api.Integracao
                     if (_configuration.GetValue<bool>("Configuracoes:baixarDocumentoSolicitacaoDocCienciaAto"))
                     {
                         //OBTÉM O DOCUMENTO CONTENDO INFORMAÇÃO DO ATO
-                        var docAnexoAto = this.SolicitacaoDocCienciaAto(citacao.cdAto.ToString());
+                        var docAnexoAto = SolicitacaoDocCienciaAto(citacao.cdAto.ToString());
                         colArquivos = objCompressao.DescomprimirBase64(docAnexoAto);
 
                         foreach (var arquivoRetorno in colArquivos)
@@ -1181,7 +1182,7 @@ namespace Core.Api.Integracao
             MessageIntimacoes.MessageBody = MessageBodyIntimacoes;
             string xml = MessageIntimacoes.Serialize();
 
-            var retornoCitacaoXML =_Proxy.SolicitaListaIntimacoesAguardandoCiencia(xml);
+            var retornoCitacaoXML =_proxy.SolicitaListaIntimacoesAguardandoCiencia(xml);
 
             Entidades.IntimacaoAguardandoCiencia.Message message = new Entidades.IntimacaoAguardandoCiencia.Message();
 
@@ -1204,7 +1205,7 @@ namespace Core.Api.Integracao
                     if (_configuration.GetValue<bool>("Configuracoes:baixarDocumentoSolicitacaoDocCienciaAto"))
                     {
                         //OBTÉM O DOCUMENTO CONTENDO INFORMAÇÃO DO ATO
-                        var docAnexoAto = this.SolicitacaoDocCienciaAto(intimacao.cdAto.ToString());
+                        var docAnexoAto = SolicitacaoDocCienciaAto(intimacao.cdAto.ToString());
                         colArquivos = objCompressao.DescomprimirBase64(docAnexoAto);
 
                         foreach (var arquivoRetorno in colArquivos)
@@ -1312,12 +1313,12 @@ namespace Core.Api.Integracao
             _logger.LogInformation("IntegracaoEsaj iniciando consultarAvisosPendentes.");
             _logger.LogInformation("Obtendo SolicitaListaIntimacoesAguardandoCiencia.");
             //OBTÉM INFORMAÇÃO REFERENTE A INTIMACAO DO ESAJ
-            var intimacoes = this.SolicitaListaIntimacoesAguardandoCiencia();
+            var intimacoes = SolicitaListaIntimacoesAguardandoCiencia();
             _logger.LogInformation("Retorno SolicitaListaIntimacoesAguardandoCiencia. Qtd" + intimacoes.Count);
 
             //OBTÉM INFORMAÇÃO REFERENTE A CITACAO DO ESAJ
             _logger.LogInformation("Obtendo SolicitaListaCitacoesAguardandoCiencia.");
-            var citacoes = this.SolicitaListaCitacoesAguardandoCiencia();
+            var citacoes = SolicitaListaCitacoesAguardandoCiencia();
             _logger.LogInformation("Retorno SolicitaListaCitacoesAguardandoCiencia.Qtd" + citacoes.Count);
 
             List<tipoAvisoComunicacaoPendente> tipoAvisoComunicacaoPendente = new List<tipoAvisoComunicacaoPendente>();
@@ -1361,7 +1362,7 @@ namespace Core.Api.Integracao
             // Gerando o XML
             string xml = Message.Serialize();
 
-            return _Proxy.SolicitacaoDocCienciaAto(xml);
+            return _proxy.SolicitacaoDocCienciaAto(xml);
         }
         #endregion
 

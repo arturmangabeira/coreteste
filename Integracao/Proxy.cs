@@ -249,6 +249,8 @@ namespace Core.Api.Integracao
                     IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                     IdTipoRetorno = 1
                 };
+                //REGISTRA O LOG
+                _logOperacao.RegistrarLogOperacao(operacao);
             }
             else
             {

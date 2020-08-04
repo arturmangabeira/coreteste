@@ -238,8 +238,7 @@ namespace Core.Api.Data
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DsCaminhoDocumentosRetorno)
-                    .IsRequired()
+                entity.Property(e => e.DsCaminhoDocumentosRetorno)                    
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
@@ -530,5 +529,11 @@ namespace Core.Api.Data
                     .HasDefaultValueSql("(getdate())");
             });
         }
+
+        protected  override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
+
     }
 }

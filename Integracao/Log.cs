@@ -1,5 +1,6 @@
 ﻿using Core.Api.Data;
 using Core.Api.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace Core.Api.Integracao
             _ipDestino = ipDestino;
         }
 
-        public void RegistrarLogOperacao(TLogOperacao logOperacao)
+        public TLogOperacao RegistrarLogOperacao(TLogOperacao logOperacao)
         {
             try
             {
@@ -30,29 +31,52 @@ namespace Core.Api.Integracao
 
                 var ipOrigem = Util.GetIpOrigem();
 
-                if (config.GetValue<bool>("RegistraLog:Registrar")){
+                if (config.GetValue<bool>("RegistraLog:Registrar"))
+                {
+                    if (logOperacao.DsCaminhoDocumentosChamada != String.Empty && logOperacao.DsCaminhoDocumentosChamada != null)
+                    {
+                        logOperacao.DsCaminhoDocumentosChamada = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosChamada,
+                            logOperacao.CdIdea,
+                            logOperacao.IdTipoOperacao
+                            , "chamada");
+                    }
 
-                    logOperacao.DsCaminhoDocumentosChamada = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosChamada,
-                        logOperacao.CdIdea,
-                        logOperacao.IdTipoOperacao
-                        , "chamada");
-
-                    logOperacao.DsCaminhoDocumentosRetorno = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosRetorno,
-                        logOperacao.CdIdea,
-                        logOperacao.IdTipoOperacao
-                        , "retorno");
+                    if (logOperacao.DsCaminhoDocumentosRetorno != String.Empty && logOperacao.DsCaminhoDocumentosRetorno != null)
+                    {
+                        logOperacao.DsCaminhoDocumentosRetorno = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosRetorno,
+                            logOperacao.CdIdea,
+                            logOperacao.IdTipoOperacao
+                            , "retorno");
+                    }
 
                     logOperacao.DsIporigem = ipOrigem;
                     logOperacao.DsIpdestino = _ipDestino;
 
-                    _dataContext.TLogOperacao.Add(logOperacao);
-                    _dataContext.SaveChanges();
+                    if(logOperacao.IdLogOperacao == 0)
+                    {
+                        _dataContext.TLogOperacao.Add(logOperacao);
+                        _dataContext.SaveChanges();
+                    }
+                    else
+                    {
+                        var logRetorno = _dataContext.TLogOperacao.Where(l => l.IdLogOperacao == logOperacao.IdLogOperacao).FirstOrDefault();
+                        logRetorno.DtFinalOperacao = DateTime.Now;
+                        logRetorno.DsCaminhoDocumentosRetorno = logOperacao.DsCaminhoDocumentosRetorno;
+                        logRetorno.FlOperacao = logOperacao.FlOperacao;
+                        _dataContext.TLogOperacao.Add(logRetorno);
+                        _dataContext.Update(logRetorno);                        
+                        _dataContext.SaveChanges();
+                    }
+                    
+                    _dataContext.Entry(logOperacao).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                
+                throw new Exception(ex.Message);
             }
+
+            return logOperacao;
         }
 
         private string GravarArquivoXML(string XML, string cdIdeia, int IdTipoOperacao, string tipoCaminho)

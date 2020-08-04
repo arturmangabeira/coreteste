@@ -56,18 +56,10 @@ namespace Core.Api
             return operacaos;
         }
 
-        public consultarProcessoResponse consultarProcesso(string idConsultante, string senhaConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento)
+        public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso)
         {
             _logger.LogInformation("Iniciando consultarProcesso.");
-            return _integracaoEsaj.ConsultarProcesso(new ConsultarProcesso 
-            {
-                documento = documento,
-                idConsultante = idConsultante,
-                incluirCabecalho = incluirCabecalho,
-                incluirDocumentos = incluirDocumentos,
-                movimentos = movimentos,
-                numeroProcesso = numeroProcesso
-            });
+            return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
         }
 
         public Foros getForosEVaras()

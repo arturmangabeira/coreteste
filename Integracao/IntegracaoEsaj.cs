@@ -35,6 +35,8 @@ namespace Core.Api.Integracao
         private DataContext _dataContext { get; }
         public Log _logOperacao { get; }
 
+        public string _ipDestino { get; set; }
+
         #region IntegracaoEsaj
         public IntegracaoEsaj(Proxy proxy, DataContext dataContext, ILogger<IntegracaoService> logger, string ipDestino)
         {
@@ -42,6 +44,7 @@ namespace Core.Api.Integracao
             _proxy = proxy;
             _logger = logger;
             _dataContext = dataContext;
+            _ipDestino = ipDestino;
             _logOperacao = new Log(dataContext, ipDestino);
         }
         #endregion
@@ -54,6 +57,39 @@ namespace Core.Api.Integracao
             string xmlDadosProcessoRetorno = String.Empty;
             var config = ConfigurationManager.ConfigurationManager.AppSettings;
             var dtInicial = DateTime.Now;
+
+            TLogOperacao operacaoConsultarProcesso = new TLogOperacao()
+            {
+                CdIdea = consultarProcesso.idConsultante,
+                DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),                
+                DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
+                DtInicioOperacao = dtInicial,
+                DtLogOperacao = DateTime.Now,
+                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                IdTipoRetorno = 1
+            };
+            //REGISTRA O LOG QUE RETORNA O VALOR COM OS DADOS PREENCHIDO DO ID
+            var ResOperacaoConsultarProcesso = new TLogOperacao();
+            ResOperacaoConsultarProcesso = _logOperacao.RegistrarLogOperacao(operacaoConsultarProcesso);
+            
+            /*
+            //teste update
+            var dtFinalT = DateTime.Now;
+            //REGISTAR LOGON
+            TLogOperacao operacaoT = new TLogOperacao()
+            {
+                IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
+                CdIdea = consultarProcesso.idConsultante,
+                DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
+                DtFinalOperacao = dtFinalT,
+                FlOperacao = true,
+                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                IdTipoRetorno = 1
+            };
+            //REGISTRA O LOG
+            _logOperacao.RegistrarLogOperacao(operacaoT);
+            */
+
             try
             {
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
@@ -166,13 +202,10 @@ namespace Core.Api.Integracao
                     //REGISTAR LOGON
                     TLogOperacao operacao = new TLogOperacao()
                     {
+                        IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
                         CdIdea = consultarProcesso.idConsultante,
-                        DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),
                         DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-                        DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
-                        DtInicioOperacao = dtInicial,
-                        DtFinalOperacao = dtFinal,
-                        DtLogOperacao = DateTime.Now,
+                        DtFinalOperacao = dtFinal,                        
                         FlOperacao = true,
                         IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                         IdTipoRetorno = 1
@@ -211,18 +244,16 @@ namespace Core.Api.Integracao
                     TLogOperacao operacao = new TLogOperacao()
                     {
                         CdIdea = consultarProcesso.idConsultante,
-                        DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),
+                        IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
                         DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-                        DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
-                        DtInicioOperacao = dtInicial,
-                        DtFinalOperacao = dtFinal,
-                        DtLogOperacao = DateTime.Now,
+                        DtFinalOperacao = dtFinal,                        
                         FlOperacao = true,
                         IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                         IdTipoRetorno = 1
                     };
                     //REGISTRA O LOG
-                    _logOperacao.RegistrarLogOperacao(operacao);
+                    var logOperacao = new Log(_dataContext, _ipDestino);
+                    logOperacao.RegistrarLogOperacao(operacao);
                 }
             }
             catch (Exception ex)
@@ -238,14 +269,11 @@ namespace Core.Api.Integracao
                 TLogOperacao operacao = new TLogOperacao()
                 {
                     CdIdea = consultarProcesso.idConsultante,
-                    DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),
+                    IdLogOperacao = operacaoConsultarProcesso.IdLogOperacao,
                     DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-                    DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
-                    DtInicioOperacao = dtInicial,
                     DtFinalOperacao = dtFinal,
-                    DtLogOperacao = DateTime.Now,
-                    FlOperacao = false,
                     IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                    FlOperacao = false,                    
                     IdTipoRetorno = 2
                 };
                 //REGISTRA O LOG

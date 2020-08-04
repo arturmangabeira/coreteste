@@ -72,24 +72,6 @@ namespace Core.Api.Integracao
             var ResOperacaoConsultarProcesso = new TLogOperacao();
             ResOperacaoConsultarProcesso = _logOperacao.RegistrarLogOperacao(operacaoConsultarProcesso);
             
-            /*
-            //teste update
-            var dtFinalT = DateTime.Now;
-            //REGISTAR LOGON
-            TLogOperacao operacaoT = new TLogOperacao()
-            {
-                IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
-                CdIdea = consultarProcesso.idConsultante,
-                DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-                DtFinalOperacao = dtFinalT,
-                FlOperacao = true,
-                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
-                IdTipoRetorno = 1
-            };
-            //REGISTRA O LOG
-            _logOperacao.RegistrarLogOperacao(operacaoT);
-            */
-
             try
             {
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
@@ -287,6 +269,27 @@ namespace Core.Api.Integracao
         #region InserirFilaPastaDigital
         private void InserirFilaPastaDigital(ConsultarProcesso consultarProcesso)
         {
+            int? nuPaginaBaixada = 0;
+            try
+            {
+                //OBTÉM A ÚLTIMA SITUAÇÃO DA PAGINA BAIXADA PARA INCLUIR NA FILA COM ISSO MANTENDO O DIFERENCIAL.
+                var IdSituacaoPastaDigitalProcessado = _configuration.GetValue<int>("Configuracoes:situacaoPastaDigitalProcessado");
+                var retornoPastadigital = _dataContext.TFilaPastaDigital
+                                         .Where(fila => fila.NuProcesso == consultarProcesso.numeroProcesso)
+                                         .AsEnumerable()
+                                         .Where(fila => fila.IdSituacaoPastaDigital == IdSituacaoPastaDigitalProcessado)
+                                         .LastOrDefault();
+
+                if (retornoPastadigital != null)
+                {
+                    nuPaginaBaixada = retornoPastadigital.NuUltimaPaginaBaixada;
+                }
+            }
+            catch
+            {
+
+            }
+
             var pastaDigital = new TFilaPastaDigital()
             {
                 CdIdea = Int32.Parse(consultarProcesso.idConsultante),
@@ -294,6 +297,7 @@ namespace Core.Api.Integracao
                 DtInicial = DateTime.Now,
                 NuProcesso = consultarProcesso.numeroProcesso,
                 DtInicioProcessamento = DateTime.Now,
+                NuUltimaPaginaBaixada = nuPaginaBaixada,
                 IdSituacaoPastaDigital = _configuration.GetValue<int>("Configuracoes:situacaoPastaDigitalAguardando")
             };
             try

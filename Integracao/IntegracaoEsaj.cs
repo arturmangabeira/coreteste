@@ -982,7 +982,7 @@ namespace Core.Api.Integracao
              var retorno = (from p in _dataContext.TFilaPastaDigital
                            join s in _dataContext.TSituacaoPastaDigital on p.IdSituacaoPastaDigital equals s.IdSituacaoPastaDigital
                            join sr in _dataContext.TServidor on p.IdServidor equals sr.IdServidor into cl
-                           from sr in cl.DefaultIfEmpty()
+                           from sr in cl.DefaultIfEmpty()  //LEFT JOIN NA TABELA DE TServidor
                            where (p.CdIdea == Cdidea && p.NuProcesso == numeroProcesso)
                            select new FilaPastaDigital
                            {

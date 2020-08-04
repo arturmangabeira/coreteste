@@ -23,5 +23,7 @@ namespace Core.Api.Objects
         public string DsCaminhoPastaDigital { get; set; }
         public DateTime DtCadastro { get; set; }
 
+        public int nuPosicao { get; set; }
+
     }
 }

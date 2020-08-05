@@ -135,6 +135,11 @@ namespace Core.Api.Integracao
                                 valor = processo.DataDistribuicao.Replace("-","")+"000000"
                             }
                         };
+
+                        if(processo.OutrosNumeros.Length > 0)
+                        {
+                            tipoProcessoJudicial.dadosBasicos.outrosnumeros = processo.OutrosNumeros;
+                        }
                         //OBTÉM OS DADOS DO VALOR CAUSA
                         tipoProcessoJudicial.dadosBasicos.valorCausa = Double.Parse(processo.ValorCausa);
                         //OBTÉM OS DADOS DO ORGAO JULGADOR
@@ -144,23 +149,7 @@ namespace Core.Api.Integracao
                             instancia = processo.Vara.Competencia.Descricao,
                             nomeOrgao = processo.Vara.Nome
                         };
-                        //ACRESCENTA A MOVIMENTAÇÃO CASO SEJA INFORMADO.
-                        if (consultarProcesso.movimentos)
-                        {
-                            tipoProcessoJudicial.movimento = ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
-                        }
-                        //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
-                        if (consultarProcesso.incluirDocumentos)
-                        {
-                            //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
-                            if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigital"))
-                            {
-                                InserirFilaPastaDigital(consultarProcesso);
-                            }
-                            //OBTÉM OS DOCUMENTOS DO PROCESSO CASO JÁ TENHA SIDP FEITO O DOWNLOAD DOS DOCUMENTOS NO E-SAJ.
-                            tipoProcessoJudicial.documento = ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
-                        }
-
+                        
                         //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ
                         consultar = new consultarProcessoResponse()
                         {
@@ -171,72 +160,51 @@ namespace Core.Api.Integracao
                     }
                     else
                     {
-                        //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ
-                        consultar = new consultarProcessoResponse()
-                        {
-                            mensagem = objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Descricao,
-                            sucesso = false,
-                            processo = null
-                        };
+                        //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ                        
+                        throw new Exception(objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Descricao);
                     }
-
-                    var dtFinal = DateTime.Now;
-                    //REGISTAR LOGON
-                    TLogOperacao operacao = new TLogOperacao()
-                    {
-                        IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
-                        CdIdea = consultarProcesso.idConsultante,
-                        DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-                        DtFinalOperacao = dtFinal,                        
-                        FlOperacao = true,
-                        IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
-                        IdTipoRetorno = 1
-                    };
-                    //REGISTRA O LOG
-                    _logOperacao.RegistrarLogOperacao(operacao);
                 }
-                else
+                
+                //ACRESCENTA A MOVIMENTAÇÃO CASO SEJA INFORMADO.
+                if (consultarProcesso.movimentos)
                 {
-                    //ACRESCENTA A MOVIMENTAÇÃO CASO SEJA INFORMADO.
-                    if (consultarProcesso.movimentos)
-                    {
-                        tipoProcessoJudicial.movimento = ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
-                    }
-                    //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
-                    if (consultarProcesso.incluirDocumentos)
-                    {
-                        //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
-                        if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigital"))
-                        {
-                            InserirFilaPastaDigital(consultarProcesso);
-                        }
-                        //OBTÉM OS DOCUMENTOS DO PROCESSO CASO JÁ TENHA SIDP FEITO O DOWNLOAD DOS DOCUMENTOS NO E-SAJ.
-                        tipoProcessoJudicial.documento = ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
-                    }
-                    //DEVOLVE O OBJETO DE ACORDO COM O CABEÇALHO SOLICITADO.
-                    consultar = new consultarProcessoResponse()
-                    {
-                        mensagem = "Processo consultado com sucesso",
-                        sucesso = true,
-                        processo = tipoProcessoJudicial
-                    };
-
-                    var dtFinal = DateTime.Now;
-                    //REGISTAR LOGON
-                    TLogOperacao operacao = new TLogOperacao()
-                    {
-                        CdIdea = consultarProcesso.idConsultante,
-                        IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
-                        DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-                        DtFinalOperacao = dtFinal,                        
-                        FlOperacao = true,
-                        IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
-                        IdTipoRetorno = 1
-                    };
-                    //REGISTRA O LOG
-                    var logOperacao = new Log(_dataContext, _ipDestino);
-                    logOperacao.RegistrarLogOperacao(operacao);
+                    tipoProcessoJudicial.movimento = ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
                 }
+                //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
+                if (consultarProcesso.incluirDocumentos)
+                {
+                    //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
+                    if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigital"))
+                    {
+                        InserirFilaPastaDigital(consultarProcesso);
+                    }
+                    //OBTÉM OS DOCUMENTOS DO PROCESSO CASO JÁ TENHA SIDP FEITO O DOWNLOAD DOS DOCUMENTOS NO E-SAJ.
+                    tipoProcessoJudicial.documento = ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
+                }
+                //DEVOLVE O OBJETO DE ACORDO COM O CABEÇALHO SOLICITADO.
+                consultar = new consultarProcessoResponse()
+                {
+                    mensagem = "Processo consultado com sucesso",
+                    sucesso = true,
+                    processo = tipoProcessoJudicial
+                };
+
+                var dtFinal = DateTime.Now;
+                //REGISTAR LOGON
+                TLogOperacao operacao = new TLogOperacao()
+                {
+                    CdIdea = consultarProcesso.idConsultante,
+                    IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
+                    DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
+                    DtFinalOperacao = dtFinal,                        
+                    FlOperacao = true,
+                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                    IdTipoRetorno = 1
+                };
+                //REGISTRA O LOG
+                var logOperacao = new Log(_dataContext, _ipDestino);
+                logOperacao.RegistrarLogOperacao(operacao);
+                
             }
             catch (Exception ex)
             {
@@ -292,7 +260,7 @@ namespace Core.Api.Integracao
 
             var pastaDigital = new TFilaPastaDigital()
             {
-                CdIdea = Int32.Parse(consultarProcesso.idConsultante),
+                CdIdea = consultarProcesso.idConsultante,
                 DtCadastro = DateTime.Now,
                 DtInicial = DateTime.Now,
                 NuProcesso = consultarProcesso.numeroProcesso,
@@ -321,85 +289,74 @@ namespace Core.Api.Integracao
             var caminhoArquivos = ConfigurationManager.ConfigurationManager.AppSettings["Diretorios:DsCaminhoProcessos"] + pathDirectorySeparator + numeroProcesso;
 
             var documentos = new List<tipoDocumento>();
-
-            var diretorios = Directory.GetDirectories(caminhoArquivos);
-
-            if(nmDocumentos.Length == 0)
+            try
             {
-                nmDocumentos = new string[] { "" };
-            }
+                var diretorios = Directory.GetDirectories(caminhoArquivos);
 
-            foreach (var diretorio in diretorios)
-            {
-                var arquivos = Directory.GetFiles(diretorio);
-
-                var docVinculado = new List<tipoDocumento>();
-                if (nmDocumentos.Length > 0 && nmDocumentos[0] == "")
+                if (nmDocumentos.Length == 0)
                 {
-                    foreach (var arquivo in arquivos)
-                    {
-                        docVinculado.Add(new tipoDocumento
-                        {
-                            conteudo = null,
-                            descricao = Path.GetFileName(arquivo),
-                            idDocumentoVinculado = Path.GetFileName(diretorio),
-                            nivelSigilo = 0,
-                            dataHora = DateTime.Now.ToString("yyyymmddhhmmss")
-                        });
-                        
-                    }
-                    documentos.Add(new tipoDocumento
-                    {
-                        descricao = Path.GetFileName(diretorio),
-                        documentoVinculado = docVinculado.ToArray(),
-                        nivelSigilo = 0,
-                        dataHora = DateTime.Now.ToString("yyyymmddhhmmss")
-                    });
+                    nmDocumentos = new string[] { "" };
                 }
-                else
+
+                foreach (var diretorio in diretorios)
                 {
-                    var insereSubPasta = false;
-                    foreach (var arquivo in arquivos)
+                    var arquivos = Directory.GetFiles(diretorio);
+
+                    var docVinculado = new List<tipoDocumento>();
+                    if (nmDocumentos.Length > 0 && nmDocumentos[0] == "")
                     {
-                        byte[] conteudo = null;
-                        //SE CONTIVER A INFORMAÇÃO NO PRIMEIRO ITEM COM * SIGNIFICA TRAZER TODOS OS DOCUMENTOS CONTENDO O CONTEÚDO
-                        if (nmDocumentos.Length > 0 && nmDocumentos[0].Contains("*"))
+                        foreach (var arquivo in arquivos)
                         {
-                            conteudo = File.ReadAllBytes(arquivo);
-                        }
-                        else
-                        {
-                            conteudo = nmDocumentos.Where(d => Path.GetFileName(arquivo).Contains(d)).FirstOrDefault() != null ? File.ReadAllBytes(arquivo) : null;
-                        }
+                            docVinculado.Add(new tipoDocumento
+                            {
+                                conteudo = null,
+                                descricao = Path.GetFileName(arquivo),
+                                idDocumentoVinculado = Path.GetFileName(diretorio),
+                                nivelSigilo = 0,
+                                dataHora = DateTime.Now.ToString("yyyymmddhhmmss")
+                            });
 
-                        if(conteudo != null)
-                        {
-                            insereSubPasta = true;
                         }
-
-                        docVinculado.Add(new tipoDocumento
-                        {
-                            conteudo = conteudo,
-                            descricao = Path.GetFileName(arquivo),
-                            idDocumentoVinculado = Path.GetFileName(diretorio),
-                            nivelSigilo = 0,
-                            dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
-                        });
-
-                    }
-                    if (nmDocumentos.Length > 0 && nmDocumentos[0].Contains("*"))
-                    {
                         documentos.Add(new tipoDocumento
                         {
                             descricao = Path.GetFileName(diretorio),
                             documentoVinculado = docVinculado.ToArray(),
                             nivelSigilo = 0,
-                            dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                            dataHora = DateTime.Now.ToString("yyyymmddhhmmss")
                         });
                     }
                     else
                     {
-                        if (insereSubPasta)
+                        var insereSubPasta = false;
+                        foreach (var arquivo in arquivos)
+                        {
+                            byte[] conteudo = null;
+                            //SE CONTIVER A INFORMAÇÃO NO PRIMEIRO ITEM COM * SIGNIFICA TRAZER TODOS OS DOCUMENTOS CONTENDO O CONTEÚDO
+                            if (nmDocumentos.Length > 0 && nmDocumentos[0].Contains("*"))
+                            {
+                                conteudo = File.ReadAllBytes(arquivo);
+                            }
+                            else
+                            {
+                                conteudo = nmDocumentos.Where(d => Path.GetFileName(arquivo).Contains(d)).FirstOrDefault() != null ? File.ReadAllBytes(arquivo) : null;
+                            }
+
+                            if (conteudo != null)
+                            {
+                                insereSubPasta = true;
+                            }
+
+                            docVinculado.Add(new tipoDocumento
+                            {
+                                conteudo = conteudo,
+                                descricao = Path.GetFileName(arquivo),
+                                idDocumentoVinculado = Path.GetFileName(diretorio),
+                                nivelSigilo = 0,
+                                dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                            });
+
+                        }
+                        if (nmDocumentos.Length > 0 && nmDocumentos[0].Contains("*"))
                         {
                             documentos.Add(new tipoDocumento
                             {
@@ -409,10 +366,26 @@ namespace Core.Api.Integracao
                                 dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
                             });
                         }
+                        else
+                        {
+                            if (insereSubPasta)
+                            {
+                                documentos.Add(new tipoDocumento
+                                {
+                                    descricao = Path.GetFileName(diretorio),
+                                    documentoVinculado = docVinculado.ToArray(),
+                                    nivelSigilo = 0,
+                                    dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                                });
+                            }
+                        }
                     }
                 }
             }
+            catch
+            {
 
+            }
             return documentos;
         }
         #endregion

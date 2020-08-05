@@ -342,6 +342,9 @@ namespace Core.Api.Entidades.ConsultaProcessoResposta
         private ProcessoTypePartes partes;
 
 
+        private string[] outrosNumerosField;
+
+
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string Numero
@@ -521,6 +524,20 @@ namespace Core.Api.Entidades.ConsultaProcessoResposta
             set
             {
                 this.partes = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("OutroNumero", IsNullable = false)]
+        public string[] OutrosNumeros
+        {
+            get
+            {
+                return this.outrosNumerosField;
+            }
+            set
+            {
+                this.outrosNumerosField = value;
             }
         }
 

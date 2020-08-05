@@ -229,9 +229,7 @@ namespace Core.Api.Data
                 entity.ToTable("tLogOperacao");
 
                 entity.Property(e => e.CdIdea)
-                    .HasColumnName("CdIDEA")
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .HasColumnName("CdIDEA");                    
 
                 entity.Property(e => e.DsCaminhoDocumentosChamada)
                     .IsRequired()

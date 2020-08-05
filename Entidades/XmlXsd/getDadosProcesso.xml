@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1"?><Message>
+	<MessageId>
+		<ServiceId>ConsultaProcesso</ServiceId>
+		<Version>1.0</Version>
+		<MsgDesc>Consulta Processo</MsgDesc>
+		<Code>201220001662</Code>
+		<FromAddress>PGMS</FromAddress>
+		<ToAddress>TJ</ToAddress>
+		<Date>2020-07-27</Date>
+	</MessageId>
+	<MessageBody>
+		<Resposta>
+			<Mensagem>
+				<Codigo>0</Codigo>
+				<Descricao>Mensagem processada com sucesso</Descricao>
+			</Mensagem>
+			<Processo>
+				<Numero>05142673820198050001</Numero>
+				<Instancia>1</Instancia>
+				<Area>CRIMINAL</Area>
+				<Classe>
+					<Codigo>300</Codigo>
+					<Descricao>Procedimento Especial da Lei Antitóxicos</Descricao>
+				</Classe>
+				<AssuntoPrincipal>
+					<Codigo>3608</Codigo>
+					<Descricao>Tráfico de Drogas e Condutas Afins</Descricao>
+				</AssuntoPrincipal>
+				<ProcessoVirtual>S</ProcessoVirtual>
+				<SegredoJustica>N</SegredoJustica>
+				<Foro>
+					<Codigo>1</Codigo>
+					<Nome>Salvador</Nome>
+				</Foro>
+				<Vara>
+					<Codigo>133</Codigo>
+					<Nome>3ª Vara de Tóxicos</Nome>
+					<Competencia>
+						<Codigo>4</Codigo>
+						<Descricao>Tóxicos</Descricao>
+					</Competencia>
+				</Vara>
+				<ValorCausa>0</ValorCausa>
+				<DataAjuizamento>2019-03-18</DataAjuizamento>
+				<DataDistribuicao>2019-03-19</DataDistribuicao>
+				<Partes>
+					<PartesAtivas>
+						<Parte>
+							<SeqParte>2</SeqParte>
+							<Nome>MINISTERIO PUBLICO DO ESTADO DA BAHIA</Nome>
+							<Genero>Masculino</Genero>
+							<TipoPessoa>Juridica</TipoPessoa>
+							<TipoParticipacao>Autor</TipoParticipacao>
+							<Principal>S</Principal>
+							<Documentos>
+								<Documento>
+									<Tipo>CNPJ</Tipo>
+									<Numero>04.142.491/0001-66</Numero>
+								</Documento>
+							</Documentos>
+						</Parte>
+					</PartesAtivas>
+					<PartesPassivas>
+						<Parte>
+							<SeqParte>1</SeqParte>
+							<Nome>FLENISSON RODRIGUES SENA,</Nome>
+							<Genero>Masculino</Genero>
+							<TipoPessoa>Fisica</TipoPessoa>
+							<TipoParticipacao>Réu</TipoParticipacao>
+							<Principal>S</Principal>
+							<Documentos>
+								<Documento>
+									<Tipo>RG  </Tipo>
+									<Numero>1359018980</Numero>
+								</Documento>
+							</Documentos>
+							<Advogados>
+								<Advogado>
+									<Nome>Alexis Ramon da Silva Teixeira</Nome>
+									<OAB>44896/BA</OAB>
+								</Advogado>
+							</Advogados>
+						</Parte>
+					</PartesPassivas>
+				</Partes>
+				<OutrosNumeros>
+					<OutroNumero>021/2019</OutroNumero>
+					<OutroNumero>003.9.42464/2019</OutroNumero>
+				</OutrosNumeros>
+			</Processo>
+		</Resposta>
+	</MessageBody>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>ERMVmg92kubLqSaxWqifDFhzU1s=</DigestValue></Reference></SignedInfo><SignatureValue>WqR5kyiD5nbkofYuPqsCGHqx4mIFNj/WDYsWuheNiiW5MKkTdoeTErm3FNtXmhWkAHK0V0bN3Tu5
+Sf38ipjRuCJHAMqv0c/U9Z8IZ4nWH/1sOLphIAwC8mO8jdS3ADz3oiLzJsnjiH5EW/OIOWg3brdd
+j8MwYb1m9SIyfx3gec4=</SignatureValue><KeyInfo><X509Data><X509Certificate>MIICrzCCAhgCCQDVUHUkOXrNMDANBgkqhkiG9w0BAQUFADCBmzELMAkGA1UEBhMCQlIxDzANBgNV
+BAgTBkVTVEFETzEPMA0GA1UEBxMGQ0lEQURFMSIwIAYDVQQKExlUUklCVU5BTCBERSBKVVNUSUNB
+IFRFU1RFMSIwIAYDVQQLExlUUklCVU5BTCBERSBKVVNUSUNBIFRFU1RFMSIwIAYDVQQDExlUUklC
+VU5BTCBERSBKVVNUSUNBIFRFU1RFMB4XDTA4MDUxNDEzMDcwMVoXDTA5MDUxNDEzMDcwMVowgZsx
+CzAJBgNVBAYTAkJSMQ8wDQYDVQQIEwZFU1RBRE8xDzANBgNVBAcTBkNJREFERTEiMCAGA1UEChMZ
+VFJJQlVOQUwgREUgSlVTVElDQSBURVNURTEiMCAGA1UECxMZVFJJQlVOQUwgREUgSlVTVElDQSBU
+RVNURTEiMCAGA1UEAxMZVFJJQlVOQUwgREUgSlVTVElDQSBURVNURTCBnzANBgkqhkiG9w0BAQEF
+AAOBjQAwgYkCgYEA1I94HSi8/QfNhxtRUNIznHfWwekx6nRwc2KawCSCU7laOgI5gH8Hn7fcrgPP
+MqjyTPLRybZHuQvYBAVCoSutVbcDEPLZSuRs8oAriupJrNX1+3GUkVwrBTFVWhdmW7mUi88/+LJV
+1MPaweZBQ8oYDes3eLnHw9PaCs2myCQ2SzsCAwEAATANBgkqhkiG9w0BAQUFAAOBgQB6vlkAG9UI
+rl99AqV7KFPhw8b+ZtBsAfDO3wuL8SN57kIGmJ7UK03gAffOQl1KpzOxRFXPFnqyWH7yqZkpdUbL
+xuODBp7iQNNtxqQ20ZyBIAlpPJXM1zMP6FNtYKRWaQFVx00Jf7xQS7bJ584txWfMPKOJnlQ+KnuK
+im7ugk3hTQ==</X509Certificate></X509Data></KeyInfo></Signature></Message>

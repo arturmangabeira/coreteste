@@ -94,5 +94,10 @@ namespace Core.Api.Integracao
                .AddressList
                .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork).ToString();
         }
+
+        public static string GetUUIID()
+        {
+            return System.Guid.NewGuid().ToString();
+        }
     }
 }

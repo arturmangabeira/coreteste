@@ -28,7 +28,7 @@ namespace Core.Api.Models
         [DataMember]
         public bool? FlOperacao { get; set; }
         [DataMember]
-        public string CdIdea { get; set; }
+        public int? CdIdea { get; set; }
         [DataMember]
         public DateTime? DtInicioOperacao { get; set; }
         [DataMember]

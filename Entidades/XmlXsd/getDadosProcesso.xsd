@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageId">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ServiceId" type="xs:string" />
+              <xs:element name="Version" type="xs:decimal" />
+              <xs:element name="MsgDesc" type="xs:string" />
+              <xs:element name="Code" type="xs:unsignedLong" />
+              <xs:element name="FromAddress" type="xs:string" />
+              <xs:element name="ToAddress" type="xs:string" />
+              <xs:element name="Date" type="xs:date" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MessageBody">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Resposta">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Mensagem">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Codigo" type="xs:unsignedByte" />
+                          <xs:element name="Descricao" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Processo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Numero" type="xs:unsignedLong" />
+                          <xs:element name="Instancia" type="xs:unsignedByte" />
+                          <xs:element name="Area" type="xs:string" />
+                          <xs:element name="Classe">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Codigo" type="xs:unsignedShort" />
+                                <xs:element name="Descricao" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="AssuntoPrincipal">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Codigo" type="xs:unsignedShort" />
+                                <xs:element name="Descricao" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ProcessoVirtual" type="xs:string" />
+                          <xs:element name="SegredoJustica" type="xs:string" />
+                          <xs:element name="Foro">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Codigo" type="xs:unsignedByte" />
+                                <xs:element name="Nome" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="Vara">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="Codigo" type="xs:unsignedByte" />
+                                <xs:element name="Nome" type="xs:string" />
+                                <xs:element name="Competencia">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Codigo" type="xs:unsignedByte" />
+                                      <xs:element name="Descricao" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ValorCausa" type="xs:unsignedByte" />
+                          <xs:element name="DataAjuizamento" type="xs:date" />
+                          <xs:element name="DataDistribuicao" type="xs:date" />
+                          <xs:element name="Partes">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="PartesAtivas">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Parte">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="SeqParte" type="xs:unsignedByte" />
+                                            <xs:element name="Nome" type="xs:string" />
+                                            <xs:element name="Genero" type="xs:string" />
+                                            <xs:element name="TipoPessoa" type="xs:string" />
+                                            <xs:element name="TipoParticipacao" type="xs:string" />
+                                            <xs:element name="Principal" type="xs:string" />
+                                            <xs:element name="Documentos">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="Documento">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="Tipo" type="xs:string" />
+                                                        <xs:element name="Numero" type="xs:string" />
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element name="PartesPassivas">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Parte">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="SeqParte" type="xs:unsignedByte" />
+                                            <xs:element name="Nome" type="xs:string" />
+                                            <xs:element name="Genero" type="xs:string" />
+                                            <xs:element name="TipoPessoa" type="xs:string" />
+                                            <xs:element name="TipoParticipacao" type="xs:string" />
+                                            <xs:element name="Principal" type="xs:string" />
+                                            <xs:element name="Documentos">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="Documento">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="Tipo" type="xs:string" />
+                                                        <xs:element name="Numero" type="xs:unsignedInt" />
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="Advogados">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="Advogado">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element name="Nome" type="xs:string" />
+                                                        <xs:element name="OAB" type="xs:string" />
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="OutrosNumeros">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="OutroNumero" type="xs:string" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element xmlns:q1="http://www.w3.org/2000/09/xmldsig#" ref="q1:Signature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

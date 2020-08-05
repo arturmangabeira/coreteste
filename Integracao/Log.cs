@@ -79,12 +79,14 @@ namespace Core.Api.Integracao
             return logOperacao;
         }
 
-        private string GravarArquivoXML(string XML, string cdIdeia, int IdTipoOperacao, string tipoCaminho)
+        private string GravarArquivoXML(string XML, int? cdIdeia, int IdTipoOperacao, string tipoCaminho)
         {
             var config = ConfigurationManager.ConfigurationManager.AppSettings;
+
             var caminhoRetorno = "";
+
             if (config.GetValue<bool>("RegistraLog:GravarArquivosXMLs"))
-            {                
+            {
                 var caminho = config["Diretorios:DsCaminhoDocumentos"];
                 var caminhoPastaXmls = config["Diretorios:DsPastaXML"];
                 var pathDirectorySeparator = Path.DirectorySeparatorChar;
@@ -94,55 +96,54 @@ namespace Core.Api.Integracao
                 //CRIA AS PASTAS NECESSÁRIAS PARA ARMAZENAR NO SERVIDOR
                 this.CriarPastaLogs();
 
-                string nomeFile = cdIdeia;
-
-                /*if (IdTipoOperacao == config.GetValue<int>("Constantes:IdTipoOperacaoConsultaProcesso"))
-                {
-                    nomeFile += "_" + tipoCaminho + "_consultarprocesso_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
-                }*/
-
+                string nomeFile = cdIdeia.ToString();
+                
                 if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"))
                 {
                     var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoConsultaProcesso:nomeOperacaoLog");
-                    nomeFile += "_" + tipoCaminho + "_" + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                    nomeFile += "_" + tipoCaminho + "_" + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
                 }
 
                 if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoCiencia:id"))
                 {
                     var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoCiencia:nomeOperacaoLog");
-                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
                 }
 
                 if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoPeticionamentoInicial:id"))
                 {
                     var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoPeticionamentoInicial:nomeOperacaoLog");
-                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
                 }
 
                 if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoPeticionamentoIntermediario:id"))
                 {
                     var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoPeticionamentoIntermediario:nomeOperacaoLog");
-                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
                 }
 
                 if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoSolicitaLogon:id"))
                 {
                     var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoSolicitaLogon:nomeOperacaoLog");
-                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
                 }
 
                 if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoConfirmaLogon:id"))
                 {
                     var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoConfirmaLogon:nomeOperacaoLog");
-                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xml";
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
                 }
 
                 caminhoRetorno = caminhoPastaXmls + pathDirectorySeparator + DateTime.Now.ToString("yyyy") + pathDirectorySeparator + DateTime.Now.ToString("MM") + pathDirectorySeparator + DateTime.Now.ToString("dd") + pathDirectorySeparator + nomeFile;
+
                 string caminhoTotal = caminho + pathDirectorySeparator + caminhoRetorno;
+
                 //ESCREVE NO CAMINHO ESPECIFICADO 
                 File.WriteAllBytes(caminhoTotal, Convert.FromBase64String(Util.Base64Encode(XML)));
             }
+
             //RETORNA O CAMINHO RELATIVO 'A PARTIR DO CAMPO Diretorios:DsPastaXML DEFINIDO NO appsettings'
+
             return caminhoRetorno;
         }
 

@@ -25,7 +25,7 @@ namespace Core.Api.Integracao
 
         public IConfiguration _configuration { get; }
 
-        public string _cdIdeia { get; set; }
+        public int _cdIdeia { get; set; }
 
         #region Proxy
         public Proxy(DataContext dataContext, ILogger<IntegracaoService> logger, string ipDestino)

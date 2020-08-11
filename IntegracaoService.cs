@@ -1,20 +1,19 @@
-﻿using Core.Api.Data;
+﻿using IntegradorIdea.Data;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
 using System.Collections.Generic;
-using Core.Api.Integracao;
+using IntegradorIdea.Integracao;
 using Microsoft.Extensions.Logging;
-using Core.Api.Objects;
-using System;
-using Core.Api.Entidades.ForoClasse;
-using Core.Api.Entidades.TpParteClasse;
-using Core.Api.Entidades.DocDigitalClasse;
-using Core.Api.Entidades.CategoriaClasse;
-using Core.Api.Entidades.TipoDiversasClasse;
-using Core.Api.Entidades.AssuntoClasse;
+using IntegradorIdea.Objects;
+using IntegradorIdea.Entidades.ForoClasse;
+using IntegradorIdea.Entidades.TpParteClasse;
+using IntegradorIdea.Entidades.DocDigitalClasse;
+using IntegradorIdea.Entidades.CategoriaClasse;
+using IntegradorIdea.Entidades.TipoDiversasClasse;
+using IntegradorIdea.Entidades.AssuntoClasse;
 using Microsoft.AspNetCore.Http;
 
-namespace Core.Api
+namespace IntegradorIdea
 {
     public class IntegracaoService: IIntegracaoService 
     {

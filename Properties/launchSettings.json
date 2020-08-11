@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Core.Api": {
+    "IntegradorIdea": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "Integrador.asmx",

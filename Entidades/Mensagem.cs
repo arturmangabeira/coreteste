@@ -1,5 +1,5 @@
 
-namespace Core.Api.Entidades
+namespace IntegradorIdea.Entidades
 {
     public class Mensagem: EntidadeBase
     {

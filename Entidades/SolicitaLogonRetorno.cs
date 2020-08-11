@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Core.Api.Entidades;
 
-namespace Core.Api.Entidades.SolicitaLogonRetorno
+namespace IntegradorIdea.Entidades.SolicitaLogonRetorno
 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
     [System.SerializableAttribute()]

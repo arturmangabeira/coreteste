@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Core.Api.Entidades.SolicitacaoDocCienciaAto
+﻿
+namespace IntegradorIdea.Entidades.SolicitacaoDocCienciaAto
 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.1")]
     [System.SerializableAttribute()]

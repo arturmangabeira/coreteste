@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Core.Api.Models
+namespace IntegradorIdea.Models
 {
     [DataContract]
     public partial class TLogOperacao

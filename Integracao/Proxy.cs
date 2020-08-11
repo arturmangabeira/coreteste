@@ -1,14 +1,13 @@
 ﻿using System;
 using System.ServiceModel;
-using Core.Api.Data;
-using Core.Api.Entidades;
-using Core.Api.Models;
+using IntegradorIdea.Data;
+using IntegradorIdea.Entidades;
+using IntegradorIdea.Models;
 using IntegracaoTJBA;
-using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Core.Api.Integracao
+namespace IntegradorIdea.Integracao
 {
     public class Proxy
     {

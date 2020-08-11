@@ -1,15 +1,11 @@
-﻿using Core.Api.Data;
-using Core.Api.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using IntegradorIdea.Data;
+using IntegradorIdea.Models;
 using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
-
-namespace Core.Api.Integracao
+namespace IntegradorIdea.Integracao
 {
     public class Log
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core.Api.Objects
+namespace IntegradorIdea.Objects
 {
     public class ArquivoPdf
     {

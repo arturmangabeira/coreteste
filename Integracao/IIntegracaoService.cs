@@ -1,15 +1,13 @@
-﻿using Core.Api.Entidades.AssuntoClasse;
-using Core.Api.Entidades.CategoriaClasse;
-using Core.Api.Entidades.DocDigitalClasse;
-using Core.Api.Entidades.ForoClasse;
-using Core.Api.Entidades.TipoDiversasClasse;
-using Core.Api.Entidades.TpParteClasse;
-using Core.Api.Models;
-using Core.Api.Objects;
+﻿using IntegradorIdea.Entidades.AssuntoClasse;
+using IntegradorIdea.Entidades.CategoriaClasse;
+using IntegradorIdea.Entidades.ForoClasse;
+using IntegradorIdea.Entidades.TipoDiversasClasse;
+using IntegradorIdea.Entidades.TpParteClasse;
+using IntegradorIdea.Objects;
 using System.Collections.Generic;
 using System.ServiceModel;
 
-namespace Core.Api.Integracao
+namespace IntegradorIdea.Integracao
 {
     [ServiceContract]
     public interface IIntegracaoService

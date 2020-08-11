@@ -7514,11 +7514,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\coreteste\\Core.Api.csproj",
-      "projectName": "Core.Api",
-      "projectPath": "C:\\Projetos\\coreteste\\Core.Api.csproj",
+      "projectUniqueName": "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj",
+      "projectName": "IntegradorIdea",
+      "projectPath": "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj",
       "packagesPath": "C:\\Users\\artur\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\coreteste\\obj\\",
+      "outputPath": "C:\\Projetos\\IntegradorIdea\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\artur\\AppData\\Roaming\\NuGet\\NuGet.Config",

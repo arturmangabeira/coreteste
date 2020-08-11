@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vDUE+zrqmu7WuAf5k657KH8Bhb+MtA39MI0Om8lXQKeSypSvkSC+ak56ABf+5xg6G1wXwpz8nAqbsRFy9+6doA==",
+  "dgSpecHash": "yy0xeN9M42vHeVAv0trCEdL2bUNZHUnxYptaqdnxEbfFKX2W1XKFPAoZG3COP4qN3BJqFKo3tIRub6ej7lsy+A==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\coreteste\\Core.Api.csproj",
+  "projectFilePath": "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\artur\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\csquery\\1.3.4\\csquery.1.3.4.nupkg.sha512",

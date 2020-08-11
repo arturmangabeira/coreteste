@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Core.Api.Integracao
+﻿
+namespace IntegradorIdea.Integracao
 {
     interface IMessagem
     {

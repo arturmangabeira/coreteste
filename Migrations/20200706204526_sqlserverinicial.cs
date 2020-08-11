@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Core.Api.Migrations
+namespace IntegradorIdea.Migrations
 {
     public partial class sqlserverinicial : Migration
     {

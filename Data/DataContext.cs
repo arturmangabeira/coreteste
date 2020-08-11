@@ -1,7 +1,7 @@
-using Core.Api.Models;
+using IntegradorIdea.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-namespace Core.Api.Data
+
+namespace IntegradorIdea.Data
 {
     public class DataContext : DbContext 
     {        

@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace Core.Api.ConfigurationManager
+namespace IntegradorIdea.ConfigurationManager
 {
     public static class ConfigurationManager
     {

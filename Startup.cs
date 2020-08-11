@@ -1,19 +1,17 @@
 using System.ServiceModel;
-using Core.Api.Data;
-using Core.Api.Integracao;
+using IntegradorIdea.Data;
+using IntegradorIdea.Integracao;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using SoapCore;
 
-namespace Core.Api
+namespace IntegradorIdea
 {
     public class Startup
     {

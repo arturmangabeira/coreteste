@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.Api
+namespace IntegradorIdea
 {
     public class WeatherForecast
     {

@@ -2,7 +2,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Core.Api.Entidades
+namespace IntegradorIdea.Entidades
 {
     public class EntidadeBase
     {

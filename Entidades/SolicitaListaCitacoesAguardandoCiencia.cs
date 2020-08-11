@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Core.Api.Entidades.SolicitaListaCitacoesAguardandoCiencia
+﻿
+namespace IntegradorIdea.Entidades.SolicitaListaCitacoesAguardandoCiencia
 {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]

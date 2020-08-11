@@ -1,8 +1,6 @@
 ﻿using System;
-using Core.Api.Entidades;
-using System.Collections.Generic;
+using IntegradorIdea.Entidades;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
@@ -13,7 +11,7 @@ using iTextSharp.text.pdf.parser;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Core.Api.Integracao
+namespace IntegradorIdea.Integracao
 {
     public class Util
     {

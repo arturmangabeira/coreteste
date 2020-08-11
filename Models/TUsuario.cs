@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Core.Api.Models
+namespace IntegradorIdea.Models
 {
     public partial class TUsuario
     {

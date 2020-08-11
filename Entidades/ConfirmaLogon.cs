@@ -1,6 +1,5 @@
-using Core.Api.Entidades;
 
-namespace Core.Api.Entidades.ConfirmaLogon
+namespace IntegradorIdea.Entidades.ConfirmaLogon
 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "2.0.50727.3038")]
     [System.SerializableAttribute()]

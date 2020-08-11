@@ -3,27 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
-using Core.Api.ConfigurationManager;
-using Core.Api.Data;
-using Core.Api.Entidades;
-using Core.Api.Entidades.AssuntoClasse;
-using Core.Api.Entidades.CategoriaClasse;
-using Core.Api.Entidades.DocDigitalClasse;
-using Core.Api.Entidades.ForoClasse;
-using Core.Api.Entidades.TipoDiversasClasse;
-using Core.Api.Entidades.TpParteClasse;
-using Core.Api.Models;
-using Core.Api.Objects;
+using IntegradorIdea.Data;
+using IntegradorIdea.Entidades;
+using IntegradorIdea.Entidades.AssuntoClasse;
+using IntegradorIdea.Entidades.CategoriaClasse;
+using IntegradorIdea.Entidades.DocDigitalClasse;
+using IntegradorIdea.Entidades.ForoClasse;
+using IntegradorIdea.Entidades.TipoDiversasClasse;
+using IntegradorIdea.Entidades.TpParteClasse;
+using IntegradorIdea.Models;
+using IntegradorIdea.Objects;
 using CsQuery;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 
-namespace Core.Api.Integracao
+namespace IntegradorIdea.Integracao
 {
     public class IntegracaoEsaj
     {

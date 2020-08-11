@@ -131,7 +131,7 @@ namespace IntegradorIdea.Integracao
                             }
                         };
 
-                        if(processo.OutrosNumeros.Length > 0)
+                        if(processo.OutrosNumeros != null && processo.OutrosNumeros.Length > 0)
                         {
                             tipoProcessoJudicial.dadosBasicos.outrosnumeros = processo.OutrosNumeros;
                         }

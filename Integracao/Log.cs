@@ -100,6 +100,12 @@ namespace IntegradorIdea.Integracao
                     nomeFile += "_" + tipoCaminho + "_" + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
                 }
 
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoConsultaProcessoESAJ:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoConsultaProcessoESAJ:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + "_" + dsOperacao + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
+                }
+
                 if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoCiencia:id"))
                 {
                     var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoCiencia:nomeOperacaoLog");

@@ -347,7 +347,7 @@ namespace IntegradorIdea.Integracao
                                 descricao = Path.GetFileName(arquivo),
                                 idDocumentoVinculado = Path.GetFileName(diretorio),
                                 nivelSigilo = 0,
-                                dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                                dataHora = DateTime.Now.ToString("yyyymmddhhmmss")
                             });
 
                         }
@@ -358,7 +358,7 @@ namespace IntegradorIdea.Integracao
                                 descricao = Path.GetFileName(diretorio),
                                 documentoVinculado = docVinculado.ToArray(),
                                 nivelSigilo = 0,
-                                dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                                dataHora = DateTime.Now.ToString("yyyymmddhhmmss")
                             });
                         }
                         else
@@ -370,7 +370,7 @@ namespace IntegradorIdea.Integracao
                                     descricao = Path.GetFileName(diretorio),
                                     documentoVinculado = docVinculado.ToArray(),
                                     nivelSigilo = 0,
-                                    dataHora = DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss")
+                                    dataHora = DateTime.Now.ToString("yyyymmddhhmmss")
                                 });
                             }
                         }

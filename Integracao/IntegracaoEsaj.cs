@@ -1537,9 +1537,7 @@ namespace IntegradorIdea.Integracao
         private string SalvarArquivoTeorAto(ref string TeorAto, int idComunicacaoEletronica)
         {
             var config = ConfigurationManager.ConfigurationManager.AppSettings;
-
-            var caminhoRetorno = "";
-
+            
             var caminho = config["Diretorios:DsCaminhoTeorAto"];            
             var pathDirectorySeparator = Path.DirectorySeparatorChar;
 
@@ -1548,11 +1546,13 @@ namespace IntegradorIdea.Integracao
                 Directory.CreateDirectory(caminho + pathDirectorySeparator + idComunicacaoEletronica);
             }
 
-            var caminhoTotal = caminho + pathDirectorySeparator + idComunicacaoEletronica + pathDirectorySeparator + "teorAto_" + idComunicacaoEletronica + DateTime.Now.ToString("yyyymmddhhmmss")+".zip";
+            var caminhoRetorno = idComunicacaoEletronica + pathDirectorySeparator + "DsCaminhoDocumentosAnexoAtoDisponibilizado_" + idComunicacaoEletronica + DateTime.Now.ToString("yyyymmddhhmmss") + ".zip";
+
+            var caminhoTotal = caminho + pathDirectorySeparator + caminhoRetorno;
 
             File.WriteAllBytes(caminhoTotal, Convert.FromBase64String(TeorAto));
 
-            return caminhoTotal;
+            return caminhoRetorno;
         }
         #endregion
 

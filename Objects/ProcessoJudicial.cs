@@ -9,25 +9,35 @@ namespace IntegradorIdea.Objects
     {
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
         public string idConsultante;
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
         public string senhaConsultante;
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
         public string numeroProcesso;
-                
+
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 3)]
-        public bool movimentos;
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        public string dataReferencia;
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 4)]
-        public bool incluirCabecalho;
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        public bool movimentos;
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 5)]
-        public bool incluirDocumentos;
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        public bool incluirCabecalho;
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 6)]
-        [System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        public bool incluirDocumentos;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 7)]
+        [System.Xml.Serialization.XmlElementAttribute("documento", Namespace = "", IsNullable = true)]
         public string[] documento;
 
         public consultarProcessoRequest()

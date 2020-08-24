@@ -14,6 +14,7 @@ namespace IntegradorIdea.Integracao
     {           
         [OperationContract]
         public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso);
+        
         [OperationContract]
         [XmlSerializerFormat(SupportFaults = true,Style = OperationFormatStyle.Rpc,Use = OperationFormatUse.Encoded)]        
         public Foros getForosEVaras();

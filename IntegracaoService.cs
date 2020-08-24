@@ -125,6 +125,6 @@ namespace IntegradorIdea
         {
             _logger.LogInformation("Iniciando consultarAvisosPendentes.");
             return _integracaoEsaj.consultarAvisosPendentes(consultarAvisosPendentes);
-        }
+        }                
     }
 }

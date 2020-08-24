@@ -245,7 +245,7 @@ namespace IntegradorIdea.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcessoESAJ:id"),
                     IdTipoRetorno = 1
                 };
                 //REGISTRA O LOG

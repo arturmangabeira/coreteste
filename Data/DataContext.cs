@@ -32,15 +32,15 @@ namespace IntegradorIdea.Data
 
                 entity.ToTable("tComunicacaoEletronica");
 
-                entity.Property(e => e.DsCaminhoDocumentosAnexoAtoAssinado)
+                entity.Property(e => e.DsCaminhoDocumentosAnexoAtoDisponibilizado)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DsCaminhoDocumentosAnexoAtoEnviados)
+                entity.Property(e => e.DsCaminhoDocumentosAnexoAtoEnvio)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DsCaminhoDocumentosAnexoAtoRecebidos)
+                entity.Property(e => e.DsCaminhoDocumentosAnexoAtoRetorno)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
@@ -54,10 +54,6 @@ namespace IntegradorIdea.Data
 
                 entity.Property(e => e.DsTeorAto).HasColumnType("text");
 
-                entity.Property(e => e.DtCadastro)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
                 entity.Property(e => e.DtCiencia).HasColumnType("datetime");
 
                 entity.Property(e => e.DtDisponibilizacao).HasColumnType("datetime");
@@ -69,17 +65,12 @@ namespace IntegradorIdea.Data
                 entity.Property(e => e.DtMovimentacao).HasColumnType("datetime");
 
                 entity.Property(e => e.DtRecebimento).HasColumnType("datetime");
-
-                entity.Property(e => e.FlRecebimentoAutomatico)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
-                entity.Property(e => e.NuDocumentosAnexos)
+                
+                entity.Property(e => e.DsDocumentosAnexos)
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.NuOutrosNumeros)
+                entity.Property(e => e.DsOutrosNumeros)
                     .HasMaxLength(100)
                     .IsUnicode(false);
 

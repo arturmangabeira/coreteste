@@ -24,10 +24,13 @@ namespace IntegradorIdea.Controllers
         public Log _logOperacao { get; }
         public string _ipDestino { get; set; }
 
+        Integracao.IntegracaoEsaj _integracaoEsaj { get; set; }
+
         public IntimacaoCitacaoController(DataContext dataContext, IConfiguration config, ILogger<IntegracaoService> logger, IHttpContextAccessor contexto)
         {
             _ipDestino = contexto.HttpContext.Connection.RemoteIpAddress.ToString();
             _proxy = new Proxy(dataContext, logger, _ipDestino);
+            _integracaoEsaj = new Integracao.IntegracaoEsaj(_proxy, _dataContext, _logger, _ipDestino);
             _logger = logger;
             _configuration = config;
             _dataContext = dataContext;
@@ -36,12 +39,18 @@ namespace IntegradorIdea.Controllers
         [HttpGet("ObterListaIntimacaoCitacao")]
         public string ObterListaInimacaoCitacao()
         {
-
-            Integracao.IntegracaoEsaj integracaoEsaj = new Integracao.IntegracaoEsaj(_proxy, _dataContext, _logger, _ipDestino);
+            
             //EXECUTA OS INSERTS DAS INTIMACOES CITACOES
-            //integracaoEsaj.ObterIntimacaoCitacaoService();
+            _integracaoEsaj.ObterIntimacaoCitacaoService();
+            
+            return "Concluído";
+        }
+
+        [HttpGet("ObterDocCiencia")]
+        public string ObterDocCiencia()
+        {            
             //EXECURTA ROTINA PARA INCLUIR O DOCUMENTO DO TEOR DO ATO
-            integracaoEsaj.ObterDocTeorAto();
+            _integracaoEsaj.ObterDocTeorAto();
 
             return "Concluído";
         }

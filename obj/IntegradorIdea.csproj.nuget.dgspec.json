@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj": {}
+    "C:\\Projetos\\coreteste\\IntegradorIdea.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj": {
+    "C:\\Projetos\\coreteste\\IntegradorIdea.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj",
+        "projectUniqueName": "C:\\Projetos\\coreteste\\IntegradorIdea.csproj",
         "projectName": "IntegradorIdea",
-        "projectPath": "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj",
+        "projectPath": "C:\\Projetos\\coreteste\\IntegradorIdea.csproj",
         "packagesPath": "C:\\Users\\artur\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\IntegradorIdea\\obj\\",
+        "outputPath": "C:\\Projetos\\coreteste\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\artur\\AppData\\Roaming\\NuGet\\NuGet.Config",

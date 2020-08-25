@@ -29,11 +29,11 @@ namespace IntegradorIdea.Controllers
         public IntimacaoCitacaoController(DataContext dataContext, IConfiguration config, ILogger<IntegracaoService> logger, IHttpContextAccessor contexto)
         {
             _ipDestino = contexto.HttpContext.Connection.RemoteIpAddress.ToString();
-            _proxy = new Proxy(dataContext, logger, _ipDestino);
-            _integracaoEsaj = new Integracao.IntegracaoEsaj(_proxy, _dataContext, _logger, _ipDestino);
+            _proxy = new Proxy(dataContext, logger, _ipDestino);            
             _logger = logger;
             _configuration = config;
             _dataContext = dataContext;
+            _integracaoEsaj = new Integracao.IntegracaoEsaj(_proxy, _dataContext, logger, _ipDestino);
         }
 
         [HttpGet("ObterListaIntimacaoCitacao")]

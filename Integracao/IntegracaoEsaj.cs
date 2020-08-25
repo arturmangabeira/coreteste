@@ -1546,9 +1546,9 @@ namespace IntegradorIdea.Integracao
                 Directory.CreateDirectory(caminho + pathDirectorySeparator + idComunicacaoEletronica);
             }
 
-            var caminhoRetorno = idComunicacaoEletronica + pathDirectorySeparator + "DocumentoAnexoAto.zip";
+            var caminhoRetorno = idComunicacaoEletronica + pathDirectorySeparator.ToString() + "DocumentoAnexoAto.zip";
 
-            var caminhoTotal = caminho + pathDirectorySeparator + caminhoRetorno;
+            var caminhoTotal = caminho + pathDirectorySeparator.ToString() + caminhoRetorno;
 
             File.WriteAllBytes(caminhoTotal, Convert.FromBase64String(TeorAto));
 

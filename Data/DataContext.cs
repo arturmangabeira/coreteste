@@ -52,6 +52,10 @@ namespace IntegradorIdea.Data
                     .HasMaxLength(4000)
                     .IsUnicode(false);
 
+                entity.Property(e => e.NmVara)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.DsTeorAto).HasColumnType("text");
 
                 entity.Property(e => e.DtCiencia).HasColumnType("datetime");

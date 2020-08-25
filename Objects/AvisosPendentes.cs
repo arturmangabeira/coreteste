@@ -37,7 +37,7 @@ namespace IntegradorIdea.Objects
     public partial class tipoAvisoComunicacaoPendente
     {
 
-        private tipoParte destinatarioField;
+        private tipoParteDestinatario destinatarioField;
 
         private tipoCabecalhoProcesso processoField;
 
@@ -49,7 +49,7 @@ namespace IntegradorIdea.Objects
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
-        public tipoParte destinatario
+        public tipoParteDestinatario destinatario
         {
             get
             {

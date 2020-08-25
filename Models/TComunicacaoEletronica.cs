@@ -28,6 +28,8 @@ namespace IntegradorIdea.Models
         public string DsTeorAto { get; set; }
         public DateTime? DtCiencia { get; set; }
         public DateTime? DtLimiteCiencia { get; set; }
-        
+        public string NmVara { get; set; }
+
+
     }
 }

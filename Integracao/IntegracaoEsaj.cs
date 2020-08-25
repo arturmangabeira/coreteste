@@ -1355,6 +1355,8 @@ namespace IntegradorIdea.Integracao
                             NuProcesso = Util.OnlyNumbers(intimacao.nuProcesso),
                             CdForo = (int)intimacao.ForoVara.cdForo,
                             CdVara = (int)intimacao.ForoVara.cdVara,
+                            NmVara = intimacao.ForoVara.nmVara,
+                            CdClasse = (int)intimacao.Classe.cdClasse,
                             DtLimiteCiencia = intimacao.dtDisponibilizacao.AddDays(10)
                         };
                         _dataContext.TComunicacaoEletronica.Add(comunicacaoEletronica);
@@ -1437,6 +1439,8 @@ namespace IntegradorIdea.Integracao
                             NuProcesso = Util.OnlyNumbers(citacao.nuProcesso),
                             CdForo = (int)citacao.ForoVara.cdForo,
                             CdVara = (int)citacao.ForoVara.cdVara,
+                            NmVara = citacao.ForoVara.nmVara,
+                            CdClasse = (int)citacao.Classe.cdClasse,
                             DtLimiteCiencia = citacao.dtDisponibilizacao.AddDays(10)
                         };
 
@@ -1560,7 +1564,7 @@ namespace IntegradorIdea.Integracao
         public List<tipoAvisoComunicacaoPendente> ObterIntimacaoCitacao()
         {
             //APÓS OBTER OS DADOS E INSERIR NA TABELA REALIZA O PARSER PARA DEVEOLVER NO FORMATO DO PJE(MNI)
-            var intimacacaoCitacaoPendentesCiencia = _dataContext.TComunicacaoEletronica.Where(atos => atos.DtCiencia == null).ToList();
+            var intimacacaoCitacaoPendentesCiencia = _dataContext.TComunicacaoEletronica.Where(atos => atos.DtCiencia == null && atos.DsCaminhoDocumentosAnexoAtoDisponibilizado != null).ToList();
             List<tipoAvisoComunicacaoPendente> listaTipoAvisos = new List<tipoAvisoComunicacaoPendente>();
 
             if (intimacacaoCitacaoPendentesCiencia != null && intimacacaoCitacaoPendentesCiencia.Count > 0)
@@ -1569,9 +1573,20 @@ namespace IntegradorIdea.Integracao
                 {
                     listaTipoAvisos.Add(new tipoAvisoComunicacaoPendente
                     {
+                        destinatario = new tipoParteDestinatario()
+                        {
+                            assistenciaJudiciaria = false,
+                            intimacaoPendente = 0,
+                            pessoa = new tipoPessoaDestinatario()
+                            {
+                                nome = "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+                                numeroDocumentoPrincipal = "04142491000166",
+                                tipoPessoa1 = tipoQualificacaoPessoa.juridica
+                            }
+                        },
                         dataDisponibilizacao = intimacaoCitacao.DtDisponibilizacao.ToString("yyyymmddhhmmss"),
                         idAviso = intimacaoCitacao.CdAto.ToString(),
-                        tipoComunicacao = intimacaoCitacao.TpIntimacaoCitacao == "I" ? "INT" : "CIT",
+                        tipoComunicacao = intimacaoCitacao.TpIntimacaoCitacao == "I" ? "INT" : "CIT",                        
                         processo = new tipoCabecalhoProcesso
                         {
                             assunto = new tipoAssuntoProcessual[]
@@ -1588,7 +1603,7 @@ namespace IntegradorIdea.Integracao
                             //competenciaSpecified = true,
                             nivelSigilo = 0,
                             codigoLocalidade = intimacaoCitacao.CdForo.ToString(),
-                            classeProcessual = intimacaoCitacao.CdClasse,
+                            classeProcessual = intimacaoCitacao.CdClasse,                            
                             outroParametro = new tipoParametro[]
                             {
                                 new tipoParametro
@@ -1626,7 +1641,7 @@ namespace IntegradorIdea.Integracao
                             {
                                 codigoOrgao = intimacaoCitacao.CdVara.ToString(),
                                 instancia = "ORI",
-                                nomeOrgao = ""//intimacaoCitacao.nmVara
+                                nomeOrgao = intimacaoCitacao.NmVara
                             }
                         }
                     });
@@ -1663,11 +1678,13 @@ namespace IntegradorIdea.Integracao
 
             var dtInicial = DateTime.Now;
 
+            var retornoIntimacaoCitacao = this.ObterIntimacaoCitacao().ToArray();
+
             var consultaAvisoPendenteResposta = new consultarAvisosPendentesResponse
             {
-                mensagem = $"Avisos de comunicação processual consultados com sucesso!",
+                mensagem = $"Avisos de comunicação processual consultados com sucesso! Consultados {retornoIntimacaoCitacao.Length} de {retornoIntimacaoCitacao.Length}",
                 sucesso = true,
-                aviso = this.ObterIntimacaoCitacao().ToArray()
+                aviso = retornoIntimacaoCitacao
             };            
 
             TLogOperacao operacaoConsultarAvisoPendente = new TLogOperacao()

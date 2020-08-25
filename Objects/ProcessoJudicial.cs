@@ -1402,6 +1402,176 @@ namespace IntegradorIdea.Objects
         }               
     }
 
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    public partial class tipoParteDestinatario
+    {
+
+        private tipoPessoaDestinatario pessoaField;
+
+        private string interessePublicoField;
+
+        private tipoRepresentanteProcessual[] advogadoField;
+
+        private tipoParte[] pessoaProcessualRelacionadaField;
+
+        private bool assistenciaJudiciariaField;
+
+        private bool assistenciaJudiciariaFieldSpecified;
+
+        private int intimacaoPendenteField;
+
+        private bool intimacaoPendenteFieldSpecified;
+
+        private modalidadeRelacionamentoProcessual relacionamentoProcessualField;
+
+        private bool relacionamentoProcessualFieldSpecified;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        public tipoPessoaDestinatario pessoa
+        {
+            get
+            {
+                return this.pessoaField;
+            }
+            set
+            {
+                this.pessoaField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        public string interessePublico
+        {
+            get
+            {
+                return this.interessePublicoField;
+            }
+            set
+            {
+                this.interessePublicoField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("advogado", IsNullable = true, Order = 2)]
+        public tipoRepresentanteProcessual[] advogado
+        {
+            get
+            {
+                return this.advogadoField;
+            }
+            set
+            {
+                this.advogadoField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("pessoaProcessualRelacionada", IsNullable = true, Order = 3)]
+        public tipoParte[] pessoaProcessualRelacionada
+        {
+            get
+            {
+                return this.pessoaProcessualRelacionadaField;
+            }
+            set
+            {
+                this.pessoaProcessualRelacionadaField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool assistenciaJudiciaria
+        {
+            get
+            {
+                return this.assistenciaJudiciariaField;
+            }
+            set
+            {
+                this.assistenciaJudiciariaField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool assistenciaJudiciariaSpecified
+        {
+            get
+            {
+                return this.assistenciaJudiciariaFieldSpecified;
+            }
+            set
+            {
+                this.assistenciaJudiciariaFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int intimacaoPendente
+        {
+            get
+            {
+                return this.intimacaoPendenteField;
+            }
+            set
+            {
+                this.intimacaoPendenteField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool intimacaoPendenteSpecified
+        {
+            get
+            {
+                return this.intimacaoPendenteFieldSpecified;
+            }
+            set
+            {
+                this.intimacaoPendenteFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public modalidadeRelacionamentoProcessual relacionamentoProcessual
+        {
+            get
+            {
+                return this.relacionamentoProcessualField;
+            }
+            set
+            {
+                this.relacionamentoProcessualField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool relacionamentoProcessualSpecified
+        {
+            get
+            {
+                return this.relacionamentoProcessualFieldSpecified;
+            }
+            set
+            {
+                this.relacionamentoProcessualFieldSpecified = value;
+            }
+        }
+    }
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
     [System.SerializableAttribute()]
@@ -1763,6 +1933,78 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.nacionalidadeField = value;                
+            }
+        }
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    public partial class tipoPessoaDestinatario
+    {
+        private tipoDocumentoIdentificacao[] documentoField;
+
+        private string nomeField;
+        
+        private string numeroDocumentoPrincipalField;
+
+        private tipoQualificacaoPessoa tipoPessoa1Field;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true, Order = 0)]
+        public tipoDocumentoIdentificacao[] documento
+        {
+            get
+            {
+                return this.documentoField;
+            }
+            set
+            {
+                this.documentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string nome
+        {
+            get
+            {
+                return this.nomeField;
+            }
+            set
+            {
+                this.nomeField = value;
+            }
+        }
+                
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string numeroDocumentoPrincipal
+        {
+            get
+            {
+                return this.numeroDocumentoPrincipalField;
+            }
+            set
+            {
+                this.numeroDocumentoPrincipalField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute("tipoPessoa")]
+        public tipoQualificacaoPessoa tipoPessoa1
+        {
+            get
+            {
+                return this.tipoPessoa1Field;
+            }
+            set
+            {
+                this.tipoPessoa1Field = value;
             }
         }
     }

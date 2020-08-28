@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30128.74
+VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegradorIdea", "IntegradorIdea.csproj", "{FCBE6A93-60EB-4905-82D7-4C6A77ACCDE8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicoComunicacoesEletronicas", "ServicoComunicacoesEletronicas\ServicoComunicacoesEletronicas.csproj", "{C7D99407-3CB1-4370-B8D4-38824CAA8F96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicoComunicacoesEletronicas", "ServicoComunicacoesEletronicas.csproj", "{C7D99407-3CB1-4370-B8D4-38824CAA8F96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FCBE6A93-60EB-4905-82D7-4C6A77ACCDE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCBE6A93-60EB-4905-82D7-4C6A77ACCDE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCBE6A93-60EB-4905-82D7-4C6A77ACCDE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCBE6A93-60EB-4905-82D7-4C6A77ACCDE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C7D99407-3CB1-4370-B8D4-38824CAA8F96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C7D99407-3CB1-4370-B8D4-38824CAA8F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7D99407-3CB1-4370-B8D4-38824CAA8F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -26,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {644D95A0-1AE3-4FD4-91EC-619CBDADE304}
+		SolutionGuid = {00E4DA33-6265-4061-80C9-B25D6557B15C}
 	EndGlobalSection
 EndGlobal

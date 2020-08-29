@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj": {}
+    "C:\\Projetos\\coreteste\\IntegradorIdea.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj": {
+    "C:\\Projetos\\coreteste\\IntegradorIdea.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj",
+        "projectUniqueName": "C:\\Projetos\\coreteste\\IntegradorIdea.csproj",
         "projectName": "IntegradorIdea",
-        "projectPath": "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj",
+        "projectPath": "C:\\Projetos\\coreteste\\IntegradorIdea.csproj",
         "packagesPath": "C:\\Users\\artur\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\IntegradorIdea\\obj\\",
+        "outputPath": "C:\\Projetos\\coreteste\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\artur\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,10 +38,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "BouncyCastle": {
-              "target": "Package",
-              "version": "[1.8.6.1, )"
-            },
             "CsQuery": {
               "target": "Package",
               "version": "[1.3.4, )"
@@ -104,9 +100,9 @@
               "target": "Package",
               "version": "[4.4.*, )"
             },
-            "iTextSharp": {
+            "itextsharp": {
               "target": "Package",
-              "version": "[5.5.13.1, )"
+              "version": "[5.2.0, )"
             }
           },
           "imports": [
@@ -127,7 +123,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

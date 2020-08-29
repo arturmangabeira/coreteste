@@ -1734,5 +1734,183 @@ namespace IntegradorIdea.Integracao
         }
         #endregion
 
+        #region consultarTeorComunicacao
+        public consultarTeorComunicacaoResponse consultarTeorComunicacao(consultarTeorComunicacaoRequest consultarTeorComunicacao) 
+        {
+            var dtInicial = DateTime.Now;
+            //OBTÉM INFORMACAO DA INTIMACA/CITACAO ATRAVÉS DO CAMPO IDAVISO (CdAto)
+            //A DEPENDER DA INFORMACAO DO CAMPO TpintimacaoCitacao O SISTEMA IRÁ SOLICITAR A CIENCIA DE ACORDO AO TIPO "I" OU "C"
+            var intimacacaoCitacao = _dataContext.TComunicacaoEletronica.Where(atos => 
+                                        atos.CdAto == Int32.Parse(consultarTeorComunicacao.identificadorAviso) 
+                                        && atos.NuProcesso == Util.OnlyNumbers(consultarTeorComunicacao.numeroProcesso)
+                                    ).FirstOrDefault();
+            if (intimacacaoCitacao != null)
+            {
+                //ASSINA O ARQUIVO PARA O ENVIO E ATUALIZA O ARQUIVO NA BASE:
+                ArquivoPdf[] colArquivos;
+                ArquivoPdf[] ArquivoCiencia = new ArquivoPdf[1]; 
+                Compressao objCompressao = new Compressao();
+                //OBTÉM O ARQUIVO (NA PASTA EM CONFIGURACAO) PARA REALIZAR A ASSINATURA:
+                var documentoAtobase64 = this.ObterArquivoIntimacaoCitacaoAto(intimacacaoCitacao.DsCaminhoDocumentosAnexoAtoDisponibilizado);
+                colArquivos = objCompressao.DescomprimirBase64(documentoAtobase64);
+                foreach (ArquivoPdf arqRetororno in colArquivos)
+                {
+                    if (arqRetororno.Nome.Equals("Ciencia.pdf"))
+                    {
+                        byte[] dadosArquivo = arqRetororno.Dados;
+                        byte[] dadosArquivoAssinar = Util.AssinarPDF(ref dadosArquivo);
+                        ArquivoPdf CienciaPDF = new ArquivoPdf();
+                        ArquivoPdf CienciaPDF2 = CienciaPDF.AdicionarDados(ref dadosArquivoAssinar, "Ciencia.pdf");
+                        ArquivoCiencia[0] = CienciaPDF2;
+
+                    }
+                }
+                
+                string ArquivoCienciaBase64 = objCompressao.Comprimir2Base64(ArquivoCiencia);
+
+                if (intimacacaoCitacao.TpIntimacaoCitacao.Equals("I"))
+                {
+                    this.SolicitaIntimacaoAto(intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
+                }
+                else
+                {
+                    if (intimacacaoCitacao.TpIntimacaoCitacao.Equals("C"))
+                    {
+                        this.SolicitaCitacaoAto(intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
+                    }
+                }
+            }
+            var dtFinal = DateTime.Now;
+            //REGISTAR LOGON
+            TLogOperacao operacao = new TLogOperacao()
+            {
+                //CdIdea = _cdIdeia,
+                DsCaminhoDocumentosChamada = Util.Serializar(consultarTeorComunicacao),
+                DsCaminhoDocumentosRetorno = "",
+                DsLogOperacao = "ConsultarTeorComunicacao no ESAJ",
+                DtInicioOperacao = dtInicial,
+                DtFinalOperacao = dtFinal,
+                DtLogOperacao = DateTime.Now,
+                FlOperacao = true,
+                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
+                IdTipoRetorno = 1
+            };
+            //REGISTRA O LOG
+            _logOperacao.RegistrarLogOperacao(operacao);
+
+            return null;
+        }
+        #endregion
+
+        private string ObterArquivoIntimacaoCitacaoAto(string caminhoArquivo)
+        {
+            var caminhoDiretorio = _configuration["Diretorios:DsCaminhoTeorAto"];
+            var pathDirectorySeparator = Path.DirectorySeparatorChar;
+            
+            caminhoArquivo = caminhoDiretorio + pathDirectorySeparator + caminhoArquivo;
+
+            Byte[] bytes = File.ReadAllBytes(caminhoArquivo);
+            String fileBase64 = Convert.ToBase64String(bytes);
+
+            return fileBase64;
+        }
+
+        #region SolicitaIntimacaoAto
+        private string SolicitaIntimacaoAto(string cdAto, string arquivoBase64)
+        {
+            var dtInicial = DateTime.Now;
+            Entidades.SolicitaIntimacaoAto.Message Message = new Entidades.SolicitaIntimacaoAto.Message();
+            Entidades.SolicitaIntimacaoAto.MessageIdType MessageIdType = new Entidades.SolicitaIntimacaoAto.MessageIdType();
+            Entidades.SolicitaIntimacaoAto.MessageMessageBody MessageMessageBody = new Entidades.SolicitaIntimacaoAto.MessageMessageBody();
+
+            MessageIdType.Code = "202099000001";
+            MessageIdType.Date = DateTime.Now.ToString("yyyy-MM-dd");
+            MessageIdType.FromAddress = "MP-BA";
+            MessageIdType.ToAddress = "TJ";
+            MessageIdType.MsgDesc = "Solicitação intimação para um ato específico";
+            MessageIdType.VersionSpecified = true;
+            MessageIdType.Version = Entidades.SolicitaIntimacaoAto.VersionType.Item10;
+            MessageIdType.ServiceId = Entidades.SolicitaIntimacaoAto.ServiceIdSolicitacaoIntimacaoAtoType.SolicitacaoIntimacaoAto;
+            Message.MessageId = MessageIdType;
+
+            MessageMessageBody.cdAto = cdAto;
+            Message.MessageBody = MessageMessageBody;
+
+            // Gerando o XML
+            string xml = Message.Serialize();
+            
+            string Dados = _proxy.SolicitacaoIntimacaoAto(xml, arquivoBase64);
+
+            var dtFinal = DateTime.Now;
+            //REGISTAR LOGON
+            TLogOperacao operacao = new TLogOperacao()
+            {
+                //CdIdea = _cdIdeia,
+                DsCaminhoDocumentosChamada = xml,
+                DsCaminhoDocumentosRetorno = Dados,
+                DsLogOperacao = "SolicitacaoIntimacaoAto no ESAJ",
+                DtInicioOperacao = dtInicial,
+                DtFinalOperacao = dtFinal,
+                DtLogOperacao = DateTime.Now,
+                FlOperacao = true,
+                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoIntimacaoAto:id"),
+                IdTipoRetorno = 1
+            };
+            //REGISTRA O LOG
+            _logOperacao.RegistrarLogOperacao(operacao);
+
+            return Dados;
+        }
+        #endregion
+
+
+        #region SolicitaCitacaoAto
+        public string SolicitaCitacaoAto(string cdAto, string arquivoBase64)
+        {
+            var dtInicial = DateTime.Now;
+            Entidades.SolicitaCitacaoAto.Message Message = new Entidades.SolicitaCitacaoAto.Message();
+            Entidades.SolicitaCitacaoAto.MessageIdType MessageIdType = new Entidades.SolicitaCitacaoAto.MessageIdType();
+            Entidades.SolicitaCitacaoAto.MessageMessageBody MessageMessageBody = new Entidades.SolicitaCitacaoAto.MessageMessageBody();
+
+            MessageIdType.Code = "202099000001";
+            MessageIdType.Date = DateTime.Now.ToString("yyyy-MM-dd");
+            MessageIdType.FromAddress = "MP-BA";
+            MessageIdType.ToAddress = "TJ";
+            MessageIdType.MsgDesc = "Solicitação Citacacao para um ato específico";
+            MessageIdType.VersionSpecified = true;
+            MessageIdType.Version = Entidades.SolicitaCitacaoAto.VersionType.Item10;
+            MessageIdType.ServiceId = Entidades.SolicitaCitacaoAto.ServiceIdSolicitacaoCitacaoAtoType.SolicitacaoCitacaoAto;
+            Message.MessageId = MessageIdType;
+
+            MessageMessageBody.cdAto = cdAto;
+            Message.MessageBody = MessageMessageBody;
+
+            // Gerando o XML
+            string xml = Message.Serialize();
+                        
+            string Dados = _proxy.SolicitacaoCitacaoAto(xml, arquivoBase64);
+
+            var dtFinal = DateTime.Now;
+            //REGISTAR LOGON
+            TLogOperacao operacao = new TLogOperacao()
+            {
+                //CdIdea = _cdIdeia,
+                DsCaminhoDocumentosChamada = xml,
+                DsCaminhoDocumentosRetorno = Dados,
+                DsLogOperacao = "SolicitaCitacaoAto no ESAJ",
+                DtInicioOperacao = dtInicial,
+                DtFinalOperacao = dtFinal,
+                DtLogOperacao = DateTime.Now,
+                FlOperacao = true,
+                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoCitacaoAto:id"),
+                IdTipoRetorno = 1
+            };
+            //REGISTRA O LOG
+            _logOperacao.RegistrarLogOperacao(operacao);
+
+            return Dados;
+        }
+        #endregion
+
     }
 }

@@ -487,6 +487,61 @@ namespace IntegradorIdea.Integracao
         }
         #endregion
 
+        #region SolicitacaoIntimacaoAto
+        public string SolicitacaoIntimacaoAto(string strXMLSolicitacao, string strBase64DocumentosAnexos)
+        {
+            string resposta;
+            
+            string strLogin;
+
+            if (Autenticar(_codigo, out strLogin))
+            {
+                Entidades.SolicitaIntimacaoAto.Message objSolicitacao = new Entidades.SolicitaIntimacaoAto.Message();
+                objSolicitacao = objSolicitacao.ExtrairObjeto<Entidades.SolicitaIntimacaoAto.Message>(strXMLSolicitacao);
+
+                string strXML = objSolicitacao.Serialize();
+
+                IXml objXML = new Xml();
+                strXML = objXML.AssinarXmlString(strXML, _repositorio, _certificado, "");
+                resposta = _serviceESAJ.SolicitacaoIntimacaoAtoAsync(strXML, strBase64DocumentosAnexos).Result;
+
+            }
+            else
+            {
+                resposta = strLogin;
+            }
+            return resposta;
+        }
+        #endregion
+
+        #region SolicitacaoCitacaoAto
+        public string SolicitacaoCitacaoAto(string strXMLSolicitacao, string strBase64DocumentosAnexos)
+        {
+            string resposta = "";
+            
+            string strLogin;
+
+            if (Autenticar(_codigo, out strLogin))
+            {
+                Entidades.SolicitaCitacaoAto.Message objSolicitacao = new Entidades.SolicitaCitacaoAto.Message();
+                objSolicitacao = objSolicitacao.ExtrairObjeto<Entidades.SolicitaCitacaoAto.Message>(strXMLSolicitacao);
+
+                string strXML = objSolicitacao.Serialize();
+
+                IXml objXML = new Xml();
+                strXML = objXML.AssinarXmlString(strXML, _repositorio, _certificado, "");
+                resposta = _serviceESAJ.SolicitacaoCitacaoAtoAsync(strXML, strBase64DocumentosAnexos).Result;
+
+            }
+            else
+            {                
+                resposta = strLogin;
+            }
+            return resposta;
+        }
+        #endregion
+
+
         #region Serializar
         private string Serializar(string objeto)
         {

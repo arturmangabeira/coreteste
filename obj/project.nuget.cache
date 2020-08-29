@@ -1,14 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "yy0xeN9M42vHeVAv0trCEdL2bUNZHUnxYptaqdnxEbfFKX2W1XKFPAoZG3COP4qN3BJqFKo3tIRub6ej7lsy+A==",
+  "dgSpecHash": "q87oR2ZXlnDYAyY7jkjbBKzKAEFZLUZ5HyjgyFpY0j7RWw63onWxbUJsPx4wqlcKAReVCZmmCM8vZCMP5kScqw==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\IntegradorIdea\\IntegradorIdea.csproj",
+  "projectFilePath": "C:\\Projetos\\coreteste\\IntegradorIdea.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\artur\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\csquery\\1.3.4\\csquery.1.3.4.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\icsharpcode.sharpziplib.dll\\0.85.4.369\\icsharpcode.sharpziplib.dll.0.85.4.369.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\ionic.zip\\1.9.1.8\\ionic.zip.1.9.1.8.nupkg.sha512",
-    "C:\\Users\\artur\\.nuget\\packages\\itextsharp\\5.5.13.1\\itextsharp.5.5.13.1.nupkg.sha512",
+    "C:\\Users\\artur\\.nuget\\packages\\itextsharp\\5.2.0\\itextsharp.5.2.0.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.0.0\\microsoft.aspnetcore.hosting.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.0.0\\microsoft.aspnetcore.hosting.server.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\artur\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
@@ -166,16 +165,6 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "BouncyCastle",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'CsQuery 1.3.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "CsQuery",
       "targetGraphs": [
@@ -206,7 +195,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'iTextSharp 5.5.13.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "message": "Package 'iTextSharp 5.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "iTextSharp",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"

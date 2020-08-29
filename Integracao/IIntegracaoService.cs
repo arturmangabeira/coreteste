@@ -36,5 +36,7 @@ namespace IntegradorIdea.Integracao
         public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso);
         [OperationContract]
         public consultarAvisosPendentesResponse consultarAvisosPendentes(ConsultarAvisosPendentes consultarAvisosPendentes);
+        [OperationContract]
+        public consultarTeorComunicacaoResponse consultarTeorComunicacao(consultarTeorComunicacaoRequest consultarTeorComunicacao);
     }
 }

@@ -97,5 +97,14 @@ namespace IntegradorIdea.Integracao
         {
             return System.Guid.NewGuid().ToString();
         }
+
+        public static byte[] AssinarPDF(ref byte[] dadosArquivo)
+        {            
+            var configuration = ConfigurationManager.ConfigurationManager.AppSettings;
+            Assinar objAssinar = new Assinar();
+
+            return objAssinar.AssinarPdfStreamCert(ref dadosArquivo, configuration["Certificado:RepositorioCertificado"], configuration["Certificado:ThumberPrint"]);
+            
+        }
     }
 }

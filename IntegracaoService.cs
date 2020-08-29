@@ -125,6 +125,12 @@ namespace IntegradorIdea
         {
             _logger.LogInformation("Iniciando consultarAvisosPendentes.");
             return _integracaoEsaj.consultarAvisosPendentes(consultarAvisosPendentes);
-        }                
+        }
+
+        public consultarTeorComunicacaoResponse consultarTeorComunicacao(consultarTeorComunicacaoRequest consultarTeorComunicacao)
+        {
+            _logger.LogInformation("Iniciando consultarTeorComunicacao.");
+            throw new System.NotImplementedException();
+        }
     }
 }

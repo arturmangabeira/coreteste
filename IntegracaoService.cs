@@ -130,7 +130,7 @@ namespace IntegradorIdea
         public consultarTeorComunicacaoResponse consultarTeorComunicacao(consultarTeorComunicacaoRequest consultarTeorComunicacao)
         {
             _logger.LogInformation("Iniciando consultarTeorComunicacao.");
-            throw new System.NotImplementedException();
+            return _integracaoEsaj.consultarTeorComunicacao(consultarTeorComunicacao);
         }
     }
 }

@@ -153,7 +153,25 @@ namespace IntegradorIdea.Integracao
                     var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoConsultarAvisoPendentes:nomeOperacaoLog");
                     nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
                 }
-                
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoConsultarTeorComunicacao:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
+                }
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoIntimacaoAto:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoSolicitacaoIntimacaoAto:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
+                }
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoCitacaoAto:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoSolicitacaoCitacaoAto:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
+                }
+
                 caminhoRetorno = caminhoPastaXmls + pathDirectorySeparator + DateTime.Now.ToString("yyyy") + pathDirectorySeparator + DateTime.Now.ToString("MM") + pathDirectorySeparator + DateTime.Now.ToString("dd") + pathDirectorySeparator + nomeFile;
 
                 string caminhoTotal = caminho + pathDirectorySeparator + caminhoRetorno;

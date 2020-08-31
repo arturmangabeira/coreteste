@@ -5,23 +5,21 @@ using System.Threading.Tasks;
 
 namespace IntegradorIdea.Objects
 {
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "consultarTeorComunicacao", WrapperNamespace = "", IsWrapped = true)]
+    
     public partial class consultarTeorComunicacaoRequest
     {
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 0)]
-        public string idConsultante;
+    
+        public string idConsultante { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 1)]
-        public string senhaConsultante;
+    
+        public string senhaConsultante { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 2)]
-        public string numeroProcesso;
+    
+        public string numeroProcesso { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 3)]
-        public string identificadorAviso;
+    
+        public string identificadorAviso { get; set; }
 
         public consultarTeorComunicacaoRequest()
         {

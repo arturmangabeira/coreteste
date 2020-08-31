@@ -24,7 +24,6 @@
     ".NETCoreApp,Version=v3.1": {
       "IntegradorIdea/1.0.0": {
         "dependencies": {
-          "BouncyCastle": "1.8.6.1",
           "CsQuery": "1.3.4",
           "ICSharpCode.SharpZipLib.dll": "0.85.4.369",
           "Ionic.Zip": "1.9.1.8",
@@ -40,6 +39,7 @@
           "System.ServiceModel.Http": "4.6.0",
           "System.ServiceModel.NetTcp": "4.4.4",
           "System.ServiceModel.Security": "4.4.4",
+          "iTextSharp": "5.2.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -316,17 +316,6 @@
           "IntegradorIdea.dll": {}
         }
       },
-      "BouncyCastle/1.8.6.1": {
-        "runtime": {
-          "lib/BouncyCastle.Crypto.dll": {
-            "assemblyVersion": "1.8.6.0",
-            "fileVersion": "1.8.20052.1"
-          }
-        },
-        "compile": {
-          "lib/BouncyCastle.Crypto.dll": {}
-        }
-      },
       "CsQuery/1.3.4": {
         "runtime": {
           "lib/net40/CsQuery.dll": {
@@ -358,6 +347,17 @@
         },
         "compile": {
           "lib/Ionic.Zip.dll": {}
+        }
+      },
+      "iTextSharp/5.2.0": {
+        "runtime": {
+          "lib/itextsharp.dll": {
+            "assemblyVersion": "5.2.0.0",
+            "fileVersion": "5.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/itextsharp.dll": {}
         }
       },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.0.0": {
@@ -3603,13 +3603,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BouncyCastle/1.8.6.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rkqpuKmJkdcfTMBkIj1b5nMdBAWKwAyh+I/BQYeqqSD2jkIlhwc9qBNKmSbnpmmm5c29qHZGLpvBSTNWvDLtQA==",
-      "path": "bouncycastle/1.8.6.1",
-      "hashPath": "bouncycastle.1.8.6.1.nupkg.sha512"
-    },
     "CsQuery/1.3.4": {
       "type": "package",
       "serviceable": true,
@@ -3630,6 +3623,13 @@
       "sha512": "sha512-E77NU0+mXFsiJG/CikkINVD/2ugIgjqRZf41pixpAArRzOUrn/2gCL4G2PBREvRVOy+wU8ZbG/UBLcH4Tkw1gg==",
       "path": "ionic.zip/1.9.1.8",
       "hashPath": "ionic.zip.1.9.1.8.nupkg.sha512"
+    },
+    "iTextSharp/5.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uDo8gBE7fyY5lNCnaEd5yhUgTY/ba2KG6ZTkgWylsgDxjWmI20B5lSOlIYRVA5j2Rnl0h2xVKxTkDVkhPQpzAQ==",
+      "path": "itextsharp/5.2.0",
+      "hashPath": "itextsharp.5.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.0.0": {
       "type": "package",

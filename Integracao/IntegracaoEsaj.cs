@@ -1788,19 +1788,19 @@ namespace IntegradorIdea.Integracao
 
                     string ArquivoCienciaBase64 = objCompressao.Comprimir2Base64(ArquivoCiencia);
                     string ArquivoConfirmacaoCiencia = String.Empty;
-                    /*
-                    if (intimacacaoCitacao.TpIntimacaoCitacao.Equals("I"))
+                    
+                    if (intimacacaoCitacao.SgTpIntimacaoCitacao.Equals("I"))
                     {
                         ArquivoConfirmacaoCiencia = this.SolicitaIntimacaoAto(intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
                     }
                     else
                     {
-                        if (intimacacaoCitacao.TpIntimacaoCitacao.Equals("C"))
+                        if (intimacacaoCitacao.SgTpIntimacaoCitacao.Equals("C"))
                         {
                             ArquivoConfirmacaoCiencia = this.SolicitaCitacaoAto(intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
                         }
                     }
-                    */
+                    
                     //APÓS OBTER OS DADOS DSO RETORNO DO ESAJ VERIFICA SE O MESMO NÃO RETORNA VAZIO. APÓS ESSE RETORNO OBTÉM O ARQUIVO DE RESPOSTA CONFIRMANDO
                     //A CIÊNCIA EFETUADA.
                     if (ArquivoConfirmacaoCiencia != String.Empty)

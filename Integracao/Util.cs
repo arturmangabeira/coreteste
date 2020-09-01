@@ -57,6 +57,16 @@ namespace IntegradorIdea.Integracao
             return System.Convert.ToBase64String(plainTextBytes);
         }
 
+        public static byte[] Base64EncodeStream(string plainText)
+        {
+            return System.Text.Encoding.UTF8.GetBytes(plainText);            
+        }
+
+        public static string Base64EncodeStream(byte[] byteText)
+        {
+            return System.Text.Encoding.UTF8.GetString(byteText);
+        }
+
         public static string Base64Decode(string base64EncodedData)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);

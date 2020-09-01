@@ -99,8 +99,8 @@ namespace IntegradorIdea.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConfirmaLogon:id"),
-                    IdTipoRetorno = 1
+                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConfirmaLogon:id"),
+                    IdTpRetorno = 1
                 };
                 //REGISTRA O LOG
                 _logOperacao.RegistrarLogOperacao(operacao);
@@ -151,8 +151,8 @@ namespace IntegradorIdea.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitaLogon:id"),
-                    IdTipoRetorno = 1
+                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitaLogon:id"),
+                    IdTpRetorno = 1
                 };
                 //REGISTRA O LOG
                 _logOperacao.RegistrarLogOperacao(operacao);
@@ -245,8 +245,8 @@ namespace IntegradorIdea.Integracao
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcessoESAJ:id"),
-                    IdTipoRetorno = 1
+                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcessoESAJ:id"),
+                    IdTpRetorno = 1
                 };
                 //REGISTRA O LOG
                 _logOperacao.RegistrarLogOperacao(operacao);

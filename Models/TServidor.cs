@@ -15,7 +15,7 @@ namespace IntegradorIdea.Models
         public string DsServidor { get; set; }
         public string DsIpservidor { get; set; }
         public string DsEnderecoWsdl { get; set; }
-        public string FlSituacao { get; set; }
+        public string SgFlSituacao { get; set; }
         public int? NuOrdem { get; set; }
         public DateTime? DtUltimaReinicializacao { get; set; }
         public DateTime DtCadastro { get; set; }

@@ -18,6 +18,6 @@ namespace IntegradorIdea.Models
         public DateTime DtCadastro { get; set; }
 
         public virtual TServidor IdServidorNavigation { get; set; }
-        public virtual TSituacaoPastaDigital IdSituacaoPastaDigitalNavigation { get; set; }
+        public virtual tTpSituacaoPastaDigital IdSituacaoPastaDigitalNavigation { get; set; }
     }
 }

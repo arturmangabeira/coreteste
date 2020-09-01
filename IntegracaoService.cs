@@ -48,7 +48,7 @@ namespace IntegradorIdea
                 {
                     DtCadastro = item.DtCadastro,
                     IdTipoOperacao = item.IdTipoOperacao,
-                    NmTipoOperacao = item.NmTipoOperacao
+                    NmTipoOperacao = item.NmTpOperacao
                 });
             }
 

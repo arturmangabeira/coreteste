@@ -9,9 +9,9 @@ namespace IntegradorIdea.Models
         [DataMember]
         public int IdLogOperacao { get; set; }
         [DataMember]
-        public int IdTipoOperacao { get; set; }
+        public int IdTpOperacao { get; set; }
         [DataMember]
-        public int IdTipoRetorno { get; set; }
+        public int IdTpRetorno { get; set; }
         [DataMember]
         public string DsLogOperacao { get; set; }
         [DataMember]
@@ -33,8 +33,8 @@ namespace IntegradorIdea.Models
         [DataMember]
         public DateTime? DtFinalOperacao { get; set; }
         [DataMember]
-        public virtual TTipoOperacao IdTipoOperacaoNavigation { get; set; }
+        public virtual tTpOperacao IdTipoOperacaoNavigation { get; set; }
         [DataMember]
-        public virtual TTipoRetorno IdTipoRetornoNavigation { get; set; }
+        public virtual tTpRetorno IdTipoRetornoNavigation { get; set; }
     }
 }

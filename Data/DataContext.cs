@@ -16,12 +16,12 @@ namespace IntegradorIdea.Data
         public virtual DbSet<TPerfil> TPerfil { get; set; }
         public virtual DbSet<TPerfilTela> TPerfilTela { get; set; }
         public virtual DbSet<TServidor> TServidor { get; set; }
-        public virtual DbSet<TSituacaoPastaDigital> TSituacaoPastaDigital { get; set; }
+        public virtual DbSet<tTpSituacaoPastaDigital> TSituacaoPastaDigital { get; set; }
         public virtual DbSet<TTela> TTela { get; set; }
-        public virtual DbSet<TTipoOperacao> TTipoOperacao { get; set; }
-        public virtual DbSet<TTipoRetorno> TTipoRetorno { get; set; }
+        public virtual DbSet<tTpOperacao> TTipoOperacao { get; set; }
+        public virtual DbSet<tTpRetorno> TTipoRetorno { get; set; }
         public virtual DbSet<TUsuario> TUsuario { get; set; }
-        public virtual DbSet<TTipoDocumentoParte> TTipoDocumentoParte { get; set; }
+        public virtual DbSet<tTpDocumentoParte> TTipoDocumentoParte { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -83,7 +83,7 @@ namespace IntegradorIdea.Data
                     .HasMaxLength(25)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TpIntimacaoCitacao)
+                entity.Property(e => e.SgTpIntimacaoCitacao)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
@@ -111,8 +111,7 @@ namespace IntegradorIdea.Data
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.TxDescricao)
-                    .IsRequired()
-                    .HasColumnType("text");
+                    .IsRequired();
             });
 
             modelBuilder.Entity<TFilaPastaDigital>(entity =>
@@ -261,15 +260,15 @@ namespace IntegradorIdea.Data
 
                 entity.HasOne(d => d.IdTipoOperacaoNavigation)
                     .WithMany(p => p.TLogOperacao)
-                    .HasForeignKey(d => d.IdTipoOperacao)
+                    .HasForeignKey(d => d.IdTpOperacao)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_tLogOperacao_tTipoOperacao");
+                    .HasConstraintName("fk_tLogOperacao_tTpOperacao");
 
                 entity.HasOne(d => d.IdTipoRetornoNavigation)
                     .WithMany(p => p.TLogOperacao)
-                    .HasForeignKey(d => d.IdTipoRetorno)
+                    .HasForeignKey(d => d.IdTpRetorno)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_tLogOperacao_tTipoRetorno");
+                    .HasConstraintName("fk_tLogOperacao_tTpRetorno");
             });
 
             modelBuilder.Entity<TPerfil>(entity =>
@@ -291,12 +290,7 @@ namespace IntegradorIdea.Data
                 entity.Property(e => e.NmPerfil)
                     .IsRequired()
                     .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.HasOne(d => d.IdTelaNavigation)
-                    .WithMany(p => p.TPerfil)
-                    .HasForeignKey(d => d.IdTela)
-                    .HasConstraintName("fk_tPerfil_tTela");
+                    .IsUnicode(false);                
             });
 
             modelBuilder.Entity<TPerfilTela>(entity =>
@@ -350,7 +344,7 @@ namespace IntegradorIdea.Data
 
                 entity.Property(e => e.DtUltimaReinicializacao).HasColumnType("datetime");
 
-                entity.Property(e => e.FlSituacao)
+                entity.Property(e => e.SgFlSituacao)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
@@ -361,7 +355,7 @@ namespace IntegradorIdea.Data
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<TSituacaoPastaDigital>(entity =>
+            modelBuilder.Entity<tTpSituacaoPastaDigital>(entity =>
             {
                 entity.HasKey(e => e.IdSituacaoPastaDigital)
                     .HasName("pk_tSituacaoPastaDigital");
@@ -377,7 +371,7 @@ namespace IntegradorIdea.Data
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.NmSituacaoPastaDigital)
+                entity.Property(e => e.NmTpSituacaoPastaDigital)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -428,10 +422,10 @@ namespace IntegradorIdea.Data
                     .HasConstraintName("fk_tTela_tGrupoMenu");
             });
 
-            modelBuilder.Entity<TTipoOperacao>(entity =>
+            modelBuilder.Entity<tTpOperacao>(entity =>
             {
                 entity.HasKey(e => e.IdTipoOperacao)
-                    .HasName("pk_tTipoOperacao");
+                    .HasName("pk_tTpOperacao");
 
                 entity.ToTable("tTipoOperacao");
 
@@ -439,16 +433,16 @@ namespace IntegradorIdea.Data
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.NmTipoOperacao)
+                entity.Property(e => e.NmTpOperacao)
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<TTipoRetorno>(entity =>
+            modelBuilder.Entity<tTpRetorno>(entity =>
             {
                 entity.HasKey(e => e.IdTipoRetorno)
-                    .HasName("pk_tTipoRetorno");
+                    .HasName("pk_tTpRetorno");
 
                 entity.ToTable("tTipoRetorno");
 
@@ -456,7 +450,7 @@ namespace IntegradorIdea.Data
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.NmTipoRetorno)
+                entity.Property(e => e.NmTpRetorno)
                     .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
@@ -496,24 +490,24 @@ namespace IntegradorIdea.Data
                     .HasConstraintName("fk_tUsuario_tPerfil");
             });
 
-            modelBuilder.Entity<TTipoDocumentoParte>(entity =>
+            modelBuilder.Entity<tTpDocumentoParte>(entity =>
             {
                 entity.HasKey(e => e.IdTipoDocumentoParte)
-                    .HasName("pk_tTipoDocumentoParte");
+                    .HasName("pk_tTpDocumentoParte");
 
                 entity.ToTable("tTipoDocumentoParte");
                 
-                entity.Property(e => e.SgTipoDocumentoPje)
+                entity.Property(e => e.SgTpDocumentoPje)
                     .IsRequired()
                     .HasMaxLength(150)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SgTipoDocumentoEsaj)
+                entity.Property(e => e.SgTpDocumentoEsaj)
                     .IsRequired()
                     .HasMaxLength(150)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DsDescricaoEmissorDocumento)
+                entity.Property(e => e.DsEmissorDocumento)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 

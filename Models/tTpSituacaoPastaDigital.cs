@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace IntegradorIdea.Models
 {
-    public partial class TSituacaoPastaDigital
+    public partial class tTpSituacaoPastaDigital
     {
-        public TSituacaoPastaDigital()
+        public tTpSituacaoPastaDigital()
         {
             TFilaPastaDigital = new HashSet<TFilaPastaDigital>();
         }
 
         public int IdSituacaoPastaDigital { get; set; }
-        public string NmSituacaoPastaDigital { get; set; }
+        public string NmTpSituacaoPastaDigital { get; set; }
         public string DsCor { get; set; }
         public DateTime DtCadastro { get; set; }
 

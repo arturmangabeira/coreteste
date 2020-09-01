@@ -10,7 +10,7 @@ namespace IntegradorIdea.Models
         public int CdVara { get; set; }
         public int CdAssunto { get; set; }
         public int CdAto { get; set; }
-        public string TpIntimacaoCitacao { get; set; }
+        public string SgTpIntimacaoCitacao { get; set; }
         public DateTime? DtRecebimento { get; set; }
         public string NuProcesso { get; set; }        
         public int? NuDiasPrazo { get; set; }

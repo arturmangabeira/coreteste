@@ -33,7 +33,7 @@ namespace IntegradorIdea.Integracao
                     {
                         logOperacao.DsCaminhoDocumentosChamada = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosChamada,
                             logOperacao.CdIdea,
-                            logOperacao.IdTipoOperacao
+                            logOperacao.IdTpOperacao
                             , "chamada");
                     }
 
@@ -41,7 +41,7 @@ namespace IntegradorIdea.Integracao
                     {
                         logOperacao.DsCaminhoDocumentosRetorno = this.GravarArquivoXML(logOperacao.DsCaminhoDocumentosRetorno,
                             logOperacao.CdIdea,
-                            logOperacao.IdTipoOperacao
+                            logOperacao.IdTpOperacao
                             , "retorno");
                     }
 

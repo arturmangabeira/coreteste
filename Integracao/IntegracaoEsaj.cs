@@ -62,8 +62,8 @@ namespace IntegradorIdea.Integracao
                 DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
                 DtInicioOperacao = dtInicial,
                 DtLogOperacao = DateTime.Now,
-                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
-                IdTipoRetorno = 1
+                IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                IdTpRetorno = 1
             };
             //REGISTRA O LOG QUE RETORNA O VALOR COM OS DADOS PREENCHIDO DO ID
             var ResOperacaoConsultarProcesso = new TLogOperacao();
@@ -195,8 +195,8 @@ namespace IntegradorIdea.Integracao
                     DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
                     DtFinalOperacao = dtFinal,                        
                     FlOperacao = true,
-                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
-                    IdTipoRetorno = 1
+                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                    IdTpRetorno = 1
                 };
                 //REGISTRA O LOG
                 var logOperacao = new Log(_dataContext, _ipDestino);
@@ -219,9 +219,9 @@ namespace IntegradorIdea.Integracao
                     IdLogOperacao = operacaoConsultarProcesso.IdLogOperacao,
                     DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
                     DtFinalOperacao = dtFinal,
-                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
+                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
                     FlOperacao = false,                    
-                    IdTipoRetorno = 2
+                    IdTpRetorno = 2
                 };
                 //REGISTRA O LOG
                 _logOperacao.RegistrarLogOperacao(operacao);
@@ -474,13 +474,13 @@ namespace IntegradorIdea.Integracao
 
                         //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
                         var documentoParte = _dataContext.TTipoDocumentoParte.Where(
-                            documento => documento.SgTipoDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
+                            documento => documento.SgTpDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
                             ).FirstOrDefault();
 
                         if(documentoParte != null)
                         {
-                            tipoDocumento = documentoParte.SgTipoDocumentoPje;
-                            emissorDocumento = documentoParte.DsDescricaoEmissorDocumento;
+                            tipoDocumento = documentoParte.SgTpDocumentoPje;
+                            emissorDocumento = documentoParte.DsEmissorDocumento;
                         }
                         /*switch (doc.Tipo.Trim())
                         {
@@ -592,13 +592,13 @@ namespace IntegradorIdea.Integracao
                         var emissorDocumento = "";
                         //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
                         var documentoParte = _dataContext.TTipoDocumentoParte.Where(
-                            documento => documento.SgTipoDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
+                            documento => documento.SgTpDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
                             ).FirstOrDefault();
 
                         if (documentoParte != null)
                         {
-                            tipoDocumento = documentoParte.SgTipoDocumentoPje;
-                            emissorDocumento = documentoParte.DsDescricaoEmissorDocumento;
+                            tipoDocumento = documentoParte.SgTpDocumentoPje;
+                            emissorDocumento = documentoParte.DsEmissorDocumento;
                         }
                         /*switch (doc.Tipo.Trim())
                         {
@@ -1001,7 +1001,7 @@ namespace IntegradorIdea.Integracao
                                IdServidor = p.IdServidor,
                                IdSituacaoPastaDigital = p.IdSituacaoPastaDigital,
                                NmServidor = sr.NmServidor,
-                               NmSituacaoPastaDigital = s.NmSituacaoPastaDigital,
+                               NmSituacaoPastaDigital = s.NmTpSituacaoPastaDigital,
                                NuUltimaPaginaBaixada = p.NuUltimaPaginaBaixada
                            }
                            ).ToList();
@@ -1352,7 +1352,7 @@ namespace IntegradorIdea.Integracao
                         {
                             DtDisponibilizacao = intimacao.dtDisponibilizacao,
                             CdAto = (int)intimacao.cdAto,
-                            TpIntimacaoCitacao = "I",
+                            SgTpIntimacaoCitacao = "I",
                             CdAssunto = intimacao.Assunto != null ? Int32.Parse(intimacao.Assunto.cdAssunto.ToString()) : 9999,
                             NuProcesso = Util.OnlyNumbers(intimacao.nuProcesso),
                             CdForo = (int)intimacao.ForoVara.cdForo,
@@ -1379,8 +1379,8 @@ namespace IntegradorIdea.Integracao
                 DtFinalOperacao = dtFinal,
                 DtLogOperacao = DateTime.Now,
                 FlOperacao = true,
-                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitaListaIntimacoesAguardandoCiencia:id"),
-                IdTipoRetorno = 1
+                IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitaListaIntimacoesAguardandoCiencia:id"),
+                IdTpRetorno = 1
             };
             //REGISTRA O LOG
             _logOperacao.RegistrarLogOperacao(operacao);
@@ -1436,7 +1436,7 @@ namespace IntegradorIdea.Integracao
                         {
                             DtDisponibilizacao = citacao.dtDisponibilizacao,
                             CdAto = (int)citacao.cdAto,
-                            TpIntimacaoCitacao = "C",
+                            SgTpIntimacaoCitacao = "C",
                             CdAssunto = citacao.Assunto != null ? Int32.Parse(citacao.Assunto.cdAssunto.ToString()) : 9999,
                             NuProcesso = Util.OnlyNumbers(citacao.nuProcesso),
                             CdForo = (int)citacao.ForoVara.cdForo,
@@ -1464,8 +1464,8 @@ namespace IntegradorIdea.Integracao
                 DtFinalOperacao = dtFinal,
                 DtLogOperacao = DateTime.Now,
                 FlOperacao = true,
-                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitaListaCitacoesAguardandoCiencia:id"),
-                IdTipoRetorno = 1
+                IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitaListaCitacoesAguardandoCiencia:id"),
+                IdTpRetorno = 1
             };
             //REGISTRA O LOG
             _logOperacao.RegistrarLogOperacao(operacao);
@@ -1588,7 +1588,7 @@ namespace IntegradorIdea.Integracao
                         },
                         dataDisponibilizacao = intimacaoCitacao.DtDisponibilizacao.ToString("yyyymmddhhmmss"),
                         idAviso = intimacaoCitacao.CdAto.ToString(),
-                        tipoComunicacao = intimacaoCitacao.TpIntimacaoCitacao == "I" ? "INT" : "CIT",                        
+                        tipoComunicacao = intimacaoCitacao.SgTpIntimacaoCitacao == "I" ? "INT" : "CIT",                        
                         processo = new tipoCabecalhoProcesso
                         {
                             assunto = new tipoAssuntoProcessual[]
@@ -1698,8 +1698,8 @@ namespace IntegradorIdea.Integracao
                 DtInicioOperacao = dtInicial,
                 DtFinalOperacao = DateTime.Now,
                 DtLogOperacao = DateTime.Now,
-                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarAvisoPendentes:id"),
-                IdTipoRetorno = 1
+                IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarAvisoPendentes:id"),
+                IdTpRetorno = 1
             };            
              _logOperacao.RegistrarLogOperacao(operacaoConsultarAvisoPendente);
 
@@ -1741,8 +1741,23 @@ namespace IntegradorIdea.Integracao
         {
             var dtInicial = DateTime.Now;
             var retornoConsultarTeorComunicacao = new consultarTeorComunicacaoResponse();
-            try
+            TLogOperacao operacaoConsultarProcesso = new TLogOperacao()
             {
+                CdIdea = int.Parse(consultarTeorComunicacao.idConsultante),
+                DsCaminhoDocumentosChamada = Util.Serializar(consultarTeorComunicacao),
+                DsLogOperacao = "ConsultarTeorComunicacao no ESAJ",
+                DtInicioOperacao = dtInicial,
+                DtLogOperacao = DateTime.Now,
+                FlOperacao = true,
+                IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
+                IdTpRetorno = 1
+            };
+            //REGISTRA O LOG QUE RETORNA O VALOR COM OS DADOS PREENCHIDO DO ID
+            var ResOperacaoConsultarProcesso = new TLogOperacao();
+            ResOperacaoConsultarProcesso = _logOperacao.RegistrarLogOperacao(operacaoConsultarProcesso);
+
+            try
+            {   
                 //OBTÉM INFORMACAO DA INTIMACA/CITACAO ATRAVÉS DO CAMPO IDAVISO (CdAto)
                 //A DEPENDER DA INFORMACAO DO CAMPO TpintimacaoCitacao O SISTEMA IRÁ SOLICITAR A CIENCIA DE ACORDO AO TIPO "I" OU "C"
                 var intimacacaoCitacao = _dataContext.TComunicacaoEletronica.Where(atos =>
@@ -1773,6 +1788,7 @@ namespace IntegradorIdea.Integracao
 
                     string ArquivoCienciaBase64 = objCompressao.Comprimir2Base64(ArquivoCiencia);
                     string ArquivoConfirmacaoCiencia = String.Empty;
+                    /*
                     if (intimacacaoCitacao.TpIntimacaoCitacao.Equals("I"))
                     {
                         ArquivoConfirmacaoCiencia = this.SolicitaIntimacaoAto(intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
@@ -1784,7 +1800,7 @@ namespace IntegradorIdea.Integracao
                             ArquivoConfirmacaoCiencia = this.SolicitaCitacaoAto(intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
                         }
                     }
-
+                    */
                     //APÓS OBTER OS DADOS DSO RETORNO DO ESAJ VERIFICA SE O MESMO NÃO RETORNA VAZIO. APÓS ESSE RETORNO OBTÉM O ARQUIVO DE RESPOSTA CONFIRMANDO
                     //A CIÊNCIA EFETUADA.
                     if (ArquivoConfirmacaoCiencia != String.Empty)
@@ -1844,44 +1860,36 @@ namespace IntegradorIdea.Integracao
                 var dtFinal = DateTime.Now;
                 //REGISTAR LOGON
                 TLogOperacao operacao = new TLogOperacao()
-                {
-                    CdIdea = int.Parse(consultarTeorComunicacao.idConsultante),
-                    DsCaminhoDocumentosChamada = Util.Serializar(consultarTeorComunicacao),
-                    DsCaminhoDocumentosRetorno = "",
-                    DsLogOperacao = "ConsultarTeorComunicacao no ESAJ",
-                    DtInicioOperacao = dtInicial,
-                    DtFinalOperacao = dtFinal,
-                    DtLogOperacao = DateTime.Now,
+                { 
+                    IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
+                    DsCaminhoDocumentosRetorno = Util.Serializar(retornoConsultarTeorComunicacao),                    
+                    DtFinalOperacao = dtFinal,                    
                     FlOperacao = true,
-                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
-                    IdTipoRetorno = 1
+                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
+                    IdTpRetorno = 1
                 };
                 //REGISTRA O LOG
                 _logOperacao.RegistrarLogOperacao(operacao);
             }
             catch(Exception ex)
             {
+                retornoConsultarTeorComunicacao.mensagem = $"Erro ao tentar realizar a ciencia! Erro: {ex.Message}";
+                retornoConsultarTeorComunicacao.sucesso = false;
+                retornoConsultarTeorComunicacao.comunicacao = null;
+
                 var dtFinal = DateTime.Now;
                 //REGISTAR LOGON
                 TLogOperacao operacao = new TLogOperacao()
                 {
-                    CdIdea = int.Parse(consultarTeorComunicacao.idConsultante),
-                    DsCaminhoDocumentosChamada = Util.Serializar(consultarTeorComunicacao),
-                    DsCaminhoDocumentosRetorno = ex.Message,
-                    DsLogOperacao = "ConsultarTeorComunicacao no ESAJ",
-                    DtInicioOperacao = dtInicial,
+                    IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
+                    DsCaminhoDocumentosRetorno = Util.Serializar(retornoConsultarTeorComunicacao),
                     DtFinalOperacao = dtFinal,
-                    DtLogOperacao = DateTime.Now,
-                    FlOperacao = false,
-                    IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
-                    IdTipoRetorno = 1
+                    FlOperacao = true,
+                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
+                    IdTpRetorno = 1
                 };
                 //REGISTRA O LOG
                 _logOperacao.RegistrarLogOperacao(operacao);
-
-                retornoConsultarTeorComunicacao.mensagem = $"Erro ao tentar realizar a ciencia! Erro: {ex.Message}";
-                retornoConsultarTeorComunicacao.sucesso = false;
-                retornoConsultarTeorComunicacao.comunicacao = null;
             }
 
             return retornoConsultarTeorComunicacao;
@@ -1927,20 +1935,34 @@ namespace IntegradorIdea.Integracao
             
             string Dados = _proxy.SolicitacaoIntimacaoAto(xml, arquivoBase64);
 
+            //OBTEM A INFORMACAO DO ARQUIVO DE RETORNO PARA GRAVAR SOMENTE O XML DE RETORNO. DESCOMPACTAR O ARQUIVO NO LOG
+            Compressao objCompressao = new Compressao();
+            string retornoArquivoResposta = "";
+            if (Dados != String.Empty)
+            {
+                var colArquivos = objCompressao.DescomprimirBase64(Dados);
+                foreach (ArquivoPdf arqRetorno in colArquivos)
+                {
+                    if (arqRetorno.Nome.Equals("Resposta.xml"))
+                    {
+                        retornoArquivoResposta = Util.Base64EncodeStream(arqRetorno.Dados);
+                    }
+                }
+            }
             var dtFinal = DateTime.Now;
             //REGISTAR LOGON
             TLogOperacao operacao = new TLogOperacao()
             {
                 //CdIdea = _cdIdeia,
                 DsCaminhoDocumentosChamada = xml,
-                DsCaminhoDocumentosRetorno = Dados,
+                DsCaminhoDocumentosRetorno = retornoArquivoResposta,
                 DsLogOperacao = "SolicitacaoIntimacaoAto no ESAJ",
                 DtInicioOperacao = dtInicial,
                 DtFinalOperacao = dtFinal,
                 DtLogOperacao = DateTime.Now,
                 FlOperacao = true,
-                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoIntimacaoAto:id"),
-                IdTipoRetorno = 1
+                IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoIntimacaoAto:id"),
+                IdTpRetorno = 1
             };
             //REGISTRA O LOG
             _logOperacao.RegistrarLogOperacao(operacao);
@@ -1975,21 +1997,34 @@ namespace IntegradorIdea.Integracao
             string xml = Message.Serialize();
                         
             string Dados = _proxy.SolicitacaoCitacaoAto(xml, arquivoBase64);
-
+            //OBTEM A INFORMACAO DO ARQUIVO DE RETORNO PARA GRAVAR SOMENTE O XML DE RETORNO. DESCOMPACTAR O ARQUIVO NO LOG
+            Compressao objCompressao = new Compressao();
+            string retornoArquivoResposta = "";
+            if (Dados != String.Empty)
+            {
+                var colArquivos = objCompressao.DescomprimirBase64(Dados);
+                foreach (ArquivoPdf arqRetorno in colArquivos)
+                {
+                    if (arqRetorno.Nome.Equals("Resposta.xml"))
+                    {
+                        retornoArquivoResposta = Util.Base64EncodeStream(arqRetorno.Dados);
+                    }
+                }
+            }
             var dtFinal = DateTime.Now;
             //REGISTAR LOGON
             TLogOperacao operacao = new TLogOperacao()
             {
                 //CdIdea = _cdIdeia,
                 DsCaminhoDocumentosChamada = xml,
-                DsCaminhoDocumentosRetorno = Dados,
+                DsCaminhoDocumentosRetorno = retornoArquivoResposta,
                 DsLogOperacao = "SolicitaCitacaoAto no ESAJ",
                 DtInicioOperacao = dtInicial,
                 DtFinalOperacao = dtFinal,
                 DtLogOperacao = DateTime.Now,
                 FlOperacao = true,
-                IdTipoOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoCitacaoAto:id"),
-                IdTipoRetorno = 1
+                IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoCitacaoAto:id"),
+                IdTpRetorno = 1
             };
             //REGISTRA O LOG
             _logOperacao.RegistrarLogOperacao(operacao);

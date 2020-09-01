@@ -5,23 +5,21 @@ using System.Runtime.Serialization;
 namespace IntegradorIdea.Models
 {
     [DataContract]
-    public partial class TTipoRetorno
+    public partial class tTpOperacao
     {
-
-        public TTipoRetorno()
+        public tTpOperacao()
         {
             TLogOperacao = new HashSet<TLogOperacao>();
         }
+
         [DataMember]
-        public int IdTipoRetorno { get; set; }
+        public int IdTipoOperacao { get; set; }
         [DataMember]
-        public int CdTipoRetorno { get; set; }
-        [DataMember]
-        public string NmTipoRetorno { get; set; }
+        public string NmTpOperacao { get; set; }
         [DataMember]
         public DateTime DtCadastro { get; set; }
-        [DataMember]
 
+        [DataMember]
         public virtual ICollection<TLogOperacao> TLogOperacao { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace IntegradorIdea.Integracao
     public interface IIntegracaoService
     {           
         [OperationContract]
-        public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso);
+        public consultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos , bool incluirCabecalho , bool incluirDocumentos, string[] documento);
         
         [OperationContract]
         [XmlSerializerFormat(SupportFaults = true,Style = OperationFormatStyle.Rpc,Use = OperationFormatUse.Encoded)]        
@@ -35,8 +35,8 @@ namespace IntegradorIdea.Integracao
         [OperationContract]
         public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso);
         [OperationContract]
-        public consultarAvisosPendentesResponse consultarAvisosPendentes(ConsultarAvisosPendentes consultarAvisosPendentes);
+        public consultarAvisosPendentesResponse consultarAvisosPendentes(string idRepresentado, int idConsultante, string senhaConsultante, string dataReferencia);
         [OperationContract]
-        public consultarTeorComunicacaoResponse consultarTeorComunicacao(consultarTeorComunicacaoRequest consultarTeorComunicacao);
+        public consultarTeorComunicacaoResponse consultarTeorComunicacao( string idConsultante, string senhaConsultante, string numeroProcesso, string identificadorAviso );
     }
 }

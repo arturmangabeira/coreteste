@@ -1,6 +1,11 @@
 ﻿
 namespace IntegradorIdea.Objects
 {
+    public partial class Documento
+    {
+        public string documento { get; set; }
+    }
+        
 
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]

@@ -55,9 +55,18 @@ namespace IntegradorIdea
             return operacaos;
         }
 
-        public consultarProcessoResponse consultarProcesso(ConsultarProcesso consultarProcesso)
+        public consultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento)
         {
             _logger.LogInformation("Iniciando consultarProcesso.");
+            var consultarProcesso = new ConsultarProcesso()
+            {
+                idConsultante = idConsultante,
+                numeroProcesso = numeroProcesso,
+                movimentos = movimentos,
+                incluirCabecalho = incluirCabecalho,
+                incluirDocumentos = incluirDocumentos,
+                documento = documento
+            };
             return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
         }
 
@@ -121,14 +130,28 @@ namespace IntegradorIdea
             return _integracaoEsaj.consultarSituacaoDocumentosProcesso(Cdidea, numeroProcesso);
         }
 
-        public consultarAvisosPendentesResponse consultarAvisosPendentes(ConsultarAvisosPendentes consultarAvisosPendentes)
+        public consultarAvisosPendentesResponse consultarAvisosPendentes(string idRepresentado, int idConsultante, string senhaConsultante, string dataReferencia)
         {
             _logger.LogInformation("Iniciando consultarAvisosPendentes.");
+            var consultarAvisosPendentes = new ConsultarAvisosPendentes()
+            {
+                idRepresentado = idRepresentado,
+                idConsultante = idConsultante,
+                senhaConsultante = senhaConsultante,
+                dataReferencia = dataReferencia
+            };
             return _integracaoEsaj.consultarAvisosPendentes(consultarAvisosPendentes);
         }
 
-        public consultarTeorComunicacaoResponse consultarTeorComunicacao(consultarTeorComunicacaoRequest consultarTeorComunicacao)
+        public consultarTeorComunicacaoResponse consultarTeorComunicacao(string idConsultante, string senhaConsultante, string numeroProcesso, string identificadorAviso)
         {
+            var consultarTeorComunicacao = new consultarTeorComunicacaoRequest()
+            {
+                idConsultante = idConsultante,
+                senhaConsultante = senhaConsultante,
+                numeroProcesso = numeroProcesso,
+                identificadorAviso = identificadorAviso
+            };
             _logger.LogInformation("Iniciando consultarTeorComunicacao.");
             return _integracaoEsaj.consultarTeorComunicacao(consultarTeorComunicacao);
         }

@@ -110,7 +110,7 @@ namespace IntegradorIdea.Data
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.TxDescricao)
+                entity.Property(e => e.DsConfiguracao)
                     .IsRequired();
             });
 

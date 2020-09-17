@@ -36,7 +36,7 @@ namespace IntegradorIdea
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Microsoft.Extensions.Hosting.IHostApplicationLifetime appLifetime)
         {
             if (env.IsDevelopment())
             {
@@ -60,6 +60,7 @@ namespace IntegradorIdea
 
             //REFERENCIA A INTERFACE DE "ServiceContract -> IIntegracaoService" PARA QUE SEJA REFLETIDA COMO SERVIÇOS EM SOAP.
             app.UseSoapEndpoint<IIntegracaoService>("/Integrador.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
+            app.UseSoapEndpoint<IServidorService>("/Servidor.asmx", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
 
         }
     }

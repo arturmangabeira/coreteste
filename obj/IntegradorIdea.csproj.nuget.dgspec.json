@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\coreteste\\IntegradorIdea.csproj": {}
+    "C:\\Projetos\\repoartur\\coreteste\\IntegradorIdea.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\coreteste\\IntegradorIdea.csproj": {
+    "C:\\Projetos\\repoartur\\coreteste\\IntegradorIdea.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\coreteste\\IntegradorIdea.csproj",
+        "projectUniqueName": "C:\\Projetos\\repoartur\\coreteste\\IntegradorIdea.csproj",
         "projectName": "IntegradorIdea",
-        "projectPath": "C:\\Projetos\\coreteste\\IntegradorIdea.csproj",
-        "packagesPath": "C:\\Users\\artur\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\coreteste\\obj\\",
+        "projectPath": "C:\\Projetos\\repoartur\\coreteste\\IntegradorIdea.csproj",
+        "packagesPath": "C:\\Users\\rande\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\repoartur\\coreteste\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\artur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rande\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

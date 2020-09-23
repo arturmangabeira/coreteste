@@ -581,12 +581,12 @@ namespace IntegradorIdea.Entidades.IntimacaoAguardandoCiencia
     public partial class MessageMessageBodyResposta
     {
 
-        private ushort qtIntimacoesField;
+        private int qtIntimacoesField;
 
         private MessageMessageBodyRespostaIntimacao[] intimacoesField;
 
         /// <remarks/>
-        public ushort qtIntimacoes
+        public int qtIntimacoes
         {
             get
             {
@@ -793,12 +793,12 @@ namespace IntegradorIdea.Entidades.IntimacaoAguardandoCiencia
     public partial class MessageMessageBodyRespostaIntimacaoClasse
     {
 
-        private ushort cdClasseField;
+        private int cdClasseField;
 
         private string deClasseField;
 
         /// <remarks/>
-        public ushort cdClasse
+        public int cdClasse
         {
             get
             {
@@ -833,12 +833,12 @@ namespace IntegradorIdea.Entidades.IntimacaoAguardandoCiencia
     public partial class MessageMessageBodyRespostaIntimacaoAssunto
     {
 
-        private ushort cdAssuntoField;
+        private int cdAssuntoField;
 
         private string deAssuntoField;
 
         /// <remarks/>
-        public ushort cdAssunto
+        public int cdAssunto
         {
             get
             {

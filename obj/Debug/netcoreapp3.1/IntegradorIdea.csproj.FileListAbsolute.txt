@@ -112,7 +112,6 @@ C:\Projetos\IntegradorIdea\obj\Debug\netcoreapp3.1\IntegradorIdea.dll
 C:\Projetos\IntegradorIdea\obj\Debug\netcoreapp3.1\IntegradorIdea.pdb
 C:\Projetos\IntegradorIdea\obj\Debug\netcoreapp3.1\IntegradorIdea.genruntimeconfig.cache
 C:\Projetos\IntegradorIdea\obj\Debug\netcoreapp3.1\IntegradorIdea.csprojAssemblyReference.cache
-C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\IntegradorIdea.csprojAssemblyReference.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\IntegradorIdea.AssemblyInfoInputs.cache
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\IntegradorIdea.AssemblyInfo.cs
 C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\IntegradorIdea.csproj.CoreCompileInputs.cache

@@ -344,12 +344,9 @@ namespace IntegradorIdea.Integracao
 
                     //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
 
-                    if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigital"))
-
+                    if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigitalConsulta"))
                     {
-
-                        InserirFilaPastaDigital(consultarProcesso);
-
+                        InserirFilaPastaDigital(consultarProcesso.idConsultante, consultarProcesso.numeroProcesso);
                     }
 
                     //OBTÉM OS DOCUMENTOS DO PROCESSO CASO JÁ TENHA SIDP FEITO O DOWNLOAD DOS DOCUMENTOS NO E-SAJ.
@@ -466,7 +463,7 @@ namespace IntegradorIdea.Integracao
 
         #region InserirFilaPastaDigital
 
-        private void InserirFilaPastaDigital(ConsultarProcesso consultarProcesso)
+        private void InserirFilaPastaDigital(int cdIdea, string nuProcesso)
 
         {
 
@@ -482,7 +479,7 @@ namespace IntegradorIdea.Integracao
 
                 var retornoPastadigital = _dataContext.TFilaPastaDigital
 
-                                         .Where(fila => fila.NuProcesso == consultarProcesso.numeroProcesso)
+                                         .Where(fila => fila.NuProcesso == nuProcesso)
 
                                          .AsEnumerable()
 
@@ -516,13 +513,13 @@ namespace IntegradorIdea.Integracao
 
             {
 
-                CdIdea = consultarProcesso.idConsultante,
+                CdIdea = cdIdea,
 
                 DtCadastro = DateTime.Now,
 
                 DtInicial = DateTime.Now,
 
-                NuProcesso = consultarProcesso.numeroProcesso,
+                NuProcesso = nuProcesso,
 
                 DtInicioProcessamento = DateTime.Now,
 
@@ -888,167 +885,157 @@ namespace IntegradorIdea.Integracao
 
             var parteAtivas = new List<tipoParte>();
 
-            foreach (var pAtiva in objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesAtivas)
-
+            if (objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesAtivas != null)
             {
-
-                var documentos = new List<tipoDocumentoIdentificacao>();
-
-
-
-                var advogados = new List<tipoRepresentanteProcessual>();
-
-
-
-                //CASO EXISTA OS ADVS RELACIONA A PARTE.
-
-                if (pAtiva.Advogados != null && pAtiva.Advogados.Length > 0)
+                foreach (var pAtiva in objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesAtivas)
 
                 {
 
-                    foreach (var adv in pAtiva.Advogados)
+                    var documentos = new List<tipoDocumentoIdentificacao>();
+
+
+
+                    var advogados = new List<tipoRepresentanteProcessual>();
+
+
+
+                    //CASO EXISTA OS ADVS RELACIONA A PARTE.
+
+                    if (pAtiva.Advogados != null && pAtiva.Advogados.Length > 0)
 
                     {
 
-                        advogados.Add(
-
-                            new tipoRepresentanteProcessual()
-
-                            {
-
-                                nome = adv.Nome,
-
-                                numeroDocumentoPrincipal = adv.OAB,
-
-                                tipoRepresentante = modalidadeRepresentanteProcessual.A
-
-                            });
-
-                    }
-
-                }
-
-
-
-                if (pAtiva.Documentos != null && pAtiva.Documentos.Length > 0)
-
-                {
-
-                    foreach (var doc in pAtiva.Documentos)
-
-                    {
-
-                        //IDENTIFICACAO DE NOME DO DOCUMENTO:
-
-                        var tipoDocumento = "";
-
-                        var emissorDocumento = "";
-
-
-
-                        //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
-
-                        var documentoParte = _dataContext.tTpDocumentoParte.Where(
-
-                            documento => documento.SgTpDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
-
-                            ).FirstOrDefault();
-
-
-
-                        if (documentoParte != null)
+                        foreach (var adv in pAtiva.Advogados)
 
                         {
 
-                            tipoDocumento = documentoParte.SgTpDocumentoPje;
+                            advogados.Add(
 
-                            emissorDocumento = documentoParte.DsEmissorDocumento;
+                                new tipoRepresentanteProcessual()
+
+                                {
+
+                                    nome = adv.Nome,
+
+                                    numeroDocumentoPrincipal = adv.OAB,
+
+                                    tipoRepresentante = modalidadeRepresentanteProcessual.A
+
+                                });
 
                         }
 
-                        /*switch (doc.Tipo.Trim())
-
-                        {
-
-                            case "CPF":
-
-                                tipoDocumento = modalidadeDocumentoIdentificador.CMF;
-
-                                emissorDocumento = "Secretaria da Receita Federal do Brasil";
-
-                                break;
-
-                            case "RG":
-
-                                tipoDocumento = modalidadeDocumentoIdentificador.CI;
-
-                                emissorDocumento = "SSP";
-
-                                break;
-
-                            case "CNPJ":
-
-                                tipoDocumento = modalidadeDocumentoIdentificador.CMF;
-
-                                emissorDocumento = "Secretaria da Receita Federal do Brasil";
-
-                                break;
-
-                            case "OAB":
-
-                                tipoDocumento = modalidadeDocumentoIdentificador.OAB;
-
-                                emissorDocumento = "Ordem dos Advogados do Brasil";
-
-                                break;
-
-                            default:
-
-                                break;
-
-                        }*/
-
-
-
-                        documentos.Add(new tipoDocumentoIdentificacao()
-
-                        {
-
-                            nome = pAtiva.Nome.Trim(),
-
-                            tipoDocumento = tipoDocumento,
-
-                            emissorDocumento = emissorDocumento,
-
-                            codigoDocumento = Util.OnlyNumbers(doc.Numero)
-
-                        });
-
                     }
 
-                }
 
 
-
-                modalidadeGeneroPessoa genero = modalidadeGeneroPessoa.M;
-
-                if (pAtiva.Genero == "Masculino")
-
-                {
-
-                    genero = modalidadeGeneroPessoa.M;
-
-                }
-
-                else
-
-                {
-
-                    if (pAtiva.Genero == "Feminino")
+                    if (pAtiva.Documentos != null && pAtiva.Documentos.Length > 0)
 
                     {
 
-                        genero = modalidadeGeneroPessoa.F;
+                        foreach (var doc in pAtiva.Documentos)
+
+                        {
+
+                            //IDENTIFICACAO DE NOME DO DOCUMENTO:
+
+                            var tipoDocumento = "";
+
+                            var emissorDocumento = "";
+
+
+
+                            //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
+
+                            var documentoParte = _dataContext.tTpDocumentoParte.Where(
+
+                                documento => documento.SgTpDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
+
+                                ).FirstOrDefault();
+
+
+
+                            if (documentoParte != null)
+
+                            {
+
+                                tipoDocumento = documentoParte.SgTpDocumentoPje;
+
+                                emissorDocumento = documentoParte.DsEmissorDocumento;
+
+                            }
+
+                            /*switch (doc.Tipo.Trim())
+
+                            {
+
+                                case "CPF":
+
+                                    tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+
+                                    emissorDocumento = "Secretaria da Receita Federal do Brasil";
+
+                                    break;
+
+                                case "RG":
+
+                                    tipoDocumento = modalidadeDocumentoIdentificador.CI;
+
+                                    emissorDocumento = "SSP";
+
+                                    break;
+
+                                case "CNPJ":
+
+                                    tipoDocumento = modalidadeDocumentoIdentificador.CMF;
+
+                                    emissorDocumento = "Secretaria da Receita Federal do Brasil";
+
+                                    break;
+
+                                case "OAB":
+
+                                    tipoDocumento = modalidadeDocumentoIdentificador.OAB;
+
+                                    emissorDocumento = "Ordem dos Advogados do Brasil";
+
+                                    break;
+
+                                default:
+
+                                    break;
+
+                            }*/
+
+
+
+                            documentos.Add(new tipoDocumentoIdentificacao()
+
+                            {
+
+                                nome = pAtiva.Nome.Trim(),
+
+                                tipoDocumento = tipoDocumento,
+
+                                emissorDocumento = emissorDocumento,
+
+                                codigoDocumento = Util.OnlyNumbers(doc.Numero)
+
+                            });
+
+                        }
+
+                    }
+
+
+
+                    modalidadeGeneroPessoa genero = modalidadeGeneroPessoa.M;
+
+                    if (pAtiva.Genero == "Masculino")
+
+                    {
+
+                        genero = modalidadeGeneroPessoa.M;
 
                     }
 
@@ -1056,58 +1043,70 @@ namespace IntegradorIdea.Integracao
 
                     {
 
-                        genero = modalidadeGeneroPessoa.D;
+                        if (pAtiva.Genero == "Feminino")
+
+                        {
+
+                            genero = modalidadeGeneroPessoa.F;
+
+                        }
+
+                        else
+
+                        {
+
+                            genero = modalidadeGeneroPessoa.D;
+
+                        }
 
                     }
 
-                }
+                    tipoQualificacaoPessoa tipoPessoa = tipoQualificacaoPessoa.fisica;
 
-                tipoQualificacaoPessoa tipoPessoa = tipoQualificacaoPessoa.fisica;
-
-                if (pAtiva.TipoPessoa == "Juridica")
-
-                {
-
-                    tipoPessoa = tipoQualificacaoPessoa.juridica;
-
-                }
-
-                else
-
-                {
-
-                    tipoPessoa = tipoQualificacaoPessoa.fisica;
-
-                }
-
-                parteAtivas.Add(new tipoParte()
-
-                {
-
-                    pessoa = new tipoPessoa()
+                    if (pAtiva.TipoPessoa == "Juridica")
 
                     {
 
-                        nome = pAtiva.Nome,
+                        tipoPessoa = tipoQualificacaoPessoa.juridica;
 
-                        documento = documentos.ToArray(),
+                    }
 
-                        sexo = genero,
+                    else
 
-                        numeroDocumentoPrincipal = documentos.Count > 0 ? Util.OnlyNumbers(documentos[0].codigoDocumento) : "",
+                    {
 
-                        tipoPessoa1 = tipoPessoa,
+                        tipoPessoa = tipoQualificacaoPessoa.fisica;
 
-                        nacionalidade = "BR"
+                    }
 
-                    },
+                    parteAtivas.Add(new tipoParte()
 
-                    advogado = advogados.ToArray()
+                    {
 
-                });
+                        pessoa = new tipoPessoa()
 
+                        {
+
+                            nome = pAtiva.Nome,
+
+                            documento = documentos.ToArray(),
+
+                            sexo = genero,
+
+                            numeroDocumentoPrincipal = documentos.Count > 0 ? Util.OnlyNumbers(documentos[0].codigoDocumento) : "",
+
+                            tipoPessoa1 = tipoPessoa,
+
+                            nacionalidade = "BR"
+
+                        },
+
+                        advogado = advogados.ToArray()
+
+                    });
+
+                }
             }
-
 
 
             return parteAtivas;
@@ -1126,165 +1125,112 @@ namespace IntegradorIdea.Integracao
 
             var partePassivas = new List<tipoParte>();
 
-            foreach (var pPassiva in objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesPassivas)
-
+            if (objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesPassivas != null)
             {
-
-                var documentos = new List<tipoDocumentoIdentificacao>();
-
-
-
-                var advogados = new List<tipoRepresentanteProcessual>();
-
-
-
-                //CASO EXISTA OS ADVS RELACIONA A PARTE.
-
-                if (pPassiva.Advogados != null && pPassiva.Advogados.Length > 0)
+                foreach (var pPassiva in objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesPassivas)
 
                 {
 
-                    foreach (var adv in pPassiva.Advogados)
+                    var documentos = new List<tipoDocumentoIdentificacao>();
+
+
+
+                    var advogados = new List<tipoRepresentanteProcessual>();
+
+
+
+                    //CASO EXISTA OS ADVS RELACIONA A PARTE.
+
+                    if (pPassiva.Advogados != null && pPassiva.Advogados.Length > 0)
 
                     {
 
-                        advogados.Add(
-
-                            new tipoRepresentanteProcessual()
-
-                            {
-
-                                nome = adv.Nome,
-
-                                numeroDocumentoPrincipal = adv.OAB,
-
-                                tipoRepresentante = modalidadeRepresentanteProcessual.A
-
-                            });
-
-                    }
-
-                }
-
-
-
-                if (pPassiva.Documentos != null && pPassiva.Documentos.Length > 0)
-
-                {
-
-                    foreach (var doc in pPassiva.Documentos)
-
-                    {
-
-                        //IDENTIFICACAO DE NOME DO DOCUMENTO:
-
-                        var tipoDocumento = "";
-
-                        var emissorDocumento = "";
-
-                        //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
-
-                        var documentoParte = _dataContext.tTpDocumentoParte.Where(
-
-                            documento => documento.SgTpDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
-
-                            ).FirstOrDefault();
-
-
-
-                        if (documentoParte != null)
+                        foreach (var adv in pPassiva.Advogados)
 
                         {
 
-                            tipoDocumento = documentoParte.SgTpDocumentoPje;
+                            advogados.Add(
 
-                            emissorDocumento = documentoParte.DsEmissorDocumento;
+                                new tipoRepresentanteProcessual()
+
+                                {
+
+                                    nome = adv.Nome,
+
+                                    numeroDocumentoPrincipal = adv.OAB,
+
+                                    tipoRepresentante = modalidadeRepresentanteProcessual.A
+
+                                });
 
                         }
 
-                        /*switch (doc.Tipo.Trim())
-
-                        {
-
-                            case "CPF":
-
-                                tipoDocumento = modalidadeDocumentoIdentificador.CMF;
-
-                                emissorDocumento = "Secretaria da Receita Federal do Brasil";
-
-                                break;
-
-                            case "RG":
-
-                                tipoDocumento = modalidadeDocumentoIdentificador.CI;
-
-                                emissorDocumento = "SSP";
-
-                                break;
-
-                            case "CNPJ":
-
-                                tipoDocumento = modalidadeDocumentoIdentificador.CMF;
-
-                                emissorDocumento = "Secretaria da Receita Federal do Brasil";
-
-                                break;
-
-                            case "OAB":
-
-                                tipoDocumento = modalidadeDocumentoIdentificador.OAB;
-
-                                emissorDocumento = "Ordem dos Advogados do Brasil";
-
-                                break;
-
-                            default:
-
-                                break;
-
-                        }*/
-
-
-
-                        documentos.Add(new tipoDocumentoIdentificacao()
-
-                        {
-
-                            nome = pPassiva.Nome.Trim(),
-
-                            tipoDocumento = tipoDocumento,
-
-                            emissorDocumento = emissorDocumento,
-
-                            codigoDocumento = Util.OnlyNumbers(doc.Numero)
-
-                        });
-
                     }
 
-                }
 
 
-
-                modalidadeGeneroPessoa genero = modalidadeGeneroPessoa.M;
-
-                if (pPassiva.Genero == "Masculino")
-
-                {
-
-                    genero = modalidadeGeneroPessoa.M;
-
-                }
-
-                else
-
-                {
-
-                    if (pPassiva.Genero == "Feminino")
+                    if (pPassiva.Documentos != null && pPassiva.Documentos.Length > 0)
 
                     {
 
-                        genero = modalidadeGeneroPessoa.F;
+                        foreach (var doc in pPassiva.Documentos)
+
+                        {
+
+                            //IDENTIFICACAO DE NOME DO DOCUMENTO:
+
+                            var tipoDocumento = "";
+
+                            var emissorDocumento = "";
+
+                            //BUSCA O TIPO DE DOCUMENTO USANDO A TABELA DE DE-PARA PARA TANTO.
+
+                            var documentoParte = _dataContext.tTpDocumentoParte.Where(
+
+                                documento => documento.SgTpDocumentoEsaj.ToUpper().Equals(doc.Tipo.ToUpper().Trim())
+
+                                ).FirstOrDefault();
+
+
+
+                            if (documentoParte != null)
+
+                            {
+
+                                tipoDocumento = documentoParte.SgTpDocumentoPje;
+
+                                emissorDocumento = documentoParte.DsEmissorDocumento;
+
+                            }
+
+
+                            documentos.Add(new tipoDocumentoIdentificacao()
+
+                            {
+
+                                nome = pPassiva.Nome.Trim(),
+
+                                tipoDocumento = tipoDocumento,
+
+                                emissorDocumento = emissorDocumento,
+
+                                codigoDocumento = Util.OnlyNumbers(doc.Numero)
+
+                            });
+
+                        }
+
+                    }
+
+
+
+                    modalidadeGeneroPessoa genero = modalidadeGeneroPessoa.M;
+
+                    if (pPassiva.Genero == "Masculino")
+
+                    {
+
+                        genero = modalidadeGeneroPessoa.M;
 
                     }
 
@@ -1292,60 +1238,72 @@ namespace IntegradorIdea.Integracao
 
                     {
 
-                        genero = modalidadeGeneroPessoa.D;
+                        if (pPassiva.Genero == "Feminino")
+
+                        {
+
+                            genero = modalidadeGeneroPessoa.F;
+
+                        }
+
+                        else
+
+                        {
+
+                            genero = modalidadeGeneroPessoa.D;
+
+                        }
 
                     }
 
-                }
+                    tipoQualificacaoPessoa tipoPessoa = tipoQualificacaoPessoa.fisica;
 
-                tipoQualificacaoPessoa tipoPessoa = tipoQualificacaoPessoa.fisica;
-
-                if (pPassiva.TipoPessoa == "Juridica")
-
-                {
-
-                    tipoPessoa = tipoQualificacaoPessoa.juridica;
-
-                }
-
-                else
-
-                {
-
-                    tipoPessoa = tipoQualificacaoPessoa.fisica;
-
-                }
-
-
-
-                partePassivas.Add(new tipoParte()
-
-                {
-
-                    pessoa = new tipoPessoa()
+                    if (pPassiva.TipoPessoa == "Juridica")
 
                     {
 
-                        nome = pPassiva.Nome,
+                        tipoPessoa = tipoQualificacaoPessoa.juridica;
 
-                        documento = documentos.ToArray(),
+                    }
 
-                        sexo = genero,
+                    else
 
-                        numeroDocumentoPrincipal = documentos.Count > 0 ? Util.OnlyNumbers(documentos[0].codigoDocumento) : "",
+                    {
 
-                        tipoPessoa1 = tipoPessoa,
+                        tipoPessoa = tipoQualificacaoPessoa.fisica;
 
-                        nacionalidade = "BR"
+                    }
 
-                    },
 
-                    advogado = advogados.ToArray()
 
-                });
+                    partePassivas.Add(new tipoParte()
 
+                    {
+
+                        pessoa = new tipoPessoa()
+
+                        {
+
+                            nome = pPassiva.Nome,
+
+                            documento = documentos.ToArray(),
+
+                            sexo = genero,
+
+                            numeroDocumentoPrincipal = documentos.Count > 0 ? Util.OnlyNumbers(documentos[0].codigoDocumento) : "",
+
+                            tipoPessoa1 = tipoPessoa,
+
+                            nacionalidade = "BR"
+
+                        },
+
+                        advogado = advogados.ToArray()
+
+                    });
+
+                }
             }
-
 
 
             return partePassivas;
@@ -2698,6 +2656,8 @@ namespace IntegradorIdea.Integracao
 
                     {
 
+                        string nuProcessoSemMascara = Util.OnlyNumbers(intimacao.nuProcesso);
+
                         TComunicacaoEletronica comunicacaoEletronica = new TComunicacaoEletronica()
 
                         {
@@ -2710,7 +2670,7 @@ namespace IntegradorIdea.Integracao
 
                             CdAssunto = intimacao.Assunto != null ? Int32.Parse(intimacao.Assunto.cdAssunto.ToString()) : 9999,
 
-                            NuProcesso = Util.OnlyNumbers(intimacao.nuProcesso),
+                            NuProcesso = nuProcessoSemMascara,
 
                             CdForo = (int)intimacao.ForoVara.cdForo,
 
@@ -2727,6 +2687,12 @@ namespace IntegradorIdea.Integracao
                         _dataContext.TComunicacaoEletronica.Add(comunicacaoEletronica);
 
                         _dataContext.SaveChanges();
+
+                        //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
+                        if (_configuration.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigitalComunicacaoEletronica"))
+                        {
+                            InserirFilaPastaDigital(0, nuProcessoSemMascara);
+                        }
 
                     }
 
@@ -2866,6 +2832,8 @@ namespace IntegradorIdea.Integracao
 
                     {
 
+                        string nuProcessoSemMascara = Util.OnlyNumbers(citacao.nuProcesso);
+
                         TComunicacaoEletronica comunicacaoEletronica = new TComunicacaoEletronica()
 
                         {
@@ -2878,7 +2846,7 @@ namespace IntegradorIdea.Integracao
 
                             CdAssunto = citacao.Assunto != null ? Int32.Parse(citacao.Assunto.cdAssunto.ToString()) : 9999,
 
-                            NuProcesso = Util.OnlyNumbers(citacao.nuProcesso),
+                            NuProcesso = nuProcessoSemMascara,
 
                             CdForo = (int)citacao.ForoVara.cdForo,
 
@@ -2893,10 +2861,15 @@ namespace IntegradorIdea.Integracao
                         };
 
 
-
                         _dataContext.TComunicacaoEletronica.Add(comunicacaoEletronica);
 
                         _dataContext.SaveChanges();
+
+                        //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
+                        if (_configuration.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigitalComunicacaoEletronica"))
+                        {
+                            InserirFilaPastaDigital(0, nuProcessoSemMascara);
+                        }
 
                     }
 

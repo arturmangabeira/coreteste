@@ -5,20 +5,20 @@ using System.Threading.Tasks;
 
 namespace IntegradorIdea.Objects
 {
-    
+
     public partial class consultarTeorComunicacaoRequest
     {
 
-    
+
         public string idConsultante { get; set; }
 
-    
+
         public string senhaConsultante { get; set; }
 
-    
+
         public string numeroProcesso { get; set; }
 
-    
+
         public string identificadorAviso { get; set; }
 
         public consultarTeorComunicacaoRequest()
@@ -110,7 +110,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.destinatarioField = value;                
+                this.destinatarioField = value;
             }
         }
 
@@ -124,7 +124,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.processoField = value;                
+                this.processoField = value;
             }
         }
 
@@ -138,7 +138,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.teorField = value;                
+                this.teorField = value;
             }
         }
 
@@ -152,7 +152,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.documentoField = value;                
+                this.documentoField = value;
             }
         }
 
@@ -166,7 +166,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.parametroField = value;                
+                this.parametroField = value;
             }
         }
 
@@ -180,7 +180,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.anyField = value;                
+                this.anyField = value;
             }
         }
 
@@ -194,7 +194,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.idField = value;                
+                this.idField = value;
             }
         }
 
@@ -208,7 +208,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.tipoComunicacaoField = value;                
+                this.tipoComunicacaoField = value;
             }
         }
 
@@ -222,7 +222,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.tipoPrazoField = value;                
+                this.tipoPrazoField = value;
             }
         }
 
@@ -236,7 +236,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.tipoPrazoFieldSpecified = value;                
+                this.tipoPrazoFieldSpecified = value;
             }
         }
 
@@ -250,7 +250,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.dataReferenciaField = value;                
+                this.dataReferenciaField = value;
             }
         }
 
@@ -264,7 +264,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.prazoField = value;                
+                this.prazoField = value;
             }
         }
 
@@ -278,7 +278,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.prazoFieldSpecified = value;                
+                this.prazoFieldSpecified = value;
             }
         }
 
@@ -292,7 +292,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nivelSigiloField = value;                
+                this.nivelSigiloField = value;
             }
         }
 
@@ -310,8 +310,8 @@ namespace IntegradorIdea.Objects
             }
         }
 
+        #pragma warning disable 067
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]

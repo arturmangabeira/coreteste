@@ -39,8 +39,7 @@ using Microsoft.Extensions.Logging;
 using System.Xml;
 
 using System.Text.Unicode;
-
-
+using Microsoft.EntityFrameworkCore;
 
 namespace IntegradorIdea.Integracao
 
@@ -2680,7 +2679,9 @@ namespace IntegradorIdea.Integracao
 
                             CdClasse = (int)intimacao.Classe.cdClasse,
 
-                            DtLimiteCiencia = intimacao.dtDisponibilizacao.AddDays(10)
+                            DtLimiteCiencia = intimacao.dtDisponibilizacao.AddDays(10),
+
+                            DtRecebimento = DateTime.Now
 
                         };
 
@@ -2856,7 +2857,9 @@ namespace IntegradorIdea.Integracao
 
                             CdClasse = (int)citacao.Classe.cdClasse,
 
-                            DtLimiteCiencia = citacao.dtDisponibilizacao.AddDays(10)
+                            DtLimiteCiencia = citacao.dtDisponibilizacao.AddDays(10),
+
+                            DtRecebimento = DateTime.Now
 
                         };
 
@@ -2922,27 +2925,35 @@ namespace IntegradorIdea.Integracao
         #region ObterDocTeorAto
 
         public string ObterDocTeorAto()
-
         {
 
-            //OBTÉM TODOS OS ATOS QUE FORAM INCLUÍDOS NA BASE E QUE ESTEJAM COM A DATA DE CIENCIA NULA E COM O DSATO VAZIO (DIFERENCIAL)
+            string[] dsProcessosObterDocTeorAto = _configuration["Configuracoes:dsProcessosObterDocTeorAto"].ToString().Split(",");
 
-            var intimacaoCitacaoDocAtos = _dataContext.TComunicacaoEletronica.Where(atos => atos.DtCiencia == null && atos.DsTeorAto == null).ToList();
+            var intimacaoCitacaoDocAtos = new List<TComunicacaoEletronica>();
 
+            if (dsProcessosObterDocTeorAto.Length > 0)
+            {
+                // OBTÉM SOMENTE OS ATOS DE DETERMINADOS PROCESSOS CONFORME CONFIGURAÇÃO                
 
+                intimacaoCitacaoDocAtos = (from p in _dataContext.TComunicacaoEletronica
+                                           where dsProcessosObterDocTeorAto.Contains(p.NuProcesso)
+                                           select p).ToList();
+            }
+            else
+            {
+                // OBTÉM TODOS OS ATOS QUE FORAM INCLUÍDOS NA BASE E QUE ESTEJAM COM A DATA DE CIENCIA NULA E COM O DSATO VAZIO (DIFERENCIAL)
+                intimacaoCitacaoDocAtos = _dataContext.TComunicacaoEletronica.Where(atos => atos.DtCiencia == null && atos.DsTeorAto == null).ToList();
+            }
 
             Compressao objCompressao = new Compressao();
 
             ArquivoPdf[] colArquivos;
 
 
-
             if (intimacaoCitacaoDocAtos != null && intimacaoCitacaoDocAtos.Count > 0)
-
             {
 
                 foreach (var intimacaoCitacao in intimacaoCitacaoDocAtos)
-
                 {
 
                     string prazo = "";
@@ -2977,11 +2988,8 @@ namespace IntegradorIdea.Integracao
 
                                 string arquivoPDF = Util.ExtrairTextoPDF(dadosArquivo);
 
-                                //obtem no texto do pdf o prazo
-
+                                // obtem no texto do pdf o prazo
                                 string prazoStr = arquivoPDF.Substring(arquivoPDF.IndexOf("Prazo:") + 6, 5).Trim();
-
-
 
                                 foreach (var ch in prazoStr)
 
@@ -2998,7 +3006,6 @@ namespace IntegradorIdea.Integracao
                                     }
 
                                 }
-
 
 
                                 //obtem no texto do pdf o campo intimado
@@ -3457,11 +3464,13 @@ namespace IntegradorIdea.Integracao
 
             var retornoConsultarTeorComunicacao = new consultarTeorComunicacaoResponse();
 
+            int cdIdea = int.Parse(consultarTeorComunicacao.idConsultante);
+
             TLogOperacao operacaoConsultarProcesso = new TLogOperacao()
 
             {
 
-                CdIdea = int.Parse(consultarTeorComunicacao.idConsultante),
+                CdIdea = cdIdea,
 
                 DsCaminhoDocumentosChamada = Util.Serializar(consultarTeorComunicacao),
 
@@ -3557,7 +3566,7 @@ namespace IntegradorIdea.Integracao
 
                     {
 
-                        ArquivoConfirmacaoCiencia = this.SolicitaIntimacaoAto(intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
+                        ArquivoConfirmacaoCiencia = this.SolicitaIntimacaoAto(cdIdea, intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
 
                     }
 
@@ -3569,7 +3578,7 @@ namespace IntegradorIdea.Integracao
 
                         {
 
-                            ArquivoConfirmacaoCiencia = this.SolicitaCitacaoAto(intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
+                            ArquivoConfirmacaoCiencia = this.SolicitaCitacaoAto(cdIdea, intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
 
                         }
 
@@ -3584,8 +3593,6 @@ namespace IntegradorIdea.Integracao
                     if (ArquivoConfirmacaoCiencia != String.Empty)
 
                     {
-
-
 
                         ArquivoPdf[] colArquivosDadoCiencia = objCompressao.DescomprimirBase64(ArquivoConfirmacaoCiencia);
 
@@ -3625,10 +3632,45 @@ namespace IntegradorIdea.Integracao
 
                                 }
 
+                                oNoLista = oXML.SelectNodes("Message/MessageBody/Resposta/dtIntimacao");
+                                if (oNoLista.Count > 0)
+                                {
+                                    intimacacaoCitacao.DtIntimacao = DateTime.Parse(oNoLista[0].ChildNodes.Item(0).InnerText);
+                                }
+
+                                oNoLista = oXML.SelectNodes("Message/MessageBody/Resposta/dtMovimentacao");
+                                if (oNoLista.Count > 0)
+                                {
+                                    intimacacaoCitacao.DtMovimentacao = DateTime.Parse(oNoLista[0].ChildNodes.Item(0).InnerText);
+                                }
+
+                                oNoLista = oXML.SelectNodes("Message/MessageBody/Resposta/cdMovimentacao");
+                                if (oNoLista.Count > 0)
+                                {
+                                    intimacacaoCitacao.CdMovimentacao = int.Parse(oNoLista[0].ChildNodes.Item(0).InnerText);
+                                }
+
+                                oNoLista = oXML.SelectNodes("Message/MessageBody/Resposta/deMovimentacao");
+                                if (oNoLista.Count > 0)
+                                {
+                                    intimacacaoCitacao.DsMovimentacao = oNoLista[0].ChildNodes.Item(0).InnerText;
+                                }
+
+                                oNoLista = oXML.SelectNodes("Message/MessageBody/Resposta/deComplemento");
+                                if (oNoLista.Count > 0)
+                                {
+                                    intimacacaoCitacao.DsComplemento = oNoLista[0].ChildNodes.Item(0).InnerText;
+                                }
+
+                                oNoLista = oXML.SelectNodes("Message/MessageBody/Resposta/OutrosNumeros/nuOutroNumero");
+                                if (oNoLista.Count > 0)
+                                {
+                                    intimacacaoCitacao.DsOutrosNumeros = oNoLista[0].ChildNodes.Item(0).InnerText;
+                                }
+
                                 /*else
 
                                 {
-
                                     //O RETORNO É VÁLIDO JÁ QUE O XML NÃO CONTÉM A TAG MENSAGEM !!
 
                                 }*/
@@ -3656,6 +3698,8 @@ namespace IntegradorIdea.Integracao
                     intimacacaoCitacao.DsCaminhoDocumentosAnexoAtoEnvio = this.SalvarArquivoCienciaAto(ref ArquivoCienciaBase64, intimacacaoCitacao.IdComunicacaoEletronica, "DocumentoAnexoAtoEnvio.zip");
 
                     intimacacaoCitacao.DsCaminhoDocumentosAnexoAtoRetorno = this.SalvarArquivoCienciaAto(ref ArquivoConfirmacaoCiencia, intimacacaoCitacao.IdComunicacaoEletronica, "DocumentoAnexoAtoRetorno.zip");
+
+                    intimacacaoCitacao.DtCiencia = DateTime.Now;
 
                     //REALIZA O UPDATE COM OS CAMINHOS DOS ARQUIVOS:
 
@@ -3795,7 +3839,7 @@ namespace IntegradorIdea.Integracao
 
         #region SolicitaIntimacaoAto
 
-        private string SolicitaIntimacaoAto(string cdAto, string arquivoBase64)
+        private string SolicitaIntimacaoAto(int cdIdeia, string cdAto, string arquivoBase64)
 
         {
 
@@ -3834,7 +3878,6 @@ namespace IntegradorIdea.Integracao
             Message.MessageBody = MessageMessageBody;
 
 
-
             // Gerando o XML
 
             string xml = Message.Serialize();
@@ -3862,9 +3905,7 @@ namespace IntegradorIdea.Integracao
                 {
 
                     if (arqRetorno.Nome.Equals("Resposta.xml"))
-
-                    {
-
+                    {                        
                         retornoArquivoResposta = Util.Base64EncodeStream(arqRetorno.Dados);
 
                     }
@@ -3881,7 +3922,7 @@ namespace IntegradorIdea.Integracao
 
             {
 
-                //CdIdea = _cdIdeia,
+                CdIdea = cdIdeia,
 
                 DsCaminhoDocumentosChamada = xml,
 
@@ -3904,10 +3945,7 @@ namespace IntegradorIdea.Integracao
             };
 
             //REGISTRA O LOG
-
             _logOperacao.RegistrarLogOperacao(operacao);
-
-
 
             return Dados;
 
@@ -3921,7 +3959,7 @@ namespace IntegradorIdea.Integracao
 
         #region SolicitaCitacaoAto
 
-        public string SolicitaCitacaoAto(string cdAto, string arquivoBase64)
+        public string SolicitaCitacaoAto(int cdIdea, string cdAto, string arquivoBase64)
 
         {
 
@@ -4005,7 +4043,7 @@ namespace IntegradorIdea.Integracao
 
             {
 
-                //CdIdea = _cdIdeia,
+                CdIdea = cdIdea,
 
                 DsCaminhoDocumentosChamada = xml,
 
@@ -4028,7 +4066,6 @@ namespace IntegradorIdea.Integracao
             };
 
             //REGISTRA O LOG
-
             _logOperacao.RegistrarLogOperacao(operacao);
 
 

@@ -325,7 +325,7 @@ namespace IntegradorIdea.Integracao
                     }
                 }
             }
-            return array;
+            //return array;
         }
 
         private MemoryStream Assinar2(MemoryStream ArquivoOrigem, X509Certificate2 cert)

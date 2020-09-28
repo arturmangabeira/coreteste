@@ -40,15 +40,24 @@
           "dependencies": {
             "CsQuery": {
               "target": "Package",
-              "version": "[1.3.4, )"
+              "version": "[1.3.4, )",
+              "noWarn": [
+                "NU1701"
+              ]
             },
             "ICSharpCode.SharpZipLib.dll": {
               "target": "Package",
-              "version": "[0.85.4.369, )"
+              "version": "[0.85.4.369, )",
+              "noWarn": [
+                "NU1701"
+              ]
             },
             "Ionic.Zip": {
               "target": "Package",
-              "version": "[1.9.1.8, )"
+              "version": "[1.9.1.8, )",
+              "noWarn": [
+                "NU1701"
+              ]
             },
             "Microsoft.AspNetCore.HttpOverrides": {
               "target": "Package",
@@ -102,7 +111,10 @@
             },
             "itextsharp": {
               "target": "Package",
-              "version": "[5.2.0, )"
+              "version": "[5.2.0, )",
+              "noWarn": [
+                "NU1701"
+              ]
             }
           },
           "imports": [
@@ -115,20 +127,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[3.1.8, 3.1.8]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[3.1.8, 3.1.8]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[3.1.8, 3.1.8]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -138,11 +136,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
         }
       }
     }

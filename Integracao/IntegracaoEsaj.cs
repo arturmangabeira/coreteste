@@ -40,6 +40,7 @@ using System.Xml;
 
 using System.Text.Unicode;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace IntegradorIdea.Integracao
 
@@ -3905,9 +3906,11 @@ namespace IntegradorIdea.Integracao
                 {
 
                     if (arqRetorno.Nome.Equals("Resposta.xml"))
-                    {                        
-                        retornoArquivoResposta = Util.Base64EncodeStream(arqRetorno.Dados);
-
+                    {
+                        // Carrega o contéudo do arquivo de resposta (XML) na codificação ISO-8859-1
+                        string dsConteudoArquivoResposta = Encoding.GetEncoding("iso-8859-1").GetString(arqRetorno.Dados);
+                        // Converte o conteúdo do arquivo de resposta para o formato UTF-8 para persistir na base corretamente
+                        retornoArquivoResposta = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(dsConteudoArquivoResposta));
                     }
 
                 }

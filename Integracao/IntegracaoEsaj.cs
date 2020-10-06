@@ -3371,7 +3371,7 @@ namespace IntegradorIdea.Integracao
 
                 DsCaminhoDocumentosRetorno = Util.Serializar(consultaAvisoPendenteResposta),
 
-                DsLogOperacao = "Consultar Aviso Pendentes ",
+                DsLogOperacao = "Consultar Aviso Pendentes",
 
                 DtInicioOperacao = dtInicial,
 
@@ -3381,7 +3381,9 @@ namespace IntegradorIdea.Integracao
 
                 IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarAvisoPendentes:id"),
 
-                IdTpRetorno = 1
+                IdTpRetorno = 1,
+
+                FlOperacao = true
 
             };
 

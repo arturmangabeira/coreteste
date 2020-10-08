@@ -541,9 +541,52 @@ namespace IntegradorIdea.Integracao
         }
         #endregion
 
+        public string peticionarIntermediariaDiversa(string entregarManifestacaoProcessualXML, string documento)
+        {
+            string resposta = "";
+
+            string strLogin;
+
+            if (Autenticar(_codigo, out strLogin))
+            {
+                var dtInicial = DateTime.Now;
+                Entidades.IntermediariaDiversa.Message objAjuizamento = new Entidades.IntermediariaDiversa.Message();
+                objAjuizamento.ExtrairObjeto<Entidades.IntermediariaDiversa.Message>(entregarManifestacaoProcessualXML);
+                //GERA NOVAMENTE O XML PARA SERIALIZANO O OBJETO PARA VALIDAR SE O XML FORNECIDO PARA O ESAJ ESTÁ DE ACORDO COM O XSD.
+                string strXML = objAjuizamento.Serialize();
+
+                IXml objXML = new Xml();
+                strXML = objXML.AssinarXmlString(strXML, _repositorio, _certificado, "");
+                resposta = _serviceESAJ.peticionarIntermediariaDiversaAsync(strXML, documento).Result;
+                var dtFinal = DateTime.Now;
+
+                //REGISTAR LOGON
+                TLogOperacao operacao = new TLogOperacao()
+                {
+                    CdIdea = _cdIdeia,
+                    DsCaminhoDocumentosChamada = entregarManifestacaoProcessualXML,
+                    DsCaminhoDocumentosRetorno = resposta,
+                    DsLogOperacao = "SolicitaCitacaoAto no ESAJ",
+                    DtInicioOperacao = dtInicial,
+                    DtFinalOperacao = dtFinal,
+                    DtLogOperacao = DateTime.Now,
+                    FlOperacao = true,
+                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoCitacaoAto:id"),
+                    IdTpRetorno = 1
+                };
+
+                //REGISTRA O LOG
+                _logOperacao.RegistrarLogOperacao(operacao);
+            }
+            else
+            {
+                resposta = strLogin;
+            }
+            return resposta;
+        }
 
         #region Serializar
-        private string Serializar(string objeto)
+            private string Serializar(string objeto)
         {
             Message objAjuizamento = new Message();
             objAjuizamento = objAjuizamento.ExtrairObjeto<Message>(objeto);

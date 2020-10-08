@@ -73,6 +73,11 @@ namespace IntegradorIdea.Integracao
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
+        public static string Base64DecodeStream(byte[] byteEncodedData)
+        {            
+            return System.Text.Encoding.UTF8.GetString(byteEncodedData);
+        }
+
         public static string OnlyNumbers(string document)
         {
             return numbersOnly.Replace(document.Trim(), "");

@@ -7483,7 +7483,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\esiquiel.simoes\\.nuget\\packages\\": {}
+    "C:\\Users\\artur\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -7491,11 +7491,11 @@
       "projectUniqueName": "C:\\Projetos\\coreteste\\IntegradorIdea.csproj",
       "projectName": "IntegradorIdea",
       "projectPath": "C:\\Projetos\\coreteste\\IntegradorIdea.csproj",
-      "packagesPath": "C:\\Users\\esiquiel.simoes\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\artur\\.nuget\\packages\\",
       "outputPath": "C:\\Projetos\\coreteste\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\esiquiel.simoes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\artur\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7616,7 +7616,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,43 +1,23 @@
 ﻿using System;
-
 using System.Collections.Generic;
-
 using System.IO;
-
 using System.Linq;
-
 using System.Net;
-
 using System.Web;
-
 using IntegradorIdea.Data;
-
 using IntegradorIdea.Entidades;
-
 using IntegradorIdea.Entidades.AssuntoClasse;
-
 using IntegradorIdea.Entidades.CategoriaClasse;
-
 using IntegradorIdea.Entidades.DocDigitalClasse;
-
 using IntegradorIdea.Entidades.ForoClasse;
-
 using IntegradorIdea.Entidades.TipoDiversasClasse;
-
 using IntegradorIdea.Entidades.TpParteClasse;
-
 using IntegradorIdea.Models;
-
 using IntegradorIdea.Objects;
-
 using CsQuery;
-
 using Microsoft.Extensions.Configuration;
-
 using Microsoft.Extensions.Logging;
-
 using System.Xml;
-
 using System.Text.Unicode;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
@@ -47,28 +27,14 @@ namespace IntegradorIdea.Integracao
 {
 
     public class IntegracaoEsaj
-
     {
-
         public Proxy _proxy { get; }
-
         public IConfiguration _configuration { get; }
 
-
-
         public ILogger<IntegracaoService> _logger;
-
-
-
         private DataContext _dataContext { get; }
-
         public Log _logOperacao { get; }
-
-
-
         public string _ipDestino { get; set; }
-
-
 
         #region IntegracaoEsaj
 
@@ -91,8 +57,6 @@ namespace IntegradorIdea.Integracao
         }
 
         #endregion
-
-
 
         #region ConsultarProcesso
 
@@ -459,8 +423,6 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region InserirFilaPastaDigital
 
         private void InserirFilaPastaDigital(int cdIdea, string nuProcesso)
@@ -552,8 +514,6 @@ namespace IntegradorIdea.Integracao
         }
 
         #endregion
-
-
 
         #region ObterDocumentos
 
@@ -771,8 +731,6 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region ObterDadosBasicos
 
         /// <summary>
@@ -818,8 +776,6 @@ namespace IntegradorIdea.Integracao
         }
 
         #endregion
-
-
 
         #region ObterPartes
 
@@ -874,8 +830,6 @@ namespace IntegradorIdea.Integracao
         }
 
         #endregion
-
-
 
         #region ObterParteAtiva
 
@@ -1115,8 +1069,6 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region ObterPartePassiva
 
         private List<tipoParte> ObterPartePassiva(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
@@ -1311,8 +1263,6 @@ namespace IntegradorIdea.Integracao
         }
 
         #endregion
-
-
 
         #region ObterMovimentacoes
 
@@ -1674,243 +1624,125 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region ObterDetalheMovimentacao
-
         private string ObterDetalheMovimentacao(string codigoProcesso, string numMovimentacao, CookieContainer cookies)
-
         {
-
             //realiza a consulta no site para obter as movimentações.
-
             HttpWebRequest reqMovimentacoes = (HttpWebRequest)WebRequest.Create($"{ _configuration["ESAJ:UrlEsajMovimentacoes"]}/obterComplementoMovimentacao.do?processo.codigo=" + codigoProcesso + "&movimentacao=" + numMovimentacao);
-
             reqMovimentacoes.Method = "GET";
-
             reqMovimentacoes.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
-
             reqMovimentacoes.UserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:15.0) Gecko/20100101 Firefox/15.0";
-
             reqMovimentacoes.ContentType = "text/html; charset=utf-8";
-
             reqMovimentacoes.Referer = "Web Site Referer";
-
             reqMovimentacoes.KeepAlive = true;
-
             reqMovimentacoes.CookieContainer = cookies;
 
-
-
             HttpWebResponse resMovimentacoes = (HttpWebResponse)reqMovimentacoes.GetResponse();
-
             //caso o servidor retorno ok o sistema lista as moviemtações
-
             if (resMovimentacoes.StatusCode == HttpStatusCode.OK)
-
             {
-
                 Stream Stream = resMovimentacoes.GetResponseStream();
-
                 StreamReader reader = new StreamReader(Stream);
-
                 return reader.ReadToEnd();
-
             }
-
             else
-
             {
-
                 return "";
-
             }
-
         }
-
         #endregion
-
-
 
         #region getForosEVaras
-
         public Foros getForosEVaras()
-
         {
-
             _logger.LogInformation("IntegracaoEsaj iniciando getForosEVaras.");
-
             string retornoXmlEsaj = _proxy.getForosEVaras();
-
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
-
             var objRetorno = new Foros().ExtrairObjeto<Foros>(retornoXmlEsaj);
-
             return objRetorno;
-
         }
-
         #endregion
-
-
 
         #region getClasseTpParte
-
         public Classes getClasseTpParte()
-
         {
-
             _logger.LogInformation("IntegracaoEsaj iniciando getClasseTpParte.");
-
             string retornoXmlEsaj = _proxy.getClasseTpParte();
-
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
-
             var objRetorno = new Classes().ExtrairObjeto<Classes>(retornoXmlEsaj);
-
             return objRetorno;
-
         }
-
         #endregion
-
-
 
         #region getTiposDocDigital
-
         public Documentos getTiposDocDigital()
-
         {
-
             _logger.LogInformation("IntegracaoEsaj iniciando getTiposDocDigital.");
-
             string retornoXmlEsaj = _proxy.getTiposDocDigital();
-
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
-
             var objRetorno = new Documentos().ExtrairObjeto<Documentos>(retornoXmlEsaj);
-
             return objRetorno;
-
         }
-
         #endregion
-
-
 
         #region getCategoriasEClasses
-
         public Categorias getCategoriasEClasses()
-
         {
-
             _logger.LogInformation("IntegracaoEsaj iniciando getCategoriasEClasses.");
-
             string retornoXmlEsaj = _proxy.getCategoriasEClasses();
-
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
-
             var objRetorno = new Categorias().ExtrairObjeto<Categorias>(retornoXmlEsaj);
-
             return objRetorno;
-
         }
-
         #endregion
-
-
 
         #region getTiposDiversas
-
         public Tipos getTiposDiversas()
-
         {
-
             _logger.LogInformation("IntegracaoEsaj iniciando getTiposDiversas.");
-
             string retornoXmlEsaj = _proxy.getTiposDiversas();
-
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
-
             var objRetorno = new Tipos().ExtrairObjeto<Tipos>(retornoXmlEsaj);
-
             return objRetorno;
-
         }
-
         #endregion
-
-
 
         #region getAreasCompetenciasEClasses
-
         public string getAreasCompetenciasEClasses(int cdForo)
-
         {
-
             _logger.LogInformation("IntegracaoEsaj iniciando getAreasCompetenciasEClasses.");
-
             return _proxy.getAreasCompetenciasEClasses(cdForo);
-
         }
-
         #endregion
-
-
 
         #region obterNumeroUnificadoDoProcesso
-
         public string obterNumeroUnificadoDoProcesso(string numeroProcesso)
-
         {
-
             _logger.LogInformation("IntegracaoEsaj iniciando obterNumeroUnificadoDoProcesso.");
-
             return _proxy.obterNumeroUnificadoDoProcesso(numeroProcesso);
-
         }
 
         #endregion
-
-
 
         #region obterNumeroSajDoProcesso
-
         public string obterNumeroSajDoProcesso(string numeroProcesso)
-
         {
-
             _logger.LogInformation("IntegracaoEsaj iniciando obterNumeroSajDoProcesso.");
-
             return _proxy.obterNumeroSajDoProcesso(numeroProcesso);
-
         }
-
         #endregion
-
-
 
         #region getAssuntos
-
         public Assuntos getAssuntos(int cdCompetencia, int cdClasse)
-
         {
-
             _logger.LogInformation("IntegracaoEsaj iniciando getAssuntos.");
-
             string retornoXmlEsaj = _proxy.getAssuntos(cdCompetencia, cdClasse);
-
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
-
             var objRetorno = new Assuntos().ExtrairObjeto<Assuntos>(retornoXmlEsaj);
-
             return objRetorno;
-
         }
 
         #endregion
-
-
 
         #region consultarSituacaoDocumentosProcesso
 
@@ -1977,8 +1809,6 @@ namespace IntegradorIdea.Integracao
         }
 
         #endregion
-
-
 
         #region SolicitaListaCitacoesAguardandoCiencia
 
@@ -2278,8 +2108,6 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region SolicitaListaIntimacoesAguardandoCiencia
 
         private List<tipoAvisoComunicacaoPendente> SolicitaListaIntimacoesAguardandoCiencia()
@@ -2572,8 +2400,6 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region SolicitaListaIntimacoesAguardandoCienciaBD
 
         private void SolicitaListaIntimacoesAguardandoCienciaBD()
@@ -2741,8 +2567,6 @@ namespace IntegradorIdea.Integracao
         }
 
         #endregion
-
-
 
         #region SolicitaListaCitacoesAguardandoCienciaBD
 
@@ -2921,8 +2745,6 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region ObterDocTeorAto
 
         public string ObterDocTeorAto()
@@ -3059,8 +2881,6 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region SalvarArquivoTeorAto
 
         private string SalvarArquivoCienciaAto(ref string TeorAto, int idComunicacaoEletronica, string nomeArquivo = "DocumentoAnexoAto.zip")
@@ -3104,8 +2924,6 @@ namespace IntegradorIdea.Integracao
         }
 
         #endregion
-
-
 
         #region ObterIntimacaoCitacao
 
@@ -3287,8 +3105,6 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region ObterIntimacaoCitacaoService
 
         public string ObterIntimacaoCitacaoService()
@@ -3324,8 +3140,6 @@ namespace IntegradorIdea.Integracao
         }
 
         #endregion
-
-
 
         #region consultarAvisosPendentes
 
@@ -3401,8 +3215,6 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region SolicitacaoDocCienciaAto
 
         private string SolicitacaoDocCienciaAto(string cdAto)
@@ -3455,52 +3267,30 @@ namespace IntegradorIdea.Integracao
 
         #endregion
 
-
-
         #region consultarTeorComunicacao
-
         public consultarTeorComunicacaoResponse consultarTeorComunicacao(consultarTeorComunicacaoRequest consultarTeorComunicacao)
-
         {
-
             var dtInicial = DateTime.Now;
-
             var retornoConsultarTeorComunicacao = new consultarTeorComunicacaoResponse();
-
             int cdIdea = int.Parse(consultarTeorComunicacao.idConsultante);
-
             TLogOperacao operacaoConsultarProcesso = new TLogOperacao()
-
             {
-
                 CdIdea = cdIdea,
-
                 DsCaminhoDocumentosChamada = Util.Serializar(consultarTeorComunicacao),
-
                 DsLogOperacao = "ConsultarTeorComunicacao no ESAJ",
-
                 DtInicioOperacao = dtInicial,
-
                 DtLogOperacao = DateTime.Now,
-
                 FlOperacao = true,
-
                 IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
-
                 IdTpRetorno = 1
-
             };
 
             //REGISTRA O LOG QUE RETORNA O VALOR COM OS DADOS PREENCHIDO DO ID
 
             var ResOperacaoConsultarProcesso = new TLogOperacao();
-
             ResOperacaoConsultarProcesso = _logOperacao.RegistrarLogOperacao(operacaoConsultarProcesso);
 
-
-
             try
-
             {
 
                 //OBTÉM INFORMACAO DA INTIMACA/CITACAO ATRAVÉS DO CAMPO IDAVISO (CdAto)
@@ -3508,131 +3298,77 @@ namespace IntegradorIdea.Integracao
                 //A DEPENDER DA INFORMACAO DO CAMPO TpintimacaoCitacao O SISTEMA IRÁ SOLICITAR A CIENCIA DE ACORDO AO TIPO "I" OU "C"
 
                 var intimacacaoCitacao = _dataContext.TComunicacaoEletronica.Where(atos =>
-
                                             atos.CdAto == Int32.Parse(consultarTeorComunicacao.identificadorAviso)
-
                                             && atos.NuProcesso == Util.OnlyNumbers(consultarTeorComunicacao.numeroProcesso)
-
                                         ).FirstOrDefault();
 
                 if (intimacacaoCitacao != null)
-
                 {
-
                     //ASSINA O ARQUIVO PARA O ENVIO E ATUALIZA O ARQUIVO NA BASE:
-
                     ArquivoPdf[] colArquivos;
-
                     ArquivoPdf[] ArquivoCiencia = new ArquivoPdf[1];
 
                     Compressao objCompressao = new Compressao();
-
                     //OBTÉM O ARQUIVO (NA PASTA EM CONFIGURACAO) PARA REALIZAR A ASSINATURA:
-
                     var documentoAtobase64 = this.ObterArquivoIntimacaoCitacaoAto(intimacacaoCitacao.DsCaminhoDocumentosAnexoAtoDisponibilizado);
 
                     colArquivos = objCompressao.DescomprimirBase64(documentoAtobase64);
 
                     foreach (ArquivoPdf arqRetororno in colArquivos)
-
                     {
-
                         if (arqRetororno.Nome.Equals("Ciencia.pdf"))
-
                         {
-
                             byte[] dadosArquivo = arqRetororno.Dados;
-
                             byte[] dadosArquivoAssinar = Util.AssinarPDF(ref dadosArquivo);
 
                             ArquivoPdf CienciaPDF = new ArquivoPdf();
-
                             ArquivoPdf CienciaPDF2 = CienciaPDF.AdicionarDados(ref dadosArquivoAssinar, "Ciencia.pdf");
-
                             ArquivoCiencia[0] = CienciaPDF2;
-
-
-
                         }
 
                     }
-
-
 
                     string ArquivoCienciaBase64 = objCompressao.Comprimir2Base64(ArquivoCiencia);
 
                     string ArquivoConfirmacaoCiencia = String.Empty;
 
-
-
                     if (intimacacaoCitacao.SgTpIntimacaoCitacao.Equals("I"))
-
                     {
-
                         ArquivoConfirmacaoCiencia = this.SolicitaIntimacaoAto(cdIdea, intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
-
                     }
-
                     else
-
                     {
-
                         if (intimacacaoCitacao.SgTpIntimacaoCitacao.Equals("C"))
-
                         {
-
                             ArquivoConfirmacaoCiencia = this.SolicitaCitacaoAto(cdIdea, intimacacaoCitacao.CdAto.ToString(), ArquivoCienciaBase64);
-
                         }
-
                     }
-
-
 
                     //APÓS OBTER OS DADOS DSO RETORNO DO ESAJ VERIFICA SE O MESMO NÃO RETORNA VAZIO. APÓS ESSE RETORNO OBTÉM O ARQUIVO DE RESPOSTA CONFIRMANDO
-
                     //A CIÊNCIA EFETUADA.
-
                     if (ArquivoConfirmacaoCiencia != String.Empty)
-
                     {
-
                         ArquivoPdf[] colArquivosDadoCiencia = objCompressao.DescomprimirBase64(ArquivoConfirmacaoCiencia);
-
                         ArquivoPdf[] ArquivoDadodCiencia = new ArquivoPdf[1];
 
                         foreach (ArquivoPdf arqRetorno in colArquivosDadoCiencia)
-
                         {
-
                             if (arqRetorno.Nome.Equals("Resposta.xml"))
-
                             {
-
                                 XmlDocument oXML = new XmlDocument();
-
                                 XmlNodeList oNoLista = default;
-
                                 //logProcesso.AddLog("XML de retorno: " + arqRetorno.Dados);
-
                                 oXML.Load(new MemoryStream(arqRetorno.Dados));
-
                                 oNoLista = oXML.SelectNodes("Message/MessageBody/Resposta/Mensagem");
 
                                 if (oNoLista.Count > 0)
-
                                 {
-
                                     string codRetorno = oNoLista[0].ChildNodes.Item(0).InnerText;
 
                                     if (codRetorno != "0")
-
                                     {
-
                                         throw new Exception($"A ciencia do processo {consultarTeorComunicacao.numeroProcesso} e codigo do Ato {consultarTeorComunicacao.identificadorAviso} não foi realizada. Código ESAJ: {codRetorno}");
-
                                     }
-
                                 }
 
                                 oNoLista = oXML.SelectNodes("Message/MessageBody/Resposta/dtIntimacao");
@@ -3677,236 +3413,125 @@ namespace IntegradorIdea.Integracao
                                     //O RETORNO É VÁLIDO JÁ QUE O XML NÃO CONTÉM A TAG MENSAGEM !!
 
                                 }*/
-
-
-
                             }
-
                         }
-
                     }
-
                     else
-
                     {
-
                         throw new Exception($"A ciencia do processo {consultarTeorComunicacao.numeroProcesso} e codigo do Ato {consultarTeorComunicacao.identificadorAviso} não foi realizada. O arquivo de retorno ao ESAJ estava vazio!");
-
                     }
-
-
 
                     //APÓS VALIDAÇÃO DO RETORNO DO ARQUIVO GRAVA NA BASE DE DADOS OS ARQUIVOS DE RETORNO E NA PASTA REFERENTE AO CdAto DO PROCESSO:
-
                     intimacacaoCitacao.DsCaminhoDocumentosAnexoAtoEnvio = this.SalvarArquivoCienciaAto(ref ArquivoCienciaBase64, intimacacaoCitacao.IdComunicacaoEletronica, "DocumentoAnexoAtoEnvio.zip");
-
                     intimacacaoCitacao.DsCaminhoDocumentosAnexoAtoRetorno = this.SalvarArquivoCienciaAto(ref ArquivoConfirmacaoCiencia, intimacacaoCitacao.IdComunicacaoEletronica, "DocumentoAnexoAtoRetorno.zip");
-
                     intimacacaoCitacao.DtCiencia = DateTime.Now;
-
                     //REALIZA O UPDATE COM OS CAMINHOS DOS ARQUIVOS:
-
                     _dataContext.TComunicacaoEletronica.Add(intimacacaoCitacao);
-
                     _dataContext.Update(intimacacaoCitacao);
-
                     _dataContext.SaveChanges();
-
-
-
                     //PREENCHE O OBJETO DE RETORNO PARA EXIBIÇÃO NO SERVIÇO:
-
                     retornoConsultarTeorComunicacao.mensagem = "Ato recebido com sucesso!";
-
                     retornoConsultarTeorComunicacao.sucesso = true;
-
                     retornoConsultarTeorComunicacao.comunicacao = new tipoComunicacaoProcessual[] { new tipoComunicacaoProcessual()
-
                     {
-
                         documento = new tipoDocumento[]
-
                         {
-
                             new tipoDocumento() {conteudo = Convert.FromBase64String(ArquivoConfirmacaoCiencia)}
-
                         }
-
                     }};
-
                 }
 
                 var dtFinal = DateTime.Now;
-
                 //REGISTAR LOGON
-
                 TLogOperacao operacao = new TLogOperacao()
-
                 {
-
                     IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
-
                     DsCaminhoDocumentosRetorno = Util.Serializar(retornoConsultarTeorComunicacao),
-
                     DtFinalOperacao = dtFinal,
-
                     FlOperacao = true,
-
                     IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
-
                     IdTpRetorno = 1
-
                 };
 
                 //REGISTRA O LOG
-
                 _logOperacao.RegistrarLogOperacao(operacao);
-
             }
-
             catch (Exception ex)
-
             {
-
                 retornoConsultarTeorComunicacao.mensagem = $"Erro ao tentar realizar a ciencia! Erro: {ex.Message}";
-
                 retornoConsultarTeorComunicacao.sucesso = false;
-
                 retornoConsultarTeorComunicacao.comunicacao = null;
 
-
-
                 var dtFinal = DateTime.Now;
-
                 //REGISTAR LOGON
-
                 TLogOperacao operacao = new TLogOperacao()
-
                 {
-
                     IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
-
                     DsCaminhoDocumentosRetorno = Util.Serializar(retornoConsultarTeorComunicacao),
-
                     DtFinalOperacao = dtFinal,
-
                     FlOperacao = true,
-
                     IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
-
                     IdTpRetorno = 1
-
                 };
 
                 //REGISTRA O LOG
-
                 _logOperacao.RegistrarLogOperacao(operacao);
-
             }
 
-
-
             return retornoConsultarTeorComunicacao;
-
         }
 
         #endregion
 
-
-
+        #region ObterArquivoIntimacaoCitacaoAto
         private string ObterArquivoIntimacaoCitacaoAto(string caminhoArquivo)
-
         {
-
             var caminhoDiretorio = _configuration["Diretorios:DsCaminhoTeorAto"];
-
             var pathDirectorySeparator = Path.DirectorySeparatorChar;
-
-
-
             caminhoArquivo = caminhoDiretorio + pathDirectorySeparator + caminhoArquivo;
-
-
 
             Byte[] bytes = File.ReadAllBytes(caminhoArquivo);
 
             String fileBase64 = Convert.ToBase64String(bytes);
 
-
-
             return fileBase64;
-
         }
-
-
+        #endregion
 
         #region SolicitaIntimacaoAto
-
         private string SolicitaIntimacaoAto(int cdIdeia, string cdAto, string arquivoBase64)
-
         {
-
             var dtInicial = DateTime.Now;
-
             Entidades.SolicitaIntimacaoAto.Message Message = new Entidades.SolicitaIntimacaoAto.Message();
-
             Entidades.SolicitaIntimacaoAto.MessageIdType MessageIdType = new Entidades.SolicitaIntimacaoAto.MessageIdType();
-
             Entidades.SolicitaIntimacaoAto.MessageMessageBody MessageMessageBody = new Entidades.SolicitaIntimacaoAto.MessageMessageBody();
 
-
-
             MessageIdType.Code = "202099000001";
-
             MessageIdType.Date = DateTime.Now.ToString("yyyy-MM-dd");
-
             MessageIdType.FromAddress = "MP-BA";
-
             MessageIdType.ToAddress = "TJ";
-
             MessageIdType.MsgDesc = "Solicitação intimação para um ato específico";
-
             MessageIdType.VersionSpecified = true;
-
             MessageIdType.Version = Entidades.SolicitaIntimacaoAto.VersionType.Item10;
-
             MessageIdType.ServiceId = Entidades.SolicitaIntimacaoAto.ServiceIdSolicitacaoIntimacaoAtoType.SolicitacaoIntimacaoAto;
-
             Message.MessageId = MessageIdType;
 
-
-
             MessageMessageBody.cdAto = cdAto;
-
             Message.MessageBody = MessageMessageBody;
 
-
             // Gerando o XML
-
             string xml = Message.Serialize();
-
-
-
             string Dados = _proxy.SolicitacaoIntimacaoAto(xml, arquivoBase64);
 
-
-
             //OBTEM A INFORMACAO DO ARQUIVO DE RETORNO PARA GRAVAR SOMENTE O XML DE RETORNO. DESCOMPACTAR O ARQUIVO NO LOG
-
             Compressao objCompressao = new Compressao();
-
             string retornoArquivoResposta = "";
 
             if (Dados != String.Empty)
-
             {
-
                 var colArquivos = objCompressao.DescomprimirBase64(Dados);
-
                 foreach (ArquivoPdf arqRetorno in colArquivos)
-
                 {
-
                     if (arqRetorno.Nome.Equals("Resposta.xml"))
                     {
                         // Carrega o contéudo do arquivo de resposta (XML) na codificação ISO-8859-1
@@ -3914,174 +3539,286 @@ namespace IntegradorIdea.Integracao
                         // Converte o conteúdo do arquivo de resposta para o formato UTF-8 para persistir na base corretamente
                         retornoArquivoResposta = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(dsConteudoArquivoResposta));
                     }
-
                 }
-
             }
 
             var dtFinal = DateTime.Now;
-
             //REGISTAR LOGON
-
             TLogOperacao operacao = new TLogOperacao()
-
             {
-
                 CdIdea = cdIdeia,
-
                 DsCaminhoDocumentosChamada = xml,
-
                 DsCaminhoDocumentosRetorno = retornoArquivoResposta,
-
                 DsLogOperacao = "SolicitacaoIntimacaoAto no ESAJ",
-
                 DtInicioOperacao = dtInicial,
-
                 DtFinalOperacao = dtFinal,
-
                 DtLogOperacao = DateTime.Now,
-
                 FlOperacao = true,
-
                 IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoIntimacaoAto:id"),
-
                 IdTpRetorno = 1
-
             };
 
             //REGISTRA O LOG
             _logOperacao.RegistrarLogOperacao(operacao);
-
             return Dados;
-
         }
 
-        #endregion
-
-
-
-
+        #endregion 
 
         #region SolicitaCitacaoAto
-
         public string SolicitaCitacaoAto(int cdIdea, string cdAto, string arquivoBase64)
-
         {
-
             var dtInicial = DateTime.Now;
-
             Entidades.SolicitaCitacaoAto.Message Message = new Entidades.SolicitaCitacaoAto.Message();
-
             Entidades.SolicitaCitacaoAto.MessageIdType MessageIdType = new Entidades.SolicitaCitacaoAto.MessageIdType();
-
             Entidades.SolicitaCitacaoAto.MessageMessageBody MessageMessageBody = new Entidades.SolicitaCitacaoAto.MessageMessageBody();
 
-
-
             MessageIdType.Code = "202099000001";
-
             MessageIdType.Date = DateTime.Now.ToString("yyyy-MM-dd");
-
             MessageIdType.FromAddress = "MP-BA";
-
             MessageIdType.ToAddress = "TJ";
-
             MessageIdType.MsgDesc = "Solicitação Citacacao para um ato específico";
-
             MessageIdType.VersionSpecified = true;
-
             MessageIdType.Version = Entidades.SolicitaCitacaoAto.VersionType.Item10;
-
             MessageIdType.ServiceId = Entidades.SolicitaCitacaoAto.ServiceIdSolicitacaoCitacaoAtoType.SolicitacaoCitacaoAto;
-
             Message.MessageId = MessageIdType;
-
-
-
             MessageMessageBody.cdAto = cdAto;
-
             Message.MessageBody = MessageMessageBody;
 
-
-
             // Gerando o XML
-
             string xml = Message.Serialize();
-
-
 
             string Dados = _proxy.SolicitacaoCitacaoAto(xml, arquivoBase64);
 
             //OBTEM A INFORMACAO DO ARQUIVO DE RETORNO PARA GRAVAR SOMENTE O XML DE RETORNO. DESCOMPACTAR O ARQUIVO NO LOG
-
             Compressao objCompressao = new Compressao();
 
             string retornoArquivoResposta = "";
 
             if (Dados != String.Empty)
-
             {
-
                 var colArquivos = objCompressao.DescomprimirBase64(Dados);
-
                 foreach (ArquivoPdf arqRetorno in colArquivos)
-
                 {
-
                     if (arqRetorno.Nome.Equals("Resposta.xml"))
-
                     {
-
                         retornoArquivoResposta = Util.Base64EncodeStream(arqRetorno.Dados);
-
                     }
-
                 }
-
             }
-
             var dtFinal = DateTime.Now;
 
             //REGISTAR LOGON
-
             TLogOperacao operacao = new TLogOperacao()
-
             {
-
                 CdIdea = cdIdea,
-
                 DsCaminhoDocumentosChamada = xml,
-
                 DsCaminhoDocumentosRetorno = retornoArquivoResposta,
-
                 DsLogOperacao = "SolicitaCitacaoAto no ESAJ",
-
                 DtInicioOperacao = dtInicial,
-
                 DtFinalOperacao = dtFinal,
-
                 DtLogOperacao = DateTime.Now,
-
                 FlOperacao = true,
-
                 IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoCitacaoAto:id"),
-
                 IdTpRetorno = 1
-
             };
 
             //REGISTRA O LOG
             _logOperacao.RegistrarLogOperacao(operacao);
 
-
-
             return Dados;
-
         }
 
         #endregion
 
+        #region entregarManifestacaoProcessual
+        public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
+        {
+            string PeticaoXML = "";
+            var dtInicial = DateTime.Now;
 
+            
+                        
+            //REGISTAR LOGON
+            TLogOperacao operacao = new TLogOperacao()
+            {
+                CdIdea = Int32.Parse(entregarManifestacaoProcessualRequest.idManifestante),
+                DsCaminhoDocumentosChamada = Util.Serializar(entregarManifestacaoProcessualRequest),                
+                DsLogOperacao = "SolicitaCitacaoAto no ESAJ",
+                DtInicioOperacao = dtInicial,                
+                DtLogOperacao = DateTime.Now,
+                FlOperacao = true,
+                IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoCitacaoAto:id"),
+                IdTpRetorno = 1
+            };
+
+
+
+            //REGISTRA O LOG
+            _ = new TLogOperacao();
+            TLogOperacao ResOperacaoEntregarManifestacao = _logOperacao.RegistrarLogOperacao(operacao);
+
+            //OBTÉM O XML GERADO A PARTIR DO PARSER DAS INFORMAÇÕES INFORMADOS POR PARAMETROS.
+            var xmlEnvio = oberXMLPeticionamentoIntermediarioESAJ(entregarManifestacaoProcessualRequest);
+            //OBTÉM O(S) DOCUMENTO(S) GERADOS PARA ENVIO EM FORMA DE ZIP.
+            var documentos = obterDocumentoEnvioEsaj(entregarManifestacaoProcessualRequest);
+            //ENVIA PARA PROXY A SOLICITAÇÃO PARA O ESAJ
+            var xmlRetorno = _proxy.peticionarIntermediariaDiversa(xmlEnvio, documentos);
+
+            var dtFinal = DateTime.Now;
+            //REGISTAR LOGON
+            TLogOperacao operacaoFinal = new TLogOperacao()
+            {
+                IdLogOperacao = ResOperacaoEntregarManifestacao.IdLogOperacao,
+                DsCaminhoDocumentosRetorno = xmlRetorno,
+                DtFinalOperacao = dtFinal,
+                FlOperacao = true,
+                IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultarTeorComunicacao:id"),
+                IdTpRetorno = 1
+            };
+
+            //REGISTRA O LOG 
+            _logOperacao.RegistrarLogOperacao(operacaoFinal);
+            return null;
+        }
+        #endregion
+
+        #region oberXMLPeticionamentoIntermediarioESAJ
+        private string oberXMLPeticionamentoIntermediarioESAJ(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
+        {
+            //Gera o XML para o envio ao peticionamento intermediário.
+            Entidades.IntermediariaDiversa.Message obJDadosProcIntermediaria = new Entidades.IntermediariaDiversa.Message();
+
+            //Instancia do <MessageId> 
+            Entidades.IntermediariaDiversa.MessageIdType messageIdIntermediaria = new Entidades.IntermediariaDiversa.MessageIdType();
+
+
+            messageIdIntermediaria.ServiceId = Entidades.IntermediariaDiversa.ServicePetDiversaIdType.PetDiversa;
+            messageIdIntermediaria.Version = Entidades.IntermediariaDiversa.VersionType.Item10;
+            messageIdIntermediaria.MsgDesc = "Peticionamento de Intermediárias Diversas";
+            messageIdIntermediaria.Code = obterCodigoUnico(); //TODO. Falar com Rander sobre o código único. Estou usando a tabela de configuracao - CODIGO_UNICO_PETICIONAMENTO
+            messageIdIntermediaria.FromAddress = "";
+            messageIdIntermediaria.ToAddress = "TJ";
+            messageIdIntermediaria.Date = DateTime.Now.ToString("yyyy-MM-dd"); ;
+
+            obJDadosProcIntermediaria.MessageId = messageIdIntermediaria;
+
+            String nomeArquivoPeticao = "";
+
+            //Instancia do <MessageBody>
+            Entidades.IntermediariaDiversa.MessageMessageBody messageBodyIntermediario = new Entidades.IntermediariaDiversa.MessageMessageBody();
+
+            //Instancia de <peticao>
+            Entidades.IntermediariaDiversa.PeticaoType peticaoIntermediaria = new Entidades.IntermediariaDiversa.PeticaoType();
+            peticaoIntermediaria.Processo = entregarManifestacaoProcessualRequest.numeroProcesso;
+            peticaoIntermediaria.Foro = "001";
+
+            peticaoIntermediaria.NomePeticao = entregarManifestacaoProcessualRequest.documento[0].descricao; //TODO. Perguntar se existe a possibilidade de colocar o nome do arquivo no campo de descrição.
+            //OU pode ser extraído o nome do arquivo decodenando o mesmo.
+            peticaoIntermediaria.Tipo = "8050006"; //Tipo Peticao diversa.            
+
+            messageBodyIntermediario.Peticao = peticaoIntermediaria;
+            //Instancia do <Partes>
+            Entidades.IntermediariaDiversa.ParteType[] parteIntermediariaArr = new Entidades.IntermediariaDiversa.ParteType[1];
+            Entidades.IntermediariaDiversa.ParteType parteIntermediaria = new Entidades.IntermediariaDiversa.ParteType();
+            parteIntermediaria.Nome = "Ministério Público da Bahia";
+            parteIntermediaria.Tipo = "Solicitante";
+            parteIntermediariaArr[0] = parteIntermediaria;
+
+            messageBodyIntermediario.Partes = parteIntermediariaArr;
+
+            int i = 0;
+            if (entregarManifestacaoProcessualRequest.documento[0].documentoVinculado.Length > 0)
+            {
+                //Insere as informações dos documentos
+                Entidades.IntermediariaDiversa.DocumentoType[] documentosArr = new Entidades.IntermediariaDiversa.DocumentoType[entregarManifestacaoProcessualRequest.documento[0].documentoVinculado.Length];
+                //A partir do resultado dos documentos cria-se uma linha de documento 
+                Entidades.IntermediariaDiversa.DocumentoType documento = null;
+                foreach (tipoDocumento item in entregarManifestacaoProcessualRequest.documento[0].documentoVinculado)
+                {
+                    documento = new Entidades.IntermediariaDiversa.DocumentoType();
+                    documento.Tipo = "8200002";
+                    //Tratar o nome do arquivo
+                    //string[] infoArquivo = item.NomeArquivo.Split('/');
+                    //Obtém o último registro que contém a informação do nome e extensão do arquivo.
+                    documento.Nome = item.descricao;
+                    documentosArr[i] = documento;
+                    i++;
+                }
+
+                if (documentosArr.Length > 0)
+                {
+                    messageBodyIntermediario.Documentos = documentosArr;
+                }
+            }
+            else
+            {
+                Entidades.IntermediariaDiversa.DocumentoType[] documentosArr = new Entidades.IntermediariaDiversa.DocumentoType[entregarManifestacaoProcessualRequest.documento[0].documentoVinculado.Length];
+                messageBodyIntermediario.Documentos = documentosArr;
+            }
+
+            obJDadosProcIntermediaria.MessageBody = messageBodyIntermediario;
+            //RETORNA O XML GERADO PELO OBJETO.
+            return obJDadosProcIntermediaria.Serialize();
+        }
+        #endregion
+
+        #region obterDocumentoEnvioEsaj
+        private string obterDocumentoEnvioEsaj(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
+        {
+            ArquivoPdf[] documentosEnvio = new ArquivoPdf[(1 + entregarManifestacaoProcessualRequest.documento[0].documentoVinculado.Length)];
+
+            Compressao objCompressao = new Compressao();
+
+            var docPeticao = entregarManifestacaoProcessualRequest.documento[0].conteudo;
+
+            ArquivoPdf peticao = new ArquivoPdf();
+            ArquivoPdf peticaoAux = peticao.AdicionarDados(ref docPeticao, entregarManifestacaoProcessualRequest.documento[0].descricao);
+            //DOCUMENTO INCIAL É A PETIÇÃO 
+            documentosEnvio[0] = peticaoAux;
+            int i = 1;
+            foreach (var arqRetorno in entregarManifestacaoProcessualRequest.documento[0].documentoVinculado)
+            {
+                byte[] dadosArquivo = arqRetorno.conteudo;
+                ArquivoPdf doc = new ArquivoPdf();
+                ArquivoPdf docAux = doc.AdicionarDados(ref dadosArquivo, arqRetorno.descricao);
+                documentosEnvio[i] = docAux;
+                i++;
+            }
+
+            string ArquivoCienciaBase64 = objCompressao.Comprimir2Base64(documentosEnvio);
+
+            return ArquivoCienciaBase64;
+        }
+        #endregion
+
+        #region obterCodigoUnico
+        private string obterCodigoUnico()
+        {
+            //"dsConfiguracaoCodigoUnico": "CODIGO_UNICO_PETICIONAMENTO"
+            var configuracaoRetorno = _dataContext.TConfiguracao.Where(c => c.DsChave.Equals(_configuration["Configuracoes:dsConfiguracaoCodigoUnico"])).FirstOrDefault();
+            string codigoUnico = String.Empty;
+            if (configuracaoRetorno != null)
+            {
+                try
+                {
+                    //OBTÉM O VALOR ATUAL E INCREMENTA EM MAIS 1 ATUALIZANDO O VALOR AO OBJETO
+                    configuracaoRetorno.DsValor = (Int32.Parse(configuracaoRetorno.DsValor) + 1).ToString();
+
+                    _dataContext.TConfiguracao.Update(configuracaoRetorno);
+                    _dataContext.SaveChanges();
+
+                    codigoUnico = configuracaoRetorno.DsValor;
+                }
+                catch
+                {
+
+                }
+            }
+
+            return codigoUnico;
+        }
+        #endregion
 
     }
 

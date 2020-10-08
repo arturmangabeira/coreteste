@@ -337,3 +337,4 @@ C:\Projetos\repoartur\coreteste\obj\Debug\netcoreapp3.1\staticwebassets\Integrad
 C:\Projetos\repoartur\coreteste\obj\Debug\netcoreapp3.1\IntegradorIdea.dll
 C:\Projetos\repoartur\coreteste\obj\Debug\netcoreapp3.1\IntegradorIdea.pdb
 C:\Projetos\repoartur\coreteste\obj\Debug\netcoreapp3.1\IntegradorIdea.genruntimeconfig.cache
+C:\Projetos\coreteste\obj\Debug\netcoreapp3.1\IntegradorIdea.csprojAssemblyReference.cache

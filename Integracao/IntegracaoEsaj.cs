@@ -3635,16 +3635,14 @@ namespace IntegradorIdea.Integracao
         public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
         {
             string PeticaoXML = "";
-            var dtInicial = DateTime.Now;
-
-            
+            var dtInicial = DateTime.Now;                   
                         
             //REGISTAR LOGON
             TLogOperacao operacao = new TLogOperacao()
             {
                 CdIdea = Int32.Parse(entregarManifestacaoProcessualRequest.idManifestante),
                 DsCaminhoDocumentosChamada = Util.Serializar(entregarManifestacaoProcessualRequest),                
-                DsLogOperacao = "SolicitaCitacaoAto no ESAJ",
+                DsLogOperacao = "peticionarIntermediariaDiversa no ESAJ",
                 DtInicioOperacao = dtInicial,                
                 DtLogOperacao = DateTime.Now,
                 FlOperacao = true,
@@ -3652,16 +3650,14 @@ namespace IntegradorIdea.Integracao
                 IdTpRetorno = 1
             };
 
-
-
             //REGISTRA O LOG
             _ = new TLogOperacao();
             TLogOperacao ResOperacaoEntregarManifestacao = _logOperacao.RegistrarLogOperacao(operacao);
 
             //OBTÉM O XML GERADO A PARTIR DO PARSER DAS INFORMAÇÕES INFORMADOS POR PARAMETROS.
-            var xmlEnvio = oberXMLPeticionamentoIntermediarioESAJ(entregarManifestacaoProcessualRequest);
+            var xmlEnvio = ObterXMLPeticionamentoIntermediarioESAJ(entregarManifestacaoProcessualRequest);
             //OBTÉM O(S) DOCUMENTO(S) GERADOS PARA ENVIO EM FORMA DE ZIP.
-            var documentos = obterDocumentoEnvioEsaj(entregarManifestacaoProcessualRequest);
+            var documentos = ObterDocumentoEnvioEsaj(entregarManifestacaoProcessualRequest);
             //ENVIA PARA PROXY A SOLICITAÇÃO PARA O ESAJ
             var xmlRetorno = _proxy.peticionarIntermediariaDiversa(xmlEnvio, documentos);
 
@@ -3683,8 +3679,8 @@ namespace IntegradorIdea.Integracao
         }
         #endregion
 
-        #region oberXMLPeticionamentoIntermediarioESAJ
-        private string oberXMLPeticionamentoIntermediarioESAJ(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
+        #region ObterXMLPeticionamentoIntermediarioESAJ
+        private string ObterXMLPeticionamentoIntermediarioESAJ(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
         {
             //Gera o XML para o envio ao peticionamento intermediário.
             Entidades.IntermediariaDiversa.Message obJDadosProcIntermediaria = new Entidades.IntermediariaDiversa.Message();
@@ -3696,7 +3692,7 @@ namespace IntegradorIdea.Integracao
             messageIdIntermediaria.ServiceId = Entidades.IntermediariaDiversa.ServicePetDiversaIdType.PetDiversa;
             messageIdIntermediaria.Version = Entidades.IntermediariaDiversa.VersionType.Item10;
             messageIdIntermediaria.MsgDesc = "Peticionamento de Intermediárias Diversas";
-            messageIdIntermediaria.Code = obterCodigoUnico(); //TODO. Falar com Rander sobre o código único. Estou usando a tabela de configuracao - CODIGO_UNICO_PETICIONAMENTO
+            messageIdIntermediaria.Code = ObterCodigoUnico(); //TODO. Falar com Rander sobre o código único. Estou usando a tabela de configuracao - CODIGO_UNICO_PETICIONAMENTO
             messageIdIntermediaria.FromAddress = "";
             messageIdIntermediaria.ToAddress = "TJ";
             messageIdIntermediaria.Date = DateTime.Now.ToString("yyyy-MM-dd"); ;
@@ -3721,8 +3717,8 @@ namespace IntegradorIdea.Integracao
             //Instancia do <Partes>
             Entidades.IntermediariaDiversa.ParteType[] parteIntermediariaArr = new Entidades.IntermediariaDiversa.ParteType[1];
             Entidades.IntermediariaDiversa.ParteType parteIntermediaria = new Entidades.IntermediariaDiversa.ParteType();
-            parteIntermediaria.Nome = "Ministério Público da Bahia";
-            parteIntermediaria.Tipo = "Solicitante";
+            parteIntermediaria.Nome = _configuration["Configuracoes:parteIntermediariaNome"];
+            parteIntermediaria.Tipo = _configuration["Configuracoes:parteIntermediariaTipo"];
             parteIntermediariaArr[0] = parteIntermediaria;
 
             messageBodyIntermediario.Partes = parteIntermediariaArr;
@@ -3763,8 +3759,8 @@ namespace IntegradorIdea.Integracao
         }
         #endregion
 
-        #region obterDocumentoEnvioEsaj
-        private string obterDocumentoEnvioEsaj(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
+        #region ObterDocumentoEnvioEsaj
+        private string ObterDocumentoEnvioEsaj(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
         {
             ArquivoPdf[] documentosEnvio = new ArquivoPdf[(1 + entregarManifestacaoProcessualRequest.documento[0].documentoVinculado.Length)];
 
@@ -3792,8 +3788,8 @@ namespace IntegradorIdea.Integracao
         }
         #endregion
 
-        #region obterCodigoUnico
-        private string obterCodigoUnico()
+        #region ObterCodigoUnico
+        private string ObterCodigoUnico()
         {
             //"dsConfiguracaoCodigoUnico": "CODIGO_UNICO_PETICIONAMENTO"
             var configuracaoRetorno = _dataContext.TConfiguracao.Where(c => c.DsChave.Equals(_configuration["Configuracoes:dsConfiguracaoCodigoUnico"])).FirstOrDefault();
@@ -3805,6 +3801,7 @@ namespace IntegradorIdea.Integracao
                     //OBTÉM O VALOR ATUAL E INCREMENTA EM MAIS 1 ATUALIZANDO O VALOR AO OBJETO
                     configuracaoRetorno.DsValor = (Int32.Parse(configuracaoRetorno.DsValor) + 1).ToString();
 
+                    _dataContext.TConfiguracao.Add(configuracaoRetorno);
                     _dataContext.TConfiguracao.Update(configuracaoRetorno);
                     _dataContext.SaveChanges();
 

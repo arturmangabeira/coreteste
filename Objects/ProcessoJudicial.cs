@@ -1,11 +1,32 @@
 ﻿
 namespace IntegradorIdea.Objects
 {
-    public partial class Documento
-    {
-        public string documento { get; set; }
-    }
+        public partial class Documento
+        {
+
+        public byte[] conteudo { get; set; }
         
+        public Documento[] documentoVinculado { get; set; }
+
+        public string idDocumento { get; set; }
+        public string tipoDocumento { get; set; }
+
+        public string dataHora { get; set; }
+
+        public string mimetype { get; set; }
+
+        public int nivelSigilo { get; set; }
+
+
+        public int movimento { get; set; }
+
+
+        public string hash { get; set; }
+
+
+        public string descricao { get; set; }
+    }
+
 
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]

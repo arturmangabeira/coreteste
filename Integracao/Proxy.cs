@@ -566,12 +566,12 @@ namespace IntegradorIdea.Integracao
                     CdIdea = _cdIdeia,
                     DsCaminhoDocumentosChamada = entregarManifestacaoProcessualXML,
                     DsCaminhoDocumentosRetorno = resposta,
-                    DsLogOperacao = "SolicitaCitacaoAto no ESAJ",
+                    DsLogOperacao = "peticionarIntermediariaDiversa no ESAJ",
                     DtInicioOperacao = dtInicial,
                     DtFinalOperacao = dtFinal,
                     DtLogOperacao = DateTime.Now,
                     FlOperacao = true,
-                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoSolicitacaoCitacaoAto:id"),
+                    IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoEntregarManifestacaoProcessualESAJ:id"),
                     IdTpRetorno = 1
                 };
 

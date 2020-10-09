@@ -25,7 +25,7 @@ namespace IntegradorIdea.Objects
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 4)]
         [System.Xml.Serialization.XmlElementAttribute("documento", Namespace = "")]
-        public tipoDocumento[] documento;
+        public Documento[] documento;
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 5)]
         public string dataEnvio;
@@ -38,7 +38,7 @@ namespace IntegradorIdea.Objects
         {
         }
 
-        public entregarManifestacaoProcessualRequest(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, tipoDocumento[] documento, string dataEnvio, tipoParametro[] parametros)
+        public entregarManifestacaoProcessualRequest(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento[] documento, string dataEnvio, tipoParametro[] parametros)
         {
             this.idManifestante = idManifestante;
             this.senhaManifestante = senhaManifestante;

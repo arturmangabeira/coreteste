@@ -6,6 +6,9 @@ using IntegradorIdea.Models;
 using IntegracaoTJBA;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using IntegradorIdea.Objects;
+using System.Xml;
+using System.IO;
 
 namespace IntegradorIdea.Integracao
 {
@@ -552,20 +555,44 @@ namespace IntegradorIdea.Integracao
                 var dtInicial = DateTime.Now;
                 Entidades.IntermediariaDiversa.Message objAjuizamento = new Entidades.IntermediariaDiversa.Message();
                 objAjuizamento.ExtrairObjeto<Entidades.IntermediariaDiversa.Message>(entregarManifestacaoProcessualXML);
-                //GERA NOVAMENTE O XML PARA SERIALIZANO O OBJETO PARA VALIDAR SE O XML FORNECIDO PARA O ESAJ ESTÁ DE ACORDO COM O XSD.
+                //GERA NOVAMENTE O XML PARA SERIALIZAR O OBJETO PARA VALIDAR SE O XML FORNECIDO PARA O ESAJ ESTÁ DE ACORDO COM O XSD.
                 string strXML = objAjuizamento.Serialize();
 
                 IXml objXML = new Xml();
                 strXML = objXML.AssinarXmlString(strXML, _repositorio, _certificado, "");
-                resposta = _serviceESAJ.peticionarIntermediariaDiversaAsync(strXML, documento).Result;
+                //TODO. COMENTADO PARA FAZER TESTE DE GERAÇÃO COMPLETO DO XML E DOS ARQUIVOS DE ENVIO
+                //resposta = _serviceESAJ.peticionarIntermediariaDiversaAsync(strXML, documento).Result;
+                resposta = "";
                 var dtFinal = DateTime.Now;
+
+                //VERIFICA O RETORNO DO ARQUIVO DO ESAJ 
+                Compressao objCompressao = new Compressao();
+                //Utiliza a descompressão dos arquivos para verificar se o retorno foi dado como O(zero - peticionamento realizado com sucesso).
+                ArquivoPdf[] colArquivos = objCompressao.DescomprimirBase64(resposta);
+                //Transforma em string XML.
+
+                string dsConteudoXMLRetorno = String.Empty;
+
+                foreach (ArquivoPdf arqRetorno in colArquivos)
+                {
+                    //VERIFICA SE O ARQUIVO DE RETORNO É O Resposta.xml. PARA QUE SEJA EXTRAÍDO DO PROTOCOLO DE RETORNO DO ESAJ
+                    if (arqRetorno.Nome.Equals("Resposta.xml"))
+                    {
+                        XmlDocument oXML = new XmlDocument();
+                        XmlNodeList oNoLista = default(XmlNodeList);
+                        //logProcesso.AddLog("XML de retorno: " + arqRetorno.Dados);
+                        oXML.Load(new MemoryStream(arqRetorno.Dados));
+                        //Armazena o xml de retorno para guardar na base como registro.
+                        dsConteudoXMLRetorno = oXML.InnerXml;                        
+                    }
+                }
 
                 //REGISTAR LOGON
                 TLogOperacao operacao = new TLogOperacao()
                 {
                     CdIdea = _cdIdeia,
                     DsCaminhoDocumentosChamada = entregarManifestacaoProcessualXML,
-                    DsCaminhoDocumentosRetorno = resposta,
+                    DsCaminhoDocumentosRetorno = dsConteudoXMLRetorno,
                     DsLogOperacao = "peticionarIntermediariaDiversa no ESAJ",
                     DtInicioOperacao = dtInicial,
                     DtFinalOperacao = dtFinal,

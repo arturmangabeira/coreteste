@@ -73,9 +73,14 @@ namespace IntegradorIdea.Integracao
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
-        public static string Base64DecodeStream(byte[] byteEncodedData)
+        public static string Base64Decode(byte[] byteEncodedData)
         {            
             return System.Text.Encoding.UTF8.GetString(byteEncodedData);
+        }
+
+        public static byte[] Base64DecodeStrem(string encodedData)
+        {
+            return Convert.FromBase64String(encodedData);
         }
 
         public static string OnlyNumbers(string document)

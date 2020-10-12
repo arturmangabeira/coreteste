@@ -561,8 +561,8 @@ namespace IntegradorIdea.Integracao
                 IXml objXML = new Xml();
                 strXML = objXML.AssinarXmlString(strXML, _repositorio, _certificado, "");
                 //TODO. COMENTADO PARA FAZER TESTE DE GERAÇÃO COMPLETO DO XML E DOS ARQUIVOS DE ENVIO
-                //resposta = _serviceESAJ.peticionarIntermediariaDiversaAsync(strXML, documento).Result;
-                resposta = "";
+                resposta = _serviceESAJ.peticionarIntermediariaDiversaAsync(strXML, documento).Result;
+                //resposta = "";
                 var dtFinal = DateTime.Now;
 
                 //VERIFICA O RETORNO DO ARQUIVO DO ESAJ 

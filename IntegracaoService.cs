@@ -186,7 +186,7 @@ namespace IntegradorIdea
 
         public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento[] documento, string dataEnvio, tipoParametro[] parametros)
         {
-            var entregarManifestacaoProcessual = new entregarManifestacaoProcessualRequest()
+            var _entregarManifestacaoProcessual = new entregarManifestacaoProcessualRequest()
             {
                 dadosBasicos = dadosBasicos,
                 dataEnvio = dataEnvio,
@@ -198,8 +198,8 @@ namespace IntegradorIdea
             };
 
             _logger.LogInformation("Iniciando entregarManifestacaoProcessual.");
-            _integracaoEsaj.entregarManifestacaoProcessual(entregarManifestacaoProcessual);
-            throw new System.NotImplementedException();
+            return _integracaoEsaj.entregarManifestacaoProcessual(_entregarManifestacaoProcessual);
+
         }
     }
 

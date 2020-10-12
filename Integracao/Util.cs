@@ -126,5 +126,14 @@ namespace IntegradorIdea.Integracao
             return objAssinar.AssinarPdfStreamCert(ref dadosArquivo, configuration["Certificado:RepositorioCertificado"], configuration["Certificado:ThumberPrint"]);
             
         }
+
+        public static bool VerificarAssinatura(ref byte[] dadosArquivo)
+        {
+            var configuration = ConfigurationManager.ConfigurationManager.AppSettings;
+            Assinar objAssinar = new Assinar();
+
+            return objAssinar.VerificarAssinatura(dadosArquivo);
+
+        }
     }
 }

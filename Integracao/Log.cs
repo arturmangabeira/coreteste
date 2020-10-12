@@ -172,6 +172,18 @@ namespace IntegradorIdea.Integracao
                     nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
                 }
 
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoEntregarManifestacaoProcessual:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoEntregarManifestacaoProcessual:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
+                }
+
+                if (IdTipoOperacao == config.GetValue<int>("Operacoes:TipoOperacaoEntregarManifestacaoProcessualESAJ:id"))
+                {
+                    var dsOperacao = config.GetValue<string>("Operacoes:TipoOperacaoEntregarManifestacaoProcessualESAJ:nomeOperacaoLog");
+                    nomeFile += "_" + tipoCaminho + dsOperacao + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + Util.GetUUIID() + ".xml";
+                }
+
                 caminhoRetorno = caminhoPastaXmls + pathDirectorySeparator + DateTime.Now.ToString("yyyy") + pathDirectorySeparator + DateTime.Now.ToString("MM") + pathDirectorySeparator + DateTime.Now.ToString("dd") + pathDirectorySeparator + nomeFile;
 
                 string caminhoTotal = caminho + pathDirectorySeparator + caminhoRetorno;

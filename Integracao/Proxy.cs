@@ -579,7 +579,7 @@ namespace IntegradorIdea.Integracao
                     if (arqRetorno.Nome.Equals("Resposta.xml"))
                     {
                         XmlDocument oXML = new XmlDocument();
-                        XmlNodeList oNoLista = default(XmlNodeList);
+                        //XmlNodeList oNoLista = default(XmlNodeList);
                         //logProcesso.AddLog("XML de retorno: " + arqRetorno.Dados);
                         oXML.Load(new MemoryStream(arqRetorno.Dados));
                         //Armazena o xml de retorno para guardar na base como registro.

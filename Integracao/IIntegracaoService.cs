@@ -1,5 +1,6 @@
 ﻿using IntegradorIdea.Entidades.AssuntoClasse;
 using IntegradorIdea.Entidades.CategoriaClasse;
+using IntegradorIdea.Entidades.DocDigitalClasse;
 using IntegradorIdea.Entidades.ForoClasse;
 using IntegradorIdea.Entidades.TipoDiversasClasse;
 using IntegradorIdea.Entidades.TpParteClasse;
@@ -19,7 +20,9 @@ namespace IntegradorIdea.Integracao
         [XmlSerializerFormat(SupportFaults = true,Style = OperationFormatStyle.Rpc,Use = OperationFormatUse.Encoded)]        
         public Foros getForosEVaras();
         [OperationContract]
-        public Classes getClasseTpParte();        
+        public Classes getClasseTpParte();
+        [OperationContract]
+        public Documentos getTiposDocDigital();
         [OperationContract]
         public Categorias getCategoriasEClasses();
         [OperationContract]

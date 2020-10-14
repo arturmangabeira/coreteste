@@ -64,7 +64,7 @@ namespace IntegradorIdea.Integracao
                         _dataContext.SaveChanges();
                     }
                     
-                    _dataContext.Entry(logOperacao).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+                   _dataContext.Entry(logOperacao).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
                 }
             }
             catch(Exception ex)

@@ -3635,6 +3635,7 @@ namespace IntegradorIdea.Integracao
                 var xmlEnvio = ObterXMLPeticionamentoIntermediarioESAJ(entregarManifestacaoProcessualRequest);
                 //OBTÉM O(S) DOCUMENTO(S) GERADOS PARA ENVIO EM FORMA DE ZIP.
                 var documentos = ObterDocumentoEnvioEsaj(entregarManifestacaoProcessualRequest);
+                _proxy._cdIdeia = Int32.Parse(entregarManifestacaoProcessualRequest.idManifestante);
                 //ENVIA PARA PROXY A SOLICITAÇÃO PARA O ESAJ
                 var retornoEsaj = _proxy.peticionarIntermediariaDiversa(xmlEnvio, documentos);
                 //VERIFICA O RETORNO DO ARQUIVO DO ESAJ 
@@ -3719,7 +3720,7 @@ namespace IntegradorIdea.Integracao
                     DtFinalOperacao = dtFinal,
                     FlOperacao = false,
                     IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoEntregarManifestacaoProcessual:id"),
-                    IdTpRetorno = 1
+                    IdTpRetorno = 2
                 };
 
                 //REGISTRA O LOG 

@@ -544,6 +544,7 @@ namespace IntegradorIdea.Integracao
         }
         #endregion
 
+        #region peticionarIntermediariaDiversa
         public string peticionarIntermediariaDiversa(string entregarManifestacaoProcessualXML, string documento)
         {
             string resposta = "";
@@ -554,7 +555,7 @@ namespace IntegradorIdea.Integracao
             {
                 var dtInicial = DateTime.Now;
                 Entidades.IntermediariaDiversa.Message objAjuizamento = new Entidades.IntermediariaDiversa.Message();
-                objAjuizamento.ExtrairObjeto<Entidades.IntermediariaDiversa.Message>(entregarManifestacaoProcessualXML);
+                objAjuizamento = objAjuizamento.ExtrairObjeto<Entidades.IntermediariaDiversa.Message>(entregarManifestacaoProcessualXML);
                 //GERA NOVAMENTE O XML PARA SERIALIZAR O OBJETO PARA VALIDAR SE O XML FORNECIDO PARA O ESAJ ESTÁ DE ACORDO COM O XSD.
                 string strXML = objAjuizamento.Serialize();
 
@@ -583,7 +584,7 @@ namespace IntegradorIdea.Integracao
                         //logProcesso.AddLog("XML de retorno: " + arqRetorno.Dados);
                         oXML.Load(new MemoryStream(arqRetorno.Dados));
                         //Armazena o xml de retorno para guardar na base como registro.
-                        dsConteudoXMLRetorno = oXML.InnerXml;                        
+                        dsConteudoXMLRetorno = oXML.InnerXml;
                     }
                 }
 
@@ -612,8 +613,11 @@ namespace IntegradorIdea.Integracao
             return resposta;
         }
 
+        #endregion
+
+
         #region Serializar
-            private string Serializar(string objeto)
+        private string Serializar(string objeto)
         {
             Message objAjuizamento = new Message();
             objAjuizamento = objAjuizamento.ExtrairObjeto<Message>(objeto);

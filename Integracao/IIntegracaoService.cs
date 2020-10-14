@@ -42,6 +42,7 @@ namespace IntegradorIdea.Integracao
         [OperationContract]
         public consultarTeorComunicacaoResponse consultarTeorComunicacao( string idConsultante, string senhaConsultante, string numeroProcesso, string identificadorAviso );
         [OperationContract]
-        public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento[] documento, string dataEnvio, tipoParametro[] parametros);
+        public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento documento, string dataEnvio, tipoParametro[] parametros);
+
     }
 }

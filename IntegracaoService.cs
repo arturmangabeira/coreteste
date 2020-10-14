@@ -184,7 +184,7 @@ namespace IntegradorIdea
 
         }
 
-        public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento[] documento, string dataEnvio, tipoParametro[] parametros)
+        public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento documento, string dataEnvio, tipoParametro[] parametros)
         {
             var _entregarManifestacaoProcessual = new entregarManifestacaoProcessualRequest()
             {

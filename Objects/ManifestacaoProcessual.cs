@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace IntegradorIdea.Objects
+﻿namespace IntegradorIdea.Objects
 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -12,6 +7,7 @@ namespace IntegradorIdea.Objects
     {
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute("idManifestante", IsNullable = false)]
         public string idManifestante;
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 1)]
@@ -25,7 +21,7 @@ namespace IntegradorIdea.Objects
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 4)]
         [System.Xml.Serialization.XmlElementAttribute("documento", Namespace = "")]
-        public Documento[] documento;
+        public Documento documento;
 
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 5)]
         public string dataEnvio;
@@ -38,7 +34,7 @@ namespace IntegradorIdea.Objects
         {
         }
 
-        public entregarManifestacaoProcessualRequest(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento[] documento, string dataEnvio, tipoParametro[] parametros)
+        public entregarManifestacaoProcessualRequest(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento documento, string dataEnvio, tipoParametro[] parametros)
         {
             this.idManifestante = idManifestante;
             this.senhaManifestante = senhaManifestante;

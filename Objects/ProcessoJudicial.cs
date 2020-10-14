@@ -1,30 +1,92 @@
-﻿
+﻿using System;
+using System.Diagnostics;
+using System.Runtime.Serialization;
+using System.Xml.Serialization;
+
 namespace IntegradorIdea.Objects
 {
-        public partial class Documento
-        {
-
-        public byte[] conteudo { get; set; }
-        
-        public Documento[] documentoVinculado { get; set; }
-
-        public string idDocumento { get; set; }
-        public string tipoDocumento { get; set; }
-
-        public string dataHora { get; set; }
-
-        public string mimetype { get; set; }
-
+    [DebuggerDisplay("{nivelSigilo}, {hash}, {descricao}, {tipoDocumento}, {mimetype}, {idDocumento}, {dataHora}, {movimento}")]
+    [Serializable]
+    [DataContract(Name = "documento")]
+    [XmlType(TypeName = "documento")]
+    public partial class Documento
+    {
+        [DataMember(Name = "nivelSigilo")]
+        [XmlAttribute(AttributeName = "nivelSigilo")]
         public int nivelSigilo { get; set; }
 
-
-        public int movimento { get; set; }
-
-
+        [DataMember(Name = "hash")]
+        [XmlAttribute(AttributeName = "hash")]
         public string hash { get; set; }
 
-
+        [DataMember(Name = "descricao")]
+        [XmlAttribute(AttributeName = "descricao")]
         public string descricao { get; set; }
+
+        [DataMember(Name = "tipoDocumento")]
+        [XmlAttribute(AttributeName = "tipoDocumento")]
+        public string tipoDocumento { get; set; }
+
+        [DataMember(Name = "mimetype")]
+        [XmlAttribute(AttributeName = "mimetype")]
+        public string mimetype { get; set; }
+
+        [DataMember(Name = "idDocumento")]
+        [XmlAttribute(AttributeName = "idDocumento")]
+        public string idDocumento { get; set; }
+
+        [DataMember(Name = "dataHora")]
+        [XmlAttribute(AttributeName = "dataHora")]
+        public string dataHora { get; set; }
+
+        [DataMember(Name = "movimento")]
+        [XmlAttribute(AttributeName = "movimento")]
+        public int movimento { get; set; }
+
+        public byte[] conteudo { get; set; }
+
+        public DocumentoVinculado[] documentoVinculado { get; set; }
+    }
+
+    [DebuggerDisplay("{nivelSigilo}, {hash}, {descricao}, {tipoDocumento}, {mimetype}, {idDocumento}, {dataHora}, {movimento}")]
+    [Serializable]
+    [DataContract(Name = "documentoVinculado")]
+    [XmlType(TypeName = "documentoVinculado")]
+    public partial class DocumentoVinculado
+    {
+        [DataMember(Name = "nivelSigilo")]
+        [XmlAttribute(AttributeName = "nivelSigilo")]
+        public int nivelSigilo { get; set; }
+
+        [DataMember(Name = "hash")]
+        [XmlAttribute(AttributeName = "hash")]
+        public string hash { get; set; }
+
+        [DataMember(Name = "descricao")]
+        [XmlAttribute(AttributeName = "descricao")]
+        public string descricao { get; set; }
+
+        [DataMember(Name = "tipoDocumento")]
+        [XmlAttribute(AttributeName = "tipoDocumento")]
+        public string tipoDocumento { get; set; }
+
+        [DataMember(Name = "mimetype")]
+        [XmlAttribute(AttributeName = "mimetype")]
+        public string mimetype { get; set; }
+
+        [DataMember(Name = "idDocumento")]
+        [XmlAttribute(AttributeName = "idDocumento")]
+        public string idDocumento { get; set; }
+
+        [DataMember(Name = "dataHora")]
+        [XmlAttribute(AttributeName = "dataHora")]
+        public string dataHora { get; set; }
+
+        [DataMember(Name = "movimento")]
+        [XmlAttribute(AttributeName = "movimento")]
+        public int movimento { get; set; }
+
+        public byte[] conteudo { get; set; }      
     }
 
 
@@ -74,7 +136,7 @@ namespace IntegradorIdea.Objects
         {
             this.idConsultante = idConsultante;
             this.senhaConsultante = senhaConsultante;
-            this.numeroProcesso = numeroProcesso;            
+            this.numeroProcesso = numeroProcesso;
             this.movimentos = movimentos;
             this.incluirCabecalho = incluirCabecalho;
             this.incluirDocumentos = incluirDocumentos;
@@ -132,7 +194,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.dadosBasicosField = value;                
+                this.dadosBasicosField = value;
             }
         }
 
@@ -146,7 +208,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.movimentoField = value;                
+                this.movimentoField = value;
             }
         }
 
@@ -160,7 +222,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.documentoField = value;                
+                this.documentoField = value;
             }
         }
     }
@@ -189,7 +251,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.complementoField = value;                
+                this.complementoField = value;
             }
         }
 
@@ -202,7 +264,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.movimentoNacionalField = value;                
+                this.movimentoNacionalField = value;
             }
         }
 
@@ -217,9 +279,9 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.dataHoraField = value;
-                
+
             }
-        }     
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
@@ -274,7 +336,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.conteudoField = value;                
+                this.conteudoField = value;
             }
         }
 
@@ -288,7 +350,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.assinaturaField = value;                
+                this.assinaturaField = value;
             }
         }
 
@@ -302,7 +364,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.outroParametroField = value;             
+                this.outroParametroField = value;
             }
         }
 
@@ -316,7 +378,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.anyField = value;                
+                this.anyField = value;
             }
         }
 
@@ -330,7 +392,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.documentoVinculadoField = value;                
+                this.documentoVinculadoField = value;
             }
         }
 
@@ -344,7 +406,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.idDocumentoField = value;             
+                this.idDocumentoField = value;
             }
         }
 
@@ -358,7 +420,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.idDocumentoVinculadoField = value;                
+                this.idDocumentoVinculadoField = value;
             }
         }
 
@@ -372,7 +434,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.tipoDocumento1Field = value;                
+                this.tipoDocumento1Field = value;
             }
         }
 
@@ -386,7 +448,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.dataHoraField = value;                
+                this.dataHoraField = value;
             }
         }
 
@@ -400,7 +462,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.mimetypeField = value;                
+                this.mimetypeField = value;
             }
         }
 
@@ -414,7 +476,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nivelSigiloField = value;                
+                this.nivelSigiloField = value;
             }
         }
 
@@ -428,7 +490,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nivelSigiloFieldSpecified = value;                
+                this.nivelSigiloFieldSpecified = value;
             }
         }
 
@@ -442,7 +504,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.movimentoField = value;                
+                this.movimentoField = value;
             }
         }
 
@@ -456,7 +518,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.movimentoFieldSpecified = value;                
+                this.movimentoFieldSpecified = value;
             }
         }
 
@@ -470,7 +532,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.hashField = value;                
+                this.hashField = value;
             }
         }
 
@@ -484,7 +546,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.descricaoField = value;                
+                this.descricaoField = value;
             }
         }
 
@@ -498,7 +560,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.tipoDocumentoLocalField = value;         
+                this.tipoDocumentoLocalField = value;
             }
         }
     }
@@ -624,7 +686,7 @@ namespace IntegradorIdea.Objects
             }
         }
     }
-       
+
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
     [System.SerializableAttribute()]
@@ -706,7 +768,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.codigoOrgaoField = value;                
+                this.codigoOrgaoField = value;
             }
         }
 
@@ -720,7 +782,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nomeOrgaoField = value;               
+                this.nomeOrgaoField = value;
             }
         }
 
@@ -734,7 +796,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.instanciaField = value;            
+                this.instanciaField = value;
             }
         }
 
@@ -748,7 +810,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.codigoMunicipioIBGEField = value;         
+                this.codigoMunicipioIBGEField = value;
             }
         }
     }
@@ -775,7 +837,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.complementoField = value;                
+                this.complementoField = value;
             }
         }
         /*
@@ -809,7 +871,7 @@ namespace IntegradorIdea.Objects
         private tipoParametro[] outroParametroField;
 
         private string[] magistradoAtuanteField;
-        
+
         private string[] prioridadeField;
 
         private double valorCausaField;
@@ -851,7 +913,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.poloField = value;                
+                this.poloField = value;
             }
         }
 
@@ -864,7 +926,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.assuntoField = value;                
+                this.assuntoField = value;
             }
         }
 
@@ -879,7 +941,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.magistradoAtuanteField = value;
-             
+
             }
         }
 
@@ -897,11 +959,11 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.prioridadeField = value;
-                
+
             }
         }
 
-       
+
         [System.Xml.Serialization.XmlElementAttribute("outroParametro", IsNullable = true, Order = 4)]
         public tipoParametro[] outroParametro
         {
@@ -911,7 +973,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.outroParametroField = value;                
+                this.outroParametroField = value;
             }
         }
 
@@ -924,7 +986,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.valorCausaField = value;                
+                this.valorCausaField = value;
             }
         }
 
@@ -939,7 +1001,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.valorCausaFieldSpecified = value;
-                
+
             }
         }
 
@@ -952,7 +1014,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.orgaoJulgadorField = value;             
+                this.orgaoJulgadorField = value;
             }
         }
 
@@ -968,7 +1030,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.outrosnumerosField = value;
-               
+
             }
         }
 
@@ -983,7 +1045,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.numeroField = value;
-                
+
             }
         }
 
@@ -997,7 +1059,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.competenciaField = value;               
+                this.competenciaField = value;
             }
         }
 
@@ -1011,7 +1073,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.competenciaFieldSpecified = value;               
+                this.competenciaFieldSpecified = value;
             }
         }
 
@@ -1025,7 +1087,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.classeProcessualField = value;               
+                this.classeProcessualField = value;
             }
         }
 
@@ -1040,7 +1102,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.codigoLocalidadeField = value;
-               
+
             }
         }
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -1054,7 +1116,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.nivelSigiloField = value;
-               
+
             }
         }
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -1068,7 +1130,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.intervencaoMPField = value;
-               
+
             }
         }
 
@@ -1083,7 +1145,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.intervencaoMPFieldSpecified = value;
-              
+
             }
         }
 
@@ -1098,7 +1160,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.tamanhoProcessoField = value;
-              
+
             }
         }
 
@@ -1113,7 +1175,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.tamanhoProcessoFieldSpecified = value;
-            
+
             }
         }
 
@@ -1128,7 +1190,7 @@ namespace IntegradorIdea.Objects
             set
             {
                 this.dataAjuizamentoField = value;
-         
+
             }
         }
     }
@@ -1155,7 +1217,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nomeField = value;               
+                this.nomeField = value;
             }
         }
 
@@ -1169,9 +1231,9 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.valorField = value;         
+                this.valorField = value;
             }
-        }       
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
@@ -1198,7 +1260,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.parteField = value;                
+                this.parteField = value;
             }
         }
 
@@ -1212,7 +1274,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.poloField = value;                
+                this.poloField = value;
             }
         }
 
@@ -1226,9 +1288,9 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.poloFieldSpecified = value;         
+                this.poloFieldSpecified = value;
             }
-        }       
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
@@ -1297,7 +1359,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.pessoaField = value;                
+                this.pessoaField = value;
             }
         }
 
@@ -1311,7 +1373,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.interessePublicoField = value;                
+                this.interessePublicoField = value;
             }
         }
 
@@ -1325,7 +1387,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.advogadoField = value;               
+                this.advogadoField = value;
             }
         }
 
@@ -1339,7 +1401,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.pessoaProcessualRelacionadaField = value;                
+                this.pessoaProcessualRelacionadaField = value;
             }
         }
 
@@ -1353,7 +1415,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.assistenciaJudiciariaField = value;                
+                this.assistenciaJudiciariaField = value;
             }
         }
 
@@ -1367,7 +1429,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.assistenciaJudiciariaFieldSpecified = value;               
+                this.assistenciaJudiciariaFieldSpecified = value;
             }
         }
 
@@ -1381,7 +1443,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.intimacaoPendenteField = value;              
+                this.intimacaoPendenteField = value;
             }
         }
 
@@ -1395,7 +1457,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.intimacaoPendenteFieldSpecified = value;             
+                this.intimacaoPendenteFieldSpecified = value;
             }
         }
 
@@ -1409,7 +1471,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.relacionamentoProcessualField = value;              
+                this.relacionamentoProcessualField = value;
             }
         }
 
@@ -1423,9 +1485,9 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.relacionamentoProcessualFieldSpecified = value;         
+                this.relacionamentoProcessualFieldSpecified = value;
             }
-        }               
+        }
     }
 
 
@@ -1607,7 +1669,7 @@ namespace IntegradorIdea.Objects
     public partial class tipoRepresentanteProcessual
     {
 
-       
+
 
         private string nomeField;
 
@@ -1631,7 +1693,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nomeField = value;             
+                this.nomeField = value;
             }
         }
 
@@ -1645,7 +1707,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.inscricaoField = value;                
+                this.inscricaoField = value;
             }
         }
 
@@ -1659,7 +1721,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.numeroDocumentoPrincipalField = value;               
+                this.numeroDocumentoPrincipalField = value;
             }
         }
 
@@ -1673,7 +1735,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.intimacaoField = value;               
+                this.intimacaoField = value;
             }
         }
 
@@ -1687,9 +1749,9 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.tipoRepresentanteField = value;         
+                this.tipoRepresentanteField = value;
             }
-        }                
+        }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
@@ -1725,7 +1787,7 @@ namespace IntegradorIdea.Objects
         private string[] outroNomeField;
 
         private tipoDocumentoIdentificacao[] documentoField;
-        
+
         private tipoRelacionamentoPessoal[] pessoaRelacionadaField;
 
         private tipoPessoa pessoaVinculadaField;
@@ -1776,7 +1838,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.documentoField = value;                
+                this.documentoField = value;
             }
         }
 
@@ -1790,7 +1852,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.pessoaRelacionadaField = value;          
+                this.pessoaRelacionadaField = value;
             }
         }
 
@@ -1804,7 +1866,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.pessoaVinculadaField = value;                
+                this.pessoaVinculadaField = value;
             }
         }
 
@@ -1818,7 +1880,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-               this.nomeField = value;             
+                this.nomeField = value;
             }
         }
 
@@ -1832,7 +1894,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.sexoField = value;                
+                this.sexoField = value;
             }
         }
 
@@ -1846,7 +1908,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nomeGenitorField = value;             
+                this.nomeGenitorField = value;
             }
         }
 
@@ -1860,7 +1922,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nomeGenitoraField = value;                
+                this.nomeGenitoraField = value;
             }
         }
 
@@ -1874,7 +1936,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.dataNascimentoField = value;                
+                this.dataNascimentoField = value;
             }
         }
 
@@ -1888,7 +1950,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.dataObitoField = value;                
+                this.dataObitoField = value;
             }
         }
 
@@ -1902,7 +1964,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.numeroDocumentoPrincipalField = value;                
+                this.numeroDocumentoPrincipalField = value;
             }
         }
 
@@ -1916,7 +1978,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.tipoPessoa1Field = value;                
+                this.tipoPessoa1Field = value;
             }
         }
 
@@ -1930,7 +1992,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.cidadeNaturalField = value;                
+                this.cidadeNaturalField = value;
             }
         }
 
@@ -1944,7 +2006,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.estadoNaturalField = value;                
+                this.estadoNaturalField = value;
             }
         }
 
@@ -1958,7 +2020,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nacionalidadeField = value;                
+                this.nacionalidadeField = value;
             }
         }
     }
@@ -1973,11 +2035,11 @@ namespace IntegradorIdea.Objects
         private tipoDocumentoIdentificacao[] documentoField;
 
         private string nomeField;
-        
+
         private string numeroDocumentoPrincipalField;
 
         private tipoQualificacaoPessoa tipoPessoa1Field;
-        
+
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true, Order = 0)]
         public tipoDocumentoIdentificacao[] documento
@@ -1991,7 +2053,7 @@ namespace IntegradorIdea.Objects
                 this.documentoField = value;
             }
         }
-        
+
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string nome
@@ -2005,7 +2067,7 @@ namespace IntegradorIdea.Objects
                 this.nomeField = value;
             }
         }
-                
+
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string numeroDocumentoPrincipal
@@ -2062,7 +2124,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.codigoDocumentoField = value;                
+                this.codigoDocumentoField = value;
             }
         }
 
@@ -2076,7 +2138,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.emissorDocumentoField = value;                
+                this.emissorDocumentoField = value;
             }
         }
 
@@ -2090,7 +2152,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.tipoDocumentoField = value;                
+                this.tipoDocumentoField = value;
             }
         }
 
@@ -2104,7 +2166,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.nomeField = value;                
+                this.nomeField = value;
             }
         }
     }
@@ -2191,7 +2253,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.pessoaField = value;               
+                this.pessoaField = value;
             }
         }
 
@@ -2205,7 +2267,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.modalidadeRelacionamentoField = value;                
+                this.modalidadeRelacionamentoField = value;
             }
         }
 
@@ -2219,7 +2281,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.modalidadeRelacionamentoFieldSpecified = value;                
+                this.modalidadeRelacionamentoFieldSpecified = value;
             }
         }
     }
@@ -2335,7 +2397,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.codigoNacionalField = value;                
+                this.codigoNacionalField = value;
             }
         }
 
@@ -2349,7 +2411,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.codigoNacionalFieldSpecified = value;                
+                this.codigoNacionalFieldSpecified = value;
             }
         }
 
@@ -2363,7 +2425,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.assuntoLocalField = value;                
+                this.assuntoLocalField = value;
             }
         }
 
@@ -2377,7 +2439,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.principalField = value;                
+                this.principalField = value;
             }
         }
 
@@ -2403,7 +2465,7 @@ namespace IntegradorIdea.Objects
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
     public partial class tipoAssuntoLocal
-    {       
+    {
 
         private int codigoAssuntoField;
 
@@ -2419,7 +2481,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.codigoAssuntoField = value;                
+                this.codigoAssuntoField = value;
             }
         }
 
@@ -2433,7 +2495,7 @@ namespace IntegradorIdea.Objects
             }
             set
             {
-                this.descricaoField = value;                
+                this.descricaoField = value;
             }
         }
     }

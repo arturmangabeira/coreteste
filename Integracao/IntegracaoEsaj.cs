@@ -3744,17 +3744,17 @@ namespace IntegradorIdea.Integracao
             }
 
             //VALIDA SE FOI FORNECIDO A PETICAO NO OBJETO DE ENTRADA.
-            if(entregarManifestacaoProcessualRequest.documento != null && entregarManifestacaoProcessualRequest.documento.Length == 0)
+            if(entregarManifestacaoProcessualRequest.documento == null || entregarManifestacaoProcessualRequest.documento.conteudo.Length == 0)
             {
                 throw new Exception("Não foi fornecido nenhum documento para envio ao ESAJ.");
             }
 
-            if (entregarManifestacaoProcessualRequest.documento[0].conteudo != null && entregarManifestacaoProcessualRequest.documento[0].conteudo.Length == 0)
+            if (entregarManifestacaoProcessualRequest.documento.conteudo == null || entregarManifestacaoProcessualRequest.documento.conteudo.Length == 0)
             {
                 throw new Exception("Não foi fornecido o conteúdo do documento do tipo petição para envio ao ESAJ.");
             }
 
-            if (entregarManifestacaoProcessualRequest.documento[0].conteudo != null && entregarManifestacaoProcessualRequest.documento[0].descricao == String.Empty)
+            if (entregarManifestacaoProcessualRequest.documento.conteudo == null || entregarManifestacaoProcessualRequest.documento.descricao.Trim() == String.Empty)
             {
                 throw new Exception("Não foi fornecido o campo de descrição do documento de petição para envio ao ESAJ.");
             }
@@ -3763,21 +3763,21 @@ namespace IntegradorIdea.Integracao
                 //VERIFICA SE FOI FORNCIDO NA EXTENSÃO CORRETA.
                 RegexOptions options = RegexOptions.IgnoreCase;
                 string pattern = @"(.*\.)(|pdf)$";
-                if (!Regex.IsMatch(entregarManifestacaoProcessualRequest.documento[0].descricao, pattern, options))
+                if (!Regex.IsMatch(entregarManifestacaoProcessualRequest.documento.descricao, pattern, options))
                 {
-                    throw new Exception($"A descrição do documento de petição ({entregarManifestacaoProcessualRequest.documento[0].descricao}) não está no formato correto para envio ao ESAJ.");
+                    throw new Exception($"A descrição do documento de petição ({entregarManifestacaoProcessualRequest.documento.descricao}) não está no formato correto para envio ao ESAJ.");
                 }
             }
-            var conteudo = entregarManifestacaoProcessualRequest.documento[0].conteudo;
+            var conteudo = entregarManifestacaoProcessualRequest.documento.conteudo;
             if (!Util.VerificarAssinatura(ref conteudo))
             {
                 throw new Exception("O documento de petição fornecido não está assinado para envio ao ESAJ.");
             }
 
             //REALIZA A VALIDAÇÃO DOS DEMAIS DOCUMENTOS VINCULADOS PARA VER SE O MESMOS FORAM FORNECIDOS DE FORMA CORRETA.
-            if(entregarManifestacaoProcessualRequest.documento[0].documentoVinculado != null && entregarManifestacaoProcessualRequest.documento[0].documentoVinculado.Length > 0)
+            if(entregarManifestacaoProcessualRequest.documento.documentoVinculado != null && entregarManifestacaoProcessualRequest.documento.documentoVinculado.Length > 0)
             {
-                foreach (var documentoVinculado in entregarManifestacaoProcessualRequest.documento[0].documentoVinculado)
+                foreach (var documentoVinculado in entregarManifestacaoProcessualRequest.documento.documentoVinculado)
                 {
                     if(documentoVinculado.conteudo == null || documentoVinculado.conteudo.Length == 0)
                     {
@@ -3832,11 +3832,17 @@ namespace IntegradorIdea.Integracao
             //Instancia de <peticao>
             Entidades.IntermediariaDiversa.PeticaoType peticaoIntermediaria = new Entidades.IntermediariaDiversa.PeticaoType();
             peticaoIntermediaria.Processo = Util.OnlyNumbers(entregarManifestacaoProcessualRequest.numeroProcesso);
-            peticaoIntermediaria.Foro = "001";//TODO. Verificar se vai consultar o processo para obter essa informação ou se irá ser passado via objeto de parametro para o Diversas
+            peticaoIntermediaria.Foro = "001"; //TODO. Verificar se vai consultar o processo para obter essa informação ou se irá ser passado via objeto de parametro para o Diversas
 
-            peticaoIntermediaria.NomePeticao = entregarManifestacaoProcessualRequest.documento[0].descricao; //TODO. Perguntar se existe a possibilidade de colocar o nome do arquivo no campo de descrição.
+            peticaoIntermediaria.NomePeticao = entregarManifestacaoProcessualRequest.documento.descricao; //TODO. Perguntar se existe a possibilidade de colocar o nome do arquivo no campo de descrição.
             //OU pode ser extraído o nome do arquivo decodeando o mesmo.
-            peticaoIntermediaria.Tipo = "8050006"; //Tipo Peticao diversa.   TODO verificar sobre o tipo de petição diversa         
+
+            string tipoPeticao = obterValorTipoParametroEntregarManifestacaoProcessual("tipoPeticao", entregarManifestacaoProcessualRequest.parametros);
+            if(tipoPeticao == string.Empty)
+            {
+                tipoPeticao = _configuration["Configuracoes:tipoPeticaoPadrao"];
+            }
+            peticaoIntermediaria.Tipo = tipoPeticao; // Tipo Peticao diversa. TODO verificar sobre o tipo de petição diversa         
 
             messageBodyIntermediario.Peticao = peticaoIntermediaria;
             //Instancia do <Partes>
@@ -3849,21 +3855,25 @@ namespace IntegradorIdea.Integracao
             messageBodyIntermediario.Partes = parteIntermediariaArr;
 
             int i = 0;
+
             //ARMAZENA INICIALMENTE A PETIÇÃO
-            Entidades.IntermediariaDiversa.DocumentoType[] documentosArr = new Entidades.IntermediariaDiversa.DocumentoType[entregarManifestacaoProcessualRequest.documento[0].documentoVinculado.Length];
-            
-            if (entregarManifestacaoProcessualRequest.documento[0].documentoVinculado.Length > 0)
+            int qtdDocumentos = 0;
+            if (entregarManifestacaoProcessualRequest.documento.documentoVinculado != null)
+            {
+                qtdDocumentos = entregarManifestacaoProcessualRequest.documento.documentoVinculado.Length;
+            }
+
+            Entidades.IntermediariaDiversa.DocumentoType[] documentosArr = new Entidades.IntermediariaDiversa.DocumentoType[qtdDocumentos];
+            if (entregarManifestacaoProcessualRequest.documento.documentoVinculado != null && entregarManifestacaoProcessualRequest.documento.documentoVinculado.Length > 0)
             {
                 //Insere as informações dos documentos                
                 //A partir do resultado dos documentos cria-se uma linha de documento 
                 Entidades.IntermediariaDiversa.DocumentoType documento = null;
-                foreach (Documento item in entregarManifestacaoProcessualRequest.documento[0].documentoVinculado)
+                string tipoDocumentoPadrao = _configuration["Configuracoes:tipoDocumentoPadrao"];
+                foreach (DocumentoVinculado item in entregarManifestacaoProcessualRequest.documento.documentoVinculado)
                 {
                     documento = new Entidades.IntermediariaDiversa.DocumentoType();
-                    documento.Tipo = "8200002"; //TODO verificar sobre o tipo de documento enviado.
-                    //Tratar o nome do arquivo
-                    //string[] infoArquivo = item.NomeArquivo.Split('/');
-                    //Obtém o último registro que contém a informação do nome e extensão do arquivo.
+                    documento.Tipo = tipoDocumentoPadrao; // TODO verificar sobre o tipo de documento enviado.
                     documento.Nome = item.descricao;
                     documentosArr[i] = documento;
                     i++;
@@ -3888,24 +3898,32 @@ namespace IntegradorIdea.Integracao
         #region ObterDocumentoEnvioEsaj
         private string ObterDocumentoEnvioEsaj(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
         {
-            ArquivoPdf[] documentosEnvio = new ArquivoPdf[(1 + entregarManifestacaoProcessualRequest.documento[0].documentoVinculado.Length)];
+            int qtdDocumentosVinculados = 0;
+            if(entregarManifestacaoProcessualRequest.documento.documentoVinculado != null)
+            {
+                qtdDocumentosVinculados = entregarManifestacaoProcessualRequest.documento.documentoVinculado.Length;
+            }
+            ArquivoPdf[] documentosEnvio = new ArquivoPdf[(1 + qtdDocumentosVinculados)];
 
             Compressao objCompressao = new Compressao();
 
-            var docPeticao = entregarManifestacaoProcessualRequest.documento[0].conteudo;
+            var docPeticao = entregarManifestacaoProcessualRequest.documento.conteudo;
 
             ArquivoPdf peticao = new ArquivoPdf();
-            ArquivoPdf peticaoAux = peticao.AdicionarDados(ref docPeticao, entregarManifestacaoProcessualRequest.documento[0].descricao);
+            ArquivoPdf peticaoAux = peticao.AdicionarDados(ref docPeticao, entregarManifestacaoProcessualRequest.documento.descricao);
             //DOCUMENTO INCIAL É A PETIÇÃO 
             documentosEnvio[0] = peticaoAux;
-            int i = 1;
-            foreach (var arqRetorno in entregarManifestacaoProcessualRequest.documento[0].documentoVinculado)
+            if (entregarManifestacaoProcessualRequest.documento.documentoVinculado != null && entregarManifestacaoProcessualRequest.documento.documentoVinculado.Length > 0)
             {
-                byte[] dadosArquivo = arqRetorno.conteudo;
-                ArquivoPdf doc = new ArquivoPdf();
-                ArquivoPdf docAux = doc.AdicionarDados(ref dadosArquivo, arqRetorno.descricao);
-                documentosEnvio[i] = docAux;
-                i++;
+                int i = 1;
+                foreach (var arqRetorno in entregarManifestacaoProcessualRequest.documento.documentoVinculado)
+                {
+                    byte[] dadosArquivo = arqRetorno.conteudo;
+                    ArquivoPdf doc = new ArquivoPdf();
+                    ArquivoPdf docAux = doc.AdicionarDados(ref dadosArquivo, arqRetorno.descricao);
+                    documentosEnvio[i] = docAux;
+                    i++;
+                }
             }
 
             string ArquivoCienciaBase64 = objCompressao.Comprimir2Base64(documentosEnvio);
@@ -3950,6 +3968,20 @@ namespace IntegradorIdea.Integracao
         }
         #endregion
 
+        public string obterValorTipoParametroEntregarManifestacaoProcessual(string nomeTipoParametro, tipoParametro[] parametros)
+        {
+            string retorno = "";
+
+            foreach(tipoParametro parametro in parametros)
+            {
+                if(nomeTipoParametro == parametro.nome)
+                {
+                    retorno = parametro.valor;
+                }
+            }
+
+            return retorno;
+        }
     }
 
 }

@@ -3872,22 +3872,27 @@ namespace IntegradorIdea.Integracao
                 string tipoDocumentoPadrao = _configuration["Configuracoes:tipoDocumentoPadrao"];
                 foreach (DocumentoVinculado item in entregarManifestacaoProcessualRequest.documento.documentoVinculado)
                 {
+                    string tipoDocumentoVinculado = item.tipoDocumento.Trim();
+                    if(tipoDocumentoVinculado == string.Empty)
+                    {
+                        tipoDocumentoVinculado = tipoDocumentoPadrao;
+                    }
                     documento = new Entidades.IntermediariaDiversa.DocumentoType();
                     documento.Tipo = tipoDocumentoPadrao; // TODO verificar sobre o tipo de documento enviado.
                     documento.Nome = item.descricao;
                     documentosArr[i] = documento;
                     i++;
                 }
-
+                //SOMENTE INFORMA O DOCUMENTO PARA ENVIO CASO O ARRAY DE DOCUMENTOS SEJA MAIOR QUE 0
                 if (documentosArr.Length > 0)
                 {
                     messageBodyIntermediario.Documentos = documentosArr;
                 }
             }
-            else
+            /* else
             {   
                 messageBodyIntermediario.Documentos = documentosArr;
-            }
+            } */
 
             obJDadosProcIntermediaria.MessageBody = messageBodyIntermediario;
             //RETORNA O XML GERADO PELO OBJETO.

@@ -144,9 +144,13 @@ namespace IntegradorIdea.Objects
         }
     }
 
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
+    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "consultarProcessoResposta", WrapperNamespace = "", IsWrapped = true)]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
+    //[System.ServiceModel.MessageContractAttribute(WrapperName = "consultarProcessoResposta", WrapperNamespace = "", IsWrapped = true)]
     public partial class consultarProcessoResponse
     {
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 0)]

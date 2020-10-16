@@ -3,7 +3,7 @@ namespace IntegradorIdea.Objects
 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "consultarAvisosPendentesResposta", WrapperNamespace = "", IsWrapped = true)]
+    //[System.ServiceModel.MessageContractAttribute(WrapperName = "consultarAvisosPendentesResposta", WrapperNamespace = "", IsWrapped = true)]
     public partial class consultarAvisosPendentesResponse
     {
 

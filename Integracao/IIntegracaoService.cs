@@ -10,12 +10,16 @@ using System.ServiceModel;
 
 namespace IntegradorIdea.Integracao
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public interface IIntegracaoService
-    {           
+    {
         [OperationContract]
-        public consultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos , bool incluirCabecalho , bool incluirDocumentos, string[] documento);
-        
+        public consultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento);
+        [OperationContract]
+        public string testeServico();
+        //[OperationContract]
+        //public Objects.ConsultarProcessoESAJ.consultarProcessoResposta consultarProcesso02(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento);
+        /*
         [OperationContract]
         [XmlSerializerFormat(SupportFaults = true,Style = OperationFormatStyle.Rpc,Use = OperationFormatUse.Encoded)]        
         public Foros getForosEVaras();
@@ -43,6 +47,7 @@ namespace IntegradorIdea.Integracao
         public consultarTeorComunicacaoResponse consultarTeorComunicacao( string idConsultante, string senhaConsultante, string numeroProcesso, string identificadorAviso );
         [OperationContract]
         public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento documento, string dataEnvio, tipoParametro[] parametros);
+        */
 
     }
 }

@@ -92,40 +92,40 @@ namespace IntegradorIdea.Objects
 
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName = "consultarProcesso", WrapperNamespace = "", IsWrapped = true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName = "consultarProcesso", WrapperNamespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", IsWrapped = true)]
     public partial class consultarProcessoRequest
     {
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 0)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 0)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
         public string idConsultante;
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 1)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 1)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
         public string senhaConsultante;
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 2)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 2)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
         public string numeroProcesso;
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 3)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 3)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
         public string dataReferencia;
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 4)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 4)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
         public bool movimentos;
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 5)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 5)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
         public bool incluirCabecalho;
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 6)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace = "")]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 6)]
+        [System.Xml.Serialization.XmlElementAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
         public bool incluirDocumentos;
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 7)]
-        [System.Xml.Serialization.XmlElementAttribute("documento", Namespace = "", IsNullable = true)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 7)]
+        [System.Xml.Serialization.XmlElementAttribute("documento", Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", IsNullable = true)]
         public string[] documento;
 
         public consultarProcessoRequest()
@@ -144,23 +144,19 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
-    //[System.ServiceModel.MessageContractAttribute(WrapperName = "consultarProcessoResposta", WrapperNamespace = "", IsWrapped = true)]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    //[System.ServiceModel.MessageContractAttribute(WrapperName = "consultarProcessoResponse", WrapperNamespace = "http://www.cnj.jus.br/servico-intercomunicacao-2.2.2/", IsWrapped = true)]
     public partial class consultarProcessoResponse
     {
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 0)]
-        public bool sucesso;
+        //[System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 0)]
+        public bool sucesso { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 1)]
-        public string mensagem;
+        //[System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 1)]
+        public string mensagem { get; set; }
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "", Order = 2)]
-        public tipoProcessoJudicial processo;
+        //[System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2", Order = 2)]
+        public tipoProcessoJudicial processo { get; set; }
 
         public consultarProcessoResponse()
         {
@@ -174,11 +170,11 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoProcessoJudicial
     {
 
@@ -189,7 +185,7 @@ namespace IntegradorIdea.Objects
         private tipoDocumento[] documentoField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public tipoCabecalhoProcesso dadosBasicos
         {
             get
@@ -203,7 +199,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>   
-        [System.Xml.Serialization.XmlElementAttribute("movimento", IsNullable = true, Order = 1)]
+        //[System.Xml.Serialization.XmlElementAttribute("movimento", IsNullable = true, Order = 1)]
         public tipoMovimentoProcessual[] movimento
         {
             get
@@ -217,7 +213,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true, Order = 2)]
+        //[System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true, Order = 2)]
         public tipoDocumento[] documento
         {
             get
@@ -231,11 +227,11 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoMovimentoProcessual
     {
 
@@ -246,7 +242,7 @@ namespace IntegradorIdea.Objects
         private string dataHoraField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("complemento", IsNullable = true, Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute("complemento", IsNullable = true, Order = 0)]
         public string[] complemento
         {
             get
@@ -259,7 +255,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public tipoMovimentoNacional movimentoNacional
         {
             get
@@ -273,7 +269,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string dataHora
         {
             get
@@ -288,11 +284,11 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoDocumento
     {
 
@@ -331,7 +327,7 @@ namespace IntegradorIdea.Objects
         private string tipoDocumentoLocalField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary", Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary", Order = 0)]
         public byte[] conteudo
         {
             get
@@ -345,7 +341,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("assinatura", IsNullable = true, Order = 1)]
+        //[System.Xml.Serialization.XmlElementAttribute("assinatura", IsNullable = true, Order = 1)]
         public tipoAssinatura[] assinatura
         {
             get
@@ -359,7 +355,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("outroParametro", IsNullable = true, Order = 2)]
+        //[System.Xml.Serialization.XmlElementAttribute("outroParametro", IsNullable = true, Order = 2)]
         public tipoParametro[] outroParametro
         {
             get
@@ -373,7 +369,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
+        //[System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
         public System.Xml.XmlElement Any
         {
             get
@@ -387,7 +383,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("documentoVinculado", IsNullable = true, Order = 4)]
+        //[System.Xml.Serialization.XmlElementAttribute("documentoVinculado", IsNullable = true, Order = 4)]
         public tipoDocumento[] documentoVinculado
         {
             get
@@ -401,7 +397,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string idDocumento
         {
             get
@@ -415,7 +411,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string idDocumentoVinculado
         {
             get
@@ -429,7 +425,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("tipoDocumento")]
+        //[System.Xml.Serialization.XmlAttributeAttribute("tipoDocumento")]
         public string tipoDocumento1
         {
             get
@@ -443,7 +439,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string dataHora
         {
             get
@@ -457,7 +453,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string mimetype
         {
             get
@@ -471,7 +467,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public int nivelSigilo
         {
             get
@@ -485,7 +481,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool nivelSigiloSpecified
         {
             get
@@ -499,7 +495,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public int movimento
         {
             get
@@ -513,7 +509,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool movimentoSpecified
         {
             get
@@ -527,7 +523,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string hash
         {
             get
@@ -541,7 +537,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string descricao
         {
             get
@@ -555,7 +551,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string tipoDocumentoLocal
         {
             get
@@ -569,11 +565,11 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoAssinatura : object, System.ComponentModel.INotifyPropertyChanged
     {
 
@@ -590,7 +586,7 @@ namespace IntegradorIdea.Objects
         private string codificacaoCertificadoField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("signatarioLogin", IsNullable = true, Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute("signatarioLogin", IsNullable = true, Order = 0)]
         public tipoSignatarioSimples[] signatarioLogin
         {
             get
@@ -605,7 +601,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string assinatura
         {
             get
@@ -620,7 +616,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string dataAssinatura
         {
             get
@@ -635,7 +631,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string cadeiaCertificado
         {
             get
@@ -650,7 +646,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string algoritmoHash
         {
             get
@@ -665,7 +661,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string codificacaoCertificado
         {
             get
@@ -696,7 +692,7 @@ namespace IntegradorIdea.Objects
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoSignatarioSimples : object, System.ComponentModel.INotifyPropertyChanged
     {
 
@@ -705,7 +701,7 @@ namespace IntegradorIdea.Objects
         private string dataHoraField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string identificador
         {
             get
@@ -720,7 +716,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string dataHora
         {
             get
@@ -746,11 +742,11 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoOrgaoJulgador
     {
 
@@ -763,7 +759,7 @@ namespace IntegradorIdea.Objects
         private int codigoMunicipioIBGEField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string codigoOrgao
         {
             get
@@ -777,7 +773,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string nomeOrgao
         {
             get
@@ -791,7 +787,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public string instancia
         {
             get
@@ -805,7 +801,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public int codigoMunicipioIBGE
         {
             get
@@ -819,11 +815,11 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoMovimentoNacional
     {
 
@@ -832,7 +828,7 @@ namespace IntegradorIdea.Objects
         //private int codigoNacionalField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("complemento", IsNullable = true, Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute("complemento", IsNullable = true, Order = 0)]
         public string[] complemento
         {
             get
@@ -846,7 +842,7 @@ namespace IntegradorIdea.Objects
         }
         /*
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public int codigoNacional
         {
             get
@@ -860,11 +856,11 @@ namespace IntegradorIdea.Objects
         }*/
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoCabecalhoProcesso
     {
 
@@ -908,7 +904,7 @@ namespace IntegradorIdea.Objects
 
         private string dataAjuizamentoField;
 
-        [System.Xml.Serialization.XmlElementAttribute("polo", Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute("polo", Order = 0)]
         public tipoPoloProcessual[] polo
         {
             get
@@ -921,7 +917,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("assunto", Order = 1)]
+        //[System.Xml.Serialization.XmlElementAttribute("assunto", Order = 1)]
         public tipoAssuntoProcessual[] assunto
         {
             get
@@ -935,7 +931,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>        
-        [System.Xml.Serialization.XmlElementAttribute("magistradoAtuante", Order = 2)]
+        //[System.Xml.Serialization.XmlElementAttribute("magistradoAtuante", Order = 2)]
         public string[] magistradoAtuante
         {
             get
@@ -953,7 +949,7 @@ namespace IntegradorIdea.Objects
 
 
         /// <remarks/>        
-        [System.Xml.Serialization.XmlElementAttribute("prioridade", Order = 3)]
+        //[System.Xml.Serialization.XmlElementAttribute("prioridade", Order = 3)]
         public string[] prioridade
         {
             get
@@ -968,7 +964,7 @@ namespace IntegradorIdea.Objects
         }
 
 
-        [System.Xml.Serialization.XmlElementAttribute("outroParametro", IsNullable = true, Order = 4)]
+        //[System.Xml.Serialization.XmlElementAttribute("outroParametro", IsNullable = true, Order = 4)]
         public tipoParametro[] outroParametro
         {
             get
@@ -981,7 +977,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 5)]
         public double valorCausa
         {
             get
@@ -995,7 +991,7 @@ namespace IntegradorIdea.Objects
         }
 
 
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool valorCausaSpecified
         {
             get
@@ -1009,7 +1005,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 6)]
         public tipoOrgaoJulgador orgaoJulgador
         {
             get
@@ -1023,7 +1019,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>        
-        [System.Xml.Serialization.XmlElementAttribute("outrosnumeros", IsNullable = true, Order = 7)]
+        //[System.Xml.Serialization.XmlElementAttribute("outrosnumeros", IsNullable = true, Order = 7)]
         /// <remarks/>        
         public string[] outrosnumeros
         {
@@ -1038,7 +1034,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         /// <remarks/>        
         public string numero
         {
@@ -1053,7 +1049,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         /// <remarks/>        
         public int competencia
         {
@@ -1067,7 +1063,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         /// <remarks/>        
         public bool competenciaSpecified
         {
@@ -1082,7 +1078,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         public int classeProcessual
         {
             get
@@ -1095,7 +1091,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         /// <remarks/>        
         public string codigoLocalidade
         {
@@ -1109,7 +1105,8 @@ namespace IntegradorIdea.Objects
 
             }
         }
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         /// <remarks/>        
         public int nivelSigilo
         {
@@ -1123,7 +1120,8 @@ namespace IntegradorIdea.Objects
 
             }
         }
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         /// <remarks/>        
         public bool intervencaoMP
         {
@@ -1138,7 +1136,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         /// <remarks/>        
         public bool intervencaoMPSpecified
         {
@@ -1153,7 +1151,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         /// <remarks/>        
         public int tamanhoProcesso
         {
@@ -1168,7 +1166,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         /// <remarks/>        
         public bool tamanhoProcessoSpecified
         {
@@ -1183,7 +1181,7 @@ namespace IntegradorIdea.Objects
             }
         }
 
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        ////[System.Xml.Serialization.XmlAttributeAttribute()]
         /// <remarks/>        
         public string dataAjuizamento
         {
@@ -1199,11 +1197,11 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoParametro
     {
 
@@ -1212,7 +1210,7 @@ namespace IntegradorIdea.Objects
         private string valorField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string nome
         {
             get
@@ -1226,7 +1224,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string valor
         {
             get
@@ -1240,11 +1238,11 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoPoloProcessual
     {
 
@@ -1255,7 +1253,7 @@ namespace IntegradorIdea.Objects
         private bool poloFieldSpecified;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("parte", Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute("parte", Order = 0)]
         public tipoParte[] parte
         {
             get
@@ -1269,7 +1267,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public modalidadePoloProcessual polo
         {
             get
@@ -1283,7 +1281,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool poloSpecified
         {
             get
@@ -1297,9 +1295,9 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public enum modalidadePoloProcessual
     {
 
@@ -1325,11 +1323,11 @@ namespace IntegradorIdea.Objects
         VI,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoParte
     {
 
@@ -1354,7 +1352,7 @@ namespace IntegradorIdea.Objects
         private bool relacionamentoProcessualFieldSpecified;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public tipoPessoa pessoa
         {
             get
@@ -1368,7 +1366,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public string interessePublico
         {
             get
@@ -1382,7 +1380,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("advogado", IsNullable = true, Order = 2)]
+        //[System.Xml.Serialization.XmlElementAttribute("advogado", IsNullable = true, Order = 2)]
         public tipoRepresentanteProcessual[] advogado
         {
             get
@@ -1396,7 +1394,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("pessoaProcessualRelacionada", IsNullable = true, Order = 3)]
+        //[System.Xml.Serialization.XmlElementAttribute("pessoaProcessualRelacionada", IsNullable = true, Order = 3)]
         public tipoParte[] pessoaProcessualRelacionada
         {
             get
@@ -1410,7 +1408,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public bool assistenciaJudiciaria
         {
             get
@@ -1424,7 +1422,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool assistenciaJudiciariaSpecified
         {
             get
@@ -1438,7 +1436,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public int intimacaoPendente
         {
             get
@@ -1452,7 +1450,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool intimacaoPendenteSpecified
         {
             get
@@ -1466,7 +1464,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public modalidadeRelacionamentoProcessual relacionamentoProcessual
         {
             get
@@ -1480,7 +1478,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool relacionamentoProcessualSpecified
         {
             get
@@ -1495,11 +1493,11 @@ namespace IntegradorIdea.Objects
     }
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoParteDestinatario
     {
 
@@ -1524,7 +1522,7 @@ namespace IntegradorIdea.Objects
         private bool relacionamentoProcessualFieldSpecified;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public tipoPessoaDestinatario pessoa
         {
             get
@@ -1538,7 +1536,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public string interessePublico
         {
             get
@@ -1552,7 +1550,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("advogado", IsNullable = true, Order = 2)]
+        //[System.Xml.Serialization.XmlElementAttribute("advogado", IsNullable = true, Order = 2)]
         public tipoRepresentanteProcessual[] advogado
         {
             get
@@ -1566,7 +1564,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("pessoaProcessualRelacionada", IsNullable = true, Order = 3)]
+        //[System.Xml.Serialization.XmlElementAttribute("pessoaProcessualRelacionada", IsNullable = true, Order = 3)]
         public tipoParte[] pessoaProcessualRelacionada
         {
             get
@@ -1580,7 +1578,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public bool assistenciaJudiciaria
         {
             get
@@ -1594,7 +1592,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+       // [System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool assistenciaJudiciariaSpecified
         {
             get
@@ -1608,7 +1606,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public int intimacaoPendente
         {
             get
@@ -1622,7 +1620,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool intimacaoPendenteSpecified
         {
             get
@@ -1636,7 +1634,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public modalidadeRelacionamentoProcessual relacionamentoProcessual
         {
             get
@@ -1650,7 +1648,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool relacionamentoProcessualSpecified
         {
             get
@@ -1665,11 +1663,11 @@ namespace IntegradorIdea.Objects
     }
 
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoRepresentanteProcessual
     {
 
@@ -1688,7 +1686,7 @@ namespace IntegradorIdea.Objects
         /// <remarks/>       
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string nome
         {
             get
@@ -1702,7 +1700,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string inscricao
         {
             get
@@ -1716,7 +1714,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string numeroDocumentoPrincipal
         {
             get
@@ -1730,7 +1728,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public bool intimacao
         {
             get
@@ -1744,7 +1742,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public modalidadeRepresentanteProcessual tipoRepresentante
         {
             get
@@ -1758,9 +1756,9 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public enum modalidadeRepresentanteProcessual
     {
 
@@ -1780,11 +1778,11 @@ namespace IntegradorIdea.Objects
         P,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoPessoa
     {
 
@@ -1819,7 +1817,7 @@ namespace IntegradorIdea.Objects
         private string nacionalidadeField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("outroNome", IsNullable = true, Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute("outroNome", IsNullable = true, Order = 0)]
         public string[] outroNome
         {
             get
@@ -1833,7 +1831,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true, Order = 1)]
+        //[System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true, Order = 1)]
         public tipoDocumentoIdentificacao[] documento
         {
             get
@@ -1847,7 +1845,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("pessoaRelacionada", IsNullable = true, Order = 2)]
+        //[System.Xml.Serialization.XmlElementAttribute("pessoaRelacionada", IsNullable = true, Order = 2)]
         public tipoRelacionamentoPessoal[] pessoaRelacionada
         {
             get
@@ -1861,7 +1859,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 3)]
         public tipoPessoa pessoaVinculada
         {
             get
@@ -1875,7 +1873,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string nome
         {
             get
@@ -1889,7 +1887,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public modalidadeGeneroPessoa sexo
         {
             get
@@ -1903,7 +1901,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string nomeGenitor
         {
             get
@@ -1917,7 +1915,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string nomeGenitora
         {
             get
@@ -1931,7 +1929,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string dataNascimento
         {
             get
@@ -1945,7 +1943,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string dataObito
         {
             get
@@ -1959,7 +1957,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string numeroDocumentoPrincipal
         {
             get
@@ -1973,7 +1971,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("tipoPessoa")]
+        //[System.Xml.Serialization.XmlAttributeAttribute("tipoPessoa")]
         public tipoQualificacaoPessoa tipoPessoa1
         {
             get
@@ -1987,7 +1985,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string cidadeNatural
         {
             get
@@ -2001,7 +1999,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string estadoNatural
         {
             get
@@ -2015,7 +2013,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string nacionalidade
         {
             get
@@ -2029,11 +2027,11 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoPessoaDestinatario
     {
         private tipoDocumentoIdentificacao[] documentoField;
@@ -2045,7 +2043,7 @@ namespace IntegradorIdea.Objects
         private tipoQualificacaoPessoa tipoPessoa1Field;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true, Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute("documento", IsNullable = true, Order = 0)]
         public tipoDocumentoIdentificacao[] documento
         {
             get
@@ -2059,7 +2057,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string nome
         {
             get
@@ -2073,7 +2071,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string numeroDocumentoPrincipal
         {
             get
@@ -2087,7 +2085,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("tipoPessoa")]
+        //[System.Xml.Serialization.XmlAttributeAttribute("tipoPessoa")]
         public tipoQualificacaoPessoa tipoPessoa1
         {
             get
@@ -2102,11 +2100,11 @@ namespace IntegradorIdea.Objects
     }
 
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoDocumentoIdentificacao
     {
 
@@ -2119,7 +2117,7 @@ namespace IntegradorIdea.Objects
         private string nomeField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string codigoDocumento
         {
             get
@@ -2133,7 +2131,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string emissorDocumento
         {
             get
@@ -2147,7 +2145,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string tipoDocumento
         {
             get
@@ -2161,7 +2159,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string nome
         {
             get
@@ -2175,9 +2173,9 @@ namespace IntegradorIdea.Objects
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public enum modalidadeDocumentoIdentificador
     {
 
@@ -2233,11 +2231,11 @@ namespace IntegradorIdea.Objects
         RGE,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoRelacionamentoPessoal
     {
 
@@ -2248,7 +2246,7 @@ namespace IntegradorIdea.Objects
         private bool modalidadeRelacionamentoFieldSpecified;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public tipoPessoa pessoa
         {
             get
@@ -2262,7 +2260,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public modalidadesRelacionamentoPessoal modalidadeRelacionamento
         {
             get
@@ -2276,7 +2274,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool modalidadeRelacionamentoSpecified
         {
             get
@@ -2291,9 +2289,9 @@ namespace IntegradorIdea.Objects
     }
 
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public enum modalidadesRelacionamentoPessoal
     {
 
@@ -2314,9 +2312,9 @@ namespace IntegradorIdea.Objects
     }
 
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public enum modalidadeGeneroPessoa
     {
 
@@ -2331,9 +2329,9 @@ namespace IntegradorIdea.Objects
     }
 
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public enum tipoQualificacaoPessoa
     {
 
@@ -2351,9 +2349,9 @@ namespace IntegradorIdea.Objects
     }
 
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public enum modalidadeRelacionamentoProcessual
     {
 
@@ -2373,11 +2371,11 @@ namespace IntegradorIdea.Objects
         AS,
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoAssuntoProcessual
     {
 
@@ -2392,7 +2390,7 @@ namespace IntegradorIdea.Objects
         private bool principalFieldSpecified;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 0)]
         public int codigoNacional
         {
             get
@@ -2406,7 +2404,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool codigoNacionalSpecified
         {
             get
@@ -2420,7 +2418,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
+        //[System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public tipoAssuntoLocal assuntoLocal
         {
             get
@@ -2434,7 +2432,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public bool principal
         {
             get
@@ -2448,7 +2446,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        //[System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool principalSpecified
         {
             get
@@ -2463,11 +2461,11 @@ namespace IntegradorIdea.Objects
 
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "")]
+    //[System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.5494")]
+    //[System.SerializableAttribute()]
+    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    //[System.ComponentModel.DesignerCategoryAttribute("code")]
+    //[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public partial class tipoAssuntoLocal
     {
 
@@ -2476,7 +2474,7 @@ namespace IntegradorIdea.Objects
         private string descricaoField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public int codigoAssunto
         {
             get
@@ -2490,7 +2488,7 @@ namespace IntegradorIdea.Objects
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        //[System.Xml.Serialization.XmlAttributeAttribute()]
         public string descricao
         {
             get

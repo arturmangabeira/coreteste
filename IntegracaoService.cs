@@ -71,7 +71,27 @@ namespace IntegradorIdea
                 documento = documento
             };
 
-            return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
+            consultarProcessoResponse _consultarProcessoResponse = new consultarProcessoResponse()
+            {
+                mensagem = "Teste serviço OK!",
+                sucesso = true,
+                processo = new tipoProcessoJudicial()
+                {
+                    documento = new tipoDocumento[]
+                   {
+                        new tipoDocumento()
+                        {
+                            descricao = "teste.pdf",
+                            conteudo = Util.Base64EncodeStream("teste de conteudo"),
+                            tipoDocumento1 = "1"
+                        }
+                   }
+                }
+            };
+
+            return _consultarProcessoResponse;
+
+            //return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
 
         }
 
@@ -201,6 +221,50 @@ namespace IntegradorIdea
             return _integracaoEsaj.entregarManifestacaoProcessual(_entregarManifestacaoProcessual);
 
         }
+
+        public string testeServico()
+        {
+            return "Servico OK!";
+        }
+
+        public Objects.ConsultarProcessoESAJ.consultarProcessoResposta consultarProcesso02(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento)
+        {
+            _logger.LogInformation("Iniciando consultarProcesso.");
+
+            var consultarProcesso = new ConsultarProcesso()
+            {
+                idConsultante = idConsultante,
+                numeroProcesso = numeroProcesso,
+                movimentos = movimentos,
+                incluirCabecalho = incluirCabecalho,
+                incluirDocumentos = incluirDocumentos,
+                documento = documento
+            };
+
+            Objects.ConsultarProcessoESAJ.consultarProcessoResposta _consultarProcessoResponse = new Objects.ConsultarProcessoESAJ.consultarProcessoResposta()
+            {
+                mensagem = "Teste serviço OK!",
+                sucesso = true,
+                processo = new Objects.ConsultarProcessoESAJ.tipoProcessoJudicialESAJ()
+                {
+                    documento = new Documento[]
+                    {
+                        new Documento()
+                        {
+                            descricao = "teste.pdf",
+                            conteudo = Util.Base64EncodeStream("teste de conteudo"),
+                            tipoDocumento = "8000"
+                        }
+                    }
+                }
+            };
+
+            return _consultarProcessoResponse;
+
+            //return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
+
+        }
+
     }
 
 }

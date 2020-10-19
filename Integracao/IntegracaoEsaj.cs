@@ -23,6 +23,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text;
 using Org.BouncyCastle.Crypto.Engines;
 using System.Text.RegularExpressions;
+using IntegradorIdea.Objects.Response;
 
 namespace IntegradorIdea.Integracao
 
@@ -1655,65 +1656,199 @@ namespace IntegradorIdea.Integracao
         #endregion
 
         #region getForosEVaras
-        public Foros getForosEVaras()
+        public GetForosEVarasResponse getForosEVaras()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getForosEVaras.");
             string retornoXmlEsaj = _proxy.getForosEVaras();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Foros().ExtrairObjeto<Foros>(retornoXmlEsaj);
-            return objRetorno;
+
+            // CONVERTE O OBJETO RETORNADO PARA UM OBJETO QUE O .NET ENTENDA
+            GetForosEVarasResponse retorno = new GetForosEVarasResponse();
+            foreach (var foro in objRetorno.Foro)
+            {
+
+                Foro novoForo = new Foro()
+                {
+                    Codigo = foro.Codigo,
+                    Nome = foro.Nome,
+                    Comarca = new Comarca() { Codigo = foro.Comarca.Codigo, Nome = foro.Comarca.Nome },
+                    Municipio = new Municipio() { Codigo = foro.Municipio.Codigo, Nome = foro.Municipio.Nome }
+                };
+
+                foreach (var vara in foro.Vara)
+                {
+                    novoForo.adicionarVara(new Vara()
+                    {
+                        Codigo = vara.Codigo,
+                        Nome = vara.Nome,
+                        Competencia = new Competencia()
+                        {
+                            Tipo = vara.Competencia.Tipo,
+                            Descricao = vara.Competencia.Descricao
+                        }
+                    });
+                }
+
+                retorno.adicionarForo(novoForo);
+            }
+
+            return retorno;
         }
         #endregion
 
         #region getClasseTpParte
-        public Classes getClasseTpParte()
+        public IntegradorIdea.Objects.Response.getClasseTpParteResponse getClasseTpParte()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getClasseTpParte.");
             string retornoXmlEsaj = _proxy.getClasseTpParte();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Classes().ExtrairObjeto<Classes>(retornoXmlEsaj);
-            return objRetorno;
+
+            IntegradorIdea.Objects.Response.getClasseTpParteResponse retorno = new IntegradorIdea.Objects.Response.getClasseTpParteResponse();
+            retorno.Classes = new IntegradorIdea.Objects.Response.ClasseTpParte[objRetorno.Classe.Length];
+            int j = 0;
+            foreach (var classe in objRetorno.Classe)
+            {
+                IntegradorIdea.Objects.Response.ClasseTpParte classeTpParte = new IntegradorIdea.Objects.Response.ClasseTpParte();
+                classeTpParte.Descricao = classe.Descricao;
+                classeTpParte.Tipo = classe.Tipo;
+
+                ParteClasse[] partes = new ParteClasse[classe.Parte.Length];
+                int i = 0;
+                foreach (var parte in classe.Parte)
+                {
+                    partes[i] = new IntegradorIdea.Objects.Response.ParteClasse()
+                    {
+                        Descricao = parte.Descricao
+                    };
+                    i++;
+                }
+                classeTpParte.Partes = partes;
+                retorno.Classes[j] = classeTpParte;
+                j++;
+            }
+            return retorno;
         }
         #endregion
 
         #region getTiposDocDigital
-        public Documentos getTiposDocDigital()
+        public GetTiposDocDigitalResponse getTiposDocDigital()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getTiposDocDigital.");
             string retornoXmlEsaj = _proxy.getTiposDocDigital();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Documentos().ExtrairObjeto<Documentos>(retornoXmlEsaj);
-            return objRetorno;
+
+            GetTiposDocDigitalResponse retorno = new GetTiposDocDigitalResponse();
+            foreach (var documento in objRetorno.Documento)
+            {
+                retorno.adicionarDocumento(new TipoDocDigital() { Descricao = documento.Descricao, Tipo = documento.Tipo });
+            }
+
+            return retorno;
         }
         #endregion
 
         #region getCategoriasEClasses
-        public Categorias getCategoriasEClasses()
+        public Objects.Response.GetCategoriasEClassesResponse getCategoriasEClasses()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getCategoriasEClasses.");
             string retornoXmlEsaj = _proxy.getCategoriasEClasses();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Categorias().ExtrairObjeto<Categorias>(retornoXmlEsaj);
-            return objRetorno;
+
+            Objects.Response.GetCategoriasEClassesResponse retorno = new Objects.Response.GetCategoriasEClassesResponse();
+
+            foreach (var categoria in objRetorno.Categoria)
+            {
+
+                var objCategoria = new Objects.Response.Categoria()
+                {
+                    Descricao = categoria.Descricao,
+                    Tipo = categoria.Tipo
+                };
+
+                if (categoria.Classe != null)
+                {
+                    foreach (var classe in categoria.Classe)
+                    {
+                        objCategoria.adicionarClasseCategoria(new Objects.Response.ClasseCategoria()
+                        {
+                            Descricao = classe.Descricao,
+                            Tipo = classe.Tipo
+                        });
+                    }
+                }
+
+                retorno.adicionarCategoria(objCategoria);
+            }
+
+            return retorno;
         }
         #endregion
 
         #region getTiposDiversas
-        public Tipos getTiposDiversas()
+        public IntegradorIdea.Objects.Response.GetTiposDiversasResponse getTiposDiversas()
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getTiposDiversas.");
             string retornoXmlEsaj = _proxy.getTiposDiversas();
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Tipos().ExtrairObjeto<Tipos>(retornoXmlEsaj);
-            return objRetorno;
+
+            IntegradorIdea.Objects.Response.GetTiposDiversasResponse retorno = new IntegradorIdea.Objects.Response.GetTiposDiversasResponse();
+            foreach(var tipo in objRetorno.Tipo)
+            {
+                retorno.adicionarTiposDiversas(new IntegradorIdea.Objects.Response.AssuntoGetTiposDiversas()
+                {
+                    Tipo = tipo.Tipo,
+                    Descricao = tipo.Descricao
+                });
+            }
+            return retorno;
         }
         #endregion
 
         #region getAreasCompetenciasEClasses
-        public string getAreasCompetenciasEClasses(int cdForo)
+        public Objects.Response.GetAreasCompetenciasEClassesResponse getAreasCompetenciasEClasses(int cdForo)
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getAreasCompetenciasEClasses.");
-            return _proxy.getAreasCompetenciasEClasses(cdForo);
+
+            string retornoXmlEsaj = _proxy.getAreasCompetenciasEClasses(cdForo);
+            var objRetorno = new Entidades.AreasCompetenciasEClasses.Foro().ExtrairObjeto<Entidades.AreasCompetenciasEClasses.Foro>(retornoXmlEsaj);
+
+            GetAreasCompetenciasEClassesResponse retorno = new GetAreasCompetenciasEClassesResponse();
+            retorno.Foro.Codigo = objRetorno.Codigo;
+            retorno.Foro.Nome = objRetorno.Nome;
+            foreach (var area in objRetorno.Area)
+            {
+                List<Objects.Response.CompetenciaArea> competencias = new List<Objects.Response.CompetenciaArea>();
+                // Competências
+                foreach (var competencia in area.Competencia)
+                {
+                    // Classes
+                    List<Objects.Response.Classe> classesCompetencia = new List<Objects.Response.Classe>();
+                    foreach (var classe in competencia.Classe)
+                    {
+                        classesCompetencia.Add(new Objects.Response.Classe()
+                        {
+                            Codigo = classe.Codigo,
+                            Descricao = classe.Descricao
+                        });
+                    }
+
+                    competencias.Add(new CompetenciaArea()
+                    {
+                        Codigo = competencia.Codigo,
+                        Descricao = competencia.Descricao,
+                        Classe = classesCompetencia
+                    });
+                }
+
+                retorno.Foro.adicionarArea(new Objects.Response.Area() { Codigo = area.Codigo, Competencia = competencias });
+            }
+
+            return retorno;
         }
         #endregion
 
@@ -1735,13 +1870,20 @@ namespace IntegradorIdea.Integracao
         #endregion
 
         #region getAssuntos
-        public Assuntos getAssuntos(int cdCompetencia, int cdClasse)
+        public IntegradorIdea.Objects.Response.GetAssuntosResponse getAssuntos(int cdCompetencia, int cdClasse)
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getAssuntos.");
             string retornoXmlEsaj = _proxy.getAssuntos(cdCompetencia, cdClasse);
             //LOAD DE CLASSE PARA RETORNO EM FORMATO DE OBJETO
             var objRetorno = new Assuntos().ExtrairObjeto<Assuntos>(retornoXmlEsaj);
-            return objRetorno;
+
+            IntegradorIdea.Objects.Response.GetAssuntosResponse retorno = new IntegradorIdea.Objects.Response.GetAssuntosResponse();
+            foreach(var assunto in objRetorno.Assunto)
+            {
+                retorno.adicionarAssunto(new IntegradorIdea.Objects.Response.AssuntoTmp() { codigo = assunto.codigo, codigoPai = assunto.codigoPai, descricao = assunto.descricao });
+            }
+
+            return retorno;
         }
 
         #endregion
@@ -3225,7 +3367,7 @@ namespace IntegradorIdea.Integracao
             Entidades.SolicitacaoDocCienciaAto.MessageMessageBody MessageMessageBody = new Entidades.SolicitacaoDocCienciaAto.MessageMessageBody();
 
             MessageIdType.Code = "202099000001";
-            MessageIdType.Date = DateTime.Now.ToString("yyyy-MM-dd"); 
+            MessageIdType.Date = DateTime.Now.ToString("yyyy-MM-dd");
             MessageIdType.FromAddress = "MP-BA";
             MessageIdType.ToAddress = "TJ";
             MessageIdType.MsgDesc = "Solicitação de documento de ciência para um ato específico";
@@ -3608,7 +3750,7 @@ namespace IntegradorIdea.Integracao
 
         #region entregarManifestacaoProcessual
         public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
-        {            
+        {
             var dtInicial = DateTime.Now;
             TLogOperacao operacao = new TLogOperacao()
             {
@@ -3738,13 +3880,13 @@ namespace IntegradorIdea.Integracao
         private void validarEntregaManifestacaoProcessual(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
         {
 
-            if(entregarManifestacaoProcessualRequest.numeroProcesso == String.Empty)
+            if (entregarManifestacaoProcessualRequest.numeroProcesso == String.Empty)
             {
                 throw new Exception("Não foi fornecido o número de proceso para envio ao ESAJ.");
             }
 
             //VALIDA SE FOI FORNECIDO A PETICAO NO OBJETO DE ENTRADA.
-            if(entregarManifestacaoProcessualRequest.documento == null || entregarManifestacaoProcessualRequest.documento.conteudo.Length == 0)
+            if (entregarManifestacaoProcessualRequest.documento == null || entregarManifestacaoProcessualRequest.documento.conteudo.Length == 0)
             {
                 throw new Exception("Não foi fornecido nenhum documento para envio ao ESAJ.");
             }
@@ -3775,11 +3917,11 @@ namespace IntegradorIdea.Integracao
             }
 
             //REALIZA A VALIDAÇÃO DOS DEMAIS DOCUMENTOS VINCULADOS PARA VER SE O MESMOS FORAM FORNECIDOS DE FORMA CORRETA.
-            if(entregarManifestacaoProcessualRequest.documento.documentoVinculado != null && entregarManifestacaoProcessualRequest.documento.documentoVinculado.Length > 0)
+            if (entregarManifestacaoProcessualRequest.documento.documentoVinculado != null && entregarManifestacaoProcessualRequest.documento.documentoVinculado.Length > 0)
             {
                 foreach (var documentoVinculado in entregarManifestacaoProcessualRequest.documento.documentoVinculado)
                 {
-                    if(documentoVinculado.conteudo == null || documentoVinculado.conteudo.Length == 0)
+                    if (documentoVinculado.conteudo == null || documentoVinculado.conteudo.Length == 0)
                     {
                         throw new Exception("Não foi fornecido o conteúdo do documento vinculado a petição para envio ao ESAJ.");
                     }
@@ -3824,7 +3966,7 @@ namespace IntegradorIdea.Integracao
             messageIdIntermediaria.ToAddress = "TJ";
             messageIdIntermediaria.Date = DateTime.Now.ToString("yyyy-MM-dd"); ;
 
-            obJDadosProcIntermediaria.MessageId = messageIdIntermediaria;                       
+            obJDadosProcIntermediaria.MessageId = messageIdIntermediaria;
 
             //Instancia do <MessageBody>
             Entidades.IntermediariaDiversa.MessageMessageBody messageBodyIntermediario = new Entidades.IntermediariaDiversa.MessageMessageBody();
@@ -3838,7 +3980,7 @@ namespace IntegradorIdea.Integracao
             //OU pode ser extraído o nome do arquivo decodeando o mesmo.
 
             string tipoPeticao = obterValorTipoParametroEntregarManifestacaoProcessual("tipoPeticao", entregarManifestacaoProcessualRequest.parametros);
-            if(tipoPeticao == string.Empty)
+            if (tipoPeticao == string.Empty)
             {
                 tipoPeticao = _configuration["Configuracoes:tipoPeticaoPadrao"];
             }
@@ -3873,7 +4015,7 @@ namespace IntegradorIdea.Integracao
                 foreach (DocumentoVinculado item in entregarManifestacaoProcessualRequest.documento.documentoVinculado)
                 {
                     string tipoDocumentoVinculado = item.tipoDocumento.Trim();
-                    if(tipoDocumentoVinculado == string.Empty)
+                    if (tipoDocumentoVinculado == string.Empty)
                     {
                         tipoDocumentoVinculado = tipoDocumentoPadrao;
                     }
@@ -3904,7 +4046,7 @@ namespace IntegradorIdea.Integracao
         private string ObterDocumentoEnvioEsaj(entregarManifestacaoProcessualRequest entregarManifestacaoProcessualRequest)
         {
             int qtdDocumentosVinculados = 0;
-            if(entregarManifestacaoProcessualRequest.documento.documentoVinculado != null)
+            if (entregarManifestacaoProcessualRequest.documento.documentoVinculado != null)
             {
                 qtdDocumentosVinculados = entregarManifestacaoProcessualRequest.documento.documentoVinculado.Length;
             }
@@ -3948,7 +4090,7 @@ namespace IntegradorIdea.Integracao
                 try
                 {
                     //VERIFICA SE ESTÁ NO MESMO ANO. CASO TENHA MODIFICADO SERÁ ZERADO O CONTADO COM O INÍCIO DO ANO.
-                    if(Int32.Parse(configuracaoRetorno.DsValor.Substring(0,4)) != DateTime.Now.Year)
+                    if (Int32.Parse(configuracaoRetorno.DsValor.Substring(0, 4)) != DateTime.Now.Year)
                     {
                         configuracaoRetorno.DsValor = DateTime.Now.Year.ToString() + "01000001";
                     }
@@ -3977,9 +4119,9 @@ namespace IntegradorIdea.Integracao
         {
             string retorno = "";
 
-            foreach(tipoParametro parametro in parametros)
+            foreach (tipoParametro parametro in parametros)
             {
-                if(nomeTipoParametro == parametro.nome)
+                if (nomeTipoParametro == parametro.nome)
                 {
                     retorno = parametro.valor;
                 }

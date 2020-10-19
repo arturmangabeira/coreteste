@@ -7,11 +7,11 @@ using Microsoft.Extensions.Logging;
 using IntegradorIdea.Objects;
 using IntegradorIdea.Entidades.ForoClasse;
 using IntegradorIdea.Entidades.TpParteClasse;
-using IntegradorIdea.Entidades.DocDigitalClasse;
 using IntegradorIdea.Entidades.CategoriaClasse;
 using IntegradorIdea.Entidades.TipoDiversasClasse;
 using IntegradorIdea.Entidades.AssuntoClasse;
 using Microsoft.AspNetCore.Http;
+using IntegradorIdea.Objects.Response;
 
 namespace IntegradorIdea
 
@@ -97,49 +97,41 @@ namespace IntegradorIdea
 
 
 
-        public Foros getForosEVaras()
+        public IntegradorIdea.Objects.Response.GetForosEVarasResponse getForosEVaras()
         {
             _logger.LogInformation("Iniciando getForosEVaras.");
             return _integracaoEsaj.getForosEVaras();
         }
 
-        public Classes getClasseTpParte()
+        public IntegradorIdea.Objects.Response.getClasseTpParteResponse getClasseTpParte()
         {
             _logger.LogInformation("Iniciando getClasseTpParte.");
             return _integracaoEsaj.getClasseTpParte();
         }
 
-        public Documentos getTiposDocDigital()
+        public IntegradorIdea.Objects.Response.GetTiposDocDigitalResponse getTiposDocDigital()
         {
             _logger.LogInformation("Iniciando getTiposDocDigital.");
             return _integracaoEsaj.getTiposDocDigital();
         }
 
-
-
-        public Categorias getCategoriasEClasses()
+        public Objects.Response.GetCategoriasEClassesResponse getCategoriasEClasses()
         {
             _logger.LogInformation("Iniciando getCategoriasEClasses.");
             return _integracaoEsaj.getCategoriasEClasses();
         }
 
-
-
-        public Tipos getTiposDiversas()
+        public IntegradorIdea.Objects.Response.GetTiposDiversasResponse getTiposDiversas()
         {
             _logger.LogInformation("Iniciando getTiposDiversas.");
             return _integracaoEsaj.getTiposDiversas();
         }
 
-
-
-        public string getAreasCompetenciasEClasses(int cdForo)
+        public Objects.Response.GetAreasCompetenciasEClassesResponse getAreasCompetenciasEClasses(int cdForo)
         {
             _logger.LogInformation("Iniciando getAreasCompetenciasEClasses.");
             return _integracaoEsaj.getAreasCompetenciasEClasses(cdForo);
         }
-
-
 
         public string obterNumeroUnificadoDoProcesso(string numeroProcesso)
         {
@@ -155,9 +147,7 @@ namespace IntegradorIdea
             return _integracaoEsaj.obterNumeroSajDoProcesso(numeroProcesso);
         }
 
-
-
-        public Assuntos getAssuntos(int cdCompetencia, int cdClasse)
+        public IntegradorIdea.Objects.Response.GetAssuntosResponse getAssuntos(int cdCompetencia, int cdClasse)
         {
             _logger.LogInformation("Iniciando getAssuntos.");
             return _integracaoEsaj.getAssuntos(cdCompetencia, cdClasse);

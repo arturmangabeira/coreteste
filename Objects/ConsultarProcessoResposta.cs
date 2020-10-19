@@ -1,9 +1,4 @@
-﻿
-using System;
-using System.Runtime.Serialization;
-using System.Xml.Serialization;
-
-namespace IntegradorIdea.Objects.ConsultarProcessoESAJ
+﻿namespace IntegradorIdea.Objects.ConsultarProcessoESAJ
 {
     //[Serializable]
     //[DataContract(Name = "consultarProcessoResponse")]

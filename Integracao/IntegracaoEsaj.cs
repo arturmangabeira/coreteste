@@ -24,6 +24,7 @@ using System.Text;
 using Org.BouncyCastle.Crypto.Engines;
 using System.Text.RegularExpressions;
 using IntegradorIdea.Objects.Response;
+using IntegradorIdea.Objects.Response.GetAreasCompetenciasEClassesResponse;
 
 namespace IntegradorIdea.Integracao
 
@@ -64,102 +65,55 @@ namespace IntegradorIdea.Integracao
         #region ConsultarProcesso
 
         public consultarProcessoResponse ConsultarProcesso(ConsultarProcesso consultarProcesso)
-
         {
-
             Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno = null;
-
             consultarProcessoResponse consultar = new consultarProcessoResponse();
-
             string xmlDadosProcessoRetorno = String.Empty;
-
             var config = ConfigurationManager.ConfigurationManager.AppSettings;
-
             var dtInicial = DateTime.Now;
 
-
-
             TLogOperacao operacaoConsultarProcesso = new TLogOperacao()
-
             {
-
                 CdIdea = consultarProcesso.idConsultante,
-
                 DsCaminhoDocumentosChamada = Util.Serializar(consultarProcesso),
-
                 DsLogOperacao = "Consulta de Processo " + consultarProcesso.numeroProcesso,
-
                 DtInicioOperacao = dtInicial,
-
                 DtLogOperacao = DateTime.Now,
-
                 IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
-
                 IdTpRetorno = 1
-
             };
 
             //REGISTRA O LOG QUE RETORNA O VALOR COM OS DADOS PREENCHIDO DO ID
 
             var ResOperacaoConsultarProcesso = new TLogOperacao();
-
             ResOperacaoConsultarProcesso = _logOperacao.RegistrarLogOperacao(operacaoConsultarProcesso);
 
-
-
             try
-
             {
-
                 tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
-
                 _proxy._cdIdeia = consultarProcesso.idConsultante;
-
                 _logger.LogInformation("ObterDadosProcesso ", consultarProcesso);
-
                 if (consultarProcesso.incluirCabecalho)
-
                 {
-
                     Entidades.ConsultaProcesso.Message Message = new Entidades.ConsultaProcesso.Message();
-
                     Entidades.ConsultaProcesso.MessageMessageId MessageMessageId = new Entidades.ConsultaProcesso.MessageMessageId();
-
                     Entidades.ConsultaProcesso.MessageMessageBody MessageMessageBody = new Entidades.ConsultaProcesso.MessageMessageBody();
 
-
-
                     MessageMessageId.Code = "202020007662";
-
                     MessageMessageId.Date = DateTime.Now.ToString("yyyy-MM-dd"); ;
-
                     MessageMessageId.FromAddress = "MP-BA";
-
                     MessageMessageId.ToAddress = "TJ";
-
                     MessageMessageId.Version = Entidades.ConsultaProcesso.VersionType.Item10;
-
                     MessageMessageId.MsgDesc = "Consulta Processo";
-
                     MessageMessageId.ServiceId = Entidades.ConsultaProcesso.ServiceIdType.ConsultaProcesso;
 
                     Message.MessageId = MessageMessageId;
-
-
-
                     Entidades.ConsultaProcesso.MessageMessageBodyProcesso MessageBodyProcesso = new Entidades.ConsultaProcesso.MessageMessageBodyProcesso();
-
                     MessageBodyProcesso.Numero = consultarProcesso.numeroProcesso;
-
                     MessageMessageBody.Processo = MessageBodyProcesso;
-
                     Message.MessageBody = MessageMessageBody;
 
-
-
                     string xml = Message.Serialize();
-
-
 
                     _logger.LogInformation("ObterDadosProcesso PROXY");
 
@@ -167,261 +121,137 @@ namespace IntegradorIdea.Integracao
 
                     _logger.LogInformation("RETORNO ObterDadosProcesso PROXY " + xmlDadosProcessoRetorno);
 
-
-
                     objDadosProcessoRetorno = new Entidades.ConsultaProcessoResposta.Message();
 
                     objDadosProcessoRetorno = objDadosProcessoRetorno.ExtrairObjeto<Entidades.ConsultaProcessoResposta.Message>(xmlDadosProcessoRetorno);
 
-
-
                     if (objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Codigo == "0")
-
                     {
-
                         var processo = objDadosProcessoRetorno.MessageBody.Resposta.Processo;
-
                         //OBTÉM OS DADOS BÁSICOS
-
                         tipoProcessoJudicial.dadosBasicos = ObterDadosBasicos(objDadosProcessoRetorno);
-
                         //OBTÉM OS DADOS DA PARTE
-
                         tipoProcessoJudicial.dadosBasicos.polo = ObterPartes(objDadosProcessoRetorno).ToArray();
-
                         //OBTÉM OS DADOS DO ASSUNTO
-
                         tipoProcessoJudicial.dadosBasicos.assunto = new tipoAssuntoProcessual[]{
-
                             new tipoAssuntoProcessual()
-
                             {
-
                                 codigoNacional = Int32.Parse(processo.AssuntoPrincipal.Codigo),
-
                                 assuntoLocal = new tipoAssuntoLocal(){
-
                                     codigoAssunto = Int32.Parse(processo.AssuntoPrincipal.Codigo),
-
                                     descricao = processo.AssuntoPrincipal.Descricao
-
                                 },
-
                                 principal = true,
-
                                 principalSpecified = true
-
                             }
-
                         };
 
                         //OBTÉM OS DADOS OUTROS PARAMETROS
-
                         tipoProcessoJudicial.dadosBasicos.outroParametro = new tipoParametro[]
-
                         {
-
                             new tipoParametro()
-
                             {
-
                                 nome = "mni:esaj:dataDistribuicao",
-
                                 valor = processo.DataDistribuicao.Replace("-","")+"000000"
-
                             }
-
                         };
 
-
-
                         if (processo.OutrosNumeros != null && processo.OutrosNumeros.Length > 0)
-
                         {
-
                             tipoProcessoJudicial.dadosBasicos.outrosnumeros = processo.OutrosNumeros;
-
                         }
 
                         //OBTÉM OS DADOS DO VALOR CAUSA
-
                         tipoProcessoJudicial.dadosBasicos.valorCausa = Double.Parse(processo.ValorCausa);
-
                         //OBTÉM OS DADOS DO ORGAO JULGADOR
-
                         tipoProcessoJudicial.dadosBasicos.orgaoJulgador = new tipoOrgaoJulgador()
-
                         {
-
                             codigoOrgao = processo.Vara.Codigo,
-
                             instancia = processo.Vara.Competencia.Descricao,
-
                             nomeOrgao = processo.Vara.Nome
-
                         };
-
-
-
                         //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ
-
                         consultar = new consultarProcessoResponse()
-
                         {
-
                             mensagem = objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Descricao,
-
                             sucesso = true,
-
                             processo = tipoProcessoJudicial
-
                         };
-
                     }
-
                     else
-
                     {
-
                         //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ                        
-
                         throw new Exception(objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Descricao);
-
                     }
-
                 }
-
-
-
                 //ACRESCENTA A MOVIMENTAÇÃO CASO SEJA INFORMADO.
-
                 if (consultarProcesso.movimentos)
-
                 {
-
                     tipoProcessoJudicial.movimento = ObterMovimentacoes(consultarProcesso.numeroProcesso).ToArray();
-
                 }
-
                 //ACRESCENTA O DOCUMENSO CASO SEJA INFORMADO.INCLUE NA FILA DA PASTA DIGITAL.
-
                 if (consultarProcesso.incluirDocumentos)
-
                 {
-
                     //AO SELECIONAR O INCLUIR DOCUMENTOS SERÁ ADICIONADO NA FILA DA PASTA DIGITAL:
-
                     if (config.GetValue<bool>("Configuracoes:inserirProcessoNaFilaDaPastaDigitalConsulta"))
                     {
                         InserirFilaPastaDigital(consultarProcesso.idConsultante, consultarProcesso.numeroProcesso);
                     }
-
                     //OBTÉM OS DOCUMENTOS DO PROCESSO CASO JÁ TENHA SIDP FEITO O DOWNLOAD DOS DOCUMENTOS NO E-SAJ.
-
                     tipoProcessoJudicial.documento = ObterDocumentos(consultarProcesso.numeroProcesso, consultarProcesso.documento).ToArray();
-
                 }
 
                 //DEVOLVE O OBJETO DE ACORDO COM O CABEÇALHO SOLICITADO.
-
                 consultar = new consultarProcessoResponse()
-
                 {
-
                     mensagem = "Processo consultado com sucesso",
-
                     sucesso = true,
-
                     processo = tipoProcessoJudicial
-
                 };
 
-
-
                 var dtFinal = DateTime.Now;
-
                 //REGISTAR LOGON
-
                 TLogOperacao operacao = new TLogOperacao()
-
                 {
-
                     CdIdea = consultarProcesso.idConsultante,
-
                     IdLogOperacao = ResOperacaoConsultarProcesso.IdLogOperacao,
-
                     DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-
                     DtFinalOperacao = dtFinal,
-
                     FlOperacao = true,
-
                     IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
-
                     IdTpRetorno = 1
-
                 };
 
                 //REGISTRA O LOG
-
                 var logOperacao = new Log(_dataContext, _ipDestino);
-
                 logOperacao.RegistrarLogOperacao(operacao);
-
-
-
             }
-
             catch (Exception ex)
-
             {
-
                 consultar = new consultarProcessoResponse()
-
                 {
-
                     mensagem = $"Erro ao tentar consultar os dados do Processo. Ex:{ex.Message}",
-
                     sucesso = false,
-
                     processo = null
-
                 };
 
                 var dtFinal = DateTime.Now;
-
                 //REGISTAR LOGON
-
                 TLogOperacao operacao = new TLogOperacao()
-
                 {
-
                     CdIdea = consultarProcesso.idConsultante,
-
                     IdLogOperacao = operacaoConsultarProcesso.IdLogOperacao,
-
                     DsCaminhoDocumentosRetorno = Util.Serializar(consultar),
-
                     DtFinalOperacao = dtFinal,
-
                     IdTpOperacao = _configuration.GetValue<int>("Operacoes:TipoOperacaoConsultaProcesso:id"),
-
                     FlOperacao = false,
-
                     IdTpRetorno = 2
-
                 };
-
                 //REGISTRA O LOG
-
                 _logOperacao.RegistrarLogOperacao(operacao);
-
             }
-
-
 
             return consultar;
-
         }
 
         #endregion
@@ -1810,7 +1640,7 @@ namespace IntegradorIdea.Integracao
         #endregion
 
         #region getAreasCompetenciasEClasses
-        public Objects.Response.GetAreasCompetenciasEClassesResponse getAreasCompetenciasEClasses(int cdForo)
+        public GetAreasCompetenciasEClassesResponse getAreasCompetenciasEClasses(int cdForo)
         {
             _logger.LogInformation("IntegracaoEsaj iniciando getAreasCompetenciasEClasses.");
 
@@ -1820,33 +1650,33 @@ namespace IntegradorIdea.Integracao
             GetAreasCompetenciasEClassesResponse retorno = new GetAreasCompetenciasEClassesResponse();
             retorno.Foro.Codigo = objRetorno.Codigo;
             retorno.Foro.Nome = objRetorno.Nome;
-            foreach (var area in objRetorno.Area)
+            /*foreach (var area in objRetorno.Area)
             {
-                List<Objects.Response.CompetenciaArea> competencias = new List<Objects.Response.CompetenciaArea>();
+                List<CompetenciaArea> competencias = new List<CompetenciaArea>();
                 // Competências
                 foreach (var competencia in area.Competencia)
                 {
                     // Classes
-                    List<Objects.Response.Classe> classesCompetencia = new List<Objects.Response.Classe>();
+                    List<Classe> classesCompetencia = new List<Classe>();
                     foreach (var classe in competencia.Classe)
                     {
-                        classesCompetencia.Add(new Objects.Response.Classe()
+                        classesCompetencia.Add(new Classe()
                         {
                             Codigo = classe.Codigo,
-                            Descricao = classe.Descricao
+                            Descricao = Util.Base64Encode(classe.Descricao)
                         });
                     }
 
                     competencias.Add(new CompetenciaArea()
                     {
                         Codigo = competencia.Codigo,
-                        Descricao = competencia.Descricao,
-                        Classe = classesCompetencia
+                        Descricao = Util.Base64Encode(competencia.Descricao),
+                        Classe = classesCompetencia.ToArray()
                     });
                 }
 
-                retorno.Foro.adicionarArea(new Objects.Response.Area() { Codigo = area.Codigo, Competencia = competencias });
-            }
+                retorno.Foro.Area = new Area[] { new Area() { Codigo = area.Codigo, Competencia = competencias.ToArray() } };
+            }*/
 
             return retorno;
         }
@@ -3111,7 +2941,7 @@ namespace IntegradorIdea.Integracao
 
                                 numeroDocumentoPrincipal = "04142491000166",
 
-                                tipoPessoa1 = tipoQualificacaoPessoa.juridica
+                                tipoPessoa = tipoQualificacaoPessoa.juridica
 
                             }
 

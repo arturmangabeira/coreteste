@@ -23,7 +23,7 @@ namespace IntegradorIdea.Integracao
 
         // @TODO ajustar retorno
         [OperationContract]
-        public IntegradorIdea.Objects.Response.GetAreasCompetenciasEClassesResponse getAreasCompetenciasEClasses(int cdForo);
+        public IntegradorIdea.Objects.Response.GetAreasCompetenciasEClassesResponse.GetAreasCompetenciasEClassesResponse getAreasCompetenciasEClasses(int cdForo);
 
         [OperationContract]
         public IntegradorIdea.Objects.Response.getClasseTpParteResponse getClasseTpParte();
@@ -40,12 +40,12 @@ namespace IntegradorIdea.Integracao
         [OperationContract]
         public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso);
 
-        /*
-        [OperationContract]
-        public Objects.ConsultarProcessoESAJ.consultarProcessoResposta consultarProcesso02(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento);                 
+        
+        //[OperationContract]
+        //public Objects.ConsultarProcessoESAJ.consultarProcessoResposta consultarProcesso02(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento);                 
         [OperationContract]
         public consultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento);        
-                
+        /*        
         [OperationContract]
         public string obterNumeroUnificadoDoProcesso(string outroNumeroProcesso);
         [OperationContract]

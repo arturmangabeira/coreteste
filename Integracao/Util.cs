@@ -135,5 +135,10 @@ namespace IntegradorIdea.Integracao
             return objAssinar.VerificarAssinatura(dadosArquivo);
 
         }
+
+        public static string Utf8Encoding(string encondedString)
+        {
+            return Encoding.UTF8.GetString(Encoding.Default.GetBytes(encondedString));
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
-namespace IntegradorIdea.Objects.Response
+namespace IntegradorIdea.Objects.Response.GetAreasCompetenciasEClassesResponse
 {
     public class GetAreasCompetenciasEClassesResponse
     {
@@ -30,17 +30,11 @@ namespace IntegradorIdea.Objects.Response
         [XmlAttribute(AttributeName = "Nome")]
         public string Nome { get; set; }
 
-        public List<Area> Area { get; set; }
+        public Area[] Area { get; set; }
 
         public ForoArea()
-        {
-            Area = new List<Area>();
-        }
-
-        public void adicionarArea(Area area)
-        {
-            Area.Add(area);
-        }
+        {            
+        }        
     }
 
     [DebuggerDisplay("{Codigo}")]
@@ -52,17 +46,13 @@ namespace IntegradorIdea.Objects.Response
         [DataMember(Name = "Codigo")]
         [XmlAttribute(AttributeName = "Codigo")]
         public string Codigo { get; set; }
-        public List<CompetenciaArea> Competencia { get; set; }
+
+        public CompetenciaArea[] Competencia { get; set; }
 
         public Area()
         {
-            Competencia = new List<CompetenciaArea>();
-        }
-
-        public void adicionarDocumento(CompetenciaArea competencia)
-        {
-            Competencia.Add(competencia);
-        }
+        
+        }               
     }
 
     [DebuggerDisplay("{Codigo}, {Descricao}")]
@@ -79,17 +69,11 @@ namespace IntegradorIdea.Objects.Response
         [XmlAttribute(AttributeName = "Descricao")]
         public string Descricao { get; set; }
 
-        public List<Classe> Classe { get; set; }
+        public Classe[] Classe { get; set; }
 
         public CompetenciaArea()
-        {
-            Classe = new List<Classe>();
-        }
-
-        public void adicionarDocumento(Classe classe)
-        {
-            Classe.Add(classe);
-        }
+        {            
+        }               
     }
 
     [DebuggerDisplay("{Codigo}, {Descricao}")]

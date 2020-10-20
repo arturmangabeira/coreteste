@@ -55,8 +55,6 @@ namespace IntegradorIdea
             return operacaos;
         }
 
-
-
         public consultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento)
         {
             _logger.LogInformation("Iniciando consultarProcesso.");
@@ -71,7 +69,7 @@ namespace IntegradorIdea
                 documento = documento
             };
 
-            consultarProcessoResponse _consultarProcessoResponse = new consultarProcessoResponse()
+            /*consultarProcessoResponse _consultarProcessoResponse = new consultarProcessoResponse()
             {
                 mensagem = "Teste serviço OK!",
                 sucesso = true,
@@ -90,9 +88,8 @@ namespace IntegradorIdea
             };
 
             return _consultarProcessoResponse;
-
-            //return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
-
+            */
+            return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
         }
 
 
@@ -127,7 +124,7 @@ namespace IntegradorIdea
             return _integracaoEsaj.getTiposDiversas();
         }
 
-        public Objects.Response.GetAreasCompetenciasEClassesResponse getAreasCompetenciasEClasses(int cdForo)
+        public Objects.Response.GetAreasCompetenciasEClassesResponse.GetAreasCompetenciasEClassesResponse getAreasCompetenciasEClasses(int cdForo)
         {
             _logger.LogInformation("Iniciando getAreasCompetenciasEClasses.");
             return _integracaoEsaj.getAreasCompetenciasEClasses(cdForo);

@@ -8,6 +8,7 @@ namespace IntegradorIdea.Objects.Response
 {
     public class GetTiposDocDigitalResponse
     {
+        // [XmlElement("documento")]
         public List<TipoDocDigital> documentos { get; set; }
 
         public GetTiposDocDigitalResponse()

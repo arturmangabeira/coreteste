@@ -64,10 +64,10 @@ namespace IntegradorIdea.Integracao
 
         #region ConsultarProcesso
 
-        public consultarProcessoResponse ConsultarProcesso(ConsultarProcesso consultarProcesso)
+        public IntegradorIdea.Objects.Response.ConsultarProcessoResponse ConsultarProcesso(ConsultarProcesso consultarProcesso)
         {
             Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno = null;
-            consultarProcessoResponse consultar = new consultarProcessoResponse();
+            IntegradorIdea.Objects.Response.ConsultarProcessoResponse consultar = new IntegradorIdea.Objects.Response.ConsultarProcessoResponse();
             string xmlDadosProcessoRetorno = String.Empty;
             var config = ConfigurationManager.ConfigurationManager.AppSettings;
             var dtInicial = DateTime.Now;
@@ -84,13 +84,12 @@ namespace IntegradorIdea.Integracao
             };
 
             //REGISTRA O LOG QUE RETORNA O VALOR COM OS DADOS PREENCHIDO DO ID
-
             var ResOperacaoConsultarProcesso = new TLogOperacao();
             ResOperacaoConsultarProcesso = _logOperacao.RegistrarLogOperacao(operacaoConsultarProcesso);
 
             try
             {
-                tipoProcessoJudicial tipoProcessoJudicial = new tipoProcessoJudicial();
+                IntegradorIdea.Objects.Response.tipoProcessoJudicial tipoProcessoJudicial = new IntegradorIdea.Objects.Response.tipoProcessoJudicial();
                 _proxy._cdIdeia = consultarProcesso.idConsultante;
                 _logger.LogInformation("ObterDadosProcesso ", consultarProcesso);
                 if (consultarProcesso.incluirCabecalho)
@@ -131,13 +130,13 @@ namespace IntegradorIdea.Integracao
                         //OBTÉM OS DADOS BÁSICOS
                         tipoProcessoJudicial.dadosBasicos = ObterDadosBasicos(objDadosProcessoRetorno);
                         //OBTÉM OS DADOS DA PARTE
-                        tipoProcessoJudicial.dadosBasicos.polo = ObterPartes(objDadosProcessoRetorno).ToArray();
+                        tipoProcessoJudicial.dadosBasicos.polos = ObterPartes(objDadosProcessoRetorno).ToArray();
                         //OBTÉM OS DADOS DO ASSUNTO
-                        tipoProcessoJudicial.dadosBasicos.assunto = new tipoAssuntoProcessual[]{
-                            new tipoAssuntoProcessual()
+                        tipoProcessoJudicial.dadosBasicos.assuntos = new IntegradorIdea.Objects.Response.tipoAssuntoProcessual[]{
+                            new IntegradorIdea.Objects.Response.tipoAssuntoProcessual()
                             {
                                 codigoNacional = Int32.Parse(processo.AssuntoPrincipal.Codigo),
-                                assuntoLocal = new tipoAssuntoLocal(){
+                                assuntoLocal = new IntegradorIdea.Objects.Response.tipoAssuntoLocal(){
                                     codigoAssunto = Int32.Parse(processo.AssuntoPrincipal.Codigo),
                                     descricao = processo.AssuntoPrincipal.Descricao
                                 },
@@ -147,9 +146,9 @@ namespace IntegradorIdea.Integracao
                         };
 
                         //OBTÉM OS DADOS OUTROS PARAMETROS
-                        tipoProcessoJudicial.dadosBasicos.outroParametro = new tipoParametro[]
+                        tipoProcessoJudicial.dadosBasicos.outrosParametros = new IntegradorIdea.Objects.Response.tipoParametro[]
                         {
-                            new tipoParametro()
+                            new IntegradorIdea.Objects.Response.tipoParametro()
                             {
                                 nome = "mni:esaj:dataDistribuicao",
                                 valor = processo.DataDistribuicao.Replace("-","")+"000000"
@@ -164,14 +163,14 @@ namespace IntegradorIdea.Integracao
                         //OBTÉM OS DADOS DO VALOR CAUSA
                         tipoProcessoJudicial.dadosBasicos.valorCausa = Double.Parse(processo.ValorCausa);
                         //OBTÉM OS DADOS DO ORGAO JULGADOR
-                        tipoProcessoJudicial.dadosBasicos.orgaoJulgador = new tipoOrgaoJulgador()
+                        tipoProcessoJudicial.dadosBasicos.orgaoJulgador = new IntegradorIdea.Objects.Response.tipoOrgaoJulgador()
                         {
                             codigoOrgao = processo.Vara.Codigo,
                             instancia = processo.Vara.Competencia.Descricao,
                             nomeOrgao = processo.Vara.Nome
                         };
                         //RETORNA O ERRO ENCONTRADO NO E-SAJ PARA REFLETIR NO OBJETO IGUAL A DESCRIÇÃO NO E-SAJ
-                        consultar = new consultarProcessoResponse()
+                        consultar = new IntegradorIdea.Objects.Response.ConsultarProcessoResponse()
                         {
                             mensagem = objDadosProcessoRetorno.MessageBody.Resposta.Mensagem.Descricao,
                             sucesso = true,
@@ -202,7 +201,7 @@ namespace IntegradorIdea.Integracao
                 }
 
                 //DEVOLVE O OBJETO DE ACORDO COM O CABEÇALHO SOLICITADO.
-                consultar = new consultarProcessoResponse()
+                consultar = new IntegradorIdea.Objects.Response.ConsultarProcessoResponse()
                 {
                     mensagem = "Processo consultado com sucesso",
                     sucesso = true,
@@ -228,7 +227,7 @@ namespace IntegradorIdea.Integracao
             }
             catch (Exception ex)
             {
-                consultar = new consultarProcessoResponse()
+                consultar = new IntegradorIdea.Objects.Response.ConsultarProcessoResponse()
                 {
                     mensagem = $"Erro ao tentar consultar os dados do Processo. Ex:{ex.Message}",
                     sucesso = false,
@@ -350,7 +349,7 @@ namespace IntegradorIdea.Integracao
 
         #region ObterDocumentos
 
-        private List<tipoDocumento> ObterDocumentos(string numeroProcesso, string[] nmDocumentos)
+        private List<IntegradorIdea.Objects.Response.tipoDocumento> ObterDocumentos(string numeroProcesso, string[] nmDocumentos)
 
         {
 
@@ -362,7 +361,7 @@ namespace IntegradorIdea.Integracao
 
 
 
-            var documentos = new List<tipoDocumento>();
+            var documentos = new List<IntegradorIdea.Objects.Response.tipoDocumento>();
 
             try
 
@@ -390,7 +389,7 @@ namespace IntegradorIdea.Integracao
 
 
 
-                    var docVinculado = new List<tipoDocumento>();
+                    var docVinculado = new List<IntegradorIdea.Objects.Response.tipoDocumento>();
 
                     if (nmDocumentos.Length > 0 && nmDocumentos[0] == "")
 
@@ -400,7 +399,7 @@ namespace IntegradorIdea.Integracao
 
                         {
 
-                            docVinculado.Add(new tipoDocumento
+                            docVinculado.Add(new IntegradorIdea.Objects.Response.tipoDocumento
 
                             {
 
@@ -420,7 +419,7 @@ namespace IntegradorIdea.Integracao
 
                         }
 
-                        documentos.Add(new tipoDocumento
+                        documentos.Add(new IntegradorIdea.Objects.Response.tipoDocumento
 
                         {
 
@@ -478,7 +477,7 @@ namespace IntegradorIdea.Integracao
 
 
 
-                            docVinculado.Add(new tipoDocumento
+                            docVinculado.Add(new IntegradorIdea.Objects.Response.tipoDocumento
 
                             {
 
@@ -502,7 +501,7 @@ namespace IntegradorIdea.Integracao
 
                         {
 
-                            documentos.Add(new tipoDocumento
+                            documentos.Add(new IntegradorIdea.Objects.Response.tipoDocumento
 
                             {
 
@@ -526,7 +525,7 @@ namespace IntegradorIdea.Integracao
 
                             {
 
-                                documentos.Add(new tipoDocumento
+                                documentos.Add(new IntegradorIdea.Objects.Response.tipoDocumento
 
                                 {
 
@@ -576,7 +575,7 @@ namespace IntegradorIdea.Integracao
 
         /// <returns></returns>
 
-        private tipoCabecalhoProcesso ObterDadosBasicos(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
+        private IntegradorIdea.Objects.Response.tipoCabecalhoProcesso ObterDadosBasicos(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
 
         {
 
@@ -588,7 +587,7 @@ namespace IntegradorIdea.Integracao
 
 
 
-            return new tipoCabecalhoProcesso()
+            return new IntegradorIdea.Objects.Response.tipoCabecalhoProcesso()
 
             {
 
@@ -622,19 +621,19 @@ namespace IntegradorIdea.Integracao
 
         /// <returns></returns>
 
-        private List<tipoPoloProcessual> ObterPartes(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
+        private List<IntegradorIdea.Objects.Response.tipoPoloProcessual> ObterPartes(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
 
         {
 
-            List<tipoPoloProcessual> tipoPoloProcessuais = new List<tipoPoloProcessual>();
+            List<IntegradorIdea.Objects.Response.tipoPoloProcessual> tipoPoloProcessuais = new List<IntegradorIdea.Objects.Response.tipoPoloProcessual>();
 
 
 
-            tipoPoloProcessuais.Add(new tipoPoloProcessual()
+            tipoPoloProcessuais.Add(new IntegradorIdea.Objects.Response.tipoPoloProcessual()
 
             {
 
-                polo = modalidadePoloProcessual.AT,
+                polo = IntegradorIdea.Objects.Response.modalidadePoloProcessual.AT,
 
                 parte = ObterParteAtiva(objDadosProcessoRetorno).ToArray(),
 
@@ -644,11 +643,11 @@ namespace IntegradorIdea.Integracao
 
 
 
-            tipoPoloProcessuais.Add(new tipoPoloProcessual()
+            tipoPoloProcessuais.Add(new IntegradorIdea.Objects.Response.tipoPoloProcessual()
 
             {
 
-                polo = modalidadePoloProcessual.PA,
+                polo = IntegradorIdea.Objects.Response.modalidadePoloProcessual.PA,
 
                 parte = ObterPartePassiva(objDadosProcessoRetorno).ToArray(),
 
@@ -666,11 +665,11 @@ namespace IntegradorIdea.Integracao
 
         #region ObterParteAtiva
 
-        private List<tipoParte> ObterParteAtiva(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
+        private List<IntegradorIdea.Objects.Response.tipoParte> ObterParteAtiva(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
 
         {
 
-            var parteAtivas = new List<tipoParte>();
+            var parteAtivas = new List<IntegradorIdea.Objects.Response.tipoParte>();
 
             if (objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesAtivas != null)
             {
@@ -678,11 +677,11 @@ namespace IntegradorIdea.Integracao
 
                 {
 
-                    var documentos = new List<tipoDocumentoIdentificacao>();
+                    var documentos = new List<IntegradorIdea.Objects.Response.tipoDocumentoIdentificacao>();
 
 
 
-                    var advogados = new List<tipoRepresentanteProcessual>();
+                    var advogados = new List<IntegradorIdea.Objects.Response.tipoRepresentanteProcessual>();
 
 
 
@@ -698,7 +697,7 @@ namespace IntegradorIdea.Integracao
 
                             advogados.Add(
 
-                                new tipoRepresentanteProcessual()
+                                new IntegradorIdea.Objects.Response.tipoRepresentanteProcessual()
 
                                 {
 
@@ -706,7 +705,7 @@ namespace IntegradorIdea.Integracao
 
                                     numeroDocumentoPrincipal = adv.OAB,
 
-                                    tipoRepresentante = modalidadeRepresentanteProcessual.A
+                                    tipoRepresentante = IntegradorIdea.Objects.Response.modalidadeRepresentanteProcessual.A
 
                                 });
 
@@ -752,51 +751,9 @@ namespace IntegradorIdea.Integracao
 
                             }
 
-                            /*switch (doc.Tipo.Trim())
-
-                            {
-
-                                case "CPF":
-
-                                    tipoDocumento = modalidadeDocumentoIdentificador.CMF;
-
-                                    emissorDocumento = "Secretaria da Receita Federal do Brasil";
-
-                                    break;
-
-                                case "RG":
-
-                                    tipoDocumento = modalidadeDocumentoIdentificador.CI;
-
-                                    emissorDocumento = "SSP";
-
-                                    break;
-
-                                case "CNPJ":
-
-                                    tipoDocumento = modalidadeDocumentoIdentificador.CMF;
-
-                                    emissorDocumento = "Secretaria da Receita Federal do Brasil";
-
-                                    break;
-
-                                case "OAB":
-
-                                    tipoDocumento = modalidadeDocumentoIdentificador.OAB;
-
-                                    emissorDocumento = "Ordem dos Advogados do Brasil";
-
-                                    break;
-
-                                default:
-
-                                    break;
-
-                            }*/
 
 
-
-                            documentos.Add(new tipoDocumentoIdentificacao()
+                            documentos.Add(new IntegradorIdea.Objects.Response.tipoDocumentoIdentificacao()
 
                             {
 
@@ -809,20 +766,16 @@ namespace IntegradorIdea.Integracao
                                 codigoDocumento = Util.OnlyNumbers(doc.Numero)
 
                             });
-
                         }
-
                     }
 
-
-
-                    modalidadeGeneroPessoa genero = modalidadeGeneroPessoa.M;
+                    IntegradorIdea.Objects.Response.modalidadeGeneroPessoa genero = IntegradorIdea.Objects.Response.modalidadeGeneroPessoa.M;
 
                     if (pAtiva.Genero == "Masculino")
 
                     {
 
-                        genero = modalidadeGeneroPessoa.M;
+                        genero = IntegradorIdea.Objects.Response.modalidadeGeneroPessoa.M;
 
                     }
 
@@ -834,7 +787,7 @@ namespace IntegradorIdea.Integracao
 
                         {
 
-                            genero = modalidadeGeneroPessoa.F;
+                            genero = IntegradorIdea.Objects.Response.modalidadeGeneroPessoa.F;
 
                         }
 
@@ -842,19 +795,19 @@ namespace IntegradorIdea.Integracao
 
                         {
 
-                            genero = modalidadeGeneroPessoa.D;
+                            genero = IntegradorIdea.Objects.Response.modalidadeGeneroPessoa.D;
 
                         }
 
                     }
 
-                    tipoQualificacaoPessoa tipoPessoa = tipoQualificacaoPessoa.fisica;
+                    IntegradorIdea.Objects.Response.tipoQualificacaoPessoa tipoPessoa = IntegradorIdea.Objects.Response.tipoQualificacaoPessoa.fisica;
 
                     if (pAtiva.TipoPessoa == "Juridica")
 
                     {
 
-                        tipoPessoa = tipoQualificacaoPessoa.juridica;
+                        tipoPessoa = IntegradorIdea.Objects.Response.tipoQualificacaoPessoa.juridica;
 
                     }
 
@@ -862,21 +815,21 @@ namespace IntegradorIdea.Integracao
 
                     {
 
-                        tipoPessoa = tipoQualificacaoPessoa.fisica;
+                        tipoPessoa = IntegradorIdea.Objects.Response.tipoQualificacaoPessoa.fisica;
 
                     }
 
-                    parteAtivas.Add(new tipoParte()
+                    parteAtivas.Add(new IntegradorIdea.Objects.Response.tipoParte()
 
                     {
 
-                        pessoa = new tipoPessoa()
+                        pessoa = new IntegradorIdea.Objects.Response.tipoPessoa()
 
                         {
 
                             nome = pAtiva.Nome,
 
-                            documento = documentos.ToArray(),
+                            documentos = documentos.ToArray(),
 
                             sexo = genero,
 
@@ -904,11 +857,11 @@ namespace IntegradorIdea.Integracao
 
         #region ObterPartePassiva
 
-        private List<tipoParte> ObterPartePassiva(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
+        private List<IntegradorIdea.Objects.Response.tipoParte> ObterPartePassiva(Entidades.ConsultaProcessoResposta.Message objDadosProcessoRetorno)
 
         {
 
-            var partePassivas = new List<tipoParte>();
+            var partePassivas = new List<IntegradorIdea.Objects.Response.tipoParte>();
 
             if (objDadosProcessoRetorno.MessageBody.Resposta.Processo.Partes.PartesPassivas != null)
             {
@@ -916,11 +869,11 @@ namespace IntegradorIdea.Integracao
 
                 {
 
-                    var documentos = new List<tipoDocumentoIdentificacao>();
+                    var documentos = new List<IntegradorIdea.Objects.Response.tipoDocumentoIdentificacao>();
 
 
 
-                    var advogados = new List<tipoRepresentanteProcessual>();
+                    var advogados = new List<IntegradorIdea.Objects.Response.tipoRepresentanteProcessual>();
 
 
 
@@ -936,7 +889,7 @@ namespace IntegradorIdea.Integracao
 
                             advogados.Add(
 
-                                new tipoRepresentanteProcessual()
+                                new IntegradorIdea.Objects.Response.tipoRepresentanteProcessual()
 
                                 {
 
@@ -944,7 +897,7 @@ namespace IntegradorIdea.Integracao
 
                                     numeroDocumentoPrincipal = adv.OAB,
 
-                                    tipoRepresentante = modalidadeRepresentanteProcessual.A
+                                    tipoRepresentante = IntegradorIdea.Objects.Response.modalidadeRepresentanteProcessual.A
 
                                 });
 
@@ -989,7 +942,7 @@ namespace IntegradorIdea.Integracao
                             }
 
 
-                            documentos.Add(new tipoDocumentoIdentificacao()
+                            documentos.Add(new IntegradorIdea.Objects.Response.tipoDocumentoIdentificacao()
 
                             {
 
@@ -1009,13 +962,13 @@ namespace IntegradorIdea.Integracao
 
 
 
-                    modalidadeGeneroPessoa genero = modalidadeGeneroPessoa.M;
+                    IntegradorIdea.Objects.Response.modalidadeGeneroPessoa genero = IntegradorIdea.Objects.Response.modalidadeGeneroPessoa.M;
 
                     if (pPassiva.Genero == "Masculino")
 
                     {
 
-                        genero = modalidadeGeneroPessoa.M;
+                        genero = IntegradorIdea.Objects.Response.modalidadeGeneroPessoa.M;
 
                     }
 
@@ -1027,7 +980,7 @@ namespace IntegradorIdea.Integracao
 
                         {
 
-                            genero = modalidadeGeneroPessoa.F;
+                            genero = IntegradorIdea.Objects.Response.modalidadeGeneroPessoa.F;
 
                         }
 
@@ -1035,19 +988,19 @@ namespace IntegradorIdea.Integracao
 
                         {
 
-                            genero = modalidadeGeneroPessoa.D;
+                            genero = IntegradorIdea.Objects.Response.modalidadeGeneroPessoa.D;
 
                         }
 
                     }
 
-                    tipoQualificacaoPessoa tipoPessoa = tipoQualificacaoPessoa.fisica;
+                    IntegradorIdea.Objects.Response.tipoQualificacaoPessoa tipoPessoa = IntegradorIdea.Objects.Response.tipoQualificacaoPessoa.fisica;
 
                     if (pPassiva.TipoPessoa == "Juridica")
 
                     {
 
-                        tipoPessoa = tipoQualificacaoPessoa.juridica;
+                        tipoPessoa = IntegradorIdea.Objects.Response.tipoQualificacaoPessoa.juridica;
 
                     }
 
@@ -1055,23 +1008,23 @@ namespace IntegradorIdea.Integracao
 
                     {
 
-                        tipoPessoa = tipoQualificacaoPessoa.fisica;
+                        tipoPessoa = IntegradorIdea.Objects.Response.tipoQualificacaoPessoa.fisica;
 
                     }
 
 
 
-                    partePassivas.Add(new tipoParte()
+                    partePassivas.Add(new IntegradorIdea.Objects.Response.tipoParte()
 
                     {
 
-                        pessoa = new tipoPessoa()
+                        pessoa = new IntegradorIdea.Objects.Response.tipoPessoa()
 
                         {
 
                             nome = pPassiva.Nome,
 
-                            documento = documentos.ToArray(),
+                            documentos = documentos.ToArray(),
 
                             sexo = genero,
 
@@ -1109,7 +1062,7 @@ namespace IntegradorIdea.Integracao
 
         /// <returns></returns>
 
-        public List<tipoMovimentoProcessual> ObterMovimentacoes(string numeroProcesso)
+        public List<IntegradorIdea.Objects.Response.tipoMovimentoProcessual> ObterMovimentacoes(string numeroProcesso)
 
         {
 
@@ -1129,7 +1082,7 @@ namespace IntegradorIdea.Integracao
 
 
 
-            List<tipoMovimentoProcessual> tipoMovimentoProcessual = new List<tipoMovimentoProcessual>();
+            List<IntegradorIdea.Objects.Response.tipoMovimentoProcessual> tipoMovimentoProcessual = new List<IntegradorIdea.Objects.Response.tipoMovimentoProcessual>();
 
 
 
@@ -1295,13 +1248,13 @@ namespace IntegradorIdea.Integracao
 
                                                 //arrMovimentacoesNovo.Add(data, dados);
 
-                                                var movimento = new tipoMovimentoProcessual()
+                                                var movimento = new IntegradorIdea.Objects.Response.tipoMovimentoProcessual()
 
                                                 {
 
                                                     dataHora = data,
 
-                                                    movimentoNacional = new tipoMovimentoNacional()
+                                                    movimentoNacional = new IntegradorIdea.Objects.Response.tipoMovimentoNacional()
 
                                                     {
 
@@ -1357,13 +1310,13 @@ namespace IntegradorIdea.Integracao
 
                                                     //arrMovimentacoesNovo.Add(data, dados);
 
-                                                    var movimento = new tipoMovimentoProcessual()
+                                                    var movimento = new IntegradorIdea.Objects.Response.tipoMovimentoProcessual()
 
                                                     {
 
                                                         dataHora = data,
 
-                                                        movimentoNacional = new tipoMovimentoNacional()
+                                                        movimentoNacional = new IntegradorIdea.Objects.Response.tipoMovimentoNacional()
 
                                                         {
 
@@ -1683,10 +1636,22 @@ namespace IntegradorIdea.Integracao
         #endregion
 
         #region obterNumeroUnificadoDoProcesso
-        public string obterNumeroUnificadoDoProcesso(string numeroProcesso)
+        public IntegradorIdea.Objects.Response.ObterNumeroUnificadoDoProcessoResponse obterNumeroUnificadoDoProcesso(string numeroProcesso)
         {
             _logger.LogInformation("IntegracaoEsaj iniciando obterNumeroUnificadoDoProcesso.");
-            return _proxy.obterNumeroUnificadoDoProcesso(numeroProcesso);
+
+            string retornoXmlEsaj = _proxy.obterNumeroUnificadoDoProcesso(numeroProcesso);
+            var objRetorno = new IntegradorIdea.Entidades.ObterNumeroUnificadoDoProcesso.Processo().ExtrairObjeto<IntegradorIdea.Entidades.ObterNumeroUnificadoDoProcesso.Processo>(retornoXmlEsaj);
+
+            IntegradorIdea.Objects.Response.ObterNumeroUnificadoDoProcessoResponse retorno = new IntegradorIdea.Objects.Response.ObterNumeroUnificadoDoProcessoResponse();
+
+            retorno.Processo = new IntegradorIdea.Objects.Response.ProcessoUnificado()
+            {
+                NumeroUnificado = objRetorno.NumeroUnificado,
+                OutroNumero = objRetorno.OutroNumero
+            };
+
+            return retorno;
         }
 
         #endregion
@@ -1954,15 +1919,15 @@ namespace IntegradorIdea.Integracao
 
                         tipoComunicacao = "CIT",
 
-                        processo = new tipoCabecalhoProcesso
+                        processo = new IntegradorIdea.Objects.tipoCabecalhoProcesso
 
                         {
 
-                            assunto = new tipoAssuntoProcessual[]
+                            assunto = new IntegradorIdea.Objects.tipoAssuntoProcessual[]
 
                             {
 
-                                new tipoAssuntoProcessual{
+                                new IntegradorIdea.Objects.tipoAssuntoProcessual{
 
                                     principal = true,
 
@@ -1988,11 +1953,11 @@ namespace IntegradorIdea.Integracao
 
                             classeProcessual = citacao.Classe.cdClasse,
 
-                            outroParametro = new tipoParametro[]
+                            outroParametro = new IntegradorIdea.Objects.tipoParametro[]
 
                             {
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2002,7 +1967,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2012,7 +1977,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2022,7 +1987,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2032,7 +1997,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2042,7 +2007,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2054,7 +2019,7 @@ namespace IntegradorIdea.Integracao
 
                             },
 
-                            orgaoJulgador = new tipoOrgaoJulgador
+                            orgaoJulgador = new IntegradorIdea.Objects.tipoOrgaoJulgador
 
                             {
 
@@ -2246,15 +2211,15 @@ namespace IntegradorIdea.Integracao
 
                         tipoComunicacao = "INT",
 
-                        processo = new tipoCabecalhoProcesso
+                        processo = new IntegradorIdea.Objects.tipoCabecalhoProcesso
 
                         {
 
-                            assunto = new tipoAssuntoProcessual[]
+                            assunto = new IntegradorIdea.Objects.tipoAssuntoProcessual[]
 
                             {
 
-                                new tipoAssuntoProcessual{
+                                new IntegradorIdea.Objects.tipoAssuntoProcessual{
 
                                     principal = true,
 
@@ -2280,11 +2245,11 @@ namespace IntegradorIdea.Integracao
 
                             classeProcessual = intimacao.Classe.cdClasse,
 
-                            outroParametro = new tipoParametro[]
+                            outroParametro = new IntegradorIdea.Objects.tipoParametro[]
 
                             {
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2294,7 +2259,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2304,7 +2269,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2314,7 +2279,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2324,7 +2289,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2334,7 +2299,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -2346,7 +2311,7 @@ namespace IntegradorIdea.Integracao
 
                             },
 
-                            orgaoJulgador = new tipoOrgaoJulgador
+                            orgaoJulgador = new IntegradorIdea.Objects.tipoOrgaoJulgador
 
                             {
 
@@ -2925,7 +2890,7 @@ namespace IntegradorIdea.Integracao
 
                     {
 
-                        destinatario = new tipoParteDestinatario()
+                        destinatario = new IntegradorIdea.Objects.tipoParteDestinatario()
 
                         {
 
@@ -2933,7 +2898,7 @@ namespace IntegradorIdea.Integracao
 
                             intimacaoPendente = 0,
 
-                            pessoa = new tipoPessoaDestinatario()
+                            pessoa = new IntegradorIdea.Objects.tipoPessoaDestinatario()
 
                             {
 
@@ -2941,7 +2906,7 @@ namespace IntegradorIdea.Integracao
 
                                 numeroDocumentoPrincipal = "04142491000166",
 
-                                tipoPessoa = tipoQualificacaoPessoa.juridica
+                                tipoPessoa = IntegradorIdea.Objects.tipoQualificacaoPessoa.juridica
 
                             }
 
@@ -2953,15 +2918,15 @@ namespace IntegradorIdea.Integracao
 
                         tipoComunicacao = intimacaoCitacao.SgTpIntimacaoCitacao == "I" ? "INT" : "CIT",
 
-                        processo = new tipoCabecalhoProcesso
+                        processo = new IntegradorIdea.Objects.tipoCabecalhoProcesso
 
                         {
 
-                            assunto = new tipoAssuntoProcessual[]
+                            assunto = new IntegradorIdea.Objects.tipoAssuntoProcessual[]
 
                             {
 
-                                new tipoAssuntoProcessual{
+                                new IntegradorIdea.Objects.tipoAssuntoProcessual{
 
                                     principal = true,
 
@@ -2987,11 +2952,11 @@ namespace IntegradorIdea.Integracao
 
                             classeProcessual = intimacaoCitacao.CdClasse,
 
-                            outroParametro = new tipoParametro[]
+                            outroParametro = new IntegradorIdea.Objects.tipoParametro[]
 
                             {
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -3001,7 +2966,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -3011,7 +2976,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -3021,7 +2986,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -3031,7 +2996,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -3041,7 +3006,7 @@ namespace IntegradorIdea.Integracao
 
                                 },
 
-                                new tipoParametro
+                                new IntegradorIdea.Objects.tipoParametro
 
                                 {
 
@@ -3053,7 +3018,7 @@ namespace IntegradorIdea.Integracao
 
                             },
 
-                            orgaoJulgador = new tipoOrgaoJulgador
+                            orgaoJulgador = new IntegradorIdea.Objects.tipoOrgaoJulgador
 
                             {
 
@@ -3381,9 +3346,9 @@ namespace IntegradorIdea.Integracao
                     retornoConsultarTeorComunicacao.sucesso = true;
                     retornoConsultarTeorComunicacao.comunicacao = new tipoComunicacaoProcessual[] { new tipoComunicacaoProcessual()
                     {
-                        documento = new tipoDocumento[]
+                        documento = new IntegradorIdea.Objects.tipoDocumento[]
                         {
-                            new tipoDocumento() {conteudo = Convert.FromBase64String(ArquivoConfirmacaoCiencia)}
+                            new IntegradorIdea.Objects.tipoDocumento() {conteudo = Convert.FromBase64String(ArquivoConfirmacaoCiencia)}
                         }
                     }};
                 }
@@ -3945,11 +3910,11 @@ namespace IntegradorIdea.Integracao
         }
         #endregion
 
-        public string obterValorTipoParametroEntregarManifestacaoProcessual(string nomeTipoParametro, tipoParametro[] parametros)
+        public string obterValorTipoParametroEntregarManifestacaoProcessual(string nomeTipoParametro, IntegradorIdea.Objects.tipoParametro[] parametros)
         {
             string retorno = "";
 
-            foreach (tipoParametro parametro in parametros)
+            foreach (IntegradorIdea.Objects.tipoParametro parametro in parametros)
             {
                 if (nomeTipoParametro == parametro.nome)
                 {

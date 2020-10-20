@@ -55,7 +55,7 @@ namespace IntegradorIdea
             return operacaos;
         }
 
-        public consultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento)
+        public IntegradorIdea.Objects.Response.ConsultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento)
         {
             _logger.LogInformation("Iniciando consultarProcesso.");
 
@@ -69,26 +69,6 @@ namespace IntegradorIdea
                 documento = documento
             };
 
-            /*consultarProcessoResponse _consultarProcessoResponse = new consultarProcessoResponse()
-            {
-                mensagem = "Teste serviço OK!",
-                sucesso = true,
-                processo = new tipoProcessoJudicial()
-                {
-                    documento = new tipoDocumento[]
-                   {
-                        new tipoDocumento()
-                        {
-                            descricao = "teste.pdf",
-                            conteudo = Util.Base64EncodeStream("teste de conteudo"),
-                            tipoDocumento1 = "1"
-                        }
-                   }
-                }
-            };
-
-            return _consultarProcessoResponse;
-            */
             return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
         }
 
@@ -130,14 +110,13 @@ namespace IntegradorIdea
             return _integracaoEsaj.getAreasCompetenciasEClasses(cdForo);
         }
 
-        public string obterNumeroUnificadoDoProcesso(string numeroProcesso)
+        public IntegradorIdea.Objects.Response.ObterNumeroUnificadoDoProcessoResponse obterNumeroUnificadoDoProcesso(string numeroProcesso)
         {
             _logger.LogInformation("Iniciando obterNumeroUnificadoDoProcesso.");
             return _integracaoEsaj.obterNumeroUnificadoDoProcesso(numeroProcesso);
         }
 
-
-
+        // @TODO AGUARDANDO EXEMPLO DE XML COM RETORNO VÁLIDO PARA GERAÇÃO DAS CLASSES A PARTIR DO XSD
         public string obterNumeroSajDoProcesso(string numeroProcesso)
         {
             _logger.LogInformation("Iniciando obterNumeroSajDoProcesso.");
@@ -150,15 +129,11 @@ namespace IntegradorIdea
             return _integracaoEsaj.getAssuntos(cdCompetencia, cdClasse);
         }
 
-
-
         public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso)
         {
             _logger.LogInformation("Iniciando consultarSituacaoDocumentosProcesso.");
             return _integracaoEsaj.consultarSituacaoDocumentosProcesso(Cdidea, numeroProcesso);
         }
-
-
 
         public consultarAvisosPendentesResponse consultarAvisosPendentes(string idRepresentado, int idConsultante, string senhaConsultante, string dataReferencia)
         {
@@ -173,8 +148,6 @@ namespace IntegradorIdea
 
             return _integracaoEsaj.consultarAvisosPendentes(consultarAvisosPendentes);
         }
-
-
 
         public consultarTeorComunicacaoResponse consultarTeorComunicacao(string idConsultante, string senhaConsultante, string numeroProcesso, string identificadorAviso)
         {
@@ -191,7 +164,7 @@ namespace IntegradorIdea
 
         }
 
-        public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(string idManifestante, string senhaManifestante, string numeroProcesso, tipoCabecalhoProcesso dadosBasicos, Documento documento, string dataEnvio, tipoParametro[] parametros)
+        public entregarManifestacaoProcessualResponse entregarManifestacaoProcessual(string idManifestante, string senhaManifestante, string numeroProcesso, IntegradorIdea.Objects.tipoCabecalhoProcesso dadosBasicos, Documento documento, string dataEnvio, IntegradorIdea.Objects.tipoParametro[] parametros)
         {
             var _entregarManifestacaoProcessual = new entregarManifestacaoProcessualRequest()
             {
@@ -206,49 +179,6 @@ namespace IntegradorIdea
 
             _logger.LogInformation("Iniciando entregarManifestacaoProcessual.");
             return _integracaoEsaj.entregarManifestacaoProcessual(_entregarManifestacaoProcessual);
-
-        }
-
-        public string testeServico()
-        {
-            return "Servico OK!";
-        }
-
-        public Objects.ConsultarProcessoESAJ.consultarProcessoResposta consultarProcesso02(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento)
-        {
-            _logger.LogInformation("Iniciando consultarProcesso.");
-
-            var consultarProcesso = new ConsultarProcesso()
-            {
-                idConsultante = idConsultante,
-                numeroProcesso = numeroProcesso,
-                movimentos = movimentos,
-                incluirCabecalho = incluirCabecalho,
-                incluirDocumentos = incluirDocumentos,
-                documento = documento
-            };
-
-            Objects.ConsultarProcessoESAJ.consultarProcessoResposta _consultarProcessoResponse = new Objects.ConsultarProcessoESAJ.consultarProcessoResposta()
-            {
-                mensagem = "Teste serviço OK!",
-                sucesso = true,
-                processo = new Objects.ConsultarProcessoESAJ.tipoProcessoJudicialESAJ()
-                {
-                    documento = new Documento[]
-                    {
-                        new Documento()
-                        {
-                            descricao = "teste.pdf",
-                            conteudo = Util.Base64EncodeStream("teste de conteudo"),
-                            tipoDocumento = "8000"
-                        }
-                    }
-                }
-            };
-
-            return _consultarProcessoResponse;
-
-            //return _integracaoEsaj.ConsultarProcesso(consultarProcesso);
 
         }
 

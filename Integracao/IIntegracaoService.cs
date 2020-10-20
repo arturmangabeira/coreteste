@@ -13,7 +13,9 @@ namespace IntegradorIdea.Integracao
 {
     [ServiceContract(Namespace = "http://www.cnj.jus.br/intercomunicacao-2.2.2")]
     public interface IIntegracaoService
-    {        
+    {
+        [OperationContract]
+        public IntegradorIdea.Objects.Response.ConsultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento);
 
         [OperationContract]
         public IntegradorIdea.Objects.Response.GetTiposDocDigitalResponse getTiposDocDigital();
@@ -21,7 +23,7 @@ namespace IntegradorIdea.Integracao
         [OperationContract]
         public IntegradorIdea.Objects.Response.GetForosEVarasResponse getForosEVaras();
 
-        // @TODO ajustar retorno
+        // @TODO Ajustar Retorno
         [OperationContract]
         public IntegradorIdea.Objects.Response.GetAreasCompetenciasEClassesResponse.GetAreasCompetenciasEClassesResponse getAreasCompetenciasEClasses(int cdForo);
 
@@ -38,19 +40,15 @@ namespace IntegradorIdea.Integracao
         public IntegradorIdea.Objects.Response.GetAssuntosResponse getAssuntos(int cdCompetencia, int cdClasse);
 
         [OperationContract]
-        public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso);
+        public List<FilaPastaDigital> consultarSituacaoDocumentosProcesso(int Cdidea, string numeroProcesso);                       
 
-        
-        //[OperationContract]
-        //public Objects.ConsultarProcessoESAJ.consultarProcessoResposta consultarProcesso02(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento);                 
         [OperationContract]
-        public consultarProcessoResponse consultarProcesso(int idConsultante, string numeroProcesso, bool movimentos, bool incluirCabecalho, bool incluirDocumentos, string[] documento);        
-        /*        
-        [OperationContract]
-        public string obterNumeroUnificadoDoProcesso(string outroNumeroProcesso);
+        public IntegradorIdea.Objects.Response.ObterNumeroUnificadoDoProcessoResponse obterNumeroUnificadoDoProcesso(string outroNumeroProcesso);
+
         [OperationContract]
         public string obterNumeroSajDoProcesso(string numeroUnificadoProcesso);
-        
+
+        /*
         [OperationContract]
         public consultarAvisosPendentesResponse consultarAvisosPendentes(string idRepresentado, int idConsultante, string senhaConsultante, string dataReferencia);
         [OperationContract]
